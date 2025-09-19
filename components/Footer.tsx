@@ -12,24 +12,21 @@ export function Footer() {
         <div className="flex flex-col md:flex-row md:justify-between">
           {/* Left side - Navigation */}
           <div className="flex flex-wrap gap-x-8 gap-y-3 text-sm">
-            <Link href="/projects" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
+            <Link href="/#projects" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
               Projects
             </Link>
-            <Link href="/blog" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
-              Blog
+            <Link href="/work" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
+              Work
             </Link>
-            <Link href="/contact" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
+            <Link href="mailto:oliver@newth.ai" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
               Contact
             </Link>
-            <a href="https://medium.com/@newth" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
-              Writing
-            </a>
           </div>
 
           {/* Right side - Social Links */}
           <div className="flex gap-6 mt-6 md:mt-0">
             <a
-              href="https://github.com/olivernewth"
+              href="https://github.com/n3wth"
               className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
               aria-label="GitHub"
             >

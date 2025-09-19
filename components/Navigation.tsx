@@ -23,9 +23,9 @@ export function Navigation() {
   ]
 
   const navItems = [
-    { href: '/projects', text: 'Projects' },
-    { href: '/blog', text: 'Blog' },
-    { href: 'https://github.com/olivernewth', text: 'GitHub', external: true },
+    { href: '/#projects', text: 'Projects' },
+    { href: '/work', text: 'Work' },
+    { href: 'https://github.com/n3wth', text: 'GitHub', external: true },
   ]
 
   return (
@@ -73,10 +73,10 @@ export function Navigation() {
           </div>
           <div className="hidden md:flex items-center space-x-4">
             <Link
-              href="/newsletter"
+              href="mailto:oliver@newth.ai"
               className="group inline-flex items-center gap-1 px-5 py-2.5 text-sm font-medium rounded-lg bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-gray-100 transition-all"
             >
-              Newsletter
+              Contact
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </Link>
           </div>
@@ -124,11 +124,11 @@ export function Navigation() {
                 ),
               )}
               <Link
-                href="/newsletter"
+                href="mailto:oliver@newth.ai"
                 className="group mt-2 inline-flex items-center justify-center gap-1 px-5 py-2.5 text-sm font-medium rounded-lg bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-gray-100 transition-all"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Newsletter
+                Contact
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
             </div>

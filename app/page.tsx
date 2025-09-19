@@ -23,34 +23,45 @@ interface Project {
 
 const projects: Project[] = [
   {
-    id: 'r3',
-    title: 'R3 Memory System',
-    description: 'Intelligent memory layer for AI applications with sub-millisecond response times.',
+    id: 'r3-memory',
+    title: 'r3 — Intelligent Memory for AI',
+    description: 'Production-ready memory layer for LLMs. Sub-millisecond response times. MCP protocol native. Used by 1000+ developers.',
     year: '2024',
-    tech: ['TypeScript', 'Redis', 'AI/ML'],
+    tech: ['TypeScript', 'Redis', 'MCP Protocol', 'AI/ML'],
     link: 'https://r3.newth.ai',
     github: 'https://github.com/n3wth/r3',
     featured: true,
-    color: 'from-violet-600 to-indigo-600'
+    color: 'from-violet-600 to-purple-600'
   },
   {
-    id: 'claude-extensions',
-    title: 'Claude Code Extensions',
-    description: 'Productivity tools and workflows for AI-assisted development.',
+    id: 'meat-game',
+    title: 'Meat — The Game',
+    description: 'An experimental game exploring absurdist design principles. Built to test engagement mechanics in unconventional contexts.',
     year: '2024',
-    tech: ['JavaScript', 'Automation', 'CLI'],
-    github: 'https://github.com/olivernewth',
+    tech: ['React', 'Canvas', 'Game Design', 'Absurdist Art'],
+    link: 'https://meat.newth.ai',
     featured: true,
+    color: 'from-red-600 to-pink-600'
+  },
+  {
+    id: 'quartz-knowledge',
+    title: 'Personal Knowledge Graph',
+    description: '1000+ interconnected notes on AI, product strategy, and system design. Public knowledge base built with Quartz.',
+    year: '2024',
+    tech: ['Quartz', 'Obsidian', 'Knowledge Management'],
+    github: 'https://github.com/n3wth/quartz',
+    featured: false,
     color: 'from-emerald-600 to-teal-600'
   },
   {
-    id: 'dashboard',
-    title: 'Analytics Dashboard',
-    description: 'Real-time data visualization platform with responsive design.',
+    id: 'neuros',
+    title: 'Neuros — AI Dev Experiments',
+    description: 'Open testbed for MCP protocol extensions and AI agent architectures. Contributing back to the community.',
     year: '2024',
-    tech: ['React', 'Next.js', 'D3.js'],
+    tech: ['TypeScript', 'MCP', 'AI Tools'],
+    github: 'https://github.com/n3wth/neuros',
     featured: false,
-    color: 'from-amber-600 to-orange-600'
+    color: 'from-orange-600 to-amber-600'
   }
 ]
 
@@ -126,30 +137,21 @@ export default function RefinedHomepage() {
             className="mb-12"
           >
             {/* Impact Metrics Bar */}
-            <div className="inline-flex items-center gap-6 px-6 py-3 rounded-full mb-8 backdrop-blur-xl bg-white/5 border border-white/10">
-              <div className="flex items-center gap-2">
-                <span className="text-2xl font-bold text-white">2B+</span>
-                <span className="text-xs text-gray-400">Users Impacted</span>
-              </div>
-              <div className="w-px h-6 bg-white/20"></div>
-              <div className="flex items-center gap-2">
-                <span className="text-2xl font-bold text-white">99.99%</span>
-                <span className="text-xs text-gray-400">Uptime</span>
-              </div>
-              <div className="w-px h-6 bg-white/20"></div>
-              <div className="flex items-center gap-2">
-                <span className="text-2xl font-bold text-white">10+</span>
-                <span className="text-xs text-gray-400">Years FAANG</span>
-              </div>
+            <div className="inline-flex items-center gap-3 rounded-full bg-white/[0.03] backdrop-blur-sm px-3 py-1.5 text-xs font-medium border border-white/[0.08] mb-8">
+              <span className="text-purple-300">Ship fast</span>
+              <span className="text-white/40">×</span>
+              <span className="text-blue-300">Think deeply</span>
+              <span className="text-white/40">×</span>
+              <span className="text-cyan-300">Build for billions</span>
             </div>
 
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight">
-              <span className="text-white">I ship AI products</span><br />
-              <span className="text-violet-400">that drive real impact.</span>
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-normal tracking-tight mb-8 leading-[1.15]">
+              <span className="text-white block">I ship AI products</span>
+              <span className="text-white inline-block mt-1">people actually use.</span>
             </h1>
-            <p className="text-xl sm:text-2xl text-gray-300 max-w-3xl mx-auto mb-8 font-light">
-              Leading ML infrastructure at Google, serving 2B+ users daily.<br />
-              <span className="text-gray-500 text-lg">Turned vision into $100M+ revenue across Meta, Microsoft, and Covariant.</span>
+            <p className="mx-auto max-w-2xl text-base sm:text-lg text-white/90 mb-10 font-light leading-relaxed">
+              Senior PM at Google ML. <span className="text-white font-medium">Open source contributor after hours.</span>
+              I turn research breakthroughs into products that scale—from enterprise AI to experimental tools that push boundaries.
             </p>
           </motion.div>
 
@@ -157,20 +159,20 @@ export default function RefinedHomepage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center font-mono"
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <Link
-              href="#case-studies"
+              href="#projects"
               className="group inline-flex items-center justify-center px-8 py-4 bg-white text-black font-medium rounded-xl transition-all hover:scale-[1.02] hover:shadow-2xl min-w-[200px]"
             >
-              View Case Studies
+              See My Work
               <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Link>
             <Link
               href="/contact"
               className="inline-flex items-center justify-center px-8 py-4 rounded-xl font-medium text-white border border-white/20 backdrop-blur-xl bg-white/5 transition-all hover:bg-white/10 hover:border-white/30 min-w-[200px]"
             >
-              Let&apos;s Talk Strategy
+              Get in Touch
             </Link>
           </motion.div>
         </motion.div>
@@ -185,8 +187,8 @@ export default function RefinedHomepage() {
         </motion.div>
       </section>
 
-      {/* Case Studies Section - Product Manager Style */}
-      <section id="case-studies" className="py-24 px-4 relative">
+      {/* Projects Section */}
+      <section id="projects" className="py-24 px-4 relative">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0 }}
@@ -194,11 +196,11 @@ export default function RefinedHomepage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl sm:text-5xl font-bold mb-4 text-white">
-              Impact-Driven Case Studies
+            <h2 className="text-3xl sm:text-4xl font-normal text-white mb-4">
+              Side projects
             </h2>
-            <p className="text-lg text-gray-400">
-              From strategy to launch: How I drive measurable outcomes
+            <p className="text-gray-400">
+              Open source tools and experiments. Built for the community.
             </p>
           </motion.div>
 
@@ -231,8 +233,30 @@ export default function RefinedHomepage() {
 
                     {/* Impact Metrics */}
                     <div className="flex gap-4 mb-4">
-                      <span className="text-sm text-violet-400 font-semibold">+78% Efficiency</span>
-                      <span className="text-sm text-green-400 font-semibold">$25M Revenue</span>
+                      {project.id === 'r3-memory' && (
+                        <>
+                          <span className="text-sm text-violet-400 font-medium">5ms response</span>
+                          <span className="text-sm text-green-400 font-medium">MCP native</span>
+                        </>
+                      )}
+                      {project.id === 'meat-game' && (
+                        <>
+                          <span className="text-sm text-violet-400 font-medium">100% meat</span>
+                          <span className="text-sm text-green-400 font-medium">0% vegetarian</span>
+                        </>
+                      )}
+                      {project.id === 'quartz-knowledge' && (
+                        <>
+                          <span className="text-sm text-violet-400 font-medium">1000+ notes</span>
+                          <span className="text-sm text-green-400 font-medium">Always growing</span>
+                        </>
+                      )}
+                      {project.id === 'neuros' && (
+                        <>
+                          <span className="text-sm text-violet-400 font-medium">Experimental</span>
+                          <span className="text-sm text-green-400 font-medium">Open source</span>
+                        </>
+                      )}
                     </div>
 
                     <p className="text-gray-400 mb-6">
@@ -286,11 +310,11 @@ export default function RefinedHomepage() {
           viewport={{ once: true }}
           className="max-w-4xl mx-auto text-center"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-white">
-            Let&apos;s Connect
+          <h2 className="text-3xl sm:text-4xl font-normal mb-6 text-white">
+            Ready to ship something amazing?
           </h2>
           <p className="text-lg text-gray-400 mb-12">
-            Available for select projects and consultations
+            I work with teams that move fast and dream big.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -302,7 +326,7 @@ export default function RefinedHomepage() {
               Email Me
             </Link>
             <Link
-              href="https://github.com/olivernewth"
+              href="https://github.com/n3wth"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-medium text-white border border-white/20 backdrop-blur-xl bg-white/5 transition-all hover:bg-white/10 hover:border-white/30"
             >
               <Github className="w-5 h-5" />
