@@ -23,11 +23,16 @@
     @apply border-border;
   }
 
+  html {
+    @apply bg-black;
+  }
+
   body {
     @apply bg-black text-white antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-color: #000000 !important;
   }
 
   /* Selection color */

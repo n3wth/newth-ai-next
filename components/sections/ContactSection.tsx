@@ -8,7 +8,7 @@ export function ContactSection({
   subtitle = 'I work with teams that move fast and dream big.',
 }: ContactSectionProps) {
   return (
-    <section className="py-24">
+    <section className="py-32 bg-black">
       <Container>
         <div className="text-center">
           <h2 className="text-3xl sm:text-4xl font-normal mb-6 text-white font-sans">{title}</h2>

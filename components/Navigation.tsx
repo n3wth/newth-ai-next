@@ -67,12 +67,12 @@ export function Navigation() {
 
   return (
     <nav
-      className={`sticky top-0 z-[102] transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-[102] transition-all duration-300 ${
         isMenuOpen
-          ? 'bg-black/95 backdrop-blur-sm border-b border-white/10'
+          ? 'bg-black/95 backdrop-blur-sm'
           : isScrolled
-            ? 'bg-black backdrop-blur-none'
-            : 'bg-black/50 backdrop-blur-sm'
+            ? 'bg-black/95 backdrop-blur-sm'
+            : 'bg-black/70 backdrop-blur-sm'
       }`}
     >
       <Container>
