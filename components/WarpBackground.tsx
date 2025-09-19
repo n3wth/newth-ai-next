@@ -152,15 +152,17 @@ export const WarpBackground: React.FC<WarpBackgroundProps> = React.memo(
         >
           {/* Static grid floor effect - no animation for performance */}
           <div
-            className="absolute inset-0 opacity-50"
+            className="absolute inset-0 opacity-20"
             style={{
               background: `
-              linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)
+              linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)
             `,
               backgroundSize: '50px 50px',
-              transform: 'rotateX(80deg) translateZ(-200px)',
+              transform: 'rotateX(85deg) translateZ(-300px)',
               transformOrigin: 'center bottom',
+              maskImage:
+                'linear-gradient(to bottom, transparent, rgba(0,0,0,0.3) 50%, transparent)',
             }}
           />
 
