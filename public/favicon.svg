@@ -3,21 +3,21 @@
   <!-- Pure black background -->
   <rect width="512" height="512" fill="#000000"/>
 
-  <!-- Clean blocky N design with white color -->
+  <!-- Clean blocky N design with white color - smaller with padding -->
   <!-- Left vertical bar -->
-  <rect x="64" y="64" width="96" height="96" fill="#FFFFFF"/>
-  <rect x="64" y="160" width="96" height="96" fill="#FFFFFF"/>
-  <rect x="64" y="256" width="96" height="96" fill="#FFFFFF"/>
-  <rect x="64" y="352" width="96" height="96" fill="#FFFFFF"/>
+  <rect x="96" y="96" width="80" height="80" fill="#FFFFFF"/>
+  <rect x="96" y="176" width="80" height="80" fill="#FFFFFF"/>
+  <rect x="96" y="256" width="80" height="80" fill="#FFFFFF"/>
+  <rect x="96" y="336" width="80" height="80" fill="#FFFFFF"/>
 
   <!-- Thicker diagonal connecting blocks -->
-  <rect x="160" y="128" width="96" height="96" fill="#FFFFFF"/>
-  <rect x="208" y="208" width="96" height="96" fill="#FFFFFF"/>
-  <rect x="256" y="288" width="96" height="96" fill="#FFFFFF"/>
+  <rect x="176" y="156" width="80" height="80" fill="#FFFFFF"/>
+  <rect x="216" y="216" width="80" height="80" fill="#FFFFFF"/>
+  <rect x="256" y="276" width="80" height="80" fill="#FFFFFF"/>
 
   <!-- Right vertical bar -->
-  <rect x="352" y="64" width="96" height="96" fill="#FFFFFF"/>
-  <rect x="352" y="160" width="96" height="96" fill="#FFFFFF"/>
-  <rect x="352" y="256" width="96" height="96" fill="#FFFFFF"/>
-  <rect x="352" y="352" width="96" height="96" fill="#FFFFFF"/>
+  <rect x="336" y="96" width="80" height="80" fill="#FFFFFF"/>
+  <rect x="336" y="176" width="80" height="80" fill="#FFFFFF"/>
+  <rect x="336" y="256" width="80" height="80" fill="#FFFFFF"/>
+  <rect x="336" y="336" width="80" height="80" fill="#FFFFFF"/>
 </svg>
