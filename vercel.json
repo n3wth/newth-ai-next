@@ -1,5 +1,5 @@
 {
-  "buildCommand": "npm run build --verbose=false",
+  "buildCommand": "npm run build",
   "devCommand": "npm run dev",
   "installCommand": "npm ci --prefer-offline --cache /tmp/.npm",
   "framework": "nextjs",
