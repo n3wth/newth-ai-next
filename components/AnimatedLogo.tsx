@@ -161,7 +161,8 @@ export function AnimatedLogo({
             glitchDuration.current = 600 + Math.random() * 600 // 0.6-1.2s
             break
           case 'single-invert':
-            const totalChars = asciiLogo.join('').length
+            // Include .AI suffix in total character count
+            const totalChars = asciiLogo.join('').length + asciiDotAI.join('').length
             const randomChar = Math.floor(Math.random() * totalChars)
             setInvertedCharIndex(randomChar)
             targetIntensity.current = 1 // Full intensity for invert
@@ -195,18 +196,30 @@ export function AnimatedLogo({
   }, [])
 
   // Transform character based on glitch mode with intensity
-  const transformChar = (char: string, index: number, lineIndex: number) => {
+  const transformChar = (
+    char: string,
+    index: number,
+    lineIndex: number,
+    isAISuffix: boolean = false
+  ) => {
     if (char === ' ') return char
 
     // No transformation if intensity is too low
     if (glitchIntensity < 0.01) return char
 
+    // Adjust index for .AI suffix to continue from main logo
+    const adjustedIndex = isAISuffix ? index + 24 : index
+    const adjustedLineIndex = isAISuffix ? lineIndex + 3 : lineIndex
+
     switch (glitchMode) {
       case 'typewriter':
         // Progressive reveal with intensity-based speed
-        const typewriterProgress = (frame * 2 * glitchIntensity) % (asciiLogo.join('').length + 20)
-        const distanceFromCursor = Math.abs(index + lineIndex * 25 - typewriterProgress)
-        if (index + lineIndex * 25 > typewriterProgress) {
+        const totalChars = asciiLogo.join('').length + asciiDotAI.join('').length
+        const typewriterProgress = (frame * 2 * glitchIntensity) % (totalChars + 20)
+        const distanceFromCursor = Math.abs(
+          adjustedIndex + adjustedLineIndex * 25 - typewriterProgress
+        )
+        if (adjustedIndex + adjustedLineIndex * 25 > typewriterProgress) {
           return Math.random() < glitchIntensity ? '░' : char
         } else if (distanceFromCursor < 3) {
           return char === ' ' ? char : Math.random() < glitchIntensity ? '▓' : char
@@ -216,16 +229,16 @@ export function AnimatedLogo({
       case 'blocks':
         // Smooth wave morphing with intensity
         if (Math.random() < glitchIntensity) {
-          const wave = Math.sin(frame * 0.05 + index * 0.3) * 0.5 + 0.5
+          const wave = Math.sin(frame * 0.05 + adjustedIndex * 0.3) * 0.5 + 0.5
           const blockIndex = Math.floor(wave * blockChars.length * glitchIntensity)
-          return char !== ' ' ? blockChars[blockIndex] : char
+          return char !== ' ' && char !== '°' ? blockChars[blockIndex] : char
         }
         return char
 
       case 'ascii-rain':
         // Matrix-style with intensity controlling density
         const fallSpeed = 0.1 * glitchIntensity
-        const fallPosition = (frame * fallSpeed + index * 2) % 20
+        const fallPosition = (frame * fallSpeed + adjustedIndex * 2) % 20
         if (Math.random() < glitchIntensity * 0.3) {
           if (fallPosition < asciiSets.bars.length) {
             return asciiSets.bars[Math.floor(fallPosition)]
@@ -246,7 +259,7 @@ export function AnimatedLogo({
       case 'scan-lines':
         // CRT scan with intensity affecting brightness
         const scanPosition = (frame / 2) % 10
-        const scanInt = Math.exp(-Math.abs(lineIndex * 3 - scanPosition)) * glitchIntensity
+        const scanInt = Math.exp(-Math.abs(adjustedLineIndex * 3 - scanPosition)) * glitchIntensity
         if (scanInt > 0.3) {
           return char === ' ' ? char : '▬'
         } else if (scanInt > 0.1) {
@@ -256,10 +269,13 @@ export function AnimatedLogo({
 
       case 'pixel-sort':
         // Data mosh intensity controls disruption
-        const sortWave = Math.sin(frame * 0.1 + lineIndex) * 0.5 + 0.5
+        const sortWave = Math.sin(frame * 0.1 + adjustedLineIndex) * 0.5 + 0.5
         const sortThreshold = Math.sin(frame * 0.05) * 0.5 + 0.5
-        if (Math.random() < sortThreshold * glitchIntensity * 0.3 && index > sortWave * 20) {
-          const shadeIndex = Math.floor((frame * 0.2 + index) % asciiSets.shades.length)
+        if (
+          Math.random() < sortThreshold * glitchIntensity * 0.3 &&
+          adjustedIndex > sortWave * 20
+        ) {
+          const shadeIndex = Math.floor((frame * 0.2 + adjustedIndex) % asciiSets.shades.length)
           return asciiSets.shades[shadeIndex]
         }
         return char
@@ -301,7 +317,8 @@ export function AnimatedLogo({
                 >
                   {line.split('').map((char, charIndex) => {
                     const globalCharIndex = charOffset + charIndex
-                    const isInverted = globalCharIndex === invertedCharIndex
+                    const isInverted =
+                      glitchMode === 'single-invert' && globalCharIndex === invertedCharIndex
                     const displayChar = transformChar(char, charIndex, lineIndex)
                     const isGlitching = displayChar !== char
 
@@ -378,6 +395,15 @@ export function AnimatedLogo({
               transition={{ duration: 0.2 }}
             >
               {line.split('').map((char, charIndex) => {
+                // Calculate global index for .AI part
+                const globalCharIndexAI = asciiLogo.join('').length + lineIndex * 8 + charIndex
+                const isInverted =
+                  glitchMode === 'single-invert' && globalCharIndexAI === invertedCharIndex
+
+                // Apply glitch transformations to .AI suffix
+                const displayChar = transformChar(char, charIndex, lineIndex, true)
+                const isGlitching = displayChar !== char
+
                 // Enhanced rainbow continuation for .AI suffix
                 const continuedIndex = 24 + charIndex
                 const waveOffset = Math.sin(frame * 0.03 + lineIndex * 2) * 30
@@ -400,11 +426,20 @@ export function AnimatedLogo({
                   <span
                     key={charIndex}
                     style={{
-                      color: baseColor,
+                      opacity: displayChar === ' ' ? 0 : 1,
+                      color: isInverted
+                        ? `rgba(0, 0, 0, ${glitchIntensity})`
+                        : isGlitching && glitchMode !== 'typewriter'
+                          ? `rgba(150, 150, 150, ${glitchIntensity})`
+                          : baseColor,
+                      backgroundColor: isInverted
+                        ? `rgba(255, 255, 255, ${glitchIntensity})`
+                        : 'transparent',
+                      padding: isInverted ? '0 1px' : '0',
                       transition: 'none',
                     }}
                   >
-                    {char}
+                    {displayChar}
                   </span>
                 )
               })}

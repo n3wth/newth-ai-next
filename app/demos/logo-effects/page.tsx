@@ -52,7 +52,8 @@ function AnimatedLogoForced({
 
   useEffect(() => {
     if (glitchMode === 'single-invert') {
-      setInvertedCharIndex(Math.floor(Math.random() * asciiLogo.join('').length))
+      const totalChars = asciiLogo.join('').length + asciiDotAI.join('').length
+      setInvertedCharIndex(Math.floor(Math.random() * totalChars))
     }
   }, [glitchMode])
 
@@ -76,9 +77,19 @@ function AnimatedLogoForced({
     }
   }, [forcedFrame, glitchMode, forcedIntensity])
 
-  const transformChar = (char: string, index: number, lineIndex: number, currentFrame: number) => {
+  const transformChar = (
+    char: string,
+    index: number,
+    lineIndex: number,
+    currentFrame: number,
+    isAISuffix: boolean = false
+  ) => {
     if (char === ' ') return char
     if (glitchIntensity < 0.01) return char
+
+    // Adjust index for .AI suffix to continue from main logo
+    const adjustedIndex = isAISuffix ? index + 24 : index
+    const adjustedLineIndex = isAISuffix ? lineIndex + 3 : lineIndex
 
     switch (glitchMode) {
       case 'normal':
@@ -88,10 +99,12 @@ function AnimatedLogoForced({
         return char // Color handled separately
 
       case 'typewriter':
-        const typewriterProgress =
-          (currentFrame * 2 * glitchIntensity) % (asciiLogo.join('').length + 20)
-        const distanceFromCursor = Math.abs(index + lineIndex * 25 - typewriterProgress)
-        if (index + lineIndex * 25 > typewriterProgress) {
+        const totalChars = asciiLogo.join('').length + asciiDotAI.join('').length
+        const typewriterProgress = (currentFrame * 2 * glitchIntensity) % (totalChars + 20)
+        const distanceFromCursor = Math.abs(
+          adjustedIndex + adjustedLineIndex * 25 - typewriterProgress
+        )
+        if (adjustedIndex + adjustedLineIndex * 25 > typewriterProgress) {
           return Math.random() < glitchIntensity ? '░' : char
         } else if (distanceFromCursor < 3) {
           return char === ' ' ? char : Math.random() < glitchIntensity ? '▓' : char
@@ -101,16 +114,16 @@ function AnimatedLogoForced({
       case 'blocks':
         const blockChars = ['█', '▓', '▒', '░', '▄', '▀', '▌', '▐', '■', '□', '▪', '▫']
         if (Math.random() < glitchIntensity) {
-          const wave = Math.sin(currentFrame * 0.05 + index * 0.3) * 0.5 + 0.5
+          const wave = Math.sin(currentFrame * 0.05 + adjustedIndex * 0.3) * 0.5 + 0.5
           const blockIndex = Math.floor(wave * blockChars.length * glitchIntensity)
-          return char !== ' ' ? blockChars[blockIndex] : char
+          return char !== ' ' && char !== '°' ? blockChars[blockIndex] : char
         }
         return char
 
       case 'ascii-rain':
         const bars = ['▁', '▂', '▃', '▄', '▅', '▆', '▇', '█']
         const fallSpeed = 0.1 * glitchIntensity
-        const fallPosition = (currentFrame * fallSpeed + index * 2) % 20
+        const fallPosition = (currentFrame * fallSpeed + adjustedIndex * 2) % 20
         if (Math.random() < glitchIntensity * 0.3) {
           if (fallPosition < bars.length) {
             return bars[Math.floor(fallPosition)]
@@ -146,7 +159,7 @@ function AnimatedLogoForced({
 
       case 'scan-lines':
         const scanPosition = (currentFrame / 2) % 10
-        const scanInt = Math.exp(-Math.abs(lineIndex * 3 - scanPosition)) * glitchIntensity
+        const scanInt = Math.exp(-Math.abs(adjustedLineIndex * 3 - scanPosition)) * glitchIntensity
         if (scanInt > 0.3) {
           return char === ' ' ? char : '▬'
         } else if (scanInt > 0.1) {
@@ -156,10 +169,13 @@ function AnimatedLogoForced({
 
       case 'pixel-sort':
         const shades = ['░', '▒', '▓', '█']
-        const sortWave = Math.sin(currentFrame * 0.1 + lineIndex) * 0.5 + 0.5
+        const sortWave = Math.sin(currentFrame * 0.1 + adjustedLineIndex) * 0.5 + 0.5
         const sortThreshold = Math.sin(currentFrame * 0.05) * 0.5 + 0.5
-        if (Math.random() < sortThreshold * glitchIntensity * 0.3 && index > sortWave * 20) {
-          const shadeIndex = Math.floor((currentFrame * 0.2 + index) % shades.length)
+        if (
+          Math.random() < sortThreshold * glitchIntensity * 0.3 &&
+          adjustedIndex > sortWave * 20
+        ) {
+          const shadeIndex = Math.floor((currentFrame * 0.2 + adjustedIndex) % shades.length)
           return shades[shadeIndex]
         }
         return char
@@ -251,7 +267,57 @@ function AnimatedLogoForced({
         </div>
         <div className="text-gray-400 text-[8px] leading-[8px] -mt-0.5">
           {asciiDotAI.map((line, lineIndex) => (
-            <motion.div key={lineIndex}>{line}</motion.div>
+            <motion.div key={lineIndex}>
+              {line.split('').map((char, charIndex) => {
+                // Calculate global index for .AI part
+                const globalCharIndexAI = asciiLogo.join('').length + lineIndex * 8 + charIndex
+                const isInverted =
+                  glitchMode === 'single-invert' && globalCharIndexAI === invertedCharIndex
+
+                // Apply glitch transformations to .AI suffix
+                const displayChar = transformChar(char, charIndex, lineIndex, frame, true)
+                const isGlitching = displayChar !== char
+
+                // Enhanced rainbow continuation for .AI suffix
+                const continuedIndex = 24 + charIndex
+                const waveOffset = Math.sin(frame * 0.03 + lineIndex * 2) * 30
+                const rawHue = continuedIndex * 15 - frame * 2 + waveOffset
+                const hue = ((rawHue % 360) + 360) % 360
+                const saturation =
+                  (85 + Math.sin(frame * 0.05) * 10) *
+                  (isHovered || glitchMode === 'rainbow' ? 1 : glitchIntensity * 0.3)
+                const lightness = 55 + Math.sin(frame * 0.07 + charIndex * 0.2) * 10
+                const rainbowIntensity =
+                  isHovered || glitchMode === 'rainbow'
+                    ? 1
+                    : glitchMode === 'normal'
+                      ? 0
+                      : glitchIntensity * 0.3
+                const baseColor =
+                  rainbowIntensity > 0 ? `hsl(${hue}, ${saturation}%, ${lightness}%)` : 'white'
+
+                return (
+                  <span
+                    key={charIndex}
+                    style={{
+                      opacity: displayChar === ' ' ? 0 : 1,
+                      color: isInverted
+                        ? `rgba(0, 0, 0, ${glitchIntensity})`
+                        : isGlitching && glitchMode !== 'typewriter'
+                          ? `rgba(150, 150, 150, ${glitchIntensity})`
+                          : baseColor,
+                      backgroundColor: isInverted
+                        ? `rgba(255, 255, 255, ${glitchIntensity})`
+                        : 'transparent',
+                      padding: isInverted ? '0 1px' : '0',
+                      transition: 'none',
+                    }}
+                  >
+                    {displayChar}
+                  </span>
+                )
+              })}
+            </motion.div>
           ))}
         </div>
       </pre>
@@ -259,7 +325,7 @@ function AnimatedLogoForced({
   )
 }
 
-// Single effect demo row
+// Single effect demo row - compact version
 function EffectRow({
   effect,
   label,
@@ -278,39 +344,31 @@ function EffectRow({
       className={vercelClasses.panel}
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ ...vercelClasses.animation.easeOut, delay: index * 0.05 }}
+      transition={{ ...vercelClasses.animation.easeOut, delay: index * 0.02 }}
     >
-      <div className="p-3">
-        <div className="flex items-start justify-between mb-3">
-          <div>
-            <h3 className={vercelClasses.text.value}>{label}</h3>
-            <p className={vercelClasses.text.description}>{description}</p>
-          </div>
+      <div className="p-2">
+        <div className="flex items-center justify-between mb-2">
+          <h3 className="text-white text-xs font-medium">{label}</h3>
+          <p className="text-[#666] text-[10px]">{description}</p>
         </div>
 
-        <div className="grid grid-cols-[auto,1fr] gap-4 items-start">
-          <div>
-            <div className={`${vercelClasses.text.label} mb-1 h-4`}>Live</div>
-            <div className="flex-shrink-0">
-              <div className="text-center mb-1 text-[11px] font-mono text-[#666]">—</div>
-              <div className="p-2 bg-[#050505] border border-[#222] rounded">
-                <LogoWithEffect effect={effect} />
-              </div>
+        <div className="flex gap-3 items-center">
+          <div className="flex-shrink-0">
+            <div className="text-[10px] text-[#666] mb-1">Live</div>
+            <div className="p-1.5 bg-[#050505] border border-[#222] rounded">
+              <LogoWithEffect effect={effect} />
             </div>
           </div>
 
-          <div className="overflow-x-auto">
-            <div className={`${vercelClasses.text.label} mb-1 h-4`}>Keyframes</div>
-            <div className="flex gap-2">
-              {keyframes.map((kf) => (
-                <div key={kf} className="flex-shrink-0">
-                  <div className="text-center mb-1 text-[11px] font-mono text-[#666]">f{kf}</div>
-                  <div className="p-2 bg-[#050505] border border-[#222] rounded">
-                    <LogoWithEffect effect={effect} forceFrame={kf} />
-                  </div>
+          <div className="flex gap-1.5 overflow-x-auto">
+            {keyframes.map((kf) => (
+              <div key={kf} className="flex-shrink-0">
+                <div className="text-center text-[9px] font-mono text-[#555]">{kf}</div>
+                <div className="p-1 bg-[#050505] border border-[#222] rounded">
+                  <LogoWithEffect effect={effect} forceFrame={kf} />
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -392,8 +450,7 @@ export default function LogoEffectsDemo() {
     { label: 'Half Intensity', props: { colorIntensity: 0.5 } },
   ]
 
-  const defaultKeyframes =
-    customKeyframes.length > 0 ? customKeyframes : [0, 60, 120, 180, 240, 300]
+  const defaultKeyframes = customKeyframes.length > 0 ? customKeyframes : [0, 60, 120, 180, 240]
 
   const copyUrl = () => {
     const url = `${window.location.origin}/demos/logo-effects?keyframes=${defaultKeyframes.join(',')}`
@@ -408,36 +465,30 @@ export default function LogoEffectsDemo() {
       <HeaderControls keyframes={defaultKeyframes} onCopyUrl={copyUrl} />
 
       {/* Content */}
-      <div className="pt-16 p-6">
-        <div className="max-w-[1400px] mx-auto">
+      <div className="pt-12 p-4">
+        <div className="max-w-[1200px] mx-auto">
           {/* Color Configuration Examples */}
           <motion.div
-            className="mb-8"
+            className="mb-4"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.15 }}
           >
-            <h2 className="text-white text-sm mb-4">Color Saturation Options</h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+            <h2 className="text-white text-xs mb-2 opacity-60">Color Options</h2>
+            <div className="grid grid-cols-3 md:grid-cols-6 gap-2">
               {colorConfigs.map((config, index) => (
                 <motion.div
                   key={config.label}
                   className={vercelClasses.panel}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ ...vercelClasses.animation.easeOut, delay: index * 0.03 }}
+                  transition={{ ...vercelClasses.animation.easeOut, delay: index * 0.02 }}
                 >
-                  <div className="p-3">
-                    <div className="mb-2">
-                      <h3 className={vercelClasses.text.value}>{config.label}</h3>
-                      <p className={vercelClasses.text.key}>
-                        {JSON.stringify(config.props)
-                          .replace(/[{}"]/g, '')
-                          .replace(/:/g, ': ')
-                          .replace(/,/g, ', ') || 'default'}
-                      </p>
+                  <div className="p-2">
+                    <div className="mb-1">
+                      <h3 className="text-white text-[10px]">{config.label}</h3>
                     </div>
-                    <div className="p-2 bg-[#050505] border border-[#222] rounded">
+                    <div className="p-1 bg-[#050505] border border-[#222] rounded">
                       <AnimatedLogo {...config.props} />
                     </div>
                   </div>
@@ -447,15 +498,15 @@ export default function LogoEffectsDemo() {
           </motion.div>
 
           {/* Effects Grid */}
-          <h2 className="text-white text-sm mb-4">Glitch Effects</h2>
-          <div className="grid grid-cols-1 gap-3">
+          <h2 className="text-white text-xs mb-2 opacity-60">Glitch Effects</h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
             {effects.map((effect, index) => (
               <EffectRow
                 key={effect.id}
                 effect={effect.id}
                 label={effect.label}
                 description={effect.description}
-                keyframes={defaultKeyframes}
+                keyframes={[0, 60, 120, 180, 240]}
                 index={index}
               />
             ))}
