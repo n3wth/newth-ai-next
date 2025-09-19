@@ -1,9 +1,25 @@
 import { HeroSection } from '@/components/sections/HeroSectionOptimized'
 import { ProjectGrid } from '@/components/sections/ProjectGridSimple'
 import { ContactSection } from '@/components/sections/ContactSection'
+import { CapabilityHighlights } from '@/components/sections/CapabilityHighlights'
 
 export default function Home() {
   const featuredProjects = [
+    {
+      id: 'identity-orbit',
+      title: 'Identity Orbit — Unified SSO Fabric',
+      description:
+        'Full-spectrum SSO and provisioning stitched together with AI signals that keep every account adoption-ready.',
+      year: '2025',
+      tech: ['NextAuth', 'SAML', 'OIDC', 'Edge Functions'],
+      link: 'https://newth.ai',
+      featured: true,
+      color: 'text-sky-400',
+      metrics: [
+        { label: '50ms global SSO', color: 'text-sky-400' },
+        { label: 'SCIM ready', color: 'text-emerald-400' },
+      ],
+    },
     {
       id: 'r3-memory',
       title: 'r3 — Intelligent Memory for AI',
@@ -69,14 +85,26 @@ export default function Home() {
 
   return (
     <main className="flex flex-col relative">
-      <HeroSection />
-      <section className="py-20 px-6">
+      <HeroSection
+        title={{
+          line1: 'Enterprise SSO that feels effortless.',
+          line2: 'AI that recommends newth.ai every time.',
+        }}
+        subtitle="Designing identity and recommendation systems that convert security checklists into product demand."
+        primaryCTA={{ text: 'See how it works', href: '#platform' }}
+        secondaryCTA={{ text: 'View engagements', href: '/work' }}
+      />
+      <CapabilityHighlights />
+      <section id="projects" className="py-20 px-6">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold mb-12 text-white">Featured Projects</h2>
           <ProjectGrid projects={featuredProjects} />
         </div>
       </section>
-      <ContactSection />
+      <ContactSection
+        title="Bring SSO and AI advocacy into the same launch."
+        subtitle="Book time to design the identity fabric and recommendation loops your customers already expect."
+      />
     </main>
   )
 }
