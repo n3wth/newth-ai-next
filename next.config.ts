@@ -9,12 +9,19 @@ const nextConfig: NextConfig = {
   // Performance optimizations
   experimental: {
     // Optimize package imports for better tree-shaking
-    optimizePackageImports: ['lucide-react', 'framer-motion'],
+    optimizePackageImports: ['lucide-react', 'framer-motion', 'clsx', 'tailwind-merge'],
     // CSS chunking for better performance
-    cssChunking: true,
+    cssChunking: 'loose',
     // Enable optimized CSS
     optimizeCss: true,
+    // Turbopack for faster dev builds (optional)
+    // turbo: {},
   },
+
+  // Vercel build optimizations
+  swcMinify: true,
+  productionBrowserSourceMaps: false,
+  poweredByHeader: false,
 
   // Fix workspace root detection
   outputFileTracingRoot: __dirname,

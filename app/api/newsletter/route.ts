@@ -1,5 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server'
 
+// Use Edge Runtime for better performance on Vercel
+export const runtime = 'edge'
+export const preferredRegion = 'iad1'
+
 export async function POST(request: NextRequest) {
   try {
     const { email } = await request.json()
