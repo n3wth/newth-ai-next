@@ -41,12 +41,7 @@
       ]
     }
   ],
-  "rewrites": [
-    {
-      "source": "/manifest.json",
-      "destination": "/manifest.webmanifest"
-    }
-  ],
+  "rewrites": [],
   "github": {
     "silent": true
   },
