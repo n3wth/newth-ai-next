@@ -23,7 +23,7 @@ export function ProjectGrid({ projects, className }: ProjectGridProps) {
           className={cn('relative group', getGridClass(index))}
           whileHover={{ y: -4, transition: { duration: 0.2 } }}
         >
-          <div className="relative h-full p-6 sm:p-8 rounded-2xl backdrop-blur-xl bg-white/[0.02] border border-white/10 transition-all duration-300 hover:bg-white/[0.05] hover:border-white/20 hover:shadow-2xl">
+          <div className="relative h-full p-8 sm:p-10 rounded-3xl backdrop-blur-xl bg-gradient-to-br from-white/[0.03] to-white/[0.01] border border-white/10 transition-all duration-500 hover:bg-white/[0.08] hover:border-white/30 hover:shadow-[0_20px_60px_rgba(139,92,246,0.3)]">
             {/* Subtle glow effect */}
             <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-violet-600/10 via-purple-600/10 to-pink-600/10" />
@@ -34,7 +34,9 @@ export function ProjectGrid({ projects, className }: ProjectGridProps) {
                 <span className="text-xs text-gray-500 font-sans">{project.year}</span>
               </div>
 
-              <h3 className="text-2xl font-semibold mb-2 text-white font-sans">{project.title}</h3>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-3 text-white font-sans group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-violet-400 group-hover:to-purple-400 group-hover:bg-clip-text transition-all duration-300">
+                {project.title}
+              </h3>
 
               {project.metrics && (
                 <div className="flex gap-4 mb-4">

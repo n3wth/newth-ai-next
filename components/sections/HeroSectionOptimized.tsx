@@ -50,7 +50,7 @@ export function HeroSection({
             </p>
 
             {/* CTAs - visible immediately, interactive immediately */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
               <SimpleAnimatedButton href={primaryCTA.href} variant="primary">
                 {primaryCTA.text}
                 <ArrowRight className="ml-2 h-4 w-4" />

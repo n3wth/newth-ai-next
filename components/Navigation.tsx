@@ -208,10 +208,18 @@ export function Navigation() {
               </div>
 
               <motion.pre
-                className="font-mono text-[10px] leading-[10px] whitespace-pre select-none flex items-center gap-1 relative text-white"
+                className="text-[10px] leading-[10px] whitespace-pre select-none flex items-center gap-0 relative text-white"
+                style={{
+                  fontFamily: "'Courier New', Courier, monospace",
+                  letterSpacing: '-0.05em',
+                }}
                 initial="default"
                 whileHover="rainbow"
-                animate="default"
+                animate={isMenuOpen ? 'default' : undefined}
+                onHoverEnd={() => {
+                  // Keep animation going briefly after hover
+                  setTimeout(() => {}, 1000)
+                }}
               >
                 <motion.div>
                   {asciiLogo.map((line, i) => (
@@ -409,7 +417,10 @@ export function Navigation() {
                     </div>
                   ))}
                 </motion.div>
-                <motion.div className="text-[8px] leading-[8px] -mt-0.5">
+                <motion.div
+                  className="text-[8px] leading-[8px] -mt-0.5 ml-1"
+                  style={{ fontFamily: "'Courier New', Courier, monospace" }}
+                >
                   {asciiDotAI.map((line, i) => (
                     <div key={i} className="flex">
                       {line.split('').map((char, j) => (
@@ -535,18 +546,18 @@ export function Navigation() {
             >
               <div className="relative w-6 h-6 pointer-events-none">
                 <span
-                  className={`absolute block w-6 h-0.5 bg-white transition-all duration-300 ease-out ${
-                    isMenuOpen ? 'rotate-45 top-[11px]' : 'top-1'
+                  className={`block w-6 h-0.5 bg-white transition-all duration-300 ease-out absolute left-0 ${
+                    isMenuOpen ? 'rotate-45 top-[11px]' : 'top-[5px]'
                   }`}
                 />
                 <span
-                  className={`absolute block w-6 h-0.5 bg-white transition-all duration-300 ease-out top-[11px] ${
-                    isMenuOpen ? 'opacity-0' : 'opacity-100'
+                  className={`block w-6 h-0.5 bg-white transition-all duration-300 ease-out absolute left-0 top-[11px] ${
+                    isMenuOpen ? 'opacity-0 scale-0' : 'opacity-100 scale-100'
                   }`}
                 />
                 <span
-                  className={`absolute block w-6 h-0.5 bg-white transition-all duration-300 ease-out ${
-                    isMenuOpen ? '-rotate-45 top-[11px]' : 'top-[21px]'
+                  className={`block w-6 h-0.5 bg-white transition-all duration-300 ease-out absolute left-0 ${
+                    isMenuOpen ? '-rotate-45 top-[11px]' : 'top-[17px]'
                   }`}
                 />
               </div>

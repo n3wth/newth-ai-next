@@ -41,7 +41,7 @@ const FlatBlock = React.memo(
         animate={{
           z: ['-500px', '1000px'],
           scale: [0.5, 6],
-          opacity: [0, 1, 1, 0, 0],
+          opacity: [0, 0.6, 0.6, 0, 0],
         }}
         transition={{
           duration: 6,
@@ -79,7 +79,7 @@ const WarpLine = React.memo(({ angle, delay }: { angle: number; delay: number })
       }}
       animate={{
         scaleX: [0, 2, 0],
-        opacity: [0, 1, 0],
+        opacity: [0, 0.5, 0],
       }}
       transition={{
         duration: 4,
@@ -109,7 +109,7 @@ export const WarpBackground: React.FC<WarpBackgroundProps> = React.memo(
       const colors = ['#10b981', '#8b5cf6', '#3b82f6', '#ef4444', '#f59e0b', '#ec4899', '#06b6d4']
 
       // Reduced number of cubes for better performance
-      for (let i = 0; i < 30; i++) {
+      for (let i = 0; i < 20; i++) {
         cubeArray.push({
           id: i,
           x: 5 + ((i * 11) % 90),
@@ -126,7 +126,7 @@ export const WarpBackground: React.FC<WarpBackgroundProps> = React.memo(
     const warpLines = useMemo(() => {
       const lines = []
       // Reduced number of lines for better performance
-      for (let i = 0; i < 8; i++) {
+      for (let i = 0; i < 6; i++) {
         lines.push({
           id: i,
           angle: (i / 8) * Math.PI * 2,
