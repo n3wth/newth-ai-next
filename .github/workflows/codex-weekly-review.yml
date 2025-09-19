@@ -1,0 +1,72 @@
+name: Codex Project Review
+
+on:
+  schedule:
+    - cron: '0 15 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  codex-review:
+    name: Run Codex audit
+    if: ${{ secrets.OPENAI_API_KEY != '' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Ensure codex labels exist
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh label create "codex" \
+            --color BFD4F2 \
+            --description "Issues filed automatically by Codex" \
+            || true
+          gh label create "needs-triage" \
+            --color F9D0C4 \
+            --description "Items that still require manual triage" \
+            || true
+
+      - name: Install Codex CLI
+        run: npm install -g @openai/codex@0.39.0
+
+      - name: Authenticate Codex CLI
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: codex login --api-key "$OPENAI_API_KEY"
+
+      - name: Run Codex repository review
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          codex exec \
+            --full-auto \
+            --sandbox workspace-write \
+            --config sandbox_workspace_write.network_access=true \
+            --config sandbox_workspace_write.exclude_tmpdir_env_var=true \
+            --config sandbox_workspace_write.exclude_slash_tmp=true \
+            --model gpt-5 \
+            """
+            Carefully audit this repository for newly introduced or long-standing issues that should be tracked in GitHub.
+
+            Requirements:
+            - Start by listing existing open issues so you do not file duplicates. Use \`gh issue list --state open\` and skip any findings already tracked.
+            - Focus on high-impact bugs, missing test coverage, or regressions that can be described concretely.
+            - For each unique finding (maximum of three per run), create a GitHub issue with:
+              * A clear title describing the problem.
+              * A detailed body that explains the issue, affected files, reproduction steps or rationale, and suggested next actions.
+              * The labels \`codex\` and \`needs-triage\`.
+            - Create issues using \`gh issue create\` so they appear in the repository.
+            - Do not modify repository files or open pull requests. This job is only for triage.
+            - When you finish, print a brief summary of the issues you created using \`echo\` so it appears in the workflow logs.
+            """
