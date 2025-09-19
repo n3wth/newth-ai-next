@@ -230,28 +230,29 @@ export function Navigation() {
                             },
                             rainbow: {
                               color: [
+                                '#00FF00', // Start with green (middle of spectrum)
+                                '#0088FF', // Blue
+                                '#8800FF', // Purple
                                 '#FF0000', // Red
                                 '#FF8800', // Orange
                                 '#FFFF00', // Yellow
-                                '#00FF00', // Green
-                                '#0088FF', // Blue
-                                '#8800FF', // Purple
-                                '#FF0000', // Back to red
+                                '#00FF00', // Back to green
                               ],
                               textShadow: [
-                                '0 0 8px #FF0000',
-                                '0 0 8px #FF8800',
-                                '0 0 8px #FFFF00',
                                 '0 0 8px #00FF00',
                                 '0 0 8px #0088FF',
                                 '0 0 8px #8800FF',
                                 '0 0 8px #FF0000',
+                                '0 0 8px #FF8800',
+                                '0 0 8px #FFFF00',
+                                '0 0 8px #00FF00',
                               ],
                               transition: {
                                 duration: 1.2,
                                 repeat: Infinity,
                                 ease: 'linear',
                                 delay: j * 0.05 + i * 0.1, // Paint across each character
+                                repeatType: 'loop',
                               },
                             },
                           }}
@@ -424,28 +425,29 @@ export function Navigation() {
                             },
                             rainbow: {
                               color: [
+                                '#8800FF', // Start with purple (different from main logo)
                                 '#FF0000', // Red
                                 '#FF8800', // Orange
                                 '#FFFF00', // Yellow
                                 '#00FF00', // Green
                                 '#0088FF', // Blue
-                                '#8800FF', // Purple
-                                '#FF0000', // Back to red
+                                '#8800FF', // Back to purple
                               ],
                               textShadow: [
+                                '0 0 6px #8800FF',
                                 '0 0 6px #FF0000',
                                 '0 0 6px #FF8800',
                                 '0 0 6px #FFFF00',
                                 '0 0 6px #00FF00',
                                 '0 0 6px #0088FF',
                                 '0 0 6px #8800FF',
-                                '0 0 6px #FF0000',
                               ],
                               transition: {
                                 duration: 1.2,
                                 repeat: Infinity,
                                 ease: 'linear',
                                 delay: 0.8 + j * 0.05 + i * 0.1, // Start after main logo
+                                repeatType: 'loop',
                               },
                             },
                           }}
