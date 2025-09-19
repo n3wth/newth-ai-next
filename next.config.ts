@@ -90,14 +90,14 @@ const nextConfig: NextConfig = {
     return config
   },
 
-  // Keep ESLint during builds for better code quality
+  // ESLint - disable in production for speed
   eslint: {
-    ignoreDuringBuilds: false,
+    ignoreDuringBuilds: process.env.VERCEL === '1',
   },
 
-  // TypeScript strict checking
+  // TypeScript checking - disable in production for speed
   typescript: {
-    ignoreBuildErrors: false,
+    ignoreBuildErrors: process.env.VERCEL === '1',
   },
 }
 

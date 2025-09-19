@@ -1,7 +1,7 @@
 {
-  "buildCommand": "npm run build",
+  "buildCommand": "next build",
   "devCommand": "npm run dev",
-  "installCommand": "npm ci --prefer-offline --cache /tmp/.npm",
+  "installCommand": "npm ci --prefer-offline --cache /tmp/.npm --omit=dev",
   "framework": "nextjs",
   "regions": ["iad1"],
   "functions": {

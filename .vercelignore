@@ -1,0 +1,32 @@
+# Test files
+**/*.test.*
+**/*.spec.*
+test/
+tests/
+__tests__/
+*.test.ts
+*.test.tsx
+
+# Documentation
+*.md
+!README.md
+docs/
+CLAUDE.md
+CLAUDE_COMPACT.md
+
+# Development files
+.env.local
+.env.development
+*.log
+lighthouse-report.json
+analyze-optimizations.js
+test-responsive.js
+
+# Source maps
+*.map
+
+# Optional heavy deps
+@vitest
+@playwright
+playwright/
+vitest/
