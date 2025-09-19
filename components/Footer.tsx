@@ -22,13 +22,6 @@ export function Footer() {
             <Link href="/work" className="text-gray-400 hover:text-white transition-colors">
               Work
             </Link>
-            <Link
-              href={`mailto:${socialLinks.email}`}
-              className="text-gray-400 hover:text-white transition-colors"
-            >
-              Contact
-            </Link>
-            <span className="text-gray-600">|</span>
             <a
               href={socialLinks.github}
               className="text-gray-400 hover:text-white transition-colors"

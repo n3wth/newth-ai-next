@@ -1,6 +1,13 @@
 import Link from 'next/link'
 import { ArrowLeft, ArrowUpRight, Building2, Calendar } from 'lucide-react'
 import { getCompanyIcon } from '@/components/CompanyIcons'
+import { generateSEO } from '@/lib/metadata'
+
+export const metadata = generateSEO({
+  title: 'Work Experience',
+  description: 'Product management and engineering leadership at scale. From Google to startups, building AI products that impact billions.',
+  path: '/work'
+})
 
 interface Experience {
   id: string

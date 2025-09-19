@@ -12,9 +12,12 @@ const nextConfig: NextConfig = {
     optimizePackageImports: ['lucide-react', 'framer-motion', 'clsx', 'tailwind-merge'],
     // Enable optimized CSS
     optimizeCss: true,
-    // Turbopack for faster dev builds (optional)
-    // turbo: {},
+    // Web Vitals attribution for debugging
+    webVitalsAttribution: ['CLS', 'LCP', 'FCP', 'FID', 'TTFB'],
   },
+
+  // Turbopack for 10x faster dev builds
+  turbopack: {},
   productionBrowserSourceMaps: false,
   poweredByHeader: false,
 
@@ -81,9 +84,14 @@ const nextConfig: NextConfig = {
       }
     }
 
-    // Fix webpack cache issues in development
-    if (dev) {
-      config.cache = false
+    // Enable webpack cache in production for faster rebuilds
+    if (!dev) {
+      config.cache = {
+        type: 'filesystem',
+        buildDependencies: {
+          config: [__filename],
+        },
+      }
     }
 
     return config

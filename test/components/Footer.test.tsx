@@ -11,7 +11,6 @@ describe('Footer', () => {
     render(<Footer />)
     expect(screen.getByText('Projects')).toBeInTheDocument()
     expect(screen.getByText('Work')).toBeInTheDocument()
-    expect(screen.getByText('Contact')).toBeInTheDocument()
   })
 
   it('renders social links', () => {
@@ -24,7 +23,6 @@ describe('Footer', () => {
     render(<Footer />)
     expect(screen.getByText('Projects')).toHaveAttribute('href', '/#projects')
     expect(screen.getByText('Work')).toHaveAttribute('href', '/work')
-    expect(screen.getByText('Contact')).toHaveAttribute('href', 'mailto:oliver@newth.ai')
     expect(screen.getByText('GitHub')).toHaveAttribute('href', 'https://github.com/n3wth')
     expect(screen.getByText('LinkedIn')).toHaveAttribute('href', 'https://linkedin.com/in/newth')
   })

@@ -5,6 +5,8 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Navigation } from '@/components/Navigation'
 import { Footer } from '@/components/Footer'
 import { WebVitalsReporter } from './layout-client'
+import { JsonLdPerson, JsonLdWebsite } from '@/components/JsonLd'
+import { KeyboardNavProvider } from '@/components/KeyboardNavProvider'
 import './refined-globals.css'
 
 const inter = Inter({
@@ -79,6 +81,10 @@ export default function RootLayout({
         <link rel="prefetch" href="/projects" />
         <link rel="prefetch" href="/work" />
 
+        {/* PWA */}
+        <link rel="manifest" href="/manifest.webmanifest" />
+        <meta name="theme-color" content="#000000" />
+
         {/* Prevent FOUC with minimal inline styles */}
         <style
           dangerouslySetInnerHTML={{
@@ -89,10 +95,14 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased font-sans">
+        <JsonLdPerson />
+        <JsonLdWebsite />
         <WebVitalsReporter />
-        <Navigation />
-        {children}
-        <Footer />
+        <KeyboardNavProvider>
+          <Navigation />
+          {children}
+          <Footer />
+        </KeyboardNavProvider>
         <Analytics />
         <SpeedInsights />
       </body>

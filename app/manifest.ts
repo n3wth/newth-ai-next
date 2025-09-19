@@ -3,7 +3,7 @@ import { MetadataRoute } from 'next'
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: 'Oliver Newth - AI Developer',
-    short_name: 'Newth AI',
+    short_name: 'Newth.ai',
     description:
       'Engineering at the intersection of AI and human creativity. Building tools that amplify developer capabilities.',
     start_url: '/',
