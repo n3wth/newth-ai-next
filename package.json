@@ -68,6 +68,7 @@
     "jsdom": "^27.0.0",
     "lint-staged": "^16.1.6",
     "playwright": "^1.55.0",
+    "postcss-import": "^16.1.1",
     "prettier": "^3.6.2",
     "typescript": "^5",
     "vitest": "^3.2.4"
