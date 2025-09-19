@@ -26,18 +26,11 @@ export function HeroSection({
       <WarpBackground className="absolute inset-0" />
 
       {/* Content layer */}
-      <div className="relative z-10 flex items-center justify-center min-h-screen w-full px-6 sm:px-8 lg:px-12">
-        <div
-          className="w-full max-w-4xl mx-auto text-center"
-          style={{
-            padding: '3rem 1rem',
-            background:
-              'radial-gradient(circle at center, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.7) 40%, rgba(0, 0, 0, 0.3) 70%, transparent 100%)',
-          }}
-        >
-          <div className="space-y-8">
+      <div className="relative z-10 flex items-center justify-center min-h-screen w-full px-4 sm:px-6 lg:px-8">
+        <div className="w-full text-center">
+          <div className="space-y-6 md:space-y-8">
             {/* Main heading - visible immediately for LCP */}
-            <h1 className="text-[3.5rem] sm:text-[4.5rem] md:text-[5.5rem] lg:text-[6.5rem] xl:text-[7.5rem] font-bold tracking-[-0.03em] leading-[0.9] text-white">
+            <h1 className="text-[2.5rem] sm:text-[3.5rem] md:text-[4.5rem] lg:text-[5.5rem] xl:text-[6.5rem] font-semibold tracking-[-0.02em] leading-[1.05] text-white">
               <span className="block">{title.line1}</span>
               <span className="block bg-gradient-to-br from-violet-200 via-purple-200 to-violet-400 bg-clip-text text-transparent">
                 {title.line2}
@@ -45,7 +38,7 @@ export function HeroSection({
             </h1>
 
             {/* Subtitle - visible immediately */}
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto leading-[1.5] font-normal opacity-80">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 max-w-3xl mx-auto leading-[1.6] font-light px-6">
               {subtitle}
             </p>
 
