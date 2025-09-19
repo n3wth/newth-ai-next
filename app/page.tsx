@@ -1,7 +1,17 @@
 import { HeroSection } from '@/components/sections/HeroSectionOptimized'
 import { ProjectGrid } from '@/components/sections/ProjectGridSimple'
 import { ContactSection } from '@/components/sections/ContactSection'
+import { generateSEO } from '@/lib/metadata'
+
+export const metadata = generateSEO({
+  title: 'AI Products & Developer Tools',
+  description:
+    'Portfolio of Oliver Newth—AI developer building memory systems, developer tooling, and creative experiments for teams shipping at scale.',
+  path: '/',
+})
+=======
 import { CapabilityHighlights } from '@/components/sections/CapabilityHighlights'
+
 
 export default function Home() {
   const featuredProjects = [
