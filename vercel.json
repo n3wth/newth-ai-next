@@ -10,6 +10,9 @@
     },
     "app/api/og/route.tsx": {
       "maxDuration": 10
+    },
+    "app/api/webhooks/github/route.ts": {
+      "maxDuration": 10
     }
   },
   "headers": [
