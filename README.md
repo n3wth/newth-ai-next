@@ -1,36 +1,99 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# newth.ai - Personal Portfolio & Project Showcase
+
+A modern, dark-themed portfolio website showcasing AI-powered development projects and tools.
+
+## Features
+
+- **Project Showcase**: Grid layout featuring all projects with filtering by status and tags
+- **Newsletter Integration**: Email signup for weekly updates
+- **Responsive Design**: Mobile-first approach with smooth animations
+- **Dark Theme**: Inspired by r3.newth.ai aesthetic
+- **Fast Performance**: Built with Next.js 15 and Turbopack
+
+## Tech Stack
+
+- Next.js 15 with App Router
+- TypeScript
+- Tailwind CSS
+- Framer Motion animations
+- Lucide React icons
+- Vercel deployment
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+newth-ai-next/
+├── app/
+│   ├── page.tsx           # Homepage with featured projects
+│   ├── projects/          # All projects page
+│   ├── newsletter/        # Newsletter signup page
+│   └── api/newsletter/    # Newsletter API endpoint
+├── components/
+│   ├── Navigation.tsx     # Site navigation
+│   ├── Footer.tsx        # Site footer
+│   ├── ProjectCard.tsx   # Project display card
+│   └── NewsletterSignup.tsx
+├── lib/
+│   ├── projects.ts       # Project data and utilities
+│   └── utils.ts          # Helper functions
+└── public/               # Static assets
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Deployment to Vercel
 
-## Learn More
+1. Push to GitHub repository
+2. Connect repository to Vercel
+3. Deploy with default settings (already configured in vercel.json)
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+# Or deploy directly via CLI
+vercel
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Newsletter Integration
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The newsletter API endpoint (`/api/newsletter`) is ready for integration with email services:
+- Mailchimp
+- ConvertKit
+- SendGrid
+- Resend
 
-## Deploy on Vercel
+Update `/app/api/newsletter/route.ts` with your chosen service.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Environment Variables
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Create `.env.local` for local development:
+
+```
+# Add your email service API keys here
+MAILCHIMP_API_KEY=
+MAILCHIMP_LIST_ID=
+```
+
+## Featured Projects
+
+- **r3**: AI memory management system
+- **Claude Code Extensions**: Developer productivity tools
+- **Dashboard Platform**: Real-time analytics
+- **YNAB Automation**: Budget automation tools
+- Plus many more experimental projects
+
+## License
+
+MIT
