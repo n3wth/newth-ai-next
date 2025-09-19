@@ -15,28 +15,31 @@ export function AsciiWave({ className, speed = 3, variant = 'subtle' }: AsciiWav
 
   // Advanced wave patterns inspired by OpenAI's aesthetic
   const wavePatterns = [
-    "▁▂▃▄▅▆▇█▇▆▅▄▃▂▁",
-    "▂▃▄▅▆▇█▇▆▅▄▃▂▁▂",
-    "▃▄▅▆▇█▇▆▅▄▃▂▁▂▃",
-    "▄▅▆▇█▇▆▅▄▃▂▁▂▃▄",
-    "▅▆▇█▇▆▅▄▃▂▁▂▃▄▅",
-    "▆▇█▇▆▅▄▃▂▁▂▃▄▅▆",
-    "▇█▇▆▅▄▃▂▁▂▃▄▅▆▇",
-    "█▇▆▅▄▃▂▁▂▃▄▅▆▇█",
-    "▇▆▅▄▃▂▁▂▃▄▅▆▇█▇",
-    "▆▅▄▃▂▁▂▃▄▅▆▇█▇▆",
-    "▅▄▃▂▁▂▃▄▅▆▇█▇▆▅",
-    "▄▃▂▁▂▃▄▅▆▇█▇▆▅▄",
-    "▃▂▁▂▃▄▅▆▇█▇▆▅▄▃",
-    "▂▁▂▃▄▅▆▇█▇▆▅▄▃▂",
-    "▁▂▃▄▅▆▇█▇▆▅▄▃▂▁",
+    '▁▂▃▄▅▆▇█▇▆▅▄▃▂▁',
+    '▂▃▄▅▆▇█▇▆▅▄▃▂▁▂',
+    '▃▄▅▆▇█▇▆▅▄▃▂▁▂▃',
+    '▄▅▆▇█▇▆▅▄▃▂▁▂▃▄',
+    '▅▆▇█▇▆▅▄▃▂▁▂▃▄▅',
+    '▆▇█▇▆▅▄▃▂▁▂▃▄▅▆',
+    '▇█▇▆▅▄▃▂▁▂▃▄▅▆▇',
+    '█▇▆▅▄▃▂▁▂▃▄▅▆▇█',
+    '▇▆▅▄▃▂▁▂▃▄▅▆▇█▇',
+    '▆▅▄▃▂▁▂▃▄▅▆▇█▇▆',
+    '▅▄▃▂▁▂▃▄▅▆▇█▇▆▅',
+    '▄▃▂▁▂▃▄▅▆▇█▇▆▅▄',
+    '▃▂▁▂▃▄▅▆▇█▇▆▅▄▃',
+    '▂▁▂▃▄▅▆▇█▇▆▅▄▃▂',
+    '▁▂▃▄▅▆▇█▇▆▅▄▃▂▁',
   ]
 
   // Animated cycling through wave patterns for smooth animation
   useEffect(() => {
-    const interval = setInterval(() => {
-      setFrame(prev => (prev + 1) % wavePatterns.length)
-    }, (speed * 1000) / wavePatterns.length)
+    const interval = setInterval(
+      () => {
+        setFrame((prev) => (prev + 1) % wavePatterns.length)
+      },
+      (speed * 1000) / wavePatterns.length
+    )
 
     return () => clearInterval(interval)
   }, [speed, wavePatterns.length])
@@ -70,7 +73,7 @@ export function AsciiWave({ className, speed = 3, variant = 'subtle' }: AsciiWav
           transition={{
             duration: speed * 2,
             repeat: Infinity,
-            ease: "easeInOut",
+            ease: 'easeInOut',
           }}
         >
           {wavePatterns[(frame + 3) % wavePatterns.length]}
@@ -89,7 +92,7 @@ export function AsciiWave({ className, speed = 3, variant = 'subtle' }: AsciiWav
           transition={{
             duration: speed,
             repeat: Infinity,
-            ease: "easeInOut",
+            ease: 'easeInOut',
           }}
         >
           {wavePatterns[frame]}
@@ -109,7 +112,7 @@ export function AsciiWave({ className, speed = 3, variant = 'subtle' }: AsciiWav
           transition={{
             duration: speed * 0.8,
             repeat: Infinity,
-            ease: "easeInOut",
+            ease: 'easeInOut',
           }}
         >
           {wavePatterns[(frame + 7) % wavePatterns.length]}
@@ -134,7 +137,7 @@ export function AsciiWaveBorder({ className }: { className?: string }) {
         transition={{
           duration: 20,
           repeat: Infinity,
-          ease: "linear",
+          ease: 'linear',
         }}
       >
         {/* Seamless repeating pattern */}
@@ -153,21 +156,11 @@ export function AsciiWaveBorder({ className }: { className?: string }) {
 export function AsciiWavePattern({ className }: { className?: string }) {
   return (
     <div className={cn('font-mono text-gray-800 select-none', className)}>
-      <div className="opacity-10 text-xs leading-tight">
-        {"▁▂▃▄▅▆▇█▇▆▅▄▃▂▁"}
-      </div>
-      <div className="opacity-15 text-xs leading-tight">
-        {"▂▃▄▅▆▇█▇▆▅▄▃▂▁▂"}
-      </div>
-      <div className="opacity-20 text-xs leading-tight">
-        {"▃▄▅▆▇█▇▆▅▄▃▂▁▂▃"}
-      </div>
-      <div className="opacity-15 text-xs leading-tight">
-        {"▄▅▆▇█▇▆▅▄▃▂▁▂▃▄"}
-      </div>
-      <div className="opacity-10 text-xs leading-tight">
-        {"▅▆▇█▇▆▅▄▃▂▁▂▃▄▅"}
-      </div>
+      <div className="opacity-10 text-xs leading-tight">{'▁▂▃▄▅▆▇█▇▆▅▄▃▂▁'}</div>
+      <div className="opacity-15 text-xs leading-tight">{'▂▃▄▅▆▇█▇▆▅▄▃▂▁▂'}</div>
+      <div className="opacity-20 text-xs leading-tight">{'▃▄▅▆▇█▇▆▅▄▃▂▁▂▃'}</div>
+      <div className="opacity-15 text-xs leading-tight">{'▄▅▆▇█▇▆▅▄▃▂▁▂▃▄'}</div>
+      <div className="opacity-10 text-xs leading-tight">{'▅▆▇█▇▆▅▄▃▂▁▂▃▄▅'}</div>
     </div>
   )
 }

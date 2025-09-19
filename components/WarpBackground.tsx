@@ -1,18 +1,18 @@
-"use client";
+'use client'
 
-import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
-import React, { HTMLAttributes, useCallback, useMemo } from "react";
+import { cn } from '@/lib/utils'
+import { motion } from 'framer-motion'
+import React, { HTMLAttributes, useCallback, useMemo } from 'react'
 
 interface WarpBackgroundProps extends HTMLAttributes<HTMLDivElement> {
-  children: React.ReactNode;
-  perspective?: number;
-  beamsPerSide?: number;
-  beamSize?: number;
-  beamDelayMax?: number;
-  beamDelayMin?: number;
-  beamDuration?: number;
-  gridColor?: string;
+  children: React.ReactNode
+  perspective?: number
+  beamsPerSide?: number
+  beamSize?: number
+  beamDelayMax?: number
+  beamDelayMin?: number
+  beamDuration?: number
+  gridColor?: string
 }
 
 const Beam = ({
@@ -21,38 +21,38 @@ const Beam = ({
   delay,
   duration,
 }: {
-  width: string | number;
-  x: string | number;
-  delay: number;
-  duration: number;
+  width: string | number
+  x: string | number
+  delay: number
+  duration: number
 }) => {
   // Use delay as seed for deterministic values
-  const seed = delay * 1000;
-  const hue = 260 + Math.floor((seed * 2.7) % 40); // Tighter purple/violet range
-  const ar = Math.floor((seed * 3.3) % 6) + 4; // Aspect ratios between 4-9 for consistent beams
+  const seed = delay * 1000
+  const hue = 260 + Math.floor((seed * 2.7) % 40) // Tighter purple/violet range
+  const ar = Math.floor((seed * 3.3) % 6) + 4 // Aspect ratios between 4-9 for consistent beams
 
   return (
     <motion.div
       style={
         {
-          "--x": `${x}`,
-          "--width": `${width}`,
-          "--aspect-ratio": `${ar}`,
-          "--background": `linear-gradient(hsl(${hue} 70% 50% / 0.3), transparent)`,
+          '--x': `${x}`,
+          '--width': `${width}`,
+          '--aspect-ratio': `${ar}`,
+          '--background': `linear-gradient(hsl(${hue} 70% 50% / 0.3), transparent)`,
         } as React.CSSProperties
       }
       className={`absolute left-[var(--x)] top-0 [aspect-ratio:1/var(--aspect-ratio)] [background:var(--background)] [width:var(--width)]`}
-      initial={{ y: "100cqmax", x: "-50%" }}
-      animate={{ y: "-200cqmax", x: "-50%" }}
+      initial={{ y: '100cqmax', x: '-50%' }}
+      animate={{ y: '-200cqmax', x: '-50%' }}
       transition={{
         duration,
         delay,
         repeat: Infinity,
-        ease: "linear",
+        ease: 'linear',
       }}
     />
-  );
-};
+  )
+}
 
 export const WarpBackground: React.FC<WarpBackgroundProps> = ({
   children,
@@ -63,48 +63,50 @@ export const WarpBackground: React.FC<WarpBackgroundProps> = ({
   beamDelayMax = 3,
   beamDelayMin = 0,
   beamDuration = 3,
-  gridColor = "rgba(139, 92, 246, 0.2)",
+  gridColor = 'rgba(139, 92, 246, 0.2)',
   ...props
 }) => {
-  const generateBeams = useCallback((seedOffset: number) => {
-    const beams = [];
-    const cellsPerSide = Math.floor(100 / beamSize);
+  const generateBeams = useCallback(
+    (seedOffset: number) => {
+      const beams = []
+      const cellsPerSide = Math.floor(100 / beamSize)
 
-    for (let i = 0; i < beamsPerSide; i++) {
-      // More random-feeling distribution using multiple pseudo-random calculations
-      const seed1 = (i + 1) * (seedOffset + 1);
-      const seed2 = (i + 3) * (seedOffset + 7);
-      const pseudoRandom1 = ((seed1 * 9301 + 49297) % 233280) / 233280;
-      const pseudoRandom2 = ((seed2 * 12979 + 26147) % 175000) / 175000;
+      for (let i = 0; i < beamsPerSide; i++) {
+        // More random-feeling distribution using multiple pseudo-random calculations
+        const seed1 = (i + 1) * (seedOffset + 1)
+        const seed2 = (i + 3) * (seedOffset + 7)
+        const pseudoRandom1 = ((seed1 * 9301 + 49297) % 233280) / 233280
+        const pseudoRandom2 = ((seed2 * 12979 + 26147) % 175000) / 175000
 
-      // Non-uniform distribution for x position
-      const x = Math.floor(pseudoRandom1 * cellsPerSide);
+        // Non-uniform distribution for x position
+        const x = Math.floor(pseudoRandom1 * cellsPerSide)
 
-      // More varied delays with clustering
-      const delay =
-        (pseudoRandom2 * pseudoRandom2) * (beamDelayMax - beamDelayMin) + beamDelayMin;
-      beams.push({ x, delay });
-    }
-    return beams;
-  }, [beamsPerSide, beamSize, beamDelayMax, beamDelayMin]);
+        // More varied delays with clustering
+        const delay = pseudoRandom2 * pseudoRandom2 * (beamDelayMax - beamDelayMin) + beamDelayMin
+        beams.push({ x, delay })
+      }
+      return beams
+    },
+    [beamsPerSide, beamSize, beamDelayMax, beamDelayMin]
+  )
 
-  const topBeams = useMemo(() => generateBeams(1), [generateBeams]);
-  const rightBeams = useMemo(() => generateBeams(2), [generateBeams]);
-  const bottomBeams = useMemo(() => generateBeams(3), [generateBeams]);
-  const leftBeams = useMemo(() => generateBeams(4), [generateBeams]);
+  const topBeams = useMemo(() => generateBeams(1), [generateBeams])
+  const rightBeams = useMemo(() => generateBeams(2), [generateBeams])
+  const bottomBeams = useMemo(() => generateBeams(3), [generateBeams])
+  const leftBeams = useMemo(() => generateBeams(4), [generateBeams])
 
   return (
-    <div className={cn("relative", className)} {...props}>
+    <div className={cn('relative', className)} {...props}>
       <div
         style={
           {
-            "--perspective": `${perspective}px`,
-            "--grid-color": gridColor,
-            "--beam-size": `${beamSize}%`,
+            '--perspective': `${perspective}px`,
+            '--grid-color': gridColor,
+            '--beam-size': `${beamSize}%`,
           } as React.CSSProperties
         }
         className={
-          "pointer-events-none absolute left-0 top-0 size-full overflow-hidden [clipPath:inset(0)] [container-type:size] [perspective:var(--perspective)] [transform-style:preserve-3d]"
+          'pointer-events-none absolute left-0 top-0 size-full overflow-hidden [clipPath:inset(0)] [container-type:size] [perspective:var(--perspective)] [transform-style:preserve-3d]'
         }
       >
         {/* top side */}
@@ -158,5 +160,5 @@ export const WarpBackground: React.FC<WarpBackgroundProps> = ({
       </div>
       <div className="relative z-10">{children}</div>
     </div>
-  );
-};
+  )
+}

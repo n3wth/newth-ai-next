@@ -4,37 +4,22 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { ArrowRight, ChevronDown } from 'lucide-react'
 import { WarpBackground } from '@/components/WarpBackground'
-
-interface HeroSectionProps {
-  title?: {
-    line1: string
-    line2: string
-  }
-  subtitle?: string
-  primaryCTA?: {
-    text: string
-    href: string
-  }
-  secondaryCTA?: {
-    text: string
-    href: string
-  }
-}
+import { HeroSectionProps } from '@/lib/types'
 
 export function HeroSection({
   title = {
     line1: 'I ship AI products',
-    line2: 'at massive scale.'
+    line2: 'at massive scale.',
   },
   subtitle = 'Building ML infrastructure that powers billions of predictions daily. Open source contributor. Side project enthusiast.',
   primaryCTA = {
     text: 'See My Work',
-    href: '#projects'
+    href: '#projects',
   },
   secondaryCTA = {
     text: 'Get in Touch',
-    href: '/contact'
-  }
+    href: '/contact',
+  },
 }: HeroSectionProps) {
   return (
     <section className="relative min-h-screen bg-black text-white overflow-hidden -mt-20">
@@ -52,7 +37,8 @@ export function HeroSection({
           <div
             className="relative z-10 max-w-2xl mx-auto text-center p-8 sm:p-10 lg:p-12"
             style={{
-              background: "radial-gradient(circle at center, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.7) 40%, rgba(0, 0, 0, 0.3) 70%, transparent 100%)",
+              background:
+                'radial-gradient(circle at center, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.7) 40%, rgba(0, 0, 0, 0.3) 70%, transparent 100%)',
             }}
           >
             <motion.div
@@ -76,7 +62,7 @@ export function HeroSection({
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5, duration: 0.8 }}
                   style={{
-                    backgroundSize: "200% auto",
+                    backgroundSize: '200% auto',
                   }}
                 >
                   {title.line2}
@@ -119,7 +105,7 @@ export function HeroSection({
         <motion.div
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2 opacity-60"
           animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
         >
           <ChevronDown className="w-5 h-5 text-white/40" />
         </motion.div>

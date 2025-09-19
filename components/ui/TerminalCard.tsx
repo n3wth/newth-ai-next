@@ -1,5 +1,6 @@
 'use client'
 
+import { memo } from 'react'
 import { motion } from 'framer-motion'
 import { cn, componentVariants } from '@/lib/design-system'
 
@@ -10,11 +11,11 @@ interface TerminalCardProps {
   hover?: boolean
 }
 
-export function TerminalCard({
+export const TerminalCard = memo(function TerminalCard({
   variant = 'default',
   className,
   children,
-  hover = true
+  hover = true,
 }: TerminalCardProps) {
   const classes = cn(
     componentVariants.card[variant].base,
@@ -25,10 +26,10 @@ export function TerminalCard({
   return (
     <motion.div
       whileHover={hover ? { scale: 1.02 } : undefined}
-      transition={{ type: "spring", stiffness: 300 }}
+      transition={{ type: 'spring', stiffness: 300 }}
       className={classes}
     >
       {children}
     </motion.div>
   )
-}
+})

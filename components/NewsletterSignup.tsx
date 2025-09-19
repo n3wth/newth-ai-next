@@ -19,7 +19,7 @@ export function NewsletterSignup() {
       const response = await fetch('/api/newsletter', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email })
+        body: JSON.stringify({ email }),
       })
 
       const data = await response.json()
@@ -52,9 +52,7 @@ export function NewsletterSignup() {
             <Mail className="h-6 w-6 text-purple-400" />
           </div>
           <div>
-            <h3 className="text-xl font-medium text-white mb-2">
-              Stay Updated
-            </h3>
+            <h3 className="text-xl font-medium text-white mb-2">Stay Updated</h3>
             <p className="text-gray-400 text-sm">
               Get weekly updates about new projects, AI tools, and development insights.
             </p>
@@ -93,17 +91,13 @@ export function NewsletterSignup() {
             <motion.p
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              className={`text-sm ${
-                status === 'success' ? 'text-green-400' : 'text-red-400'
-              }`}
+              className={`text-sm ${status === 'success' ? 'text-green-400' : 'text-red-400'}`}
             >
               {message}
             </motion.p>
           )}
 
-          <p className="text-xs text-gray-500">
-            No spam. Unsubscribe anytime.
-          </p>
+          <p className="text-xs text-gray-500">No spam. Unsubscribe anytime.</p>
         </form>
       </div>
     </div>

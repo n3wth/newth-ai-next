@@ -20,12 +20,12 @@ export function TerminalButton({
   size = 'md',
   children,
   className,
-  external = false
+  external = false,
 }: TerminalButtonProps) {
   const sizeClasses = {
     sm: 'px-4 py-2 text-sm',
     md: 'px-6 py-3 text-base',
-    lg: 'px-8 py-4 text-lg'
+    lg: 'px-8 py-4 text-lg',
   }
 
   const classes = cn(
@@ -47,12 +47,7 @@ export function TerminalButton({
   if (href) {
     if (external) {
       return (
-        <a
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={classes}
-        >
+        <a href={href} target="_blank" rel="noopener noreferrer" className={classes}>
           {content}
         </a>
       )

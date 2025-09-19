@@ -20,6 +20,12 @@ const eslintConfig = [
       "next-env.d.ts",
     ],
   },
+  {
+    files: ["app/layout.tsx"],
+    rules: {
+      "@next/next/google-font-preconnect": "off",
+    },
+  },
 ];
 
 export default eslintConfig;

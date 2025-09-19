@@ -6,36 +6,28 @@ import { useState, useEffect } from 'react'
 export function AnimatedLogo() {
   const [frame, setFrame] = useState(0)
 
-  const asciiLogo = [
-    "█▄ █ █▀▀ █ █ █ ▀█▀ █ █",
-    "█ ▀█ █▀▀ ▀▄▀▄▀  █  █▀█",
-    "█  █ █▄▄  ▀ ▀   █  █ █"
-  ]
+  const asciiLogo = ['█▄ █ █▀▀ █ █ █ ▀█▀ █ █', '█ ▀█ █▀▀ ▀▄▀▄▀  █  █▀█', '█  █ █▄▄  ▀ ▀   █  █ █']
 
-  const asciiDotAI = [
-    "  ▄▀█ █",
-    "  █▀█ █",
-    "°"
-  ]
+  const asciiDotAI = ['  ▄▀█ █', '  █▀█ █', '°']
 
   // Wave pattern frames for texture effect
   const waveFrames = [
-    "▁▂▃▄▅▆▇█",
-    "▂▃▄▅▆▇█▇",
-    "▃▄▅▆▇█▇▆",
-    "▄▅▆▇█▇▆▅",
-    "▅▆▇█▇▆▅▄",
-    "▆▇█▇▆▅▄▃",
-    "▇█▇▆▅▄▃▂",
-    "█▇▆▅▄▃▂▁",
+    '▁▂▃▄▅▆▇█',
+    '▂▃▄▅▆▇█▇',
+    '▃▄▅▆▇█▇▆',
+    '▄▅▆▇█▇▆▅',
+    '▅▆▇█▇▆▅▄',
+    '▆▇█▇▆▅▄▃',
+    '▇█▇▆▅▄▃▂',
+    '█▇▆▅▄▃▂▁',
   ]
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setFrame(prev => (prev + 1) % waveFrames.length)
+      setFrame((prev) => (prev + 1) % waveFrames.length)
     }, 200)
     return () => clearInterval(interval)
-  }, [])
+  }, [waveFrames.length])
 
   return (
     <div className="flex items-center">
@@ -45,15 +37,15 @@ export function AnimatedLogo() {
           <motion.div
             className="absolute inset-0 bg-gradient-to-r from-violet-500 via-purple-500 to-pink-500"
             animate={{
-              backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+              backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
             }}
             transition={{
               duration: 6,
-              ease: "linear",
+              ease: 'linear',
               repeat: Infinity,
             }}
             style={{
-              backgroundSize: "200% 100%",
+              backgroundSize: '200% 100%',
               WebkitMaskImage: `
                 repeating-linear-gradient(
                   0deg,
@@ -93,8 +85,8 @@ export function AnimatedLogo() {
                         rgba(167, 139, 250, 1) 100%
                       )
                     `,
-                    backgroundSize: "200% 100%",
-                    animation: "gradientShift 6s ease-in-out infinite",
+                    backgroundSize: '200% 100%',
+                    animation: 'gradientShift 6s ease-in-out infinite',
                   }}
                 >
                   {/* Overlay the wave pattern as texture */}
@@ -108,8 +100,8 @@ export function AnimatedLogo() {
                         transparent 1px,
                         transparent 2px
                       )`,
-                      WebkitBackgroundClip: "text",
-                      backgroundClip: "text",
+                      WebkitBackgroundClip: 'text',
+                      backgroundClip: 'text',
                     }}
                   >
                     {line.split('').map((char, charIndex) => (
@@ -117,10 +109,11 @@ export function AnimatedLogo() {
                         key={charIndex}
                         className="inline-block"
                         style={{
-                          opacity: char === ' ' ? 0 : (char === '█' ? 1 : 0.9),
-                          filter: char === '█' ?
-                            `brightness(${1 + 0.2 * Math.sin((frame + charIndex) * 0.5)})` :
-                            'none'
+                          opacity: char === ' ' ? 0 : char === '█' ? 1 : 0.9,
+                          filter:
+                            char === '█'
+                              ? `brightness(${1 + 0.2 * Math.sin((frame + charIndex) * 0.5)})`
+                              : 'none',
                         }}
                       >
                         {char}
@@ -141,8 +134,13 @@ export function AnimatedLogo() {
 
       <style jsx>{`
         @keyframes gradientShift {
-          0%, 100% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
+          0%,
+          100% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
         }
       `}</style>
     </div>

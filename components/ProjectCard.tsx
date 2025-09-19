@@ -1,5 +1,6 @@
 'use client'
 
+import { memo } from 'react'
 import { ArrowUpRight, Github, Globe, Star, Download } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'
@@ -10,11 +11,11 @@ interface ProjectCardProps {
   index?: number
 }
 
-export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
+export const ProjectCard = memo(function ProjectCard({ project, index = 0 }: ProjectCardProps) {
   const statusColors = {
     active: 'bg-green-500/20 text-green-400 border-green-500/30',
     experimental: 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30',
-    archived: 'bg-gray-500/20 text-gray-400 border-gray-500/30'
+    archived: 'bg-gray-500/20 text-gray-400 border-gray-500/30',
   }
 
   return (
@@ -24,25 +25,26 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
       transition={{
         duration: 0.6,
         delay: index * 0.1,
-        ease: [0.16, 1, 0.3, 1]
+        ease: [0.16, 1, 0.3, 1],
       }}
       className="group relative"
     >
-      <div className="absolute inset-0 rounded-2xl bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl animate-glow"
+      <div
+        className="absolute inset-0 rounded-2xl bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl animate-glow"
         style={{
-          background: `linear-gradient(135deg, ${project.gradient || 'from-purple-500/20 to-blue-500/20'})`
+          background: `linear-gradient(135deg, ${project.gradient || 'from-purple-500/20 to-blue-500/20'})`,
         }}
       />
       <div className="relative h-full rounded-2xl glass neu-card p-6 transition-all duration-300 group-hover:scale-[1.02]">
         <div className="flex items-start justify-between mb-4">
           <div>
-            <h3 className="text-xl font-medium text-white mb-2">
-              {project.title}
-            </h3>
-            <span className={cn(
-              'inline-flex px-2 py-1 text-xs font-medium rounded-full border',
-              statusColors[project.status]
-            )}>
+            <h3 className="text-xl font-medium text-white mb-2">{project.title}</h3>
+            <span
+              className={cn(
+                'inline-flex px-2 py-1 text-xs font-medium rounded-full border',
+                statusColors[project.status]
+              )}
+            >
               {project.status}
             </span>
           </div>
@@ -83,9 +85,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
           </div>
         </div>
 
-        <p className="text-gray-400 text-sm mb-4 line-clamp-2">
-          {project.description}
-        </p>
+        <p className="text-gray-400 text-sm mb-4 line-clamp-2">{project.description}</p>
 
         <div className="flex flex-wrap gap-2 mb-4">
           {project.tags.slice(0, 3).map((tag) => (
@@ -131,4 +131,4 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
       </div>
     </motion.div>
   )
-}
+})

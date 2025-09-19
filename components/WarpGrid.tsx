@@ -1,18 +1,18 @@
-"use client";
+'use client'
 
-import React, { useCallback, useState } from "react";
-import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
+import React, { useCallback, useState } from 'react'
+import { motion } from 'framer-motion'
+import { cn } from '@/lib/utils'
 
 interface WarpGridProps {
-  children?: React.ReactNode;
-  className?: string;
-  containerClassName?: string;
-  beamsPerSide?: number;
-  beamSize?: number;
-  beamDelayMax?: number;
-  beamDelayMin?: number;
-  beamDuration?: number;
+  children?: React.ReactNode
+  className?: string
+  containerClassName?: string
+  beamsPerSide?: number
+  beamSize?: number
+  beamDelayMax?: number
+  beamDelayMin?: number
+  beamDuration?: number
 }
 
 export const WarpGrid = ({
@@ -26,101 +26,106 @@ export const WarpGrid = ({
   beamDuration = 15,
 }: WarpGridProps) => {
   const generateBeams = useCallback(() => {
-    const beams = [];
-    const cellsPerSide = Math.floor(100 / beamSize);
-    const step = cellsPerSide / beamsPerSide;
+    const beams = []
+    const cellsPerSide = Math.floor(100 / beamSize)
+    const step = cellsPerSide / beamsPerSide
 
     for (let i = 0; i < beamsPerSide; i++) {
-      const x = Math.floor(i * step);
-      const delay = Math.random() * (beamDelayMax - beamDelayMin) + beamDelayMin;
-      beams.push({ x, delay });
+      const x = Math.floor(i * step)
+      const delay = Math.random() * (beamDelayMax - beamDelayMin) + beamDelayMin
+      beams.push({ x, delay })
     }
-    return beams;
-  }, [beamsPerSide, beamSize, beamDelayMax, beamDelayMin]);
+    return beams
+  }, [beamsPerSide, beamSize, beamDelayMax, beamDelayMin])
 
   const [beams] = useState(() => ({
     top: generateBeams(),
     bottom: generateBeams(),
     left: generateBeams(),
     right: generateBeams(),
-  }));
+  }))
 
-  const Beam = ({ width, x, delay, duration, className: beamClassName }: {
-    width: number;
-    x: number;
-    delay: number;
-    duration: number;
-    className?: string;
+  const Beam = ({
+    width,
+    x,
+    delay,
+    duration,
+    className: beamClassName,
+  }: {
+    width: number
+    x: number
+    delay: number
+    duration: number
+    className?: string
   }) => {
-    const hue = 250 + Math.floor(Math.random() * 60); // Purple-ish hues
-    const ar = Math.floor(Math.random() * 10) + 1;
+    const hue = 250 + Math.floor(Math.random() * 60) // Purple-ish hues
+    const ar = Math.floor(Math.random() * 10) + 1
 
     return (
       <motion.div
-        style={{
-          "--x": `${x}%`,
-          "--width": `${width}%`,
-          "--aspect-ratio": `${ar}`,
-          "--background": `linear-gradient(hsl(${hue} 60% 50% / 0.2), transparent)`,
-        } as React.CSSProperties}
-        className={cn(
-          "absolute [background:var(--background)]",
-          beamClassName
-        )}
-        initial={{ y: "100cqmax", x: "-50%" }}
-        animate={{ y: "-100%", x: "-50%" }}
+        style={
+          {
+            '--x': `${x}%`,
+            '--width': `${width}%`,
+            '--aspect-ratio': `${ar}`,
+            '--background': `linear-gradient(hsl(${hue} 60% 50% / 0.2), transparent)`,
+          } as React.CSSProperties
+        }
+        className={cn('absolute [background:var(--background)]', beamClassName)}
+        initial={{ y: '100cqmax', x: '-50%' }}
+        animate={{ y: '-100%', x: '-50%' }}
         transition={{
           duration,
           delay,
           repeat: Infinity,
-          ease: "linear",
+          ease: 'linear',
         }}
       />
-    );
-  };
+    )
+  }
 
-  const BeamHorizontal = ({ height, y, delay, duration, className: beamClassName }: {
-    height: number;
-    y: number;
-    delay: number;
-    duration: number;
-    className?: string;
+  const BeamHorizontal = ({
+    height,
+    y,
+    delay,
+    duration,
+    className: beamClassName,
+  }: {
+    height: number
+    y: number
+    delay: number
+    duration: number
+    className?: string
   }) => {
-    const hue = 250 + Math.floor(Math.random() * 60);
-    const ar = Math.floor(Math.random() * 10) + 1;
+    const hue = 250 + Math.floor(Math.random() * 60)
+    const ar = Math.floor(Math.random() * 10) + 1
 
     return (
       <motion.div
-        style={{
-          "--y": `${y}%`,
-          "--height": `${height}%`,
-          "--aspect-ratio": `${ar}`,
-          "--background": `linear-gradient(to right, hsl(${hue} 60% 50% / 0.2), transparent)`,
-        } as React.CSSProperties}
-        className={cn(
-          "absolute [background:var(--background)]",
-          beamClassName
-        )}
-        initial={{ x: "-100%", y: "var(--y)" }}
-        animate={{ x: "100cqmax", y: "var(--y)" }}
+        style={
+          {
+            '--y': `${y}%`,
+            '--height': `${height}%`,
+            '--aspect-ratio': `${ar}`,
+            '--background': `linear-gradient(to right, hsl(${hue} 60% 50% / 0.2), transparent)`,
+          } as React.CSSProperties
+        }
+        className={cn('absolute [background:var(--background)]', beamClassName)}
+        initial={{ x: '-100%', y: 'var(--y)' }}
+        animate={{ x: '100cqmax', y: 'var(--y)' }}
         transition={{
           duration,
           delay,
           repeat: Infinity,
-          ease: "linear",
+          ease: 'linear',
         }}
       />
-    );
-  };
+    )
+  }
 
   return (
-    <div
-      className={cn(
-        "relative w-full h-full overflow-hidden",
-        containerClassName,
-      )}
-    >
-      <div className={cn("absolute inset-0", className)}>
+    <div className={cn('relative w-full h-full overflow-hidden', containerClassName)}>
+      <div className={cn('absolute inset-0', className)}>
         {/* Top beams */}
         {beams.top.map((beam, i) => (
           <Beam
@@ -179,5 +184,5 @@ export const WarpGrid = ({
         </div>
       )}
     </div>
-  );
-};
+  )
+}

@@ -1,27 +1,55 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
+import { useEffect, useState, useCallback } from 'react'
+import { motion, useMotionValue, useSpring } from 'framer-motion'
 
 export function CustomCursor() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [isHovering, setIsHovering] = useState(false)
+  const [isVisible, setIsVisible] = useState(false)
+
+  const cursorX = useMotionValue(0)
+  const cursorY = useMotionValue(0)
+  const followerX = useMotionValue(0)
+  const followerY = useMotionValue(0)
+
+  const springConfig = { damping: 25, stiffness: 700 }
+  const cursorXSpring = useSpring(cursorX, springConfig)
+  const cursorYSpring = useSpring(cursorY, springConfig)
+  const followerXSpring = useSpring(followerX, { damping: 20, stiffness: 200 })
+  const followerYSpring = useSpring(followerY, { damping: 20, stiffness: 200 })
+
+  const updateMousePosition = useCallback(
+    (e: MouseEvent) => {
+      cursorX.set(e.clientX)
+      cursorY.set(e.clientY)
+      followerX.set(e.clientX)
+      followerY.set(e.clientY)
+    },
+    [cursorX, cursorY, followerX, followerY]
+  )
+
+  const handleMouseOver = useCallback((e: MouseEvent) => {
+    const target = e.target as HTMLElement
+    if (
+      target.tagName === 'A' ||
+      target.tagName === 'BUTTON' ||
+      target.closest('a') ||
+      target.closest('button')
+    ) {
+      setIsHovering(true)
+    }
+  }, [])
+
+  const handleMouseOut = useCallback(() => {
+    setIsHovering(false)
+  }, [])
 
   useEffect(() => {
-    const updateMousePosition = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY })
-    }
+    // Check if user prefers reduced motion
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (prefersReducedMotion) return
 
-    const handleMouseOver = (e: MouseEvent) => {
-      const target = e.target as HTMLElement
-      if (target.tagName === 'A' || target.tagName === 'BUTTON' || target.closest('a') || target.closest('button')) {
-        setIsHovering(true)
-      }
-    }
-
-    const handleMouseOut = () => {
-      setIsHovering(false)
-    }
+    setIsVisible(true)
 
     window.addEventListener('mousemove', updateMousePosition)
     window.addEventListener('mouseover', handleMouseOver)
@@ -32,15 +60,19 @@ export function CustomCursor() {
       window.removeEventListener('mouseover', handleMouseOver)
       window.removeEventListener('mouseout', handleMouseOut)
     }
-  }, [])
+  }, [updateMousePosition, handleMouseOver, handleMouseOut])
+
+  if (!isVisible) return null
 
   return (
     <>
       <motion.div
         className="cursor"
+        style={{
+          x: cursorXSpring,
+          y: cursorYSpring,
+        }}
         animate={{
-          x: mousePosition.x,
-          y: mousePosition.y,
           scale: isHovering ? 2 : 1,
         }}
         transition={{
@@ -51,14 +83,9 @@ export function CustomCursor() {
       />
       <motion.div
         className="cursor-follower"
-        animate={{
-          x: mousePosition.x,
-          y: mousePosition.y,
-        }}
-        transition={{
-          type: 'spring',
-          stiffness: 200,
-          damping: 20,
+        style={{
+          x: followerXSpring,
+          y: followerYSpring,
         }}
       />
     </>

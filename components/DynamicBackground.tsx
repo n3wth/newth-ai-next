@@ -5,17 +5,30 @@ import { motion } from 'framer-motion'
 
 export function DynamicBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  const animationRef = useRef<number | null>(null)
+  const lastFrameTime = useRef<number>(0)
 
   useEffect(() => {
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (prefersReducedMotion) return
+
     const canvas = canvasRef.current
     if (!canvas) return
 
-    const ctx = canvas.getContext('2d')
+    const ctx = canvas.getContext('2d', { alpha: false })
     if (!ctx) return
 
-    canvas.width = window.innerWidth
-    canvas.height = window.innerHeight
+    // Use device pixel ratio for sharper rendering
+    const dpr = window.devicePixelRatio || 1
+    canvas.width = window.innerWidth * dpr
+    canvas.height = window.innerHeight * dpr
+    canvas.style.width = `${window.innerWidth}px`
+    canvas.style.height = `${window.innerHeight}px`
+    ctx.scale(dpr, dpr)
 
+    // Reduce particle count for better performance
+    const particleCount = 30
     const particles: Array<{
       x: number
       y: number
@@ -26,31 +39,46 @@ export function DynamicBackground() {
     }> = []
 
     // Create particles
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < particleCount; i++) {
       particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.5,
-        vy: (Math.random() - 0.5) * 0.5,
-        radius: Math.random() * 2 + 1,
-        opacity: Math.random() * 0.3 + 0.1
+        x: Math.random() * window.innerWidth,
+        y: Math.random() * window.innerHeight,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.3,
+        radius: Math.random() * 1.5 + 0.5,
+        opacity: Math.random() * 0.2 + 0.05,
       })
     }
 
-    function animate() {
+    // Frame rate limiting (30 FPS)
+    const targetFPS = 30
+    const frameInterval = 1000 / targetFPS
+
+    function animate(currentTime: number) {
       if (!ctx || !canvas) return
 
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
+      // Frame rate limiting
+      const deltaTime = currentTime - lastFrameTime.current
+      if (deltaTime < frameInterval) {
+        animationRef.current = requestAnimationFrame(animate)
+        return
+      }
+      lastFrameTime.current = currentTime - (deltaTime % frameInterval)
 
-      particles.forEach(particle => {
+      // Clear with fillRect for better performance
+      ctx.fillStyle = 'rgba(0, 0, 0, 1)'
+      ctx.fillRect(0, 0, window.innerWidth, window.innerHeight)
+
+      // Update and draw particles
+      particles.forEach((particle) => {
         particle.x += particle.vx
         particle.y += particle.vy
 
         // Wrap around edges
-        if (particle.x < 0) particle.x = canvas.width
-        if (particle.x > canvas.width) particle.x = 0
-        if (particle.y < 0) particle.y = canvas.height
-        if (particle.y > canvas.height) particle.y = 0
+        if (particle.x < 0) particle.x = window.innerWidth
+        if (particle.x > window.innerWidth) particle.x = 0
+        if (particle.y < 0) particle.y = window.innerHeight
+        if (particle.y > window.innerHeight) particle.y = 0
 
         ctx.beginPath()
         ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2)
@@ -58,45 +86,51 @@ export function DynamicBackground() {
         ctx.fill()
       })
 
-      // Draw connections
-      particles.forEach((particle, i) => {
-        particles.slice(i + 1).forEach(otherParticle => {
-          const dx = particle.x - otherParticle.x
-          const dy = particle.y - otherParticle.y
+      // Draw connections (optimized with distance check first)
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x
+          const dy = particles[i].y - particles[j].y
           const distance = Math.sqrt(dx * dx + dy * dy)
 
-          if (distance < 150) {
+          if (distance < 120) {
             ctx.beginPath()
-            ctx.moveTo(particle.x, particle.y)
-            ctx.lineTo(otherParticle.x, otherParticle.y)
-            ctx.strokeStyle = `rgba(99, 102, 241, ${0.1 * (1 - distance / 150)})`
+            ctx.moveTo(particles[i].x, particles[i].y)
+            ctx.lineTo(particles[j].x, particles[j].y)
+            ctx.strokeStyle = `rgba(99, 102, 241, ${0.08 * (1 - distance / 120)})`
             ctx.lineWidth = 0.5
             ctx.stroke()
           }
-        })
-      })
+        }
+      }
 
-      requestAnimationFrame(animate)
+      animationRef.current = requestAnimationFrame(animate)
     }
 
-    animate()
+    animationRef.current = requestAnimationFrame(animate)
 
     const handleResize = () => {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
+      const dpr = window.devicePixelRatio || 1
+      canvas.width = window.innerWidth * dpr
+      canvas.height = window.innerHeight * dpr
+      canvas.style.width = `${window.innerWidth}px`
+      canvas.style.height = `${window.innerHeight}px`
+      ctx.scale(dpr, dpr)
     }
 
     window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
+    return () => {
+      window.removeEventListener('resize', handleResize)
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current)
+      }
+    }
   }, [])
 
   return (
     <>
       {/* Canvas for particle network */}
-      <canvas
-        ref={canvasRef}
-        className="absolute inset-0 pointer-events-none opacity-30"
-      />
+      <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none opacity-30" />
 
       {/* Animated gradient orbs */}
       <div className="absolute inset-0 overflow-hidden">
@@ -144,7 +178,7 @@ export function DynamicBackground() {
         style={{
           backgroundImage: `linear-gradient(rgba(99, 102, 241, 0.3) 1px, transparent 1px),
                            linear-gradient(90deg, rgba(99, 102, 241, 0.3) 1px, transparent 1px)`,
-          backgroundSize: '50px 50px'
+          backgroundSize: '50px 50px',
         }}
       />
     </>

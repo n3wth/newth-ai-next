@@ -1,15 +1,7 @@
-'use client'
-
-import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { ArrowUpRight, Github } from 'lucide-react'
-import { Project } from '@/lib/types'
+import { ProjectGridProps } from '@/lib/types'
 import { cn } from '@/lib/utils'
-
-interface ProjectGridProps {
-  projects: Project[]
-  className?: string
-}
 
 export function ProjectGrid({ projects, className }: ProjectGridProps) {
   const getGridClass = (index: number): string => {
@@ -23,25 +15,14 @@ export function ProjectGrid({ projects, className }: ProjectGridProps) {
   return (
     <div className={cn('grid grid-cols-1 lg:grid-cols-3 gap-6', className)}>
       {projects.map((project, index) => (
-        <motion.div
-          key={project.id}
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: index * 0.1 }}
-          className={cn('relative group', getGridClass(index))}
-        >
+        <div key={project.id} className={cn('relative group', getGridClass(index))}>
           <div className="relative h-full p-6 sm:p-8 rounded-2xl backdrop-blur-xl bg-white/[0.02] border border-white/10 transition-all duration-300 hover:bg-white/[0.05] hover:border-white/20 hover:shadow-2xl hover:-translate-y-1">
             <div className="relative">
               <div className="mb-4">
-                <span className="text-xs text-gray-500 font-sans">
-                  {project.year}
-                </span>
+                <span className="text-xs text-gray-500 font-sans">{project.year}</span>
               </div>
 
-              <h3 className="text-2xl font-semibold mb-2 text-white font-sans">
-                {project.title}
-              </h3>
+              <h3 className="text-2xl font-semibold mb-2 text-white font-sans">{project.title}</h3>
 
               {project.metrics && (
                 <div className="flex gap-4 mb-4">
@@ -53,9 +34,7 @@ export function ProjectGrid({ projects, className }: ProjectGridProps) {
                 </div>
               )}
 
-              <p className="text-gray-400 mb-6 font-sans">
-                {project.description}
-              </p>
+              <p className="text-gray-400 mb-6 font-sans">{project.description}</p>
 
               <div className="flex flex-wrap gap-2 mb-6">
                 {project.tech.map((tech) => (
@@ -90,7 +69,7 @@ export function ProjectGrid({ projects, className }: ProjectGridProps) {
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
       ))}
     </div>
   )

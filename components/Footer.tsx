@@ -1,5 +1,3 @@
-'use client'
-
 import Link from 'next/link'
 import { Container } from '@/components/layout/Container'
 import { socialLinks } from '@/lib/config/social'
@@ -19,7 +17,10 @@ export function Footer() {
             <Link href="/work" className="text-gray-400 hover:text-white transition-colors">
               Work
             </Link>
-            <Link href={`mailto:${socialLinks.email}`} className="text-gray-400 hover:text-white transition-colors">
+            <Link
+              href={`mailto:${socialLinks.email}`}
+              className="text-gray-400 hover:text-white transition-colors"
+            >
               Contact
             </Link>
           </div>

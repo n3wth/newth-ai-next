@@ -1,38 +1,45 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { Navigation } from '@/components/Navigation'
-import { Footer } from '@/components/Footer'
-import { HeroSection } from '@/components/sections/HeroSection'
-import { ProjectGrid } from '@/components/sections/ProjectGrid'
-import { ContactSection } from '@/components/sections/ContactSection'
+import dynamic from 'next/dynamic'
+import { Suspense } from 'react'
+import { HeroSectionSSR } from '@/components/sections/HeroSectionSSR'
 import { Container } from '@/components/layout/Container'
 import { projects } from '@/lib/config/projects'
+
+// Lazy load below-fold components
+const ProjectGrid = dynamic(() => import('@/components/sections/ProjectGrid').then(mod => ({ default: mod.ProjectGrid })), {
+  loading: () => <div className="animate-pulse bg-gray-800 rounded-lg h-64" />
+})
+
+const ContactSection = dynamic(() => import('@/components/sections/ContactSection').then(mod => ({ default: mod.ContactSection })), {
+  loading: () => null,
+  ssr: false
+})
+
+const Footer = dynamic(() => import('@/components/Footer').then(mod => ({ default: mod.Footer })), {
+  loading: () => null,
+  ssr: false
+})
 
 export default function Homepage() {
   return (
     <div className="min-h-screen bg-black text-white flex flex-col">
-      <Navigation />
-
-      <HeroSection />
+      <HeroSectionSSR />
 
       <section id="projects" className="py-24">
         <Container>
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
+          <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-normal text-white mb-4 font-sans">
               Side projects
             </h2>
             <p className="text-gray-400 font-sans">
               Open source tools and experiments. Built for the community.
             </p>
-          </motion.div>
+          </div>
 
-          <ProjectGrid projects={projects} />
+          <Suspense fallback={<div className="animate-pulse bg-gray-800 rounded-lg h-64" />}>
+            <ProjectGrid projects={projects} />
+          </Suspense>
         </Container>
       </section>
 

@@ -14,13 +14,13 @@ export function TerminalHeading({
   level = 2,
   children,
   prompt = true,
-  className = ''
+  className = '',
 }: TerminalHeadingProps) {
   const sizeClasses = {
     1: 'text-5xl sm:text-6xl lg:text-7xl',
     2: 'text-4xl sm:text-5xl',
     3: 'text-2xl sm:text-3xl',
-    4: 'text-xl sm:text-2xl'
+    4: 'text-xl sm:text-2xl',
   }
 
   const Tag = `h${level}` as keyof React.JSX.IntrinsicElements

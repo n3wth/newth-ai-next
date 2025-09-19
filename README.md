@@ -8,15 +8,21 @@ A modern, dark-themed portfolio website showcasing AI-powered development projec
 - **Newsletter Integration**: Email signup for weekly updates
 - **Responsive Design**: Mobile-first approach with smooth animations
 - **Dark Theme**: Inspired by r3.newth.ai aesthetic
-- **Fast Performance**: Built with Next.js 15 and Turbopack
+- **Instant Loading**: Server Components with dynamic imports for optimal performance
+- **Performance Monitoring**: Vercel Analytics and Speed Insights integration
+- **SEO Optimized**: Sitemap, robots.txt, and meta tags
+- **PWA Ready**: Web app manifest and service worker support
 
 ## Tech Stack
 
 - Next.js 15 with App Router
-- TypeScript
-- Tailwind CSS
+- TypeScript with strict type checking
+- Tailwind CSS for styling
 - Framer Motion animations
 - Lucide React icons
+- Vitest for unit testing
+- Playwright for e2e testing
+- Vercel Analytics & Speed Insights
 - Vercel deployment
 
 ## Getting Started
@@ -28,11 +34,20 @@ npm install
 # Run development server
 npm run dev
 
+# Run tests
+npm run test:run
+
+# Run e2e tests
+npm run test:e2e
+
 # Build for production
 npm run build
 
 # Start production server
 npm start
+
+# Run full validation
+npm run validate
 ```
 
 ## Project Structure
@@ -69,6 +84,7 @@ vercel
 ## Newsletter Integration
 
 The newsletter API endpoint (`/api/newsletter`) is ready for integration with email services:
+
 - Mailchimp
 - ConvertKit
 - SendGrid

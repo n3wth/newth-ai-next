@@ -5,10 +5,7 @@ export async function POST(request: NextRequest) {
     const { email } = await request.json()
 
     if (!email || !email.includes('@')) {
-      return NextResponse.json(
-        { error: 'Please provide a valid email address' },
-        { status: 400 }
-      )
+      return NextResponse.json({ error: 'Please provide a valid email address' }, { status: 400 })
     }
 
     // TODO: Integrate with your email service provider
@@ -22,15 +19,9 @@ export async function POST(request: NextRequest) {
     // - Resend
     // - Or save to a database
 
-    return NextResponse.json(
-      { message: 'Successfully subscribed to newsletter' },
-      { status: 200 }
-    )
+    return NextResponse.json({ message: 'Successfully subscribed to newsletter' }, { status: 200 })
   } catch (error) {
     console.error('Newsletter signup error:', error)
-    return NextResponse.json(
-      { error: 'Failed to subscribe to newsletter' },
-      { status: 500 }
-    )
+    return NextResponse.json({ error: 'Failed to subscribe to newsletter' }, { status: 500 })
   }
 }

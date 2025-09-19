@@ -5,24 +5,23 @@ import { motion } from 'framer-motion'
 export function LogoWithPattern() {
   // ASCII gradient pattern with diagonal squares
   const asciiPattern = [
-    "░░░░▒▒▒▒▓▓▓▓████",
-    "░░░▒▒▒▒▓▓▓▓████▓",
-    "░░▒▒▒▒▓▓▓▓████▓▓",
-    "░▒▒▒▒▓▓▓▓████▓▓▓",
-    "▒▒▒▒▓▓▓▓████▓▓▓▒",
-    "▒▒▒▓▓▓▓████▓▓▓▒▒",
-    "▒▒▓▓▓▓████▓▓▓▒▒░",
-    "▒▓▓▓▓████▓▓▓▒▒░░",
-    "▓▓▓▓████▓▓▓▒▒░░░",
-    "▓▓▓████▓▓▓▒▒░░░░",
-    "▓▓████▓▓▓▒▒░░░░▒",
-    "▓████▓▓▓▒▒░░░░▒▒",
-    "████▓▓▓▒▒░░░░▒▒▒",
-    "███▓▓▓▒▒░░░░▒▒▒▓",
-    "██▓▓▓▒▒░░░░▒▒▒▓▓",
-    "█▓▓▓▒▒░░░░▒▒▒▓▓▓"
+    '░░░░▒▒▒▒▓▓▓▓████',
+    '░░░▒▒▒▒▓▓▓▓████▓',
+    '░░▒▒▒▒▓▓▓▓████▓▓',
+    '░▒▒▒▒▓▓▓▓████▓▓▓',
+    '▒▒▒▒▓▓▓▓████▓▓▓▒',
+    '▒▒▒▓▓▓▓████▓▓▓▒▒',
+    '▒▒▓▓▓▓████▓▓▓▒▒░',
+    '▒▓▓▓▓████▓▓▓▒▒░░',
+    '▓▓▓▓████▓▓▓▒▒░░░',
+    '▓▓▓████▓▓▓▒▒░░░░',
+    '▓▓████▓▓▓▒▒░░░░▒',
+    '▓████▓▓▓▒▒░░░░▒▒',
+    '████▓▓▓▒▒░░░░▒▒▒',
+    '███▓▓▓▒▒░░░░▒▒▒▓',
+    '██▓▓▓▒▒░░░░▒▒▒▓▓',
+    '█▓▓▓▒▒░░░░▒▒▒▓▓▓',
   ]
-
 
   return (
     <div className="relative">
@@ -43,25 +42,15 @@ export function LogoWithPattern() {
       </div>
 
       {/* Main Logo */}
-      <div className="relative z-10">
-        {/* Your existing logo here */}
-      </div>
+      <div className="relative z-10">{/* Your existing logo here */}</div>
 
       {/* Decorative corner patterns */}
       <div className="absolute -top-4 -left-4 text-violet-300 opacity-40">
-        <pre className="font-mono text-[10px] leading-[10px]">
-          ╔════╗
-          ║■■■■║
-          ╚════╝
-        </pre>
+        <pre className="font-mono text-[10px] leading-[10px]">╔════╗ ║■■■■║ ╚════╝</pre>
       </div>
 
       <div className="absolute -bottom-4 -right-4 text-violet-300 opacity-40 rotate-180">
-        <pre className="font-mono text-[10px] leading-[10px]">
-          ╔════╗
-          ║■■■■║
-          ╚════╝
-        </pre>
+        <pre className="font-mono text-[10px] leading-[10px]">╔════╗ ║■■■■║ ╚════╝</pre>
       </div>
     </div>
   )
@@ -100,15 +89,15 @@ export function HeroASCIIPattern() {
                 initial={{ opacity: 0, rotate: 0 }}
                 animate={{
                   opacity: [0.1, 0.3, 0.1],
-                  rotate: [(row + col) % 2 === 0 ? 45 : -45]
+                  rotate: [(row + col) % 2 === 0 ? 45 : -45],
                 }}
                 transition={{
                   duration: 4,
                   repeat: Infinity,
-                  delay: (row + col) * 0.1
+                  delay: (row + col) * 0.1,
                 }}
                 style={{
-                  transform: `translate(${col * 150}px, ${row * 150}px)`
+                  transform: `translate(${col * 150}px, ${row * 150}px)`,
                 }}
               >
                 {diagonalPattern}

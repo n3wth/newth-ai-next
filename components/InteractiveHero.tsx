@@ -1,23 +1,61 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback, memo } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
+import { useThrottle } from '@/lib/hooks/useThrottle'
 
 const phrases = [
-  "Building Intelligence",
-  "Crafting Experiences",
-  "Shipping Products",
-  "Leading Teams",
-  "Breaking Barriers"
+  'Building Intelligence',
+  'Crafting Experiences',
+  'Shipping Products',
+  'Leading Teams',
+  'Breaking Barriers',
 ]
 
 const roles = [
-  { text: "AI Product Leader", color: "from-violet-600 to-indigo-600" },
-  { text: "Google Engineer", color: "from-blue-600 to-cyan-600" },
-  { text: "Creative Technologist", color: "from-pink-600 to-rose-600" },
-  { text: "Open Source Builder", color: "from-green-600 to-emerald-600" },
-  { text: "System Architect", color: "from-orange-600 to-amber-600" }
+  { text: 'AI Product Leader', color: 'from-violet-600 to-indigo-600' },
+  { text: 'Google Engineer', color: 'from-blue-600 to-cyan-600' },
+  { text: 'Creative Technologist', color: 'from-pink-600 to-rose-600' },
+  { text: 'Open Source Builder', color: 'from-green-600 to-emerald-600' },
+  { text: 'System Architect', color: 'from-orange-600 to-amber-600' },
 ]
+
+// Memoized background pattern component
+const BackgroundPattern = memo(function BackgroundPattern() {
+  return (
+    <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 opacity-10">
+        {[...Array(10)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute"
+            style={{
+              left: `${(i * 10) + Math.random() * 10}%`,
+              top: `${(i * 10) + Math.random() * 10}%`,
+              width: `${150 + Math.random() * 50}px`,
+              height: `${150 + Math.random() * 50}px`,
+            }}
+            animate={{
+              rotate: [0, 360],
+            }}
+            transition={{
+              duration: 30 + i * 2,
+              repeat: Infinity,
+              ease: 'linear',
+            }}
+          >
+            <div
+              className="w-full h-full rounded-full border-2 border-violet-500/20"
+              style={{
+                background: `conic-gradient(from ${i * 36}deg, transparent, rgba(139, 92, 246, 0.1), transparent)`,
+              }}
+            />
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  )
+})
 
 export function InteractiveHero() {
   const [currentPhrase, setCurrentPhrase] = useState(0)
@@ -30,6 +68,10 @@ export function InteractiveHero() {
   const opacity = useTransform(scrollY, [0, 300], [1, 0])
 
   useEffect(() => {
+    // Check if user prefers reduced motion
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (prefersReducedMotion) return
+
     const phraseInterval = setInterval(() => {
       setCurrentPhrase((prev) => (prev + 1) % phrases.length)
     }, 3000)
@@ -44,61 +86,30 @@ export function InteractiveHero() {
     }
   }, [])
 
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (containerRef.current) {
-        const rect = containerRef.current.getBoundingClientRect()
-        setMousePos({
-          x: ((e.clientX - rect.left) / rect.width - 0.5) * 30,
-          y: ((e.clientY - rect.top) / rect.height - 0.5) * 30
-        })
-      }
+  // Throttled mouse move handler for better performance
+  const handleMouseMove = useCallback((e: MouseEvent) => {
+    if (containerRef.current) {
+      const rect = containerRef.current.getBoundingClientRect()
+      setMousePos({
+        x: ((e.clientX - rect.left) / rect.width - 0.5) * 20,
+        y: ((e.clientY - rect.top) / rect.height - 0.5) * 20,
+      })
     }
-
-    window.addEventListener('mousemove', handleMouseMove)
-    return () => window.removeEventListener('mousemove', handleMouseMove)
   }, [])
+
+  const throttledMouseMove = useThrottle(handleMouseMove, 50)
+
+  useEffect(() => {
+    window.addEventListener('mousemove', throttledMouseMove)
+    return () => window.removeEventListener('mousemove', throttledMouseMove)
+  }, [throttledMouseMove])
 
   return (
     <div ref={containerRef} className="relative">
-      {/* Maximalist Pattern Background */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          {[...Array(20)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                width: `${Math.random() * 200 + 50}px`,
-                height: `${Math.random() * 200 + 50}px`,
-              }}
-              animate={{
-                rotate: [0, 360],
-                scale: [1, 1.2, 1],
-              }}
-              transition={{
-                duration: 20 + Math.random() * 10,
-                repeat: Infinity,
-                ease: "linear",
-              }}
-            >
-              <div
-                className="w-full h-full rounded-full border-2 border-violet-500/20"
-                style={{
-                  background: `conic-gradient(from ${Math.random() * 360}deg, transparent, rgba(139, 92, 246, 0.1), transparent)`,
-                }}
-              />
-            </motion.div>
-          ))}
-        </div>
-      </div>
+      {/* Optimized Background Pattern */}
+      <BackgroundPattern />
 
-      <motion.div
-        className="relative z-10"
-        style={{ y, opacity }}
-      >
+      <motion.div className="relative z-10" style={{ y, opacity }}>
         {/* Animated Role Badge */}
         <motion.div
           className="inline-block mb-8"
@@ -161,9 +172,9 @@ export function InteractiveHero() {
         {/* Interactive Stats */}
         <div className="grid grid-cols-3 gap-8 mt-12">
           {[
-            { label: "Years at FAANG", value: "10+", delay: 0 },
-            { label: "Products Shipped", value: "30+", delay: 0.1 },
-            { label: "Teams Led", value: "60+", delay: 0.2 },
+            { label: 'Years at FAANG', value: '10+', delay: 0 },
+            { label: 'Products Shipped', value: '30+', delay: 0.1 },
+            { label: 'Teams Led', value: '60+', delay: 0.2 },
           ].map((stat) => (
             <motion.div
               key={stat.label}
@@ -176,9 +187,7 @@ export function InteractiveHero() {
               <div className="text-3xl font-bold bg-gradient-to-br from-violet-600 to-indigo-600 bg-clip-text text-transparent">
                 {stat.value}
               </div>
-              <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                {stat.label}
-              </div>
+              <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">{stat.label}</div>
             </motion.div>
           ))}
         </div>

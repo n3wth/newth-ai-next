@@ -25,12 +25,12 @@ module.exports = {
         border: 'var(--border)',
       },
       animation: {
-        'aurora': 'aurora 15s linear infinite',
-        'float': 'float 20s ease-in-out infinite',
-        'glow': 'glow 8s ease-in-out infinite',
+        aurora: 'aurora 15s linear infinite',
+        float: 'float 20s ease-in-out infinite',
+        glow: 'glow 8s ease-in-out infinite',
         'gradient-shift': 'gradient-shift 10s ease infinite',
-        'pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'meteor': 'meteor linear infinite',
+        pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        meteor: 'meteor linear infinite',
       },
       keyframes: {
         aurora: {

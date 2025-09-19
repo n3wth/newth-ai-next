@@ -42,7 +42,7 @@ export const designTokens = {
       prompt: '#8b5cf6',
       comment: '#6b7280',
       active: '#10b981',
-    }
+    },
   },
 
   // Typography
@@ -52,18 +52,18 @@ export const designTokens = {
       sans: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
     },
     sizes: {
-      xs: '0.75rem',    // 12px
-      sm: '0.875rem',   // 14px
-      base: '1rem',     // 16px
-      lg: '1.125rem',   // 18px
-      xl: '1.25rem',    // 20px
-      '2xl': '1.5rem',  // 24px
+      xs: '0.75rem', // 12px
+      sm: '0.875rem', // 14px
+      base: '1rem', // 16px
+      lg: '1.125rem', // 18px
+      xl: '1.25rem', // 20px
+      '2xl': '1.5rem', // 24px
       '3xl': '1.875rem', // 30px
       '4xl': '2.25rem', // 36px
-      '5xl': '3rem',    // 48px
+      '5xl': '3rem', // 48px
       '6xl': '3.75rem', // 60px
-      '7xl': '4.5rem',  // 72px
-      '8xl': '6rem',    // 96px
+      '7xl': '4.5rem', // 72px
+      '8xl': '6rem', // 96px
     },
     weights: {
       normal: 400,
@@ -78,24 +78,24 @@ export const designTokens = {
       normal: 1.5,
       relaxed: 1.625,
       loose: 2,
-    }
+    },
   },
 
   // Spacing
   spacing: {
     0: '0px',
-    1: '0.25rem',  // 4px
-    2: '0.5rem',   // 8px
-    3: '0.75rem',  // 12px
-    4: '1rem',     // 16px
-    5: '1.25rem',  // 20px
-    6: '1.5rem',   // 24px
-    8: '2rem',     // 32px
-    10: '2.5rem',  // 40px
-    12: '3rem',    // 48px
-    16: '4rem',    // 64px
-    20: '5rem',    // 80px
-    24: '6rem',    // 96px
+    1: '0.25rem', // 4px
+    2: '0.5rem', // 8px
+    3: '0.75rem', // 12px
+    4: '1rem', // 16px
+    5: '1.25rem', // 20px
+    6: '1.5rem', // 24px
+    8: '2rem', // 32px
+    10: '2.5rem', // 40px
+    12: '3rem', // 48px
+    16: '4rem', // 64px
+    20: '5rem', // 80px
+    24: '6rem', // 96px
   },
 
   // Border Radius
@@ -136,7 +136,7 @@ export const designTokens = {
       out: 'cubic-bezier(0, 0, 0.2, 1)',
       inOut: 'cubic-bezier(0.4, 0, 0.2, 1)',
       bounce: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
-    }
+    },
   },
 
   // Breakpoints
@@ -162,82 +162,71 @@ export const designTokens = {
     popover: 300,
     tooltip: 400,
     notification: 500,
-  }
+  },
 } as const
 
 // ASCII Art Library
 export const asciiArt = {
   logo: {
-    main: [
-      "█▄ █ █▀▀ █ █ █ ▀█▀ █ █",
-      "█ ▀█ █▀▀ ▀▄▀▄▀  █  █▀█",
-      "█  █ █▄▄  ▀ ▀   █  █ █"
-    ],
-    dotAI: [
-      "  ▄▀█ █",
-      "  █▀█ █",
-      "°"
-    ]
+    main: ['█▄ █ █▀▀ █ █ █ ▀█▀ █ █', '█ ▀█ █▀▀ ▀▄▀▄▀  █  █▀█', '█  █ █▄▄  ▀ ▀   █  █ █'],
+    dotAI: ['  ▄▀█ █', '  █▀█ █', '°'],
   },
   dividers: {
-    horizontal: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
-    dots: "• • • • • • • • • • • • • • • • • • • •",
-    dashed: "- - - - - - - - - - - - - - - - - - - -",
+    horizontal: '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
+    dots: '• • • • • • • • • • • • • • • • • • • •',
+    dashed: '- - - - - - - - - - - - - - - - - - - -',
   },
   patterns: {
-    diagonal: [
-      "╱╲╱╲╱╲╱╲╱╲╱╲╱╲╱╲",
-      "╲╱╲╱╲╱╲╱╲╱╲╱╲╱╲╱"
-    ]
+    diagonal: ['╱╲╱╲╱╲╱╲╱╲╱╲╱╲╱╲', '╲╱╲╱╲╱╲╱╲╱╲╱╲╱╲╱'],
   },
   brackets: {
-    open: "[",
-    close: "]",
-    angle: { open: "<", close: ">" },
-    curly: { open: "{", close: "}" },
+    open: '[',
+    close: ']',
+    angle: { open: '<', close: '>' },
+    curly: { open: '{', close: '}' },
   },
   prompts: {
-    terminal: ">_",
-    shell: "$",
-    arrow: ">",
-    hash: "#",
-  }
+    terminal: '>_',
+    shell: '$',
+    arrow: '>',
+    hash: '#',
+  },
 } as const
 
 // Component Variants
 export const componentVariants = {
   button: {
     primary: {
-      base: "px-8 py-4 bg-violet-500 text-black font-mono font-bold transition-all",
-      hover: "hover:bg-violet-400 hover:shadow-[0_0_20px_rgba(139,92,246,0.5)]",
+      base: 'px-8 py-4 bg-violet-500 text-black font-mono font-bold transition-all',
+      hover: 'hover:bg-violet-400 hover:shadow-[0_0_20px_rgba(139,92,246,0.5)]',
     },
     secondary: {
-      base: "px-8 py-4 border border-violet-500 text-violet-400 font-mono font-bold transition-all",
-      hover: "hover:bg-violet-500 hover:text-black hover:shadow-[0_0_20px_rgba(139,92,246,0.5)]",
+      base: 'px-8 py-4 border border-violet-500 text-violet-400 font-mono font-bold transition-all',
+      hover: 'hover:bg-violet-500 hover:text-black hover:shadow-[0_0_20px_rgba(139,92,246,0.5)]',
     },
     ghost: {
-      base: "px-4 py-2 text-violet-400 font-mono transition-all",
-      hover: "hover:text-violet-300 hover:bg-violet-500/10",
-    }
+      base: 'px-4 py-2 text-violet-400 font-mono transition-all',
+      hover: 'hover:text-violet-300 hover:bg-violet-500/10',
+    },
   },
   card: {
     default: {
-      base: "p-6 bg-black border border-violet-500/30 transition-all",
-      hover: "hover:border-violet-500 hover:shadow-[0_0_30px_rgba(139,92,246,0.3)]",
+      base: 'p-6 bg-black border border-violet-500/30 transition-all',
+      hover: 'hover:border-violet-500 hover:shadow-[0_0_30px_rgba(139,92,246,0.3)]',
     },
     elevated: {
-      base: "p-6 bg-gray-900 border border-violet-500/50 shadow-lg",
-      hover: "hover:shadow-[0_0_30px_rgba(139,92,246,0.5)]",
-    }
+      base: 'p-6 bg-gray-900 border border-violet-500/50 shadow-lg',
+      hover: 'hover:shadow-[0_0_30px_rgba(139,92,246,0.5)]',
+    },
   },
   badge: {
     default: {
-      base: "px-3 py-1 text-xs font-mono bg-violet-500/10 border border-violet-500/30 text-violet-400",
+      base: 'px-3 py-1 text-xs font-mono bg-violet-500/10 border border-violet-500/30 text-violet-400',
     },
     solid: {
-      base: "px-3 py-1 text-xs font-mono bg-violet-500 text-black",
-    }
-  }
+      base: 'px-3 py-1 text-xs font-mono bg-violet-500 text-black',
+    },
+  },
 } as const
 
 // Helper functions

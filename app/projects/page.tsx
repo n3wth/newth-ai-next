@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Navigation } from '@/components/Navigation'
 import { Footer } from '@/components/Footer'
 import { ProjectCard } from '@/components/ProjectCard'
 import { projects, getAllTags } from '@/lib/projects'
@@ -15,9 +14,10 @@ export default function ProjectsPage() {
 
   const allTags = getAllTags()
 
-  const filteredProjects = projects.filter(project => {
-    const matchesSearch = project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                          project.description.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredProjects = projects.filter((project) => {
+    const matchesSearch =
+      project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      project.description.toLowerCase().includes(searchTerm.toLowerCase())
     const matchesTag = !selectedTag || project.tags.includes(selectedTag)
     const matchesStatus = !statusFilter || project.status === statusFilter
 
@@ -26,8 +26,6 @@ export default function ProjectsPage() {
 
   return (
     <div className="flex flex-col min-h-screen bg-black">
-      <Navigation />
-
       <main className="flex-1">
         {/* Header */}
         <div className="relative pt-32 pb-16 border-b border-white/5">
@@ -124,7 +122,7 @@ export default function ProjectsPage() {
             >
               All Tags
             </button>
-            {allTags.map(tag => (
+            {allTags.map((tag) => (
               <button
                 key={tag}
                 onClick={() => setSelectedTag(tag === selectedTag ? null : tag)}

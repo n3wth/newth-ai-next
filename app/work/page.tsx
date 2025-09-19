@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { ArrowLeft, ArrowUpRight, Building2, Calendar } from 'lucide-react'
-import { Navigation } from '@/components/Navigation'
 import { Footer } from '@/components/Footer'
 import { getCompanyIcon } from '@/components/CompanyIcons'
 
@@ -24,42 +23,45 @@ const experiences: Experience[] = [
     company: 'Google',
     role: 'Senior Product Manager, ML Infrastructure',
     period: '2024 - Present',
-    description: 'Leading ML platform development supporting billions of daily predictions across 30+ product teams.',
+    description:
+      'Leading ML platform development supporting billions of daily predictions across 30+ product teams.',
     achievements: [
       'Reduced model deployment time by 78% across the organization',
       'Achieved 99.99% platform reliability (zero downtime in 2 years)',
       'Integrated DeepMind models into production surfaces',
-      'Built infrastructure supporting 30+ product teams'
+      'Built infrastructure supporting 30+ product teams',
     ],
-    tech: ['Python', 'TensorFlow', 'Kubernetes', 'GCP', 'ML Ops']
+    tech: ['Python', 'TensorFlow', 'Kubernetes', 'GCP', 'ML Ops'],
   },
   {
     id: 'covariant',
     company: 'Covariant',
     role: 'Senior Product Manager, Vision AI',
     period: '2022 - 2024',
-    description: 'Built enterprise vision AI solutions for robotics, driving significant revenue before acquisition by Amazon.',
+    description:
+      'Built enterprise vision AI solutions for robotics, driving significant revenue before acquisition by Amazon.',
     achievements: [
       'Developed vision AI achieving 85% accuracy in complex environments',
       'Generated $100M+ projected revenue pipeline',
       'Led product through Amazon acquisition',
-      'Scaled AI safety protocols increasing product safety by 20%'
+      'Scaled AI safety protocols increasing product safety by 20%',
     ],
-    tech: ['Computer Vision', 'Robotics', 'Enterprise AI', 'ML Safety']
+    tech: ['Computer Vision', 'Robotics', 'Enterprise AI', 'ML Safety'],
   },
   {
     id: 'meta',
     company: 'Meta',
     role: 'Product Manager, Calling & Metaverse',
     period: '2017 - 2022',
-    description: 'Led development of Instagram Calling and AR/VR voice assistant, serving billions of users globally.',
+    description:
+      'Led development of Instagram Calling and AR/VR voice assistant, serving billions of users globally.',
     achievements: [
       'Launched Instagram Calling with 75% engagement increase',
       'Led cross-functional team of 60+ engineers',
       'Reduced harmful interactions by 25% through AI monitoring',
-      'Increased MAU by 2M through AI-driven recommendations'
+      'Increased MAU by 2M through AI-driven recommendations',
     ],
-    tech: ['React', 'WebRTC', 'AR/VR', 'Real-time Systems', 'Trust & Safety']
+    tech: ['React', 'WebRTC', 'AR/VR', 'Real-time Systems', 'Trust & Safety'],
   },
   {
     id: 'microsoft',
@@ -71,17 +73,15 @@ const experiences: Experience[] = [
       'Scaled NLP services to 25 languages',
       'Achieved 99.9% service reliability',
       'Increased enterprise adoption by 52%',
-      'Led API development for AI-based language services'
+      'Led API development for AI-based language services',
     ],
-    tech: ['Azure', 'NLP', 'API Design', 'Enterprise Sales', 'Cloud Computing']
-  }
+    tech: ['Azure', 'NLP', 'API Design', 'Enterprise Sales', 'Cloud Computing'],
+  },
 ]
 
 export default function WorkPage() {
   return (
     <div className="min-h-screen bg-white dark:bg-black text-gray-900 dark:text-gray-100 flex flex-col">
-      <Navigation />
-
       <main className="flex-1">
         {/* Hero Section */}
         <section className="relative py-20 px-4 bg-gradient-to-b from-black via-gray-950 to-black text-white">
@@ -110,8 +110,8 @@ export default function WorkPage() {
                 <span className="block">shipping at scale.</span>
               </h1>
               <p className="text-lg sm:text-xl text-gray-300 max-w-2xl font-light leading-relaxed">
-                From Azure to Google, I&apos;ve built AI products that serve billions.
-                Here&apos;s the full story.
+                From Azure to Google, I&apos;ve built AI products that serve billions. Here&apos;s
+                the full story.
               </p>
 
               {/* Quick stats */}
@@ -142,10 +142,7 @@ export default function WorkPage() {
           <div className="max-w-4xl mx-auto">
             <div className="space-y-12">
               {experiences.map((exp, index) => (
-                <div
-                  key={exp.id}
-                  className="relative"
-                >
+                <div key={exp.id} className="relative">
                   {/* Timeline connector */}
                   {index !== experiences.length - 1 && (
                     <div className="absolute left-8 top-20 bottom-0 w-px bg-gradient-to-b from-gray-300 dark:from-gray-700 to-transparent" />
@@ -181,9 +178,7 @@ export default function WorkPage() {
                         </div>
                       </div>
 
-                      <p className="text-gray-600 dark:text-gray-400 mb-6">
-                        {exp.description}
-                      </p>
+                      <p className="text-gray-600 dark:text-gray-400 mb-6">{exp.description}</p>
 
                       {/* Achievements */}
                       <div className="mb-6">
@@ -227,9 +222,7 @@ export default function WorkPage() {
               viewport={{ once: true }}
               className="mt-24 pt-24 border-t border-gray-200 dark:border-gray-800"
             >
-              <h2 className="text-3xl font-normal text-gray-900 dark:text-white mb-8">
-                Education
-              </h2>
+              <h2 className="text-3xl font-normal text-gray-900 dark:text-white mb-8">Education</h2>
 
               <div className="space-y-6">
                 <div>
@@ -242,9 +235,7 @@ export default function WorkPage() {
                   <p className="text-sm text-gray-500 dark:text-gray-500 mt-2">
                     Thesis: Predicting extreme events - the role of big data in quantifying risk
                   </p>
-                  <p className="text-sm text-violet-400 mt-1">
-                    Kennedy Scholar
-                  </p>
+                  <p className="text-sm text-violet-400 mt-1">Kennedy Scholar</p>
                 </div>
 
                 <div>
@@ -254,9 +245,7 @@ export default function WorkPage() {
                   <p className="text-gray-600 dark:text-gray-400">
                     BEng in Civil Engineering • 2009 - 2012
                   </p>
-                  <p className="text-sm text-gray-500 dark:text-gray-500 mt-2">
-                    GPA: 4.0
-                  </p>
+                  <p className="text-sm text-gray-500 dark:text-gray-500 mt-2">GPA: 4.0</p>
                 </div>
               </div>
             </motion.div>

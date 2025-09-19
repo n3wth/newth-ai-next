@@ -1,7 +1,6 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Navigation } from '@/components/Navigation'
 import { Footer } from '@/components/Footer'
 import { NewsletterSignup } from '@/components/NewsletterSignup'
 import { Mail, Bell, Zap, Users } from 'lucide-react'
@@ -11,24 +10,22 @@ export default function NewsletterPage() {
     {
       icon: <Bell className="h-5 w-5" />,
       title: 'Weekly Updates',
-      description: 'Get notified about new projects and releases'
+      description: 'Get notified about new projects and releases',
     },
     {
       icon: <Zap className="h-5 w-5" />,
       title: 'AI Insights',
-      description: 'Learn about the latest AI tools and techniques'
+      description: 'Learn about the latest AI tools and techniques',
     },
     {
       icon: <Users className="h-5 w-5" />,
       title: 'Community',
-      description: 'Join a community of developers and creators'
-    }
+      description: 'Join a community of developers and creators',
+    },
   ]
 
   return (
     <div className="flex flex-col min-h-screen bg-black">
-      <Navigation />
-
       <main className="flex-1">
         <div className="relative py-32">
           {/* Background gradient */}
@@ -61,8 +58,8 @@ export default function NewsletterPage() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="text-lg text-gray-400 mb-12"
               >
-                Get weekly insights on AI development, new projects, and the tools I&apos;m building.
-                No spam, just valuable content for developers.
+                Get weekly insights on AI development, new projects, and the tools I&apos;m
+                building. No spam, just valuable content for developers.
               </motion.p>
 
               {/* Benefits */}
@@ -73,10 +70,7 @@ export default function NewsletterPage() {
                 className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12"
               >
                 {benefits.map((benefit) => (
-                  <div
-                    key={benefit.title}
-                    className="relative group"
-                  >
+                  <div key={benefit.title} className="relative group">
                     <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-purple-500/10 to-blue-500/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
                     <div className="relative rounded-xl bg-black/60 backdrop-blur-sm border border-white/10 p-6 transition-all group-hover:border-white/20">
                       <div className="text-purple-400 mb-3">{benefit.icon}</div>
@@ -111,7 +105,7 @@ export default function NewsletterPage() {
                     'TypeScript Patterns for AI Applications',
                     'Redis vs Traditional Databases for Caching',
                     'The Future of AI-Assisted Development',
-                    'Open Source Projects That Matter'
+                    'Open Source Projects That Matter',
                   ].map((topic, index) => (
                     <div
                       key={index}
