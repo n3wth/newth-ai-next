@@ -84,15 +84,8 @@ const nextConfig: NextConfig = {
       }
     }
 
-    // Enable webpack cache in production for faster rebuilds
-    if (!dev) {
-      config.cache = {
-        type: 'filesystem',
-        buildDependencies: {
-          config: [__filename],
-        },
-      }
-    }
+    // Webpack cache doesn't work on Vercel serverless
+    // Keep default caching behavior
 
     return config
   },
