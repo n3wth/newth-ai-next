@@ -37,15 +37,15 @@ export function HeroSection({
         >
           <div className="space-y-6">
             {/* Main heading - visible immediately for LCP */}
-            <h1 className="text-[2rem] sm:text-[2.5rem] lg:text-[3.5rem] xl:text-[4rem] font-light tracking-tight leading-[1.1] text-white font-sans">
+            <h1 className="text-[2.8rem] sm:text-[3.5rem] md:text-[4rem] lg:text-[4.5rem] xl:text-[5.5rem] font-bold tracking-tighter leading-[0.95] text-white font-sans">
               <span className="block">{title.line1}</span>
-              <span className="block bg-gradient-to-r from-violet-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="block bg-gradient-to-r from-violet-400 via-purple-400 to-pink-400 bg-clip-text text-transparent font-black">
                 {title.line2}
               </span>
             </h1>
 
             {/* Subtitle - visible immediately */}
-            <p className="text-base sm:text-lg text-gray-300 max-w-lg mx-auto leading-relaxed font-sans">
+            <p className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed font-sans">
               {subtitle}
             </p>
 
