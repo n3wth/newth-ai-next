@@ -1,133 +1,414 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
-export function AnimatedLogo() {
+interface AnimatedLogoProps {
+  enableColorOnHover?: boolean // Enable rainbow colors on hover
+  enableColorOnGlitch?: boolean // Enable colors during glitch effects
+  baseSaturation?: number // Base saturation level (0-100)
+  colorIntensity?: number // How much color to apply (0-1)
+}
+
+export function AnimatedLogo({
+  enableColorOnHover = true,
+  enableColorOnGlitch = false,
+  baseSaturation = 85,
+  colorIntensity = 1,
+}: AnimatedLogoProps = {}) {
   const [frame, setFrame] = useState(0)
+  const [glitchMode, setGlitchMode] = useState<
+    | 'normal'
+    | 'typewriter'
+    | 'blocks'
+    | 'ascii-rain'
+    | 'corruption'
+    | 'scan-lines'
+    | 'pixel-sort'
+    | 'single-invert'
+  >('normal')
+  const [, setCharStates] = useState<Array<{ char: string; visible: boolean; variant: number }>>([])
+  const [isHovered, setIsHovered] = useState(false)
+  const [invertedCharIndex, setInvertedCharIndex] = useState(-1)
+  const [glitchIntensity, setGlitchIntensity] = useState(0) // 0-1 smooth transition
+  const lastGlitchTime = useRef(Date.now())
+  const glitchDuration = useRef(0)
+  const glitchStartTime = useRef(0)
+  const glitchEndTime = useRef(Date.now()) // Track when glitch actually ends
+  const targetIntensity = useRef(0)
 
   const asciiLogo = ['█▄ █ █▀▀ █ █ █ ▀█▀ █ █', '█ ▀█ █▀▀ ▀▄▀▄▀  █  █▀█', '█  █ █▄▄  ▀ ▀   █  █ █']
 
   const asciiDotAI = ['  ▄▀█ █', '  █▀█ █', '°']
 
-  // Wave pattern frames for texture effect
-  const waveFrames = [
-    '▁▂▃▄▅▆▇█',
-    '▂▃▄▅▆▇█▇',
-    '▃▄▅▆▇█▇▆',
-    '▄▅▆▇█▇▆▅',
-    '▅▆▇█▇▆▅▄',
-    '▆▇█▇▆▅▄▃',
-    '▇█▇▆▅▄▃▂',
-    '█▇▆▅▄▃▂▁',
-  ]
+  // ASCII block variations for morphing
+  const blockChars = ['█', '▓', '▒', '░', '▄', '▀', '▌', '▐', '■', '□', '▪', '▫']
 
+  // ASCII art character sets for different effects
+  const asciiSets = {
+    blocks: ['█', '▓', '▒', '░'],
+    lines: ['─', '│', '┌', '┐', '└', '┘', '├', '┤', '┬', '┴', '┼'],
+    dots: ['•', '◦', '◉', '○', '◌', '◍', '◎', '●'],
+    angles: ['◢', '◣', '◤', '◥', '◸', '◹', '◺', '◿'],
+    shades: ['░', '▒', '▓', '█'],
+    bars: ['▁', '▂', '▃', '▄', '▅', '▆', '▇', '█'],
+  }
+
+  // Initialize character states
+  useEffect(() => {
+    const allChars = [...asciiLogo.join('').split(''), ...asciiDotAI.join('').split('')]
+    const states = allChars.map((char) => ({
+      char,
+      visible: true,
+      variant: 0,
+    }))
+    setCharStates(states)
+  }, [])
+
+  // Smooth glitch intensity transitions
   useEffect(() => {
     const interval = setInterval(() => {
-      setFrame((prev) => (prev + 1) % waveFrames.length)
-    }, 200)
+      const now = Date.now()
+      const elapsed = now - glitchStartTime.current
+
+      if (glitchMode !== 'normal' && glitchDuration.current > 0) {
+        // Ease in for first 20%, maintain for 60%, ease out for last 20%
+        const progress = elapsed / glitchDuration.current
+
+        if (progress < 0.2) {
+          // Ease in using cubic easing
+          const easeIn = (progress / 0.2) ** 2
+          setGlitchIntensity(easeIn * targetIntensity.current)
+        } else if (progress < 0.8) {
+          // Maintain full intensity
+          setGlitchIntensity(targetIntensity.current)
+        } else if (progress < 1) {
+          // Ease out using cubic easing
+          const easeOut = 1 - ((progress - 0.8) / 0.2) ** 2
+          setGlitchIntensity(easeOut * targetIntensity.current)
+        } else {
+          // Glitch ended
+          setGlitchIntensity(0)
+        }
+      } else if (isHovered) {
+        // Smooth hover transition
+        setGlitchIntensity((prev) => Math.min(1, prev + 0.05))
+      } else {
+        // Fade out when not glitching
+        setGlitchIntensity((prev) => Math.max(0, prev - 0.05))
+      }
+    }, 20)
     return () => clearInterval(interval)
-  }, [waveFrames.length])
+  }, [glitchMode, isHovered])
+
+  // Trigger random ASCII-themed glitch effects
+  useEffect(() => {
+    const startTime = Date.now()
+    const modes: Array<typeof glitchMode> = [
+      'typewriter',
+      'blocks',
+      'ascii-rain',
+      'corruption',
+      'scan-lines',
+      'pixel-sort',
+      'single-invert',
+    ]
+    let lastModeIndex = -1
+
+    const checkGlitch = () => {
+      const now = Date.now()
+      const timeSinceStart = now - startTime
+      const timeSinceLastGlitch = now - lastGlitchTime.current
+
+      // Wait at least 5 seconds after page load before starting
+      if (timeSinceStart < 5000) {
+        return
+      }
+
+      // No glitch effects while hovering (rainbow takes over)
+      if (isHovered) {
+        setGlitchMode('normal')
+        setInvertedCharIndex(-1)
+        targetIntensity.current = 0
+        return
+      }
+
+      // Check time since last glitch ENDED (not started)
+      const timeSinceLastGlitchEnded = now - glitchEndTime.current
+
+      // Random chance of glitch, but only if 3+ seconds have passed since last one ended
+      if (timeSinceLastGlitchEnded > 3000 && timeSinceLastGlitch > 5000 && Math.random() < 0.03) {
+        // Pick a random mode that's different from the last one
+        const availableModes = modes.filter((_, index) => index !== lastModeIndex)
+        const randomIndex = Math.floor(Math.random() * availableModes.length)
+        const randomMode = availableModes[randomIndex]
+        lastModeIndex = modes.indexOf(randomMode)
+
+        setGlitchMode(randomMode)
+        lastGlitchTime.current = now
+        glitchStartTime.current = now
+
+        // Different intensities for different effects (50% longer durations)
+        switch (randomMode) {
+          case 'typewriter':
+          case 'blocks':
+            targetIntensity.current = 0.8 + Math.random() * 0.2 // 80-100%
+            glitchDuration.current = 1200 + Math.random() * 600 // 1.2-1.8s
+            break
+          case 'corruption':
+          case 'pixel-sort':
+            targetIntensity.current = 0.3 + Math.random() * 0.4 // 30-70%
+            glitchDuration.current = 600 + Math.random() * 600 // 0.6-1.2s
+            break
+          case 'single-invert':
+            const totalChars = asciiLogo.join('').length
+            const randomChar = Math.floor(Math.random() * totalChars)
+            setInvertedCharIndex(randomChar)
+            targetIntensity.current = 1 // Full intensity for invert
+            glitchDuration.current = 1500 + Math.random() * 1500 // 1.5-3s
+            break
+          default:
+            targetIntensity.current = 0.5 + Math.random() * 0.5 // 50-100%
+            glitchDuration.current = 900 + Math.random() * 600 // 0.9-1.5s
+        }
+
+        // Reset to normal after duration
+        setTimeout(() => {
+          setGlitchMode('normal')
+          setInvertedCharIndex(-1)
+          targetIntensity.current = 0
+          glitchEndTime.current = Date.now() // Mark when glitch actually ends
+        }, glitchDuration.current)
+      }
+    }
+
+    const interval = setInterval(checkGlitch, 50)
+    return () => clearInterval(interval)
+  }, [isHovered])
+
+  // Frame animation for dynamic effects
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFrame((prev) => prev + 1) // Don't wrap, let it keep incrementing
+    }, 20) // Faster frame updates
+    return () => clearInterval(interval)
+  }, [])
+
+  // Transform character based on glitch mode with intensity
+  const transformChar = (char: string, index: number, lineIndex: number) => {
+    if (char === ' ') return char
+
+    // No transformation if intensity is too low
+    if (glitchIntensity < 0.01) return char
+
+    switch (glitchMode) {
+      case 'typewriter':
+        // Progressive reveal with intensity-based speed
+        const typewriterProgress = (frame * 2 * glitchIntensity) % (asciiLogo.join('').length + 20)
+        const distanceFromCursor = Math.abs(index + lineIndex * 25 - typewriterProgress)
+        if (index + lineIndex * 25 > typewriterProgress) {
+          return Math.random() < glitchIntensity ? '░' : char
+        } else if (distanceFromCursor < 3) {
+          return char === ' ' ? char : Math.random() < glitchIntensity ? '▓' : char
+        }
+        return char
+
+      case 'blocks':
+        // Smooth wave morphing with intensity
+        if (Math.random() < glitchIntensity) {
+          const wave = Math.sin(frame * 0.05 + index * 0.3) * 0.5 + 0.5
+          const blockIndex = Math.floor(wave * blockChars.length * glitchIntensity)
+          return char !== ' ' ? blockChars[blockIndex] : char
+        }
+        return char
+
+      case 'ascii-rain':
+        // Matrix-style with intensity controlling density
+        const fallSpeed = 0.1 * glitchIntensity
+        const fallPosition = (frame * fallSpeed + index * 2) % 20
+        if (Math.random() < glitchIntensity * 0.3) {
+          if (fallPosition < asciiSets.bars.length) {
+            return asciiSets.bars[Math.floor(fallPosition)]
+          } else if (fallPosition < asciiSets.bars.length + 2) {
+            return '░'
+          }
+        }
+        return char
+
+      case 'corruption':
+        // Corruption probability scales with intensity
+        if (Math.random() < glitchIntensity * 0.15) {
+          const corruptSets = [...asciiSets.dots, ...asciiSets.angles, '▲', '▼', '◀', '▶']
+          return corruptSets[Math.floor(Math.random() * corruptSets.length)]
+        }
+        return char
+
+      case 'scan-lines':
+        // CRT scan with intensity affecting brightness
+        const scanPosition = (frame / 2) % 10
+        const scanInt = Math.exp(-Math.abs(lineIndex * 3 - scanPosition)) * glitchIntensity
+        if (scanInt > 0.3) {
+          return char === ' ' ? char : '▬'
+        } else if (scanInt > 0.1) {
+          return char === ' ' ? char : '═'
+        }
+        return char
+
+      case 'pixel-sort':
+        // Data mosh intensity controls disruption
+        const sortWave = Math.sin(frame * 0.1 + lineIndex) * 0.5 + 0.5
+        const sortThreshold = Math.sin(frame * 0.05) * 0.5 + 0.5
+        if (Math.random() < sortThreshold * glitchIntensity * 0.3 && index > sortWave * 20) {
+          const shadeIndex = Math.floor((frame * 0.2 + index) % asciiSets.shades.length)
+          return asciiSets.shades[shadeIndex]
+        }
+        return char
+
+      default:
+        return char
+    }
+  }
 
   return (
-    <div className="flex items-center">
+    <div
+      className="flex items-center"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <pre className="font-mono text-[10px] leading-[10px] whitespace-pre select-none flex items-center gap-1">
         <div className="relative">
-          {/* Base gradient animation */}
-          <motion.div
-            className="absolute inset-0 bg-gradient-to-r from-violet-500 via-purple-500 to-pink-500"
-            animate={{
-              backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-            }}
-            transition={{
-              duration: 6,
-              ease: 'linear',
-              repeat: Infinity,
-            }}
-            style={{
-              backgroundSize: '200% 100%',
-              WebkitMaskImage: `
-                repeating-linear-gradient(
-                  0deg,
-                  transparent,
-                  transparent 1px,
-                  black 1px,
-                  black 2px
-                )
-              `,
-              maskImage: `
-                repeating-linear-gradient(
-                  0deg,
-                  transparent,
-                  transparent 1px,
-                  black 1px,
-                  black 2px
-                )
-              `,
-            }}
-          />
-
-          {/* Main logo with animated wave fill pattern */}
+          {/* Main logo with ASCII-themed animations */}
           <div className="relative">
-            {asciiLogo.map((line, i) => (
-              <div key={i} className="relative overflow-hidden">
-                {/* Create a mask from the text */}
-                <div
-                  className="bg-gradient-to-r from-violet-500 via-purple-500 to-pink-500 bg-clip-text text-transparent"
+            {asciiLogo.map((line, lineIndex) => {
+              // Calculate character offset for this line
+              let charOffset = 0
+              for (let i = 0; i < lineIndex; i++) {
+                charOffset += asciiLogo[i].length
+              }
+
+              return (
+                <motion.div
+                  key={lineIndex}
+                  className="text-white"
                   style={{
-                    backgroundImage: `
-                      linear-gradient(
-                        90deg,
-                        rgba(167, 139, 250, 1) 0%,
-                        rgba(192, 132, 252, 1) 25%,
-                        rgba(232, 121, 249, 1) 50%,
-                        rgba(192, 132, 252, 1) 75%,
-                        rgba(167, 139, 250, 1) 100%
-                      )
-                    `,
-                    backgroundSize: '200% 100%',
-                    animation: 'gradientShift 6s ease-in-out infinite',
+                    filter:
+                      glitchMode === 'scan-lines' && lineIndex === (frame / 2) % 3
+                        ? 'brightness(1.5) contrast(1.2)'
+                        : glitchMode === 'corruption'
+                          ? `hue-rotate(${Math.sin(frame * 0.05) * 30}deg)`
+                          : 'none',
                   }}
                 >
-                  {/* Overlay the wave pattern as texture */}
-                  <span
-                    className="relative"
-                    style={{
-                      background: `repeating-linear-gradient(
-                        90deg,
-                        currentColor 0px,
-                        currentColor 1px,
-                        transparent 1px,
-                        transparent 2px
-                      )`,
-                      WebkitBackgroundClip: 'text',
-                      backgroundClip: 'text',
-                    }}
-                  >
-                    {line.split('').map((char, charIndex) => (
-                      <span
+                  {line.split('').map((char, charIndex) => {
+                    const globalCharIndex = charOffset + charIndex
+                    const isInverted = globalCharIndex === invertedCharIndex
+                    const displayChar = transformChar(char, charIndex, lineIndex)
+                    const isGlitching = displayChar !== char
+
+                    // Enhanced rainbow with configurable saturation
+                    const waveOffset = Math.sin(frame * 0.03 + lineIndex * 2) * 30
+                    const rawHue = charIndex * 15 - frame * 2 + waveOffset
+                    const hue = ((rawHue % 360) + 360) % 360
+
+                    // Determine when to show colors
+                    const showColor =
+                      (enableColorOnHover && isHovered) ||
+                      (enableColorOnGlitch && glitchMode !== 'normal' && glitchIntensity > 0)
+
+                    // Calculate saturation with options
+                    const dynamicSaturation = baseSaturation + Math.sin(frame * 0.05) * 10
+                    const appliedSaturation = showColor ? dynamicSaturation * colorIntensity : 0
+
+                    const lightness = 55 + Math.sin(frame * 0.07 + charIndex * 0.2) * 10
+                    const baseColor = showColor
+                      ? `hsl(${hue}, ${appliedSaturation}%, ${lightness}%)`
+                      : 'white'
+
+                    return (
+                      <motion.span
                         key={charIndex}
                         className="inline-block"
+                        animate={{
+                          y:
+                            glitchMode === 'ascii-rain' && Math.random() < 0.1
+                              ? [0, 2, 0]
+                              : glitchMode === 'blocks'
+                                ? [0, Math.random() < 0.05 ? -1 : 0, 0]
+                                : 0,
+                          scale:
+                            glitchMode === 'typewriter' && displayChar === '░' ? [1, 0.8, 1] : 1,
+                        }}
+                        transition={{
+                          duration: 0.1,
+                          ease: 'easeInOut',
+                        }}
                         style={{
-                          opacity: char === ' ' ? 0 : char === '█' ? 1 : 0.9,
+                          opacity: displayChar === ' ' ? 0 : 1,
+                          color: isInverted
+                            ? `rgba(0, 0, 0, ${glitchIntensity})`
+                            : isGlitching && glitchMode !== 'typewriter'
+                              ? `rgba(150, 150, 150, ${glitchIntensity})`
+                              : baseColor,
+                          backgroundColor: isInverted
+                            ? `rgba(255, 255, 255, ${glitchIntensity})`
+                            : 'transparent',
+                          padding: isInverted ? '0 1px' : '0',
+                          textShadow: 'none',
                           filter:
-                            char === '█'
-                              ? `brightness(${1 + 0.2 * Math.sin((frame + charIndex) * 0.5)})`
-                              : 'none',
+                            char === '█' || char === '▓' ? 'brightness(1.2)' : 'brightness(1)',
+                          transition: 'none', // No fade transition
                         }}
                       >
-                        {char}
-                      </span>
-                    ))}
-                  </span>
-                </div>
-              </div>
-            ))}
+                        {displayChar}
+                      </motion.span>
+                    )
+                  })}
+                </motion.div>
+              )
+            })}
           </div>
         </div>
         <div className="text-gray-400 text-[8px] leading-[8px] -mt-0.5">
-          {asciiDotAI.map((line, i) => (
-            <div key={i}>{line}</div>
+          {asciiDotAI.map((line, lineIndex) => (
+            <motion.div
+              key={lineIndex}
+              animate={{
+                opacity: glitchMode === 'typewriter' ? [(frame * 2) % 100 > 80 ? 1 : 0.3] : 1,
+              }}
+              transition={{ duration: 0.2 }}
+            >
+              {line.split('').map((char, charIndex) => {
+                // Enhanced rainbow continuation for .AI suffix
+                const continuedIndex = 24 + charIndex
+                const waveOffset = Math.sin(frame * 0.03 + lineIndex * 2) * 30
+                const rawHue = continuedIndex * 15 - frame * 2 + waveOffset
+                const hue = ((rawHue % 360) + 360) % 360
+
+                // Apply same color settings to .AI suffix
+                const showColor =
+                  (enableColorOnHover && isHovered) ||
+                  (enableColorOnGlitch && glitchMode !== 'normal' && glitchIntensity > 0)
+
+                const dynamicSaturation = baseSaturation + Math.sin(frame * 0.05) * 10
+                const appliedSaturation = showColor ? dynamicSaturation * colorIntensity : 0
+                const lightness = 55 + Math.sin(frame * 0.07 + charIndex * 0.2) * 10
+                const baseColor = showColor
+                  ? `hsl(${hue}, ${appliedSaturation}%, ${lightness}%)`
+                  : 'white'
+
+                return (
+                  <span
+                    key={charIndex}
+                    style={{
+                      color: baseColor,
+                      transition: 'none',
+                    }}
+                  >
+                    {char}
+                  </span>
+                )
+              })}
+            </motion.div>
           ))}
         </div>
       </pre>
@@ -140,6 +421,20 @@ export function AnimatedLogo() {
           }
           50% {
             background-position: 100% 50%;
+          }
+        }
+        @keyframes dissolve {
+          0% {
+            opacity: 1;
+            filter: blur(0px);
+          }
+          50% {
+            opacity: 0.5;
+            filter: blur(3px);
+          }
+          100% {
+            opacity: 1;
+            filter: blur(0px);
           }
         }
       `}</style>

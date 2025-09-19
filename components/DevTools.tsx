@@ -260,6 +260,8 @@ export function DevTools() {
                     Demo Pages
                   </div>
                   <div className="space-y-1">
+                    <RouteLink href="/demos" label="All Demos" />
+                    <RouteLink href="/demos/logo-effects" label="Logo Effects & Keyframes" />
                     <RouteLink href="/demos/backgrounds-demo" label="Background Effects" />
                     <RouteLink href="/demos/hero-no-header" label="Standalone Hero" />
                   </div>

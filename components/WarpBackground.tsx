@@ -57,50 +57,6 @@ const FlatBlock = React.memo(
 
 FlatBlock.displayName = 'FlatBlock'
 
-// Memoized warp line component for performance
-const WarpLine = React.memo(({ angle, delay }: { angle: number; delay: number }) => {
-  const colors = ['#a855f7', '#22d3ee', '#ec4899', '#4ade80', '#fb923c']
-  const color = colors[Math.floor((angle * 5) % colors.length)]
-
-  return (
-    <motion.div
-      className="absolute pointer-events-none will-change-transform"
-      style={{
-        left: '50%',
-        top: '50%',
-        width: '150px',
-        height: '2px',
-        transformOrigin: '0 50%',
-        transform: `rotate(${(angle * 180) / Math.PI}deg)`,
-      }}
-      initial={{
-        opacity: 0,
-        scaleX: 0,
-      }}
-      animate={{
-        scaleX: [0, 2, 0],
-        opacity: [0, 0.5, 0],
-      }}
-      transition={{
-        duration: 4,
-        repeat: Infinity,
-        delay: delay,
-        ease: 'easeOut',
-      }}
-    >
-      <div
-        className="w-full h-full"
-        style={{
-          background: `linear-gradient(90deg, ${color} 0%, transparent 100%)`,
-          boxShadow: `0 0 15px ${color}`,
-        }}
-      />
-    </motion.div>
-  )
-})
-
-WarpLine.displayName = 'WarpLine'
-
 export const WarpBackground: React.FC<WarpBackgroundProps> = React.memo(
   ({ children, className, ...props }) => {
     // Generate 3D cubes at different positions
@@ -122,19 +78,7 @@ export const WarpBackground: React.FC<WarpBackgroundProps> = React.memo(
       return cubeArray
     }, [])
 
-    // Generate warp lines
-    const warpLines = useMemo(() => {
-      const lines = []
-      // Reduced number of lines for better performance
-      for (let i = 0; i < 6; i++) {
-        lines.push({
-          id: i,
-          angle: (i / 8) * Math.PI * 2,
-          delay: (i * 0.2) % 2,
-        })
-      }
-      return lines
-    }, [])
+    // Warp lines removed - caused distracting horizontal pulsing
 
     return (
       <div className={cn('relative overflow-hidden', className)} {...props}>
@@ -178,24 +122,9 @@ export const WarpBackground: React.FC<WarpBackgroundProps> = React.memo(
             />
           ))}
 
-          {/* Warp speed lines from center */}
-          <div className="absolute inset-0">
-            {warpLines.map((line) => (
-              <WarpLine key={`line-${line.id}`} angle={line.angle} delay={line.delay} />
-            ))}
-          </div>
+          {/* Warp speed lines removed - was distracting */}
 
-          {/* Static center glow - removed animation for performance */}
-          <div
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
-            style={{
-              width: '150px',
-              height: '150px',
-              borderRadius: '50%',
-              background: 'radial-gradient(circle, rgba(168,85,247,0.3), transparent)',
-              filter: 'blur(40px)',
-            }}
-          />
+          {/* Center glow removed - was distracting */}
         </div>
 
         {/* Content */}
