@@ -1,9 +1,9 @@
 'use client'
 
-import Link from 'next/link'
 import { ArrowRight, ChevronDown } from 'lucide-react'
 import { WarpBackground } from '@/components/WarpBackground'
 import { HeroSectionProps } from '@/lib/types'
+import { SimpleAnimatedButton } from '@/components/ui/SimpleAnimatedButton'
 
 export function HeroSection({
   title = {
@@ -51,19 +51,13 @@ export function HeroSection({
 
             {/* CTAs - visible immediately, interactive immediately */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-              <Link
-                href={primaryCTA.href}
-                className="inline-flex items-center px-8 py-3 text-sm font-medium text-black bg-white rounded-full hover:bg-gray-200 transition-colors group"
-              >
+              <SimpleAnimatedButton href={primaryCTA.href} variant="primary">
                 {primaryCTA.text}
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link
-                href={secondaryCTA.href}
-                className="inline-flex items-center px-8 py-3 text-sm font-medium text-white bg-white/10 backdrop-blur-sm rounded-full hover:bg-white/20 transition-colors"
-              >
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </SimpleAnimatedButton>
+              <SimpleAnimatedButton href={secondaryCTA.href} variant="secondary">
                 {secondaryCTA.text}
-              </Link>
+              </SimpleAnimatedButton>
             </div>
           </div>
         </div>

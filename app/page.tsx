@@ -1,5 +1,5 @@
 import { HeroSection } from '@/components/sections/HeroSectionOptimized'
-import { ProjectGrid } from '@/components/sections/ProjectGrid'
+import { ProjectGrid } from '@/components/sections/ProjectGridSimple'
 import { ContactSection } from '@/components/sections/ContactSection'
 
 export default function Home() {
