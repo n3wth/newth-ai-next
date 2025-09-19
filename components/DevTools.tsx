@@ -49,55 +49,96 @@ export function DevTools() {
     if (process.env.NODE_ENV !== 'development') return
     if (typeof window === 'undefined') return
 
-    // Measure page load time
-    const navTiming = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming
-    if (navTiming) {
-      setWebVitals((prev) => ({
-        ...prev,
-        ttfb: Math.round(navTiming.responseStart - navTiming.fetchStart),
-        fcp: Math.round(navTiming.loadEventEnd - navTiming.fetchStart),
-      }))
+    const supportsEntryType = (type: string) => {
+      if (typeof PerformanceObserver === 'undefined') return false
+      const entryTypes = PerformanceObserver.supportedEntryTypes
+      return Array.isArray(entryTypes) ? entryTypes.includes(type) : false
     }
 
-    // Observe LCP
-    const lcpObserver = new PerformanceObserver((list) => {
-      const entries = list.getEntries()
-      const lastEntry = entries[entries.length - 1] as PerformanceEntryWithDetails
-      setWebVitals((prev) => ({
-        ...prev,
-        lcp: Math.round(lastEntry.renderTime || lastEntry.loadTime || 0),
-      }))
-    })
-    lcpObserver.observe({ type: 'largest-contentful-paint', buffered: true })
+    const cleanups: Array<() => void> = []
 
-    // Observe CLS
-    let clsScore = 0
-    const clsObserver = new PerformanceObserver((list) => {
-      for (const entry of list.getEntries() as PerformanceEntryWithDetails[]) {
-        if (!entry.hadRecentInput) {
-          clsScore += entry.value || 0
-          setWebVitals((prev) => ({ ...prev, cls: Math.round(clsScore * 1000) / 1000 }))
-        }
-      }
-    })
-    clsObserver.observe({ type: 'layout-shift', buffered: true })
+    try {
+      const navEntries =
+        typeof performance.getEntriesByType === 'function'
+          ? (performance.getEntriesByType('navigation') as PerformanceNavigationTiming[])
+          : []
+      const navTiming = navEntries[0]
 
-    // Observe FID
-    const fidObserver = new PerformanceObserver((list) => {
-      const entries = list.getEntries() as PerformanceEntryWithDetails[]
-      if (entries.length > 0) {
+      if (navTiming) {
         setWebVitals((prev) => ({
           ...prev,
-          fid: Math.round((entries[0].processingStart || 0) - (entries[0].startTime || 0)),
+          ttfb: Math.round(navTiming.responseStart - navTiming.fetchStart),
+          fcp: Math.round(navTiming.loadEventEnd - navTiming.fetchStart),
         }))
+      } else {
+        const timing = performance.timing
+        if (timing) {
+          setWebVitals((prev) => ({
+            ...prev,
+            ttfb: Math.round(timing.responseStart - timing.fetchStart),
+            fcp: Math.round(timing.domContentLoadedEventEnd - timing.fetchStart),
+          }))
+        }
       }
-    })
-    fidObserver.observe({ type: 'first-input', buffered: true })
+    } catch (error) {
+      console.warn('DevTools: unable to read navigation timings', error)
+    }
+
+    if (supportsEntryType('largest-contentful-paint')) {
+      try {
+        const lcpObserver = new PerformanceObserver((list) => {
+          const entries = list.getEntries()
+          const lastEntry = entries[entries.length - 1] as PerformanceEntryWithDetails
+          setWebVitals((prev) => ({
+            ...prev,
+            lcp: Math.round(lastEntry.renderTime || lastEntry.loadTime || 0),
+          }))
+        })
+        lcpObserver.observe({ type: 'largest-contentful-paint', buffered: true })
+        cleanups.push(() => lcpObserver.disconnect())
+      } catch (error) {
+        console.warn('DevTools: unable to observe LCP', error)
+      }
+    }
+
+    if (supportsEntryType('layout-shift')) {
+      let clsScore = 0
+      try {
+        const clsObserver = new PerformanceObserver((list) => {
+          for (const entry of list.getEntries() as PerformanceEntryWithDetails[]) {
+            if (!entry.hadRecentInput) {
+              clsScore += entry.value || 0
+              setWebVitals((prev) => ({ ...prev, cls: Math.round(clsScore * 1000) / 1000 }))
+            }
+          }
+        })
+        clsObserver.observe({ type: 'layout-shift', buffered: true })
+        cleanups.push(() => clsObserver.disconnect())
+      } catch (error) {
+        console.warn('DevTools: unable to observe CLS', error)
+      }
+    }
+
+    if (supportsEntryType('first-input')) {
+      try {
+        const fidObserver = new PerformanceObserver((list) => {
+          const entries = list.getEntries() as PerformanceEntryWithDetails[]
+          if (entries.length > 0) {
+            setWebVitals((prev) => ({
+              ...prev,
+              fid: Math.round((entries[0].processingStart || 0) - (entries[0].startTime || 0)),
+            }))
+          }
+        })
+        fidObserver.observe({ type: 'first-input', buffered: true })
+        cleanups.push(() => fidObserver.disconnect())
+      } catch (error) {
+        console.warn('DevTools: unable to observe FID', error)
+      }
+    }
 
     return () => {
-      lcpObserver.disconnect()
-      clsObserver.disconnect()
-      fidObserver.disconnect()
+      cleanups.forEach((cleanup) => cleanup())
     }
   }, [])
 
@@ -109,15 +150,33 @@ export function DevTools() {
     let frameCount = 0
     let lastTime = performance.now()
     let animationId: number
+    let hasWarnedMemoryAccess = false
 
     const measureMetrics = () => {
       frameCount++
       const currentTime = performance.now()
 
       if (currentTime >= lastTime + 1000) {
+        let memoryUsage = 0
+        try {
+          const memoryInfo = (
+            performance as Performance & {
+              memory?: { usedJSHeapSize: number }
+            }
+          ).memory
+          if (memoryInfo) {
+            memoryUsage = Math.round(memoryInfo.usedJSHeapSize / 1048576)
+          }
+        } catch (error) {
+          if (!hasWarnedMemoryAccess) {
+            console.warn('DevTools: unable to access memory metrics', error)
+            hasWarnedMemoryAccess = true
+          }
+        }
+
         setMetrics({
           fps: Math.round((frameCount * 1000) / (currentTime - lastTime)),
-          memory: performance.memory ? Math.round(performance.memory.usedJSHeapSize / 1048576) : 0,
+          memory: memoryUsage,
           domNodes: document.getElementsByTagName('*').length,
         })
         frameCount = 0
