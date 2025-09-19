@@ -1,6 +1,7 @@
 import { ImageResponse } from 'next/og'
 
-export const runtime = 'edge'
+// Using Node.js runtime for better static generation compatibility
+// export const runtime = 'edge'
 
 export async function GET(request: Request) {
   try {
