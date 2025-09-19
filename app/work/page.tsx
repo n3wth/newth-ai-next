@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { ArrowLeft, ArrowUpRight, Building2, Calendar } from 'lucide-react'
 import { Navigation } from '@/components/Navigation'
 import { Footer } from '@/components/Footer'
+import { getCompanyIcon } from '@/components/CompanyIcons'
 
 interface Experience {
   id: string
@@ -109,8 +110,8 @@ export default function WorkPage() {
                 <span className="block">shipping at scale.</span>
               </h1>
               <p className="text-lg sm:text-xl text-gray-300 max-w-2xl font-light leading-relaxed">
-                From Azure to Google, I've built AI products that serve billions.
-                Here's the full story.
+                From Azure to Google, I&apos;ve built AI products that serve billions.
+                Here&apos;s the full story.
               </p>
 
               {/* Quick stats */}
@@ -139,19 +140,10 @@ export default function WorkPage() {
         {/* Experience Timeline */}
         <section className="py-24 px-4">
           <div className="max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="space-y-12"
-            >
+            <div className="space-y-12">
               {experiences.map((exp, index) => (
-                <motion.div
+                <div
                   key={exp.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="relative"
                 >
                   {/* Timeline connector */}
@@ -161,8 +153,15 @@ export default function WorkPage() {
 
                   <div className="flex gap-8">
                     {/* Company icon */}
-                    <div className="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 flex items-center justify-center">
-                      <Building2 className="w-6 h-6 text-gray-600 dark:text-gray-400" />
+                    <div className="flex-shrink-0 w-16 h-16 rounded-full bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 flex items-center justify-center">
+                      {(() => {
+                        const Icon = getCompanyIcon(exp.company)
+                        return Icon ? (
+                          <Icon className="w-8 h-8" />
+                        ) : (
+                          <Building2 className="w-6 h-6 text-gray-600 dark:text-gray-400" />
+                        )
+                      })()}
                     </div>
 
                     {/* Content */}
@@ -217,9 +216,9 @@ export default function WorkPage() {
                       </div>
                     </div>
                   </div>
-                </motion.div>
+                </div>
               ))}
-            </motion.div>
+            </div>
 
             {/* Education Section */}
             <motion.div
@@ -276,7 +275,7 @@ export default function WorkPage() {
               Want to build something together?
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 mb-8">
-              I'm always interested in ambitious projects that push boundaries.
+              I&apos;m always interested in ambitious projects that push boundaries.
             </p>
             <Link
               href="mailto:oliver@newth.ai"

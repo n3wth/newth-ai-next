@@ -164,7 +164,7 @@ export function InteractiveHero() {
             { label: "Years at FAANG", value: "10+", delay: 0 },
             { label: "Products Shipped", value: "30+", delay: 0.1 },
             { label: "Teams Led", value: "60+", delay: 0.2 },
-          ].map((stat, i) => (
+          ].map((stat) => (
             <motion.div
               key={stat.label}
               initial={{ opacity: 0, y: 20 }}

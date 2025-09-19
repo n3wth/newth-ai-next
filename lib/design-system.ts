@@ -245,13 +245,13 @@ export const cn = (...classes: (string | undefined | false)[]) => {
   return classes.filter(Boolean).join(' ')
 }
 
-export const getColor = (path: string) => {
+export const getColor = (path: string): string => {
   const keys = path.split('.')
-  let value: any = designTokens.colors
+  let value: unknown = designTokens.colors
   for (const key of keys) {
-    value = value[key]
+    value = (value as Record<string, unknown>)[key]
   }
-  return value
+  return value as string
 }
 
 export const getSpacing = (size: keyof typeof designTokens.spacing) => {

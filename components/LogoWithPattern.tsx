@@ -23,43 +23,6 @@ export function LogoWithPattern() {
     "█▓▓▓▒▒░░░░▒▒▒▓▓▓"
   ]
 
-  // Alternative diamond pattern
-  const diamondPattern = [
-    "◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇",
-    "◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆",
-    "◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇",
-    "◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆",
-  ]
-
-  // Diagonal block pattern
-  const diagonalBlocks = [
-    "█▓▒░    ░▒▓█",
-    "▓█▓▒░  ░▒▓█▓",
-    "▒▓█▓▒░░▒▓█▓▒",
-    "░▒▓█▓▒▒▓█▓▒░",
-    " ░▒▓████▓▒░ ",
-    "  ░▒▓██▓▒░  ",
-    "   ░▒▓▓▒░   ",
-    "    ░▒▒░    ",
-  ]
-
-  // Gradient squares pattern (main design)
-  const gradientSquares = [
-    "■ □ ▪ ▫ · ·",
-    "□ ■ □ ▪ ▫ ·",
-    "▪ □ ■ □ ▪ ▫",
-    "▫ ▪ □ ■ □ ▪",
-    "· ▫ ▪ □ ■ □",
-    "· · ▫ ▪ □ ■",
-  ]
-
-  // Beautiful wave pattern
-  const wavePattern = [
-    "▁▂▃▄▅▆▇█▇▆▅▄▃▂▁",
-    "▂▃▄▅▆▇█▇▆▅▄▃▂▁▂",
-    "▃▄▅▆▇█▇▆▅▄▃▂▁▂▃",
-    "▄▅▆▇█▇▆▅▄▃▂▁▂▃▄",
-  ]
 
   return (
     <div className="relative">

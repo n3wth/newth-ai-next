@@ -72,7 +72,7 @@ export default function NewsletterPage() {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12"
               >
-                {benefits.map((benefit, index) => (
+                {benefits.map((benefit) => (
                   <div
                     key={benefit.title}
                     className="relative group"

@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { designTokens } from '@/lib/design-system'
 
 export function Hero() {
   return (

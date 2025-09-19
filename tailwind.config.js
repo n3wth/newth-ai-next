@@ -25,16 +25,17 @@ module.exports = {
         border: 'var(--border)',
       },
       animation: {
-        'aurora': 'aurora 20s linear infinite',
+        'aurora': 'aurora 15s linear infinite',
         'float': 'float 20s ease-in-out infinite',
         'glow': 'glow 8s ease-in-out infinite',
         'gradient-shift': 'gradient-shift 10s ease infinite',
         'pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'meteor': 'meteor linear infinite',
       },
       keyframes: {
         aurora: {
-          from: { transform: 'translateY(100%)' },
-          to: { transform: 'translateY(-100%)' },
+          '0%': { transform: 'translateY(100%) rotate(0deg)' },
+          '100%': { transform: 'translateY(-100%) rotate(2deg)' },
         },
         float: {
           '0%, 100%': { transform: 'translateY(0px) translateX(0px) scale(1)' },
@@ -50,6 +51,12 @@ module.exports = {
           '0%': { backgroundPosition: '0% 50%' },
           '50%': { backgroundPosition: '100% 50%' },
           '100%': { backgroundPosition: '0% 50%' },
+        },
+        meteor: {
+          '0%': { transform: 'rotate(35deg) translateX(0)', opacity: '0' },
+          '10%': { opacity: '1' },
+          '90%': { opacity: '1' },
+          '100%': { transform: 'rotate(35deg) translateX(300px)', opacity: '0' },
         },
       },
     },

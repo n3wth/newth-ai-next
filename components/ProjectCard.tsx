@@ -1,6 +1,5 @@
 'use client'
 
-import Link from 'next/link'
 import { ArrowUpRight, Github, Globe, Star, Download } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'
