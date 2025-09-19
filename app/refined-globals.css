@@ -4,6 +4,35 @@
 
 /* OpenAI/Apple-inspired design system with ASCII charm */
 
+/* View Transitions API for smooth page transitions (only during navigation) */
+@supports (view-transition-name: root) {
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      view-transition-name: root;
+    }
+
+    ::view-transition-old(root) {
+      animation: 90ms cubic-bezier(0.4, 0, 1, 1) both fade-out;
+    }
+
+    ::view-transition-new(root) {
+      animation: 210ms cubic-bezier(0, 0, 0.2, 1) 90ms both fade-in;
+    }
+
+    @keyframes fade-out {
+      to {
+        opacity: 0;
+      }
+    }
+
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+      }
+    }
+  }
+}
+
 @layer base {
   :root {
     /* Premium color palette */
@@ -206,4 +235,35 @@
 ::selection {
   background: rgba(139, 92, 246, 0.3);
   color: white;
+}
+
+/* Better focus states for accessibility */
+*:focus-visible {
+  @apply outline outline-2 outline-offset-2 outline-violet-500/50 rounded-sm;
+}
+
+button:focus-visible {
+  @apply outline-violet-500;
+}
+
+a:focus-visible {
+  @apply outline-violet-500/70;
+}
+
+/* Subtle hover lift for interactive elements */
+.hover-lift {
+  @apply transition-transform duration-200 ease-out;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+}
+
+/* Micro-interaction for buttons */
+button {
+  @apply transition-all duration-200;
+}
+
+button:active {
+  transform: scale(0.98);
 }

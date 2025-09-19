@@ -1,9 +1,5 @@
-'use client'
-
-import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { ArrowLeft, ArrowUpRight, Building2, Calendar } from 'lucide-react'
-import { Footer } from '@/components/Footer'
 import { getCompanyIcon } from '@/components/CompanyIcons'
 
 interface Experience {
@@ -81,14 +77,14 @@ const experiences: Experience[] = [
 
 export default function WorkPage() {
   return (
-    <div className="min-h-screen bg-white dark:bg-black text-gray-900 dark:text-gray-100 flex flex-col">
+    <div className="min-h-screen bg-black text-gray-100 flex flex-col">
       <main className="flex-1">
         {/* Hero Section */}
         <section className="relative py-20 px-4 bg-gradient-to-b from-black via-gray-950 to-black text-white">
           {/* Subtle gradient background */}
-          <div className="absolute inset-0">
-            <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full filter blur-[120px]" />
-            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-600/10 rounded-full filter blur-[120px]" />
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute top-0 left-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-blue-600/10 rounded-full filter blur-[120px]" />
+            <div className="absolute bottom-0 right-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-purple-600/10 rounded-full filter blur-[120px]" />
           </div>
 
           <div className="relative z-10 max-w-4xl mx-auto">
@@ -100,11 +96,7 @@ export default function WorkPage() {
               Back to projects
             </Link>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
+            <div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-normal tracking-tight mb-6 leading-[1.15]">
                 A decade of
                 <span className="block">shipping at scale.</span>
@@ -133,7 +125,7 @@ export default function WorkPage() {
                   <div className="text-sm text-gray-400">Users served</div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
         </section>
 
@@ -145,18 +137,18 @@ export default function WorkPage() {
                 <div key={exp.id} className="relative">
                   {/* Timeline connector */}
                   {index !== experiences.length - 1 && (
-                    <div className="absolute left-8 top-20 bottom-0 w-px bg-gradient-to-b from-gray-300 dark:from-gray-700 to-transparent" />
+                    <div className="absolute left-8 top-20 bottom-0 w-px bg-gradient-to-b from-gray-700 to-transparent" />
                   )}
 
                   <div className="flex gap-8">
                     {/* Company icon */}
-                    <div className="flex-shrink-0 w-16 h-16 rounded-full bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 flex items-center justify-center">
+                    <div className="flex-shrink-0 w-16 h-16 rounded-full bg-gray-900 border border-gray-800 flex items-center justify-center">
                       {(() => {
                         const Icon = getCompanyIcon(exp.company)
                         return Icon ? (
                           <Icon className="w-8 h-8" />
                         ) : (
-                          <Building2 className="w-6 h-6 text-gray-600 dark:text-gray-400" />
+                          <Building2 className="w-6 h-6 text-gray-400" />
                         )
                       })()}
                     </div>
@@ -164,32 +156,32 @@ export default function WorkPage() {
                     {/* Content */}
                     <div className="flex-1 pb-8">
                       <div className="mb-4">
-                        <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-1">
+                        <h3 className="text-2xl font-semibold text-white mb-1">
                           {exp.company}
                         </h3>
                         <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm">
-                          <span className="text-gray-600 dark:text-gray-300 font-medium">
+                          <span className="text-gray-300 font-medium">
                             {exp.role}
                           </span>
-                          <span className="text-gray-400 dark:text-gray-500 flex items-center gap-1">
+                          <span className="text-gray-500 flex items-center gap-1">
                             <Calendar className="w-3 h-3" />
                             {exp.period}
                           </span>
                         </div>
                       </div>
 
-                      <p className="text-gray-600 dark:text-gray-400 mb-6">{exp.description}</p>
+                      <p className="text-gray-400 mb-6">{exp.description}</p>
 
                       {/* Achievements */}
                       <div className="mb-6">
-                        <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-3">
+                        <h4 className="text-sm font-medium text-gray-400 mb-3">
                           Key Achievements
                         </h4>
                         <ul className="space-y-2">
                           {exp.achievements.map((achievement, i) => (
                             <li
                               key={i}
-                              className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-300"
+                              className="flex items-start gap-2 text-sm text-gray-300"
                             >
                               <span className="text-violet-400 mt-1">▸</span>
                               <span>{achievement}</span>
@@ -203,7 +195,7 @@ export default function WorkPage() {
                         {exp.tech.map((tech) => (
                           <span
                             key={tech}
-                            className="px-3 py-1 text-xs rounded-full backdrop-blur-xl bg-white/5 border border-white/10 text-gray-600 dark:text-gray-300"
+                            className="px-3 py-1 text-xs rounded-full backdrop-blur-xl bg-white/5 border border-white/10 text-gray-300"
                           >
                             {tech}
                           </span>
@@ -216,68 +208,56 @@ export default function WorkPage() {
             </div>
 
             {/* Education Section */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="mt-24 pt-24 border-t border-gray-200 dark:border-gray-800"
-            >
-              <h2 className="text-3xl font-normal text-gray-900 dark:text-white mb-8">Education</h2>
+            <div className="mt-24 pt-24 border-t border-gray-800">
+              <h2 className="text-3xl font-normal text-white mb-8">Education</h2>
 
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-1">
+                  <h3 className="text-xl font-semibold text-white mb-1">
                     Massachusetts Institute of Technology
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400">
+                  <p className="text-gray-400">
                     MEng in High Performance Structures • 2013 - 2014
                   </p>
-                  <p className="text-sm text-gray-500 dark:text-gray-500 mt-2">
+                  <p className="text-sm text-gray-500 mt-2">
                     Thesis: Predicting extreme events - the role of big data in quantifying risk
                   </p>
                   <p className="text-sm text-violet-400 mt-1">Kennedy Scholar</p>
                 </div>
 
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-1">
+                  <h3 className="text-xl font-semibold text-white mb-1">
                     University of Warwick
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400">
+                  <p className="text-gray-400">
                     BEng in Civil Engineering • 2009 - 2012
                   </p>
-                  <p className="text-sm text-gray-500 dark:text-gray-500 mt-2">GPA: 4.0</p>
+                  <p className="text-sm text-gray-500 mt-2">GPA: 4.0</p>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
         </section>
 
         {/* CTA Section */}
-        <section className="py-24 px-4 border-t border-gray-200 dark:border-gray-800">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="max-w-4xl mx-auto text-center"
-          >
-            <h2 className="text-3xl sm:text-4xl font-normal mb-6 text-gray-900 dark:text-white">
+        <section className="py-24 px-4 border-t border-gray-800">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl sm:text-4xl font-normal mb-6 text-white">
               Want to build something together?
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400 mb-8">
+            <p className="text-lg text-gray-400 mb-8">
               I&apos;m always interested in ambitious projects that push boundaries.
             </p>
             <Link
               href="mailto:oliver@newth.ai"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-white dark:bg-gray-900 text-black dark:text-white font-medium rounded-xl border border-gray-200 dark:border-gray-800 transition-all hover:scale-[1.02] hover:shadow-xl"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-gray-900 text-white font-medium rounded-xl border border-gray-800 transition-all hover:scale-[1.02] hover:shadow-xl"
             >
               Get in touch
               <ArrowUpRight className="w-4 h-4" />
             </Link>
-          </motion.div>
+          </div>
         </section>
       </main>
-
-      <Footer />
     </div>
   )
 }

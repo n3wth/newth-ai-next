@@ -18,6 +18,7 @@ export interface NavItem {
   href: string
   text: string
   external?: boolean
+  icon?: React.ComponentType<{ size?: number; className?: string }>
 }
 
 export interface SocialLink {

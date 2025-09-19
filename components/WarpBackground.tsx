@@ -2,163 +2,203 @@
 
 import { cn } from '@/lib/utils'
 import { motion } from 'framer-motion'
-import React, { HTMLAttributes, useCallback, useMemo } from 'react'
+import React, { HTMLAttributes, useMemo } from 'react'
 
 interface WarpBackgroundProps extends HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode
-  perspective?: number
-  beamsPerSide?: number
-  beamSize?: number
-  beamDelayMax?: number
-  beamDelayMin?: number
-  beamDuration?: number
-  gridColor?: string
 }
 
-const Beam = ({
-  width,
-  x,
-  delay,
-  duration,
-}: {
-  width: string | number
-  x: string | number
+// Memoized flat block component for performance
+const FlatBlock = React.memo(({ x, y, delay, size, color }: {
+  x: number
+  y: number
   delay: number
-  duration: number
+  size: number
+  color: string
 }) => {
-  // Use delay as seed for deterministic values
-  const seed = delay * 1000
-  const hue = 260 + Math.floor((seed * 2.7) % 40) // Tighter purple/violet range
-  const ar = Math.floor((seed * 3.3) % 6) + 4 // Aspect ratios between 4-9 for consistent beams
-
   return (
     <motion.div
-      style={
-        {
-          '--x': `${x}`,
-          '--width': `${width}`,
-          '--aspect-ratio': `${ar}`,
-          '--background': `linear-gradient(hsl(${hue} 70% 50% / 0.3), transparent)`,
-        } as React.CSSProperties
-      }
-      className={`absolute left-[var(--x)] top-0 [aspect-ratio:1/var(--aspect-ratio)] [background:var(--background)] [width:var(--width)]`}
-      initial={{ y: '100cqmax', x: '-50%' }}
-      animate={{ y: '-200cqmax', x: '-50%' }}
+      className="absolute pointer-events-none will-change-transform"
+      style={{
+        left: `${x}%`,
+        top: `${y}%`,
+        width: `${size}px`,
+        height: `${size}px`,
+        backgroundColor: color,
+      }}
+      initial={{
+        opacity: 0,
+        scale: 0.5,
+        z: '-500px',
+      }}
+      animate={{
+        z: ['-500px', '1000px'],
+        scale: [0.5, 6],
+        opacity: [0, 1, 1, 0, 0],
+      }}
       transition={{
-        duration,
-        delay,
+        duration: 6,
         repeat: Infinity,
+        delay: delay,
         ease: 'linear',
+        times: [0, 0.1, 0.7, 0.85, 1], // Visible much sooner (10% instead of 30%)
       }}
     />
   )
-}
+})
 
-export const WarpBackground: React.FC<WarpBackgroundProps> = ({
-  children,
-  perspective = 100,
-  className,
-  beamsPerSide = 3,
-  beamSize = 5,
-  beamDelayMax = 3,
-  beamDelayMin = 0,
-  beamDuration = 3,
-  gridColor = 'rgba(139, 92, 246, 0.2)',
-  ...props
-}) => {
-  const generateBeams = useCallback(
-    (seedOffset: number) => {
-      const beams = []
-      const cellsPerSide = Math.floor(100 / beamSize)
+FlatBlock.displayName = 'FlatBlock'
 
-      for (let i = 0; i < beamsPerSide; i++) {
-        // More random-feeling distribution using multiple pseudo-random calculations
-        const seed1 = (i + 1) * (seedOffset + 1)
-        const seed2 = (i + 3) * (seedOffset + 7)
-        const pseudoRandom1 = ((seed1 * 9301 + 49297) % 233280) / 233280
-        const pseudoRandom2 = ((seed2 * 12979 + 26147) % 175000) / 175000
-
-        // Non-uniform distribution for x position
-        const x = Math.floor(pseudoRandom1 * cellsPerSide)
-
-        // More varied delays with clustering
-        const delay = pseudoRandom2 * pseudoRandom2 * (beamDelayMax - beamDelayMin) + beamDelayMin
-        beams.push({ x, delay })
-      }
-      return beams
-    },
-    [beamsPerSide, beamSize, beamDelayMax, beamDelayMin]
-  )
-
-  const topBeams = useMemo(() => generateBeams(1), [generateBeams])
-  const rightBeams = useMemo(() => generateBeams(2), [generateBeams])
-  const bottomBeams = useMemo(() => generateBeams(3), [generateBeams])
-  const leftBeams = useMemo(() => generateBeams(4), [generateBeams])
+// Memoized warp line component for performance
+const WarpLine = React.memo(({ angle, delay }: { angle: number; delay: number }) => {
+  const colors = ['#a855f7', '#22d3ee', '#ec4899', '#4ade80', '#fb923c']
+  const color = colors[Math.floor((angle * 5) % colors.length)]
 
   return (
-    <div className={cn('relative', className)} {...props}>
+    <motion.div
+      className="absolute pointer-events-none will-change-transform"
+      style={{
+        left: '50%',
+        top: '50%',
+        width: '150px',
+        height: '2px',
+        transformOrigin: '0 50%',
+        transform: `rotate(${angle * 180 / Math.PI}deg)`,
+      }}
+      initial={{
+        opacity: 0,
+        scaleX: 0,
+      }}
+      animate={{
+        scaleX: [0, 2, 0],
+        opacity: [0, 1, 0],
+      }}
+      transition={{
+        duration: 4,
+        repeat: Infinity,
+        delay: delay,
+        ease: 'easeOut',
+      }}
+    >
       <div
-        style={
-          {
-            '--perspective': `${perspective}px`,
-            '--grid-color': gridColor,
-            '--beam-size': `${beamSize}%`,
-          } as React.CSSProperties
-        }
-        className={
-          'pointer-events-none absolute left-0 top-0 size-full overflow-hidden [clipPath:inset(0)] [container-type:size] [perspective:var(--perspective)] [transform-style:preserve-3d]'
-        }
+        className="w-full h-full"
+        style={{
+          background: `linear-gradient(90deg, ${color} 0%, transparent 100%)`,
+          boxShadow: `0 0 15px ${color}`,
+        }}
+      />
+    </motion.div>
+  )
+})
+
+WarpLine.displayName = 'WarpLine'
+
+export const WarpBackground: React.FC<WarpBackgroundProps> = React.memo(({
+  children,
+  className,
+  ...props
+}) => {
+  // Generate 3D cubes at different positions
+  const cubes = useMemo(() => {
+    const cubeArray = []
+    const colors = ['#10b981', '#8b5cf6', '#3b82f6', '#ef4444', '#f59e0b', '#ec4899', '#06b6d4']
+
+    // Reduced number of cubes for better performance
+    for (let i = 0; i < 30; i++) {
+      cubeArray.push({
+        id: i,
+        x: 5 + (i * 11) % 90,
+        y: 5 + (i * 19) % 90,
+        delay: (i * 0.2) % 6, // Shorter delays, max 6 seconds
+        size: 6 + (i % 3) * 2,
+        color: colors[i % colors.length],
+      })
+    }
+    return cubeArray
+  }, [])
+
+  // Generate warp lines
+  const warpLines = useMemo(() => {
+    const lines = []
+    // Reduced number of lines for better performance
+    for (let i = 0; i < 8; i++) {
+      lines.push({
+        id: i,
+        angle: (i / 8) * Math.PI * 2,
+        delay: (i * 0.2) % 2,
+      })
+    }
+    return lines
+  }, [])
+
+  return (
+    <div className={cn('relative overflow-hidden', className)} {...props}>
+      {/* Base black background */}
+      <div className="absolute inset-0 bg-black" />
+
+      {/* 3D perspective container with GPU acceleration */}
+      <div
+        className="absolute inset-0 transform-gpu"
+        style={{
+          perspective: '500px',
+          perspectiveOrigin: '50% 50%',
+          transformStyle: 'preserve-3d',
+        }}
       >
-        {/* top side */}
-        <div className="absolute z-20 [transform-style:preserve-3d] [background-size:var(--beam-size)_var(--beam-size)] [background:linear-gradient(var(--grid-color)_0_1px,_transparent_1px_var(--beam-size))_50%_-0.5px_/var(--beam-size)_var(--beam-size),linear-gradient(90deg,_var(--grid-color)_0_1px,_transparent_1px_var(--beam-size))_50%_50%_/var(--beam-size)_var(--beam-size)] [container-type:inline-size] [height:100cqmax] [transform-origin:50%_0%] [transform:rotateX(-90deg)] [width:100cqi]">
-          {topBeams.map((beam, index) => (
-            <Beam
-              key={`top-${index}`}
-              width={`${beamSize}%`}
-              x={`${beam.x * beamSize}%`}
-              delay={beam.delay}
-              duration={beamDuration}
+        {/* Static grid floor effect - no animation for performance */}
+        <div
+          className="absolute inset-0 opacity-50"
+          style={{
+            background: `
+              linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)
+            `,
+            backgroundSize: '50px 50px',
+            transform: 'rotateX(80deg) translateZ(-200px)',
+            transformOrigin: 'center bottom',
+          }}
+        />
+
+        {/* Flat blocks flowing toward viewer */}
+        {cubes.map((cube) => (
+          <FlatBlock
+            key={`cube-${cube.id}`}
+            x={cube.x}
+            y={cube.y}
+            delay={cube.delay}
+            size={cube.size}
+            color={cube.color}
+          />
+        ))}
+
+        {/* Warp speed lines from center */}
+        <div className="absolute inset-0">
+          {warpLines.map((line) => (
+            <WarpLine
+              key={`line-${line.id}`}
+              angle={line.angle}
+              delay={line.delay}
             />
           ))}
         </div>
-        {/* bottom side */}
-        <div className="absolute top-full [transform-style:preserve-3d] [background-size:var(--beam-size)_var(--beam-size)] [background:linear-gradient(var(--grid-color)_0_1px,_transparent_1px_var(--beam-size))_50%_-0.5px_/var(--beam-size)_var(--beam-size),linear-gradient(90deg,_var(--grid-color)_0_1px,_transparent_1px_var(--beam-size))_50%_50%_/var(--beam-size)_var(--beam-size)] [container-type:inline-size] [height:100cqmax] [transform-origin:50%_0%] [transform:rotateX(-90deg)] [width:100cqi]">
-          {bottomBeams.map((beam, index) => (
-            <Beam
-              key={`bottom-${index}`}
-              width={`${beamSize}%`}
-              x={`${beam.x * beamSize}%`}
-              delay={beam.delay}
-              duration={beamDuration}
-            />
-          ))}
-        </div>
-        {/* left side */}
-        <div className="absolute left-0 top-0 [transform-style:preserve-3d] [background-size:var(--beam-size)_var(--beam-size)] [background:linear-gradient(var(--grid-color)_0_1px,_transparent_1px_var(--beam-size))_50%_-0.5px_/var(--beam-size)_var(--beam-size),linear-gradient(90deg,_var(--grid-color)_0_1px,_transparent_1px_var(--beam-size))_50%_50%_/var(--beam-size)_var(--beam-size)] [container-type:inline-size] [height:100cqmax] [transform-origin:0%_0%] [transform:rotate(90deg)_rotateX(-90deg)] [width:100cqh]">
-          {leftBeams.map((beam, index) => (
-            <Beam
-              key={`left-${index}`}
-              width={`${beamSize}%`}
-              x={`${beam.x * beamSize}%`}
-              delay={beam.delay}
-              duration={beamDuration}
-            />
-          ))}
-        </div>
-        {/* right side */}
-        <div className="absolute right-0 top-0 [transform-style:preserve-3d] [background-size:var(--beam-size)_var(--beam-size)] [background:linear-gradient(var(--grid-color)_0_1px,_transparent_1px_var(--beam-size))_50%_-0.5px_/var(--beam-size)_var(--beam-size),linear-gradient(90deg,_var(--grid-color)_0_1px,_transparent_1px_var(--beam-size))_50%_50%_/var(--beam-size)_var(--beam-size)] [container-type:inline-size] [height:100cqmax] [width:100cqh] [transform-origin:100%_0%] [transform:rotate(-90deg)_rotateX(-90deg)]">
-          {rightBeams.map((beam, index) => (
-            <Beam
-              key={`right-${index}`}
-              width={`${beamSize}%`}
-              x={`${beam.x * beamSize}%`}
-              delay={beam.delay}
-              duration={beamDuration}
-            />
-          ))}
-        </div>
+
+        {/* Static center glow - removed animation for performance */}
+        <div
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+          style={{
+            width: '150px',
+            height: '150px',
+            borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(168,85,247,0.3), transparent)',
+            filter: 'blur(40px)',
+          }}
+        />
       </div>
+
+      {/* Content */}
       <div className="relative z-10">{children}</div>
     </div>
   )
-}
+})
+
+WarpBackground.displayName = 'WarpBackground'

@@ -38,17 +38,8 @@ export function HeroSectionSSR({
   return (
     <section className="relative min-h-screen bg-black text-white overflow-hidden -mt-20">
       {/* Animated background */}
-      <WarpBackground
-        beamsPerSide={5}
-        beamSize={6}
-        perspective={300}
-        beamDelayMax={10}
-        beamDelayMin={0}
-        beamDuration={5}
-        gridColor="transparent"
-        className="absolute inset-0"
-      >
-        <></>
+      <WarpBackground className="absolute inset-0">
+        <div />
       </WarpBackground>
 
       <div className="relative flex items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8 pt-20">
@@ -60,19 +51,14 @@ export function HeroSectionSSR({
           }}
         >
           <div className="space-y-6">
-            <h1 className="text-[2rem] sm:text-[2.5rem] lg:text-[3.5rem] xl:text-[4rem] font-light tracking-tight leading-[1.1] text-white font-sans">
+            <h1 className="text-[2.5rem] sm:text-[3rem] lg:text-[3.5rem] xl:text-[4rem] font-normal tracking-tight leading-[1.1] text-white font-sans">
               <span className="block">{title.line1}</span>
-              <span
-                className="block bg-gradient-to-r from-violet-400 via-purple-400 to-pink-400 bg-clip-text text-transparent"
-                style={{
-                  backgroundSize: '200% auto',
-                }}
-              >
+              <span className="block font-medium">
                 {title.line2}
               </span>
             </h1>
 
-            <p className="mx-auto max-w-xl text-base text-gray-400 font-normal leading-relaxed font-sans">
+            <p className="mx-auto max-w-xl text-base text-gray-300 font-normal leading-relaxed font-sans">
               {subtitle}
             </p>
 

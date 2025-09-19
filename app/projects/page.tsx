@@ -1,9 +1,8 @@
 'use client'
 
-import { useState } from 'react'
-import { motion } from 'framer-motion'
-import { Footer } from '@/components/Footer'
+import { useState, useEffect } from 'react'
 import { ProjectCard } from '@/components/ProjectCard'
+import { ProjectCardSkeleton } from '@/components/ProjectCardSkeleton'
 import { projects, getAllTags } from '@/lib/projects'
 import { Search } from 'lucide-react'
 
@@ -11,6 +10,15 @@ export default function ProjectsPage() {
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedTag, setSelectedTag] = useState<string | null>(null)
   const [statusFilter, setStatusFilter] = useState<string | null>(null)
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    // Simulate loading for consistent experience
+    const timer = setTimeout(() => {
+      setIsLoading(false)
+    }, 500)
+    return () => clearTimeout(timer)
+  }, [])
 
   const allTags = getAllTags()
 
@@ -31,22 +39,12 @@ export default function ProjectsPage() {
         <div className="relative pt-32 pb-16 border-b border-white/5">
           <div className="absolute inset-0 bg-gradient-to-b from-purple-900/5 to-transparent" />
           <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-4xl sm:text-5xl font-normal text-white mb-4"
-            >
+            <h1 className="text-4xl sm:text-5xl font-normal text-white mb-4">
               All Projects
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-gray-400 text-lg max-w-3xl"
-            >
+            </h1>
+            <p className="text-gray-400 text-lg max-w-3xl">
               Explore my collection of open-source tools, AI experiments, and web applications.
-            </motion.p>
+            </p>
           </div>
         </div>
 
@@ -140,7 +138,16 @@ export default function ProjectsPage() {
 
         {/* Projects Grid */}
         <div className="mx-auto max-w-7xl px-6 lg:px-8 py-16">
-          {filteredProjects.length === 0 ? (
+          {isLoading ? (
+            <>
+              <div className="h-5 w-48 bg-white/10 rounded animate-pulse mb-8" />
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {[...Array(6)].map((_, i) => (
+                  <ProjectCardSkeleton key={i} />
+                ))}
+              </div>
+            </>
+          ) : filteredProjects.length === 0 ? (
             <div className="text-center py-20">
               <p className="text-gray-400">No projects found matching your criteria.</p>
             </div>
@@ -158,8 +165,6 @@ export default function ProjectsPage() {
           )}
         </div>
       </main>
-
-      <Footer />
     </div>
   )
 }

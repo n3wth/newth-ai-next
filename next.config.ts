@@ -10,16 +10,11 @@ const nextConfig: NextConfig = {
   experimental: {
     // Optimize package imports for better tree-shaking
     optimizePackageImports: ['lucide-react', 'framer-motion', 'clsx', 'tailwind-merge'],
-    // CSS chunking for better performance
-    cssChunking: 'loose',
     // Enable optimized CSS
     optimizeCss: true,
     // Turbopack for faster dev builds (optional)
     // turbo: {},
   },
-
-  // Vercel build optimizations
-  swcMinify: true,
   productionBrowserSourceMaps: false,
   poweredByHeader: false,
 

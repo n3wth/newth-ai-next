@@ -23,16 +23,7 @@ export function HeroSection({
 }: HeroSectionProps) {
   return (
     <section className="relative min-h-screen bg-black text-white overflow-hidden -mt-20">
-      <WarpBackground
-        beamsPerSide={5}
-        beamSize={6}
-        perspective={300}
-        beamDelayMax={10}
-        beamDelayMin={0}
-        beamDuration={5}
-        gridColor="transparent"
-        className="absolute inset-0"
-      >
+      <WarpBackground className="absolute inset-0">
         <div className="relative flex items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8 pt-20">
           <div
             className="relative z-10 max-w-2xl mx-auto text-center p-8 sm:p-10 lg:p-12"

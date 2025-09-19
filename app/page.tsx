@@ -16,11 +16,6 @@ const ContactSection = dynamic(() => import('@/components/sections/ContactSectio
   ssr: false
 })
 
-const Footer = dynamic(() => import('@/components/Footer').then(mod => ({ default: mod.Footer })), {
-  loading: () => null,
-  ssr: false
-})
-
 export default function Homepage() {
   return (
     <div className="min-h-screen bg-black text-white flex flex-col">
@@ -29,10 +24,10 @@ export default function Homepage() {
       <section id="projects" className="py-24">
         <Container>
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-normal text-white mb-4 font-sans">
+            <h2 className="text-3xl sm:text-4xl font-medium text-white mb-4 font-sans">
               Side projects
             </h2>
-            <p className="text-gray-400 font-sans">
+            <p className="text-gray-300 font-sans">
               Open source tools and experiments. Built for the community.
             </p>
           </div>
@@ -44,8 +39,6 @@ export default function Homepage() {
       </section>
 
       <ContactSection />
-
-      <Footer />
     </div>
   )
 }

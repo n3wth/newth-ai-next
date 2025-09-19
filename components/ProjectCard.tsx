@@ -2,7 +2,6 @@
 
 import { memo } from 'react'
 import { ArrowUpRight, Github, Globe, Star, Download } from 'lucide-react'
-import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'
 import type { Project } from '@/lib/projects'
 
@@ -11,7 +10,7 @@ interface ProjectCardProps {
   index?: number
 }
 
-export const ProjectCard = memo(function ProjectCard({ project, index = 0 }: ProjectCardProps) {
+export const ProjectCard = memo(function ProjectCard({ project }: ProjectCardProps) {
   const statusColors = {
     active: 'bg-green-500/20 text-green-400 border-green-500/30',
     experimental: 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30',
@@ -19,23 +18,8 @@ export const ProjectCard = memo(function ProjectCard({ project, index = 0 }: Pro
   }
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{
-        duration: 0.6,
-        delay: index * 0.1,
-        ease: [0.16, 1, 0.3, 1],
-      }}
-      className="group relative"
-    >
-      <div
-        className="absolute inset-0 rounded-2xl bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl animate-glow"
-        style={{
-          background: `linear-gradient(135deg, ${project.gradient || 'from-purple-500/20 to-blue-500/20'})`,
-        }}
-      />
-      <div className="relative h-full rounded-2xl glass neu-card p-6 transition-all duration-300 group-hover:scale-[1.02]">
+    <div className="group relative">
+      <div className="relative h-full rounded-xl border border-white/10 bg-white/5 p-6 transition-all duration-300 hover:bg-white/[0.07] hover:border-white/20 hover:shadow-lg hover:shadow-violet-500/5 hover:-translate-y-1">
         <div className="flex items-start justify-between mb-4">
           <div>
             <h3 className="text-xl font-medium text-white mb-2">{project.title}</h3>
@@ -122,13 +106,10 @@ export const ProjectCard = memo(function ProjectCard({ project, index = 0 }: Pro
 
         {project.featured && (
           <div className="absolute -top-2 -right-2">
-            <span className="relative flex h-3 w-3">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-3 w-3 bg-purple-500"></span>
-            </span>
+            <span className="inline-flex rounded-full h-3 w-3 bg-purple-500"></span>
           </div>
         )}
       </div>
-    </motion.div>
+    </div>
   )
 })
