@@ -19,15 +19,16 @@ export function SimpleAnimatedButton({
   className = '',
 }: SimpleAnimatedButtonProps) {
   const variants = {
-    primary: 'bg-white text-black hover:bg-gray-100',
-    secondary: 'bg-white/10 backdrop-blur-sm text-white border border-white/20 hover:bg-white/20',
+    primary: 'bg-white text-black hover:bg-gray-200 transition-colors',
+    secondary:
+      'bg-transparent text-white border border-white/30 hover:bg-white hover:text-black transition-all',
   }
 
   const baseClasses = `
     inline-flex items-center justify-center
-    px-8 py-3
-    text-sm font-semibold
-    rounded-full
+    px-7 py-3.5
+    text-base font-medium
+    rounded-xl
     transition-all duration-300
     select-none
     ${variants[variant]}

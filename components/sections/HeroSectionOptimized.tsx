@@ -35,22 +35,22 @@ export function HeroSection({
               'radial-gradient(circle at center, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.7) 40%, rgba(0, 0, 0, 0.3) 70%, transparent 100%)',
           }}
         >
-          <div className="space-y-6">
+          <div className="space-y-8">
             {/* Main heading - visible immediately for LCP */}
-            <h1 className="text-[2.2rem] sm:text-[3rem] md:text-[3.5rem] lg:text-[4rem] xl:text-[5rem] font-medium tracking-normal leading-[1.15] sm:leading-[1.1] md:leading-[1.05] text-white font-sans">
+            <h1 className="text-[3.5rem] sm:text-[4.5rem] md:text-[5.5rem] lg:text-[6.5rem] xl:text-[7.5rem] font-bold tracking-[-0.03em] leading-[0.9] text-white">
               <span className="block">{title.line1}</span>
-              <span className="block bg-gradient-to-r from-violet-400 via-purple-400 to-pink-400 bg-clip-text text-transparent font-semibold">
+              <span className="block bg-gradient-to-br from-violet-200 via-purple-200 to-violet-400 bg-clip-text text-transparent">
                 {title.line2}
               </span>
             </h1>
 
             {/* Subtitle - visible immediately */}
-            <p className="text-base sm:text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed font-sans font-light">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto leading-[1.5] font-normal opacity-80">
               {subtitle}
             </p>
 
             {/* CTAs - visible immediately, interactive immediately */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
               <SimpleAnimatedButton href={primaryCTA.href} variant="primary">
                 {primaryCTA.text}
                 <ArrowRight className="ml-2 h-4 w-4" />
