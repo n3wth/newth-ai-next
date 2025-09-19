@@ -14,7 +14,14 @@ const inter = Inter({
   variable: '--font-inter',
   display: 'swap',
   preload: true,
-  fallback: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+  fallback: [
+    'system-ui',
+    '-apple-system',
+    'BlinkMacSystemFont',
+    'Segoe UI',
+    'Roboto',
+    'sans-serif',
+  ],
   adjustFontFallback: true, // Better CLS prevention
 })
 
@@ -22,13 +29,29 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://newth.ai'),
   title: {
     default: 'Oliver Newth - AI Developer',
-    template: '%s | Oliver Newth'
+    template: '%s | Oliver Newth',
   },
   description:
     'Engineering at the intersection of AI and human creativity. Building tools that amplify developer capabilities.',
-  keywords: ['AI', 'Developer', 'Machine Learning', 'Software Engineering', 'Google', 'Product Manager'],
+  keywords: [
+    'AI',
+    'Developer',
+    'Machine Learning',
+    'Software Engineering',
+    'Google',
+    'Product Manager',
+  ],
   authors: [{ name: 'Oliver Newth' }],
   creator: 'Oliver Newth',
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-48x48.png', sizes: '48x48', type: 'image/png' },
+    ],
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
+  },
   openGraph: {
     title: 'Oliver Newth - AI Developer',
     description: 'Engineering at the intersection of AI and human creativity.',
@@ -82,7 +105,7 @@ export default function RootLayout({
         <link rel="prefetch" href="/work" />
 
         {/* PWA */}
-        <link rel="manifest" href="/manifest.webmanifest" />
+        <link rel="manifest" href="/site.webmanifest" />
         <meta name="theme-color" content="#000000" />
 
         {/* Prevent FOUC with minimal inline styles */}
