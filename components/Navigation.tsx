@@ -52,7 +52,7 @@ export function Navigation() {
 
   const asciiLogo = ['█▄ █ █▀▀ █ █ █ ▀█▀ █ █', '█ ▀█ █▀▀ ▀▄▀▄▀  █  █▀█', '█  █ █▄▄  ▀ ▀   █  █ █']
 
-  const asciiDotAI = ['  ▄▀█ █', '■ █▀█ █', '  ']
+  const asciiDotAI = ['  ▄▀█ █', '■ █▀█ █']
 
   // Hide navigation on demo pages
   if (pathname?.startsWith('/demos/')) {
