@@ -7,10 +7,12 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Container } from '@/components/layout/Container'
 import { socialLinks } from '@/lib/config/social'
 import { NavItem } from '@/lib/types'
+import { usePathname } from 'next/navigation'
 
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const pathname = usePathname()
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
 
@@ -52,17 +54,25 @@ export function Navigation() {
 
   const asciiDotAI = ['  ▄▀█ █', '■ █▀█ █', '  ']
 
+  // Hide navigation on demo pages
+  if (pathname?.startsWith('/demos/')) {
+    return null
+  }
+
   const navItems: NavItem[] = [
     { href: '/projects', text: 'Projects', icon: FolderOpen },
     { href: '/work', text: 'Work', icon: Briefcase },
     { href: socialLinks.github, text: 'GitHub', external: true, icon: Github },
   ]
 
-
   return (
     <nav
       className={`sticky top-0 z-[102] transition-all duration-300 ${
-        isMenuOpen ? 'bg-black/95 backdrop-blur-sm border-b border-white/10' : isScrolled ? 'bg-black backdrop-blur-none' : 'bg-black/50 backdrop-blur-sm'
+        isMenuOpen
+          ? 'bg-black/95 backdrop-blur-sm border-b border-white/10'
+          : isScrolled
+            ? 'bg-black backdrop-blur-none'
+            : 'bg-black/50 backdrop-blur-sm'
       }`}
     >
       <Container>
@@ -215,18 +225,18 @@ export function Navigation() {
                               textShadow: 'none',
                               transition: {
                                 duration: 0.3,
-                                ease: "easeOut"
-                              }
+                                ease: 'easeOut',
+                              },
                             },
                             rainbow: {
                               color: [
-                                '#FF0000',  // Red
-                                '#FF8800',  // Orange
-                                '#FFFF00',  // Yellow
-                                '#00FF00',  // Green
-                                '#0088FF',  // Blue
-                                '#8800FF',  // Purple
-                                '#FF0000',  // Back to red
+                                '#FF0000', // Red
+                                '#FF8800', // Orange
+                                '#FFFF00', // Yellow
+                                '#00FF00', // Green
+                                '#0088FF', // Blue
+                                '#8800FF', // Purple
+                                '#FF0000', // Back to red
                               ],
                               textShadow: [
                                 '0 0 8px #FF0000',
@@ -240,37 +250,147 @@ export function Navigation() {
                               transition: {
                                 duration: 1.2,
                                 repeat: Infinity,
-                                ease: "linear",
+                                ease: 'linear',
                                 delay: j * 0.05 + i * 0.1, // Paint across each character
-                              }
-                            }
+                              },
+                            },
                           }}
                           animate={{
                             color:
                               // Random characters get colored occasionally
-                              (i === 0 && j === 3) || (i === 1 && j === 8) || (i === 2 && j === 15) ?
-                              ['#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff', '#a855f7', '#ffffff', '#ffffff'] :
-                              (i === 1 && j === 2) || (i === 0 && j === 12) ?
-                              ['#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff', '#22d3ee', '#ffffff', '#ffffff', '#ffffff'] :
-                              (i === 2 && j === 5) || (i === 1 && j === 18) ?
-                              ['#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ec4899', '#ffffff'] :
-                              (i === 0 && j === 7) || (i === 2 && j === 10) ?
-                              ['#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff', '#4ade80', '#ffffff', '#ffffff', '#ffffff', '#ffffff'] :
-                              (i === 1 && j === 14) || (i === 0 && j === 20) ?
-                              ['#ffffff', '#ffffff', '#ffffff', '#ffffff', '#fb923c', '#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff'] :
-                              '#ffffff',
+                              (i === 0 && j === 3) || (i === 1 && j === 8) || (i === 2 && j === 15)
+                                ? [
+                                    '#ffffff',
+                                    '#ffffff',
+                                    '#ffffff',
+                                    '#ffffff',
+                                    '#ffffff',
+                                    '#ffffff',
+                                    '#ffffff',
+                                    '#a855f7',
+                                    '#ffffff',
+                                    '#ffffff',
+                                  ]
+                                : (i === 1 && j === 2) || (i === 0 && j === 12)
+                                  ? [
+                                      '#ffffff',
+                                      '#ffffff',
+                                      '#ffffff',
+                                      '#ffffff',
+                                      '#ffffff',
+                                      '#ffffff',
+                                      '#22d3ee',
+                                      '#ffffff',
+                                      '#ffffff',
+                                      '#ffffff',
+                                    ]
+                                  : (i === 2 && j === 5) || (i === 1 && j === 18)
+                                    ? [
+                                        '#ffffff',
+                                        '#ffffff',
+                                        '#ffffff',
+                                        '#ffffff',
+                                        '#ffffff',
+                                        '#ffffff',
+                                        '#ffffff',
+                                        '#ffffff',
+                                        '#ec4899',
+                                        '#ffffff',
+                                      ]
+                                    : (i === 0 && j === 7) || (i === 2 && j === 10)
+                                      ? [
+                                          '#ffffff',
+                                          '#ffffff',
+                                          '#ffffff',
+                                          '#ffffff',
+                                          '#ffffff',
+                                          '#4ade80',
+                                          '#ffffff',
+                                          '#ffffff',
+                                          '#ffffff',
+                                          '#ffffff',
+                                        ]
+                                      : (i === 1 && j === 14) || (i === 0 && j === 20)
+                                        ? [
+                                            '#ffffff',
+                                            '#ffffff',
+                                            '#ffffff',
+                                            '#ffffff',
+                                            '#fb923c',
+                                            '#ffffff',
+                                            '#ffffff',
+                                            '#ffffff',
+                                            '#ffffff',
+                                            '#ffffff',
+                                          ]
+                                        : '#ffffff',
                             textShadow:
-                              (i === 0 && j === 3) || (i === 1 && j === 8) || (i === 2 && j === 15) ?
-                              ['none', 'none', 'none', 'none', 'none', 'none', 'none', '0 0 6px rgba(168, 85, 247, 0.9)', 'none', 'none'] :
-                              (i === 1 && j === 2) || (i === 0 && j === 12) ?
-                              ['none', 'none', 'none', 'none', 'none', 'none', '0 0 6px rgba(34, 211, 238, 0.9)', 'none', 'none', 'none'] :
-                              (i === 2 && j === 5) || (i === 1 && j === 18) ?
-                              ['none', 'none', 'none', 'none', 'none', 'none', 'none', 'none', '0 0 6px rgba(236, 72, 153, 0.9)', 'none'] :
-                              (i === 0 && j === 7) || (i === 2 && j === 10) ?
-                              ['none', 'none', 'none', 'none', 'none', '0 0 6px rgba(74, 222, 128, 0.9)', 'none', 'none', 'none', 'none'] :
-                              (i === 1 && j === 14) || (i === 0 && j === 20) ?
-                              ['none', 'none', 'none', 'none', '0 0 6px rgba(251, 146, 60, 0.9)', 'none', 'none', 'none', 'none', 'none'] :
-                              'none'
+                              (i === 0 && j === 3) || (i === 1 && j === 8) || (i === 2 && j === 15)
+                                ? [
+                                    'none',
+                                    'none',
+                                    'none',
+                                    'none',
+                                    'none',
+                                    'none',
+                                    'none',
+                                    '0 0 6px rgba(168, 85, 247, 0.9)',
+                                    'none',
+                                    'none',
+                                  ]
+                                : (i === 1 && j === 2) || (i === 0 && j === 12)
+                                  ? [
+                                      'none',
+                                      'none',
+                                      'none',
+                                      'none',
+                                      'none',
+                                      'none',
+                                      '0 0 6px rgba(34, 211, 238, 0.9)',
+                                      'none',
+                                      'none',
+                                      'none',
+                                    ]
+                                  : (i === 2 && j === 5) || (i === 1 && j === 18)
+                                    ? [
+                                        'none',
+                                        'none',
+                                        'none',
+                                        'none',
+                                        'none',
+                                        'none',
+                                        'none',
+                                        'none',
+                                        '0 0 6px rgba(236, 72, 153, 0.9)',
+                                        'none',
+                                      ]
+                                    : (i === 0 && j === 7) || (i === 2 && j === 10)
+                                      ? [
+                                          'none',
+                                          'none',
+                                          'none',
+                                          'none',
+                                          'none',
+                                          '0 0 6px rgba(74, 222, 128, 0.9)',
+                                          'none',
+                                          'none',
+                                          'none',
+                                          'none',
+                                        ]
+                                      : (i === 1 && j === 14) || (i === 0 && j === 20)
+                                        ? [
+                                            'none',
+                                            'none',
+                                            'none',
+                                            'none',
+                                            '0 0 6px rgba(251, 146, 60, 0.9)',
+                                            'none',
+                                            'none',
+                                            'none',
+                                            'none',
+                                            'none',
+                                          ]
+                                        : 'none',
                           }}
                           transition={{
                             duration: 5,
@@ -287,9 +407,7 @@ export function Navigation() {
                     </div>
                   ))}
                 </motion.div>
-                <motion.div
-                  className="text-[8px] leading-[8px] -mt-0.5"
-                >
+                <motion.div className="text-[8px] leading-[8px] -mt-0.5">
                   {asciiDotAI.map((line, i) => (
                     <div key={i} className="flex">
                       {line.split('').map((char, j) => (
@@ -301,18 +419,18 @@ export function Navigation() {
                               textShadow: 'none',
                               transition: {
                                 duration: 0.3,
-                                ease: "easeOut"
-                              }
+                                ease: 'easeOut',
+                              },
                             },
                             rainbow: {
                               color: [
-                                '#FF0000',  // Red
-                                '#FF8800',  // Orange
-                                '#FFFF00',  // Yellow
-                                '#00FF00',  // Green
-                                '#0088FF',  // Blue
-                                '#8800FF',  // Purple
-                                '#FF0000',  // Back to red
+                                '#FF0000', // Red
+                                '#FF8800', // Orange
+                                '#FFFF00', // Yellow
+                                '#00FF00', // Green
+                                '#0088FF', // Blue
+                                '#8800FF', // Purple
+                                '#FF0000', // Back to red
                               ],
                               textShadow: [
                                 '0 0 6px #FF0000',
@@ -326,20 +444,42 @@ export function Navigation() {
                               transition: {
                                 duration: 1.2,
                                 repeat: Infinity,
-                                ease: "linear",
+                                ease: 'linear',
                                 delay: 0.8 + j * 0.05 + i * 0.1, // Start after main logo
-                              }
-                            }
+                              },
+                            },
                           }}
                           animate={{
                             color:
-                              (i === 0 && j === 4) || (i === 1 && j === 2) ?
-                              ['#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff', '#facc15', '#ffffff', '#ffffff'] :
-                              '#ffffff',
+                              (i === 0 && j === 4) || (i === 1 && j === 2)
+                                ? [
+                                    '#ffffff',
+                                    '#ffffff',
+                                    '#ffffff',
+                                    '#ffffff',
+                                    '#ffffff',
+                                    '#ffffff',
+                                    '#ffffff',
+                                    '#facc15',
+                                    '#ffffff',
+                                    '#ffffff',
+                                  ]
+                                : '#ffffff',
                             textShadow:
-                              (i === 0 && j === 4) || (i === 1 && j === 2) ?
-                              ['none', 'none', 'none', 'none', 'none', 'none', 'none', '0 0 5px rgba(250, 204, 21, 0.8)', 'none', 'none'] :
-                              'none'
+                              (i === 0 && j === 4) || (i === 1 && j === 2)
+                                ? [
+                                    'none',
+                                    'none',
+                                    'none',
+                                    'none',
+                                    'none',
+                                    'none',
+                                    'none',
+                                    '0 0 5px rgba(250, 204, 21, 0.8)',
+                                    'none',
+                                    'none',
+                                  ]
+                                : 'none',
                           }}
                           transition={{
                             duration: 4.5,
@@ -390,15 +530,21 @@ export function Navigation() {
               type="button"
             >
               <div className="relative w-6 h-6 pointer-events-none">
-                <span className={`absolute block w-6 h-0.5 bg-white transition-all duration-300 ease-out ${
-                  isMenuOpen ? 'rotate-45 top-[11px]' : 'top-1'
-                }`} />
-                <span className={`absolute block w-6 h-0.5 bg-white transition-all duration-300 ease-out top-[11px] ${
-                  isMenuOpen ? 'opacity-0' : 'opacity-100'
-                }`} />
-                <span className={`absolute block w-6 h-0.5 bg-white transition-all duration-300 ease-out ${
-                  isMenuOpen ? '-rotate-45 top-[11px]' : 'top-[21px]'
-                }`} />
+                <span
+                  className={`absolute block w-6 h-0.5 bg-white transition-all duration-300 ease-out ${
+                    isMenuOpen ? 'rotate-45 top-[11px]' : 'top-1'
+                  }`}
+                />
+                <span
+                  className={`absolute block w-6 h-0.5 bg-white transition-all duration-300 ease-out top-[11px] ${
+                    isMenuOpen ? 'opacity-0' : 'opacity-100'
+                  }`}
+                />
+                <span
+                  className={`absolute block w-6 h-0.5 bg-white transition-all duration-300 ease-out ${
+                    isMenuOpen ? '-rotate-45 top-[11px]' : 'top-[21px]'
+                  }`}
+                />
               </div>
             </button>
           </div>
@@ -475,9 +621,7 @@ export function Navigation() {
 
                 {/* Footer */}
                 <div className="flex-shrink-0 p-6 border-t border-white/10">
-                  <p className="text-center text-sm text-white/40">
-                    © 2024 Oliver Newth
-                  </p>
+                  <p className="text-center text-sm text-white/40">© 2024 Oliver Newth</p>
                 </div>
               </div>
             </motion.div>

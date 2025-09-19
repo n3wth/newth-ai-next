@@ -3,7 +3,8 @@ import { Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Navigation } from '@/components/Navigation'
-import { Footer } from '@/components/Footer'
+import { ConditionalFooter } from '@/components/ConditionalFooter'
+import { DevToolsWrapper } from '@/components/DevToolsWrapper'
 import { WebVitalsReporter } from './layout-client'
 import { JsonLdPerson, JsonLdWebsite } from '@/components/JsonLd'
 import { KeyboardNavProvider } from '@/components/KeyboardNavProvider'
@@ -124,8 +125,9 @@ export default function RootLayout({
         <KeyboardNavProvider>
           <Navigation />
           {children}
-          <Footer />
+          <ConditionalFooter />
         </KeyboardNavProvider>
+        <DevToolsWrapper />
         <Analytics />
         <SpeedInsights />
       </body>

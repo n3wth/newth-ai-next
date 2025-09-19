@@ -16,6 +16,14 @@ const nextConfig: NextConfig = {
     webVitalsAttribution: ['CLS', 'LCP', 'FCP', 'FID', 'TTFB'],
   },
 
+  // Enable React strict mode for better debugging
+  reactStrictMode: true,
+
+  // Development indicators
+  devIndicators: {
+    position: 'bottom-right',
+  },
+
   // Turbopack for 10x faster dev builds
   turbopack: {},
   productionBrowserSourceMaps: false,
