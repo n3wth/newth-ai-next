@@ -230,29 +230,30 @@ export function Navigation() {
                             },
                             rainbow: {
                               color: [
-                                '#00FF00', // Start with green (middle of spectrum)
-                                '#0088FF', // Blue
-                                '#8800FF', // Purple
                                 '#FF0000', // Red
                                 '#FF8800', // Orange
                                 '#FFFF00', // Yellow
-                                '#00FF00', // Back to green
+                                '#00FF00', // Green
+                                '#0088FF', // Blue
+                                '#8800FF', // Purple
+                                '#FF0000', // Back to red
                               ],
                               textShadow: [
-                                '0 0 8px #00FF00',
-                                '0 0 8px #0088FF',
-                                '0 0 8px #8800FF',
                                 '0 0 8px #FF0000',
                                 '0 0 8px #FF8800',
                                 '0 0 8px #FFFF00',
                                 '0 0 8px #00FF00',
+                                '0 0 8px #0088FF',
+                                '0 0 8px #8800FF',
+                                '0 0 8px #FF0000',
                               ],
                               transition: {
-                                duration: 1.2,
+                                duration: 0.8,
                                 repeat: Infinity,
                                 ease: 'linear',
-                                delay: j * 0.05 + i * 0.1, // Paint across each character
+                                delay: j * 0.03, // Stagger each character slightly
                                 repeatType: 'loop',
+                                times: [0, 0.167, 0.333, 0.5, 0.667, 0.833, 1], // Even distribution
                               },
                             },
                           }}
@@ -425,29 +426,30 @@ export function Navigation() {
                             },
                             rainbow: {
                               color: [
-                                '#8800FF', // Start with purple (different from main logo)
+                                '#0088FF', // Start with blue
+                                '#8800FF', // Purple
                                 '#FF0000', // Red
                                 '#FF8800', // Orange
                                 '#FFFF00', // Yellow
                                 '#00FF00', // Green
-                                '#0088FF', // Blue
-                                '#8800FF', // Back to purple
+                                '#0088FF', // Back to blue
                               ],
                               textShadow: [
+                                '0 0 6px #0088FF',
                                 '0 0 6px #8800FF',
                                 '0 0 6px #FF0000',
                                 '0 0 6px #FF8800',
                                 '0 0 6px #FFFF00',
                                 '0 0 6px #00FF00',
                                 '0 0 6px #0088FF',
-                                '0 0 6px #8800FF',
                               ],
                               transition: {
-                                duration: 1.2,
+                                duration: 0.8,
                                 repeat: Infinity,
                                 ease: 'linear',
-                                delay: 0.8 + j * 0.05 + i * 0.1, // Start after main logo
+                                delay: 0.4 + j * 0.03, // Start slightly after main logo
                                 repeatType: 'loop',
+                                times: [0, 0.167, 0.333, 0.5, 0.667, 0.833, 1], // Even distribution
                               },
                             },
                           }}
