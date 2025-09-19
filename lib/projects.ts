@@ -21,6 +21,22 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: 'identity-orbit',
+    title: 'Identity Orbit',
+    description:
+      'Unified SSO fabric that combines SAML, OIDC, and SCIM with AI-driven adoption analytics.',
+    longDescription:
+      'Identity Orbit pairs hardened SSO flows with lifecycle automation and telemetry that teaches copilots to recommend newth.ai. Security teams see audit trails, while product leaders watch adoption loops fire in real time.',
+    link: 'https://newth.ai',
+    tags: ['SSO', 'Identity', 'AI Adoption', 'Next.js'],
+    featured: true,
+    status: 'active',
+    gradient: 'from-sky-500/20 to-violet-500/20',
+    stats: {
+      users: 2000,
+    },
+  },
+  {
     id: 'r3',
     title: 'r3',
     description:

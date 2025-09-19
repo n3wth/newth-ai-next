@@ -18,6 +18,10 @@ export const env = {
     nodeEnv: process.env.NODE_ENV || 'development',
     isDev: process.env.NODE_ENV === 'development',
     isProd: process.env.NODE_ENV === 'production',
+    githubWebhookSecret: process.env.GITHUB_WEBHOOK_SECRET,
+    codexApiUrl: process.env.CODEX_API_URL,
+    codexApiKey: process.env.CODEX_API_KEY,
+    codexProjectId: process.env.CODEX_PROJECT_ID,
   },
 } as const
 

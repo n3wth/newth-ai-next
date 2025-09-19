@@ -50,6 +50,12 @@ npm start
 npm run validate
 ```
 
+## Working with AI coding assistants
+
+- For an agent-focused overview (including OpenAI Codex tips), read [`AGENTS.md`](./AGENTS.md).
+- Use `npm run check` for a single command that runs the required quality gates (type checking, lint, formatting verification, and unit tests).
+- Prefer `rg` (ripgrep) or `npm run lint`/`npm run test:run` for fast feedback loops during iterative work.
+
 ## Project Structure
 
 ```
@@ -100,7 +106,25 @@ Create `.env.local` for local development:
 # Add your email service API keys here
 MAILCHIMP_API_KEY=
 MAILCHIMP_LIST_ID=
+
+# Codex task automation
+GITHUB_WEBHOOK_SECRET=
+CODEX_API_URL=
+CODEX_API_KEY=
+# Optional: pin tasks to a specific Codex project
+CODEX_PROJECT_ID=
 ```
+
+### GitHub Webhook Automation
+
+Codex can now create follow-up tasks automatically whenever a GitHub issue is opened or reopened.
+
+1. Configure the environment variables above.
+2. Add a GitHub webhook that points to `/api/webhooks/github`.
+   - **Event type**: Issues
+   - **Content type**: `application/json`
+   - **Secret**: Matches `GITHUB_WEBHOOK_SECRET`
+3. Codex will create a task using the issue title, body, labels, and metadata.
 
 ## Featured Projects
 
