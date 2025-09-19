@@ -1,13 +1,15 @@
 {
-  "buildCommand": "npm run build",
+  "buildCommand": "npm run build --verbose=false",
   "devCommand": "npm run dev",
-  "installCommand": "npm ci --prefer-offline",
+  "installCommand": "npm ci --prefer-offline --cache /tmp/.npm",
   "framework": "nextjs",
   "regions": ["iad1"],
   "functions": {
     "app/api/newsletter/route.ts": {
-      "maxDuration": 10,
-      "memory": 512
+      "maxDuration": 10
+    },
+    "app/api/og/route.tsx": {
+      "maxDuration": 10
     }
   },
   "headers": [

@@ -75,7 +75,7 @@ const nextConfig: NextConfig = {
   },
 
   // Webpack optimizations
-  webpack: (config, { isServer, dev }) => {
+  webpack: (config, { isServer }) => {
     // Optimize bundle size
     if (!isServer) {
       config.resolve.alias = {
