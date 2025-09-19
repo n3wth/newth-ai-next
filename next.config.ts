@@ -1,5 +1,6 @@
 import type { NextConfig } from 'next'
 import bundleAnalyzer from '@next/bundle-analyzer'
+import { withVercelToolbar } from '@vercel/toolbar/plugins/next'
 
 const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
@@ -24,7 +25,7 @@ const nextConfig: NextConfig = {
     position: 'bottom-right',
   },
 
-  // Turbopack for 10x faster dev builds
+  // Turbopack configuration (minimal for best performance)
   turbopack: {},
   productionBrowserSourceMaps: false,
   poweredByHeader: false,
@@ -109,4 +110,16 @@ const nextConfig: NextConfig = {
   },
 }
 
-export default withBundleAnalyzer(nextConfig)
+// Only apply webpack plugins in production or when analyzing
+const isDev = process.env.NODE_ENV === 'development'
+const isAnalyze = process.env.ANALYZE === 'true'
+
+let finalConfig = nextConfig
+
+// Apply bundle analyzer only when needed (not in dev with Turbopack)
+if (isAnalyze || !isDev) {
+  finalConfig = withBundleAnalyzer(finalConfig)
+}
+
+// Apply Vercel Toolbar
+export default withVercelToolbar()(finalConfig)
