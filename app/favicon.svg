@@ -1,0 +1,22 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Pure black background -->
+  <rect width="32" height="32" fill="#000000"/>
+
+  <!-- Clean blocky N design with thicker diagonal -->
+  <!-- Left vertical bar -->
+  <rect x="4" y="4" width="6" height="6" fill="#B855F0"/>
+  <rect x="4" y="10" width="6" height="6" fill="#B855F0"/>
+  <rect x="4" y="16" width="6" height="6" fill="#B855F0"/>
+  <rect x="4" y="22" width="6" height="6" fill="#B855F0"/>
+
+  <!-- Thicker diagonal connecting blocks -->
+  <rect x="10" y="8" width="6" height="6" fill="#B855F0"/>
+  <rect x="13" y="13" width="6" height="6" fill="#B855F0"/>
+  <rect x="16" y="18" width="6" height="6" fill="#B855F0"/>
+
+  <!-- Right vertical bar -->
+  <rect x="22" y="4" width="6" height="6" fill="#B855F0"/>
+  <rect x="22" y="10" width="6" height="6" fill="#B855F0"/>
+  <rect x="22" y="16" width="6" height="6" fill="#B855F0"/>
+  <rect x="22" y="22" width="6" height="6" fill="#B855F0"/>
+</svg>

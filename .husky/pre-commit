@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# Run lint-staged for formatting and linting
+npx lint-staged
+
+# Run TypeScript type checking
+npm run type-check
+
+# Run tests if they exist
+if [ -f "package.json" ] && grep -q "\"test\"" package.json; then
+  npm test -- --run --passWithNoTests
+fi
