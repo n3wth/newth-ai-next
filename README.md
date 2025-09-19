@@ -50,6 +50,12 @@ npm start
 npm run validate
 ```
 
+## Working with AI coding assistants
+
+- For an agent-focused overview (including OpenAI Codex tips), read [`AGENTS.md`](./AGENTS.md).
+- Use `npm run check` for a single command that runs the required quality gates (type checking, lint, formatting verification, and unit tests).
+- Prefer `rg` (ripgrep) or `npm run lint`/`npm run test:run` for fast feedback loops during iterative work.
+
 ## Project Structure
 
 ```
