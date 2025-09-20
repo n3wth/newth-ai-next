@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/nextjs'
 import { AnimatedLogo as Logo } from './AnimatedLogo'
 
-const meta = {
+const meta: Meta<typeof Logo> = {
   title: 'Brand/Logo',
   component: Logo,
   parameters: {
@@ -49,7 +49,7 @@ const meta = {
       defaultValue: 1,
     },
   },
-} satisfies Meta<typeof Logo>
+}
 
 export default meta
 type Story = StoryObj<typeof meta>

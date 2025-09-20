@@ -36,7 +36,7 @@ const AnimatedShape = React.memo(
 
     const palette = colors[colorSet % colors.length]
 
-    const shapeVariants: { [key: string]: JSX.Element } = {
+    const shapeVariants: { [key: string]: React.JSX.Element } = {
       cube: (
         <motion.div
           className="absolute pointer-events-none"
