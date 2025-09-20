@@ -1,11 +1,6 @@
 'use client'
 
-// ✅ Feature - Search functionality implemented with modal and keyboard shortcuts
-// TODO: Performance - Memoize navigation items
-// TODO: Feature - Add dark/light mode toggle
-// TODO: Accessibility - Add keyboard shortcuts for navigation
-// TODO: Feature - Add breadcrumbs for deeper pages
-// TODO: Mobile - Improve mobile menu animations
+// Main navigation component with responsive design and search functionality
 
 import Link from 'next/link'
 import {

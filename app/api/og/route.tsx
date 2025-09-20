@@ -146,7 +146,10 @@ export async function GET(request: Request) {
       }
     )
   } catch (e) {
-    console.log(`${e instanceof Error ? e.message : 'Unknown error'}`)
+    // Log error in development only
+    if (process.env.NODE_ENV === 'development') {
+      console.error('OG image generation error:', e instanceof Error ? e.message : 'Unknown error')
+    }
     return new Response(`Failed to generate the image`, {
       status: 500,
     })

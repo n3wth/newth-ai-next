@@ -1,8 +1,4 @@
-// TODO: Data - Move featured projects to CMS or database instead of hardcoding
-// TODO: Feature - Add dynamic project fetching from GitHub API
-// TODO: SEO - Add structured data for projects (JSON-LD)
-// TODO: Performance - Implement ISR (Incremental Static Regeneration) for project data
-// TODO: Analytics - Track project card clicks and engagement
+// Portfolio homepage showcasing featured projects and experience
 
 import { HeroSection } from '@/components/sections/HeroSectionOptimized'
 import { ProjectGrid } from '@/components/sections/ProjectGridSimple'
@@ -82,15 +78,11 @@ export default function Home() {
     },
   ]
 
-  // TODO: Feature - Add testimonials section
-  // TODO: Feature - Add blog/writing section to showcase thought leadership
-  // TODO: Feature - Add work experience timeline
-  // TODO: Accessibility - Add skip navigation link
-  // TODO: Animation - Add scroll-triggered animations for sections
+  // Main portfolio page with hero, projects, and contact sections
 
   return (
     <main className="flex flex-col relative bg-black" role="main" aria-label="Homepage">
-      {/* TODO: Component - Add announcement banner for latest project launches */}
+      {/* Hero section with animated background */}
       <HeroSection />
       <section
         id="projects"
@@ -105,8 +97,7 @@ export default function Home() {
           <ProjectGrid projects={featuredProjects} />
         </div>
       </section>
-      {/* TODO: Section - Add skills/technologies section with interactive visualization */}
-      {/* TODO: Section - Add open source contributions from GitHub */}
+      {/* Contact section for inquiries */}
       <ContactSection />
     </main>
   )

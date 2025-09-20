@@ -54,6 +54,9 @@ export const GitHubLink: Story = {
 export const DownloadAction: Story = {
   args: {
     children: 'Download CLI',
-    onClick: () => alert('Download started!'),
+    onClick: () => {
+      // In a real app, this would trigger download
+      console.log('Download CLI clicked')
+    },
   },
 }

@@ -13,8 +13,10 @@ export async function POST(request: NextRequest) {
     }
 
     // TODO: Integrate with your email service provider
-    // For now, we'll just log it and return success
-    console.log('Newsletter signup:', email)
+    // For now, we'll just log it and return success (development only)
+    if (process.env.NODE_ENV === 'development') {
+      console.log('Newsletter signup:', email)
+    }
 
     // You can integrate with services like:
     // - Mailchimp

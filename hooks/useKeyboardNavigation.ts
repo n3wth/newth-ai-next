@@ -14,7 +14,7 @@ export function useKeyboardNavigation() {
       // Command/Ctrl + K for search (if implemented)
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
         e.preventDefault()
-        console.log('Search triggered')
+        // Search functionality would be triggered here
       }
 
       // Alt + H for home
