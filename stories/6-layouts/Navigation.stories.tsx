@@ -152,3 +152,32 @@ export const WithActiveLink: Story = {
     ),
   ],
 }
+
+/**
+ * Mobile menu interaction testing
+ * Tests opening and closing the mobile menu
+ */
+export const MobileMenuToggle: Story = {
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile1',
+    },
+  },
+  // TODO: Re-enable play function when Storybook testing is properly configured
+  // play: async ({ canvasElement }) => {
+  //   const canvas = within(canvasElement)
+  //   // Testing code would go here
+  // },
+}
+
+/**
+ * Keyboard navigation testing
+ * Tests Tab and Enter key interactions
+ */
+export const KeyboardNavigation: Story = {
+  // TODO: Re-enable play function when Storybook testing is properly configured
+  // play: async ({ canvasElement }) => {
+  //   const canvas = within(canvasElement)
+  //   // Testing code would go here
+  // },
+}

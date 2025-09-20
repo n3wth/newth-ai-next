@@ -3,11 +3,12 @@ import { Metadata } from 'next'
 const siteConfig = {
   name: 'Oliver Newth',
   url: 'https://newth.ai',
-  description: 'Building ML infrastructure that powers billions of predictions daily. Open source contributor. Side project enthusiast.',
+  description:
+    'Building ML infrastructure that powers billions of predictions daily. Open source contributor. Side project enthusiast.',
   author: 'Oliver Newth',
   twitter: '@olivernewth',
   github: 'https://github.com/n3wth',
-  linkedin: 'https://linkedin.com/in/olivernewth'
+  linkedin: 'https://linkedin.com/in/olivernewth',
 }
 
 export function generateSEO({
@@ -15,7 +16,7 @@ export function generateSEO({
   description,
   image,
   path = '',
-  type = 'website'
+  type = 'website',
 }: {
   title?: string
   description?: string
@@ -31,7 +32,14 @@ export function generateSEO({
   return {
     title: pageTitle,
     description: pageDescription,
-    keywords: ['AI', 'Machine Learning', 'Software Engineering', 'MCP Protocol', 'Open Source', 'Developer Tools'],
+    keywords: [
+      'AI',
+      'Machine Learning',
+      'Software Engineering',
+      'MCP Protocol',
+      'Open Source',
+      'Developer Tools',
+    ],
     authors: [{ name: siteConfig.author }],
     creator: siteConfig.author,
     openGraph: {

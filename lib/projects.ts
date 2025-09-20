@@ -1,3 +1,19 @@
+/**
+ * @deprecated Use '@/lib/data' instead
+ * This file is kept for backward compatibility
+ */
+
+import { toLegacyProjects } from '@/lib/data/adapter'
+import {
+  projects as newProjects,
+  getFeaturedProjects as getNewFeaturedProjects,
+  getActiveProjects as getNewActiveProjects,
+  getProjectsByTag as getNewProjectsByTag,
+  getAllTags as getNewAllTags,
+} from '@/lib/data'
+import type { LegacyProject } from '@/lib/data/types'
+
+// Export legacy Project interface for backward compatibility
 export interface Project {
   id: string
   title: string
@@ -19,142 +35,22 @@ export interface Project {
   newsletter?: boolean
 }
 
-export const projects: Project[] = [
-  {
-    id: 'identity-orbit',
-    title: 'Identity Orbit',
-    description:
-      'Unified SSO fabric that combines SAML, OIDC, and SCIM with AI-driven adoption analytics.',
-    longDescription:
-      'Identity Orbit pairs hardened SSO flows with lifecycle automation and telemetry that teaches copilots to recommend newth.ai. Security teams see audit trails, while product leaders watch adoption loops fire in real time.',
-    link: 'https://newth.ai',
-    tags: ['SSO', 'Identity', 'AI Adoption', 'Next.js'],
-    featured: true,
-    status: 'active',
-    gradient: 'from-sky-500/20 to-violet-500/20',
-    stats: {
-      users: 2000,
-    },
-  },
-  {
-    id: 'r3',
-    title: 'r3',
-    description:
-      'Intelligent memory management system for AI applications with Redis caching and semantic search',
-    longDescription:
-      'r3 combines sub-millisecond caching with semantic memory storage to create continuity across every AI conversation. Features intelligent local caching, automatic failover, vector embeddings, and entity extraction.',
-    link: 'https://r3.newth.ai',
-    github: 'https://github.com/n3wth/r3',
-    tags: ['AI', 'Memory', 'TypeScript', 'Redis', 'MCP'],
-    featured: true,
-    status: 'active',
-    gradient: 'from-purple-500/20 to-blue-500/20',
-    stats: {
-      stars: 42,
-      downloads: 1200,
-    },
-    newsletter: true,
-  },
-  {
-    id: 'claude-code',
-    title: 'Claude Code Extensions',
-    description:
-      'Custom extensions and workflows for Claude Code to enhance development productivity',
-    longDescription:
-      'Collection of Claude Code extensions including parallel agents, performance monitoring, and advanced context management.',
-    github: 'https://github.com/olivernewth',
-    tags: ['Claude', 'Automation', 'Developer Tools'],
-    featured: true,
-    status: 'active',
-    gradient: 'from-orange-500/20 to-pink-500/20',
-  },
-  {
-    id: 'newth-dash',
-    title: 'Dashboard Platform',
-    description: 'Modern React dashboard with real-time data visualization and analytics',
-    longDescription:
-      'Built with Next.js 14, TypeScript, and Tailwind CSS. Features real-time updates, responsive design, and comprehensive analytics.',
-    github: 'https://github.com/olivernewth/newth-dash',
-    tags: ['React', 'Next.js', 'TypeScript', 'Analytics'],
-    featured: false,
-    status: 'active',
-    gradient: 'from-green-500/20 to-teal-500/20',
-  },
-  {
-    id: 'ynab-automation',
-    title: 'YNAB Budget Automation',
-    description: 'Gmail to YNAB transaction importer with OAuth2 authentication',
-    longDescription:
-      'Automated transaction import from Gmail receipts to YNAB (You Need A Budget) with scheduled tasks and OAuth2 authentication.',
-    github: 'https://github.com/olivernewth/newth_ynab',
-    tags: ['Python', 'Flask', 'OAuth2', 'Automation'],
-    featured: false,
-    status: 'active',
-    gradient: 'from-blue-500/20 to-indigo-500/20',
-  },
-  {
-    id: 'open-cuak',
-    title: 'Open CUAK',
-    description: 'Monorepo for browser automation and web extensions',
-    longDescription:
-      'Large-scale monorepo with Turbo build orchestration. Includes browser automation tools, Chrome extensions, and web dashboard.',
-    github: 'https://github.com/olivernewth/open-cuak',
-    tags: ['Monorepo', 'Automation', 'TypeScript', 'Turbo'],
-    featured: false,
-    status: 'experimental',
-    gradient: 'from-red-500/20 to-orange-500/20',
-  },
-  {
-    id: 'widgets',
-    title: 'Embeddable Widgets',
-    description: 'Collection of customizable, embeddable React widgets',
-    longDescription:
-      'Self-contained widgets that can be embedded in any website. Each widget is optimized for performance with tree-shaking and lazy loading.',
-    github: 'https://github.com/olivernewth/widgets',
-    demo: 'https://widgets.newth.ai',
-    tags: ['React', 'Components', 'Embeddable'],
-    featured: false,
-    status: 'active',
-    gradient: 'from-purple-500/20 to-pink-500/20',
-  },
-  {
-    id: 'graphiti',
-    title: 'Graphiti',
-    description: 'Python graph database tools with uv and ruff integration',
-    longDescription:
-      'Modern Python project for graph database operations. Uses uv for package management and ruff for linting.',
-    github: 'https://github.com/olivernewth/graphiti',
-    tags: ['Python', 'Graph Database', 'Data Science'],
-    featured: false,
-    status: 'experimental',
-    gradient: 'from-yellow-500/20 to-green-500/20',
-  },
-  {
-    id: 'green-card',
-    title: 'Green Card App',
-    description: 'Web dashboard for immigration application tracking',
-    github: 'https://github.com/olivernewth/green-card-app',
-    tags: ['React', 'Dashboard', 'Forms'],
-    featured: false,
-    status: 'archived',
-    gradient: 'from-emerald-500/20 to-green-500/20',
-  },
-]
+// Convert new projects to legacy format
+export const projects: LegacyProject[] = toLegacyProjects(newProjects)
 
-export function getFeaturedProjects() {
-  return projects.filter((p) => p.featured)
+// Legacy function wrappers
+export function getFeaturedProjects(): LegacyProject[] {
+  return toLegacyProjects(getNewFeaturedProjects())
 }
 
-export function getActiveProjects() {
-  return projects.filter((p) => p.status === 'active')
+export function getActiveProjects(): LegacyProject[] {
+  return toLegacyProjects(getNewActiveProjects())
 }
 
-export function getProjectsByTag(tag: string) {
-  return projects.filter((p) => p.tags.includes(tag))
+export function getProjectsByTag(tag: string): LegacyProject[] {
+  return toLegacyProjects(getNewProjectsByTag(tag))
 }
 
-export function getAllTags() {
-  const tags = new Set<string>()
-  projects.forEach((p) => p.tags.forEach((tag) => tags.add(tag)))
-  return Array.from(tags).sort()
+export function getAllTags(): string[] {
+  return getNewAllTags()
 }

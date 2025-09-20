@@ -8,17 +8,36 @@ export function ContactSection({
   subtitle = 'I work with teams that move fast and dream big.',
 }: ContactSectionProps) {
   return (
-    <section className="py-32 bg-black">
+    <section className="py-32 bg-black" role="region" aria-labelledby="contact-heading">
       <Container>
         <div className="text-center">
-          <h2 className="text-3xl sm:text-4xl font-normal mb-6 text-white font-sans">{title}</h2>
+          <h2
+            id="contact-heading"
+            className="text-3xl sm:text-4xl font-normal mb-6 text-white font-sans"
+          >
+            {title}
+          </h2>
           <p className="text-lg text-gray-400 mb-12 font-sans">{subtitle}</p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            <Button href={socialLinks.github} external variant="primary">
+          <div
+            className="flex flex-col sm:flex-row gap-4 justify-center mb-8"
+            role="group"
+            aria-label="Social media links"
+          >
+            <Button
+              href={socialLinks.github}
+              external
+              variant="primary"
+              aria-label="Visit my GitHub profile"
+            >
               GitHub
             </Button>
-            <Button href={socialLinks.linkedin} external variant="secondary">
+            <Button
+              href={socialLinks.linkedin}
+              external
+              variant="secondary"
+              aria-label="Visit my LinkedIn profile"
+            >
               LinkedIn
             </Button>
           </div>
@@ -29,6 +48,7 @@ export function ContactSection({
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-gray-500 hover:text-gray-300 transition-colors"
+              aria-label="View my component library on Storybook (opens in new tab)"
             >
               Component Library →
             </a>

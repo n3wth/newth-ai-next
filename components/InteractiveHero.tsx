@@ -30,8 +30,8 @@ const BackgroundPattern = memo(function BackgroundPattern() {
             key={i}
             className="absolute"
             style={{
-              left: `${(i * 10) + Math.random() * 10}%`,
-              top: `${(i * 10) + Math.random() * 10}%`,
+              left: `${i * 10 + Math.random() * 10}%`,
+              top: `${i * 10 + Math.random() * 10}%`,
               width: `${150 + Math.random() * 50}px`,
               height: `${150 + Math.random() * 50}px`,
             }}

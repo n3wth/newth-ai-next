@@ -1,0 +1,12 @@
+node_modules/
+.next/
+dist/
+build/
+storybook-static/
+public/storybook/
+.turbo/
+coverage/
+*.config.js
+next.config.js
+postcss.config.js
+tailwind.config.js

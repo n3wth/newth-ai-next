@@ -111,7 +111,7 @@ export function AnimatedLogo({
     setCharStates(states)
   }, [])
 
-  // Smooth glitch intensity transitions
+  // Smooth glitch intensity transitions - reduced frequency for performance
   useEffect(() => {
     const interval = setInterval(() => {
       const now = Date.now()
@@ -138,12 +138,12 @@ export function AnimatedLogo({
         }
       } else if (isHovered) {
         // Smooth hover transition
-        setGlitchIntensity((prev) => Math.min(1, prev + 0.05))
+        setGlitchIntensity((prev) => Math.min(1, prev + 0.1))
       } else {
         // Fade out when not glitching
-        setGlitchIntensity((prev) => Math.max(0, prev - 0.05))
+        setGlitchIntensity((prev) => Math.max(0, prev - 0.1))
       }
-    }, 20)
+    }, 100) // Reduced from 20ms to 100ms for performance
     return () => clearInterval(interval)
   }, [glitchMode, isHovered])
 
@@ -229,15 +229,15 @@ export function AnimatedLogo({
       }
     }
 
-    const interval = setInterval(checkGlitch, 50)
+    const interval = setInterval(checkGlitch, 500) // Reduced from 50ms to 500ms
     return () => clearInterval(interval)
   }, [isHovered])
 
-  // Frame animation for dynamic effects
+  // Frame animation for dynamic effects - reduced frequency for performance
   useEffect(() => {
     const interval = setInterval(() => {
       setFrame((prev) => prev + 1) // Don't wrap, let it keep incrementing
-    }, 20) // Faster frame updates
+    }, 200) // Reduced from 20ms to 200ms for performance
     return () => clearInterval(interval)
   }, [])
 

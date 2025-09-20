@@ -2,20 +2,41 @@
 
 /* Only target the docs story preview area */
 .docs-story {
-  background: #000000;
+  background: #000000 !important;
   border: none !important;
   box-shadow: none !important;
 }
 
-/* Remove borders from story canvases */
-.docs-story > div {
+/* Story preview containers */
+.docs-story > div,
+.docs-story > div > div {
+  background: transparent !important;
   border: none !important;
   box-shadow: none !important;
 }
 
+/* Canvas preview areas in docs */
 .sbdocs [id^="story--"] {
+  background: #000000 !important;
   border: none !important;
   box-shadow: none !important;
+}
+
+/* Story canvas wrapper */
+.sbdocs .sb-story,
+.sbdocs .sb-unstyled {
+  background: #000000 !important;
+}
+
+/* Preview iframe body */
+.sbdocs-preview {
+  background: #000000 !important;
+}
+
+/* Preview container divs */
+[id^="story--"] > div,
+[id^="story--"] > div > div {
+  background: transparent !important;
 }
 
 /* Docs content wrapper */

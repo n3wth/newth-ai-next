@@ -29,6 +29,6 @@ describe('Navigation', () => {
 
   it('renders mobile menu button', () => {
     render(<Navigation />)
-    expect(screen.getByLabelText('Toggle menu')).toBeInTheDocument()
+    expect(screen.getByLabelText('Open navigation menu')).toBeInTheDocument()
   })
 })

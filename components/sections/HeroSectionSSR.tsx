@@ -53,9 +53,7 @@ export function HeroSectionSSR({
           <div className="space-y-6">
             <h1 className="text-[2.5rem] sm:text-[3rem] lg:text-[3.5rem] xl:text-[4rem] font-normal tracking-tight leading-[1.1] text-white font-sans">
               <span className="block">{title.line1}</span>
-              <span className="block font-medium">
-                {title.line2}
-              </span>
+              <span className="block font-medium">{title.line2}</span>
             </h1>
 
             <p className="mx-auto max-w-xl text-base text-gray-300 font-normal leading-relaxed font-sans">

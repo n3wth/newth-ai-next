@@ -36,6 +36,7 @@ stories/
 2. **Shared Decorators**: Use `.storybook/preview.tsx` for common wrappers
 
 3. **Auto-generation**: Use a script to generate stories from components:
+
    ```bash
    npx @componentdriven/storybook-generate
    ```

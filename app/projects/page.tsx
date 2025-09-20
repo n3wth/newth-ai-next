@@ -39,9 +39,7 @@ export default function ProjectsPage() {
         <div className="relative pt-32 pb-16 border-b border-white/5">
           <div className="absolute inset-0 bg-gradient-to-b from-purple-900/5 to-transparent" />
           <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-            <h1 className="text-4xl sm:text-5xl font-normal text-white mb-4">
-              All Projects
-            </h1>
+            <h1 className="text-4xl sm:text-5xl font-normal text-white mb-4">All Projects</h1>
             <p className="text-gray-400 text-lg max-w-3xl">
               Explore my collection of open-source tools, AI experiments, and web applications.
             </p>

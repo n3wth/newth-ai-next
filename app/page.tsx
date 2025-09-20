@@ -89,12 +89,19 @@ export default function Home() {
   // TODO: Animation - Add scroll-triggered animations for sections
 
   return (
-    <main className="flex flex-col relative bg-black">
+    <main className="flex flex-col relative bg-black" role="main" aria-label="Homepage">
       {/* TODO: Component - Add announcement banner for latest project launches */}
       <HeroSection />
-      <section id="projects" className="py-32 px-6 bg-black relative z-10">
+      <section
+        id="projects"
+        className="py-32 px-6 bg-black relative z-10"
+        role="region"
+        aria-labelledby="projects-heading"
+      >
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold mb-16 text-white">Featured Projects</h2>
+          <h2 id="projects-heading" className="text-4xl font-bold mb-16 text-white">
+            Featured Projects
+          </h2>
           <ProjectGrid projects={featuredProjects} />
         </div>
       </section>

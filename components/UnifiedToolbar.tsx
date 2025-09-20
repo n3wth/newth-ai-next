@@ -39,18 +39,22 @@ export function UnifiedToolbar() {
     }
     const rafId = requestAnimationFrame(measureFPS)
 
-    // Memory monitoring
+    // Memory monitoring with debounce to prevent render loops
     const updateMetrics = () => {
       const performanceMemory = performance as unknown as { memory?: { usedJSHeapSize: number } }
       if (performanceMemory.memory) {
-        setMetrics((prev) => ({
-          ...prev,
-          memory: Math.round(performanceMemory.memory!.usedJSHeapSize / 1048576),
-        }))
+        const newMemory = Math.round(performanceMemory.memory!.usedJSHeapSize / 1048576)
+        setMetrics((prev) => {
+          // Only update if value actually changed to prevent unnecessary renders
+          if (prev.memory !== newMemory) {
+            return { ...prev, memory: newMemory }
+          }
+          return prev
+        })
       }
     }
 
-    const metricsInterval = setInterval(updateMetrics, 2000)
+    const metricsInterval = setInterval(updateMetrics, 5000) // Reduced frequency from 2s to 5s
     updateMetrics()
 
     // Web Vitals - just LCP and CLS

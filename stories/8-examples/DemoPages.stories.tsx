@@ -7,8 +7,8 @@ import HeroNoHeader from '@/app/demos/hero-no-header/page'
 const meta = {
   title: 'Examples/Pages/Demos',
   parameters: {
-    layout: 'fullscreen'
-  }
+    layout: 'fullscreen',
+  },
 } satisfies Meta
 
 export default meta
@@ -19,10 +19,10 @@ export const DemoIndex: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Demo index page showing all available demos'
-      }
-    }
-  }
+        story: 'Demo index page showing all available demos',
+      },
+    },
+  },
 }
 
 export const LogoEffects: Story = {
@@ -30,10 +30,10 @@ export const LogoEffects: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Logo animation effects with ASCII art and keyframe testing'
-      }
-    }
-  }
+        story: 'Logo animation effects with ASCII art and keyframe testing',
+      },
+    },
+  },
 }
 
 export const BackgroundEffects: Story = {
@@ -41,10 +41,10 @@ export const BackgroundEffects: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'All background effects showcase with live switching'
-      }
-    }
-  }
+        story: 'All background effects showcase with live switching',
+      },
+    },
+  },
 }
 
 export const HeroStandalone: Story = {
@@ -52,8 +52,8 @@ export const HeroStandalone: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Hero section without navigation header'
-      }
-    }
-  }
+        story: 'Hero section without navigation header',
+      },
+    },
+  },
 }

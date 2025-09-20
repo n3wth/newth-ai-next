@@ -1,4 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/nextjs'
+// Play functions commented out - Storybook v9 requires @storybook/addon-interactions
+// import { expect, userEvent, within } from '@storybook/test'
 import { Button } from '../Button'
 import {
   ArrowRight,
@@ -200,6 +202,7 @@ export const Primary: Story = {
     children: 'Primary Button',
     variant: 'primary',
   },
+  // Play function would go here when @storybook/addon-interactions is added for v9
 }
 
 /**
@@ -322,8 +325,8 @@ export const Loading: Story = {
     variant: 'primary',
     loading: true,
     icon: <Loader2 className="animate-spin" size={16} />,
-    iconPosition: 'left',
   },
+  // Play function would verify button is disabled when loading
 }
 
 /**
@@ -336,6 +339,7 @@ export const Disabled: Story = {
     variant: 'primary',
     disabled: true,
   },
+  // Play function would verify button is disabled and doesn't respond to clicks
 }
 
 /**

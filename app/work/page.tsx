@@ -5,8 +5,9 @@ import { generateSEO } from '@/lib/metadata'
 
 export const metadata = generateSEO({
   title: 'Work Experience',
-  description: 'Product management and engineering leadership at scale. From Google to startups, building AI products that impact billions.',
-  path: '/work'
+  description:
+    'Product management and engineering leadership at scale. From Google to startups, building AI products that impact billions.',
+  path: '/work',
 })
 
 interface Experience {
@@ -163,13 +164,9 @@ export default function WorkPage() {
                     {/* Content */}
                     <div className="flex-1 pb-8">
                       <div className="mb-4">
-                        <h3 className="text-2xl font-semibold text-white mb-1">
-                          {exp.company}
-                        </h3>
+                        <h3 className="text-2xl font-semibold text-white mb-1">{exp.company}</h3>
                         <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm">
-                          <span className="text-gray-300 font-medium">
-                            {exp.role}
-                          </span>
+                          <span className="text-gray-300 font-medium">{exp.role}</span>
                           <span className="text-gray-500 flex items-center gap-1">
                             <Calendar className="w-3 h-3" />
                             {exp.period}
@@ -181,15 +178,10 @@ export default function WorkPage() {
 
                       {/* Achievements */}
                       <div className="mb-6">
-                        <h4 className="text-sm font-medium text-gray-400 mb-3">
-                          Key Achievements
-                        </h4>
+                        <h4 className="text-sm font-medium text-gray-400 mb-3">Key Achievements</h4>
                         <ul className="space-y-2">
                           {exp.achievements.map((achievement, i) => (
-                            <li
-                              key={i}
-                              className="flex items-start gap-2 text-sm text-gray-300"
-                            >
+                            <li key={i} className="flex items-start gap-2 text-sm text-gray-300">
                               <span className="text-violet-400 mt-1">▸</span>
                               <span>{achievement}</span>
                             </li>
@@ -223,9 +215,7 @@ export default function WorkPage() {
                   <h3 className="text-xl font-semibold text-white mb-1">
                     Massachusetts Institute of Technology
                   </h3>
-                  <p className="text-gray-400">
-                    MEng in High Performance Structures • 2013 - 2014
-                  </p>
+                  <p className="text-gray-400">MEng in High Performance Structures • 2013 - 2014</p>
                   <p className="text-sm text-gray-500 mt-2">
                     Thesis: Predicting extreme events - the role of big data in quantifying risk
                   </p>
@@ -233,12 +223,8 @@ export default function WorkPage() {
                 </div>
 
                 <div>
-                  <h3 className="text-xl font-semibold text-white mb-1">
-                    University of Warwick
-                  </h3>
-                  <p className="text-gray-400">
-                    BEng in Civil Engineering • 2009 - 2012
-                  </p>
+                  <h3 className="text-xl font-semibold text-white mb-1">University of Warwick</h3>
+                  <p className="text-gray-400">BEng in Civil Engineering • 2009 - 2012</p>
                   <p className="text-sm text-gray-500 mt-2">GPA: 4.0</p>
                 </div>
               </div>

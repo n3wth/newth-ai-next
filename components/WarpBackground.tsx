@@ -642,3 +642,6 @@ export const WarpBackground: React.FC<WarpBackgroundProps> = React.memo(
 )
 
 WarpBackground.displayName = 'WarpBackground'
+
+// Re-export lazy version for convenience
+export { WarpBackgroundLazy } from './WarpBackgroundLazy'

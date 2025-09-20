@@ -4,8 +4,9 @@ import Link from 'next/link'
 import { ArrowUpRight, Github } from 'lucide-react'
 import { ProjectGridProps } from '@/lib/types'
 import { cn } from '@/lib/utils'
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
+import { announceToScreenReader } from '@/components/AccessibilityAnnouncer'
 
 function MagneticCard({ children, className }: { children: React.ReactNode; className?: string }) {
   const ref = useRef<HTMLDivElement>(null)
@@ -82,6 +83,13 @@ function MagneticCard({ children, className }: { children: React.ReactNode; clas
 }
 
 export function ProjectGrid({ projects, className }: ProjectGridProps) {
+  // Announce when projects are loaded
+  useEffect(() => {
+    if (projects.length > 0) {
+      announceToScreenReader(`Displaying ${projects.length} featured projects`, 'polite')
+    }
+  }, [projects.length])
+
   const getGridClass = (index: number): string => {
     if (index === 0) return 'lg:col-span-2'
     if (index === 1) return 'lg:col-span-1'
@@ -91,10 +99,18 @@ export function ProjectGrid({ projects, className }: ProjectGridProps) {
   }
 
   return (
-    <div className={cn('grid grid-cols-1 lg:grid-cols-3 gap-6', className)}>
+    <div
+      className={cn('grid grid-cols-1 lg:grid-cols-3 gap-6', className)}
+      role="region"
+      aria-label="Featured projects"
+    >
       {projects.map((project, index) => (
         <MagneticCard key={project.id} className={cn('relative group', getGridClass(index))}>
-          <div className="relative h-full p-6 sm:p-8 rounded-2xl backdrop-blur-xl bg-white/[0.02] border border-white/10 transition-all duration-300 hover:bg-white/[0.05] hover:border-white/20 hover:shadow-2xl">
+          <article
+            className="relative h-full p-6 sm:p-8 rounded-2xl backdrop-blur-xl bg-white/[0.02] border border-white/10 transition-all duration-300 hover:bg-white/[0.05] hover:border-white/20 hover:shadow-2xl"
+            aria-labelledby={`project-title-${project.id}`}
+            role="article"
+          >
             {/* Glow effect that follows mouse */}
             <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-violet-600/20 via-purple-600/20 to-pink-600/20 blur-xl" />
@@ -105,7 +121,12 @@ export function ProjectGrid({ projects, className }: ProjectGridProps) {
                 <span className="text-xs text-gray-500 font-sans">{project.year}</span>
               </div>
 
-              <h3 className="text-2xl font-semibold mb-2 text-white font-sans">{project.title}</h3>
+              <h3
+                id={`project-title-${project.id}`}
+                className="text-2xl font-semibold mb-2 text-white font-sans"
+              >
+                {project.title}
+              </h3>
 
               {project.metrics && (
                 <div className="flex gap-4 mb-4">
@@ -123,9 +144,14 @@ export function ProjectGrid({ projects, className }: ProjectGridProps) {
                 </div>
               )}
 
-              <p className="text-gray-400 mb-6 font-sans">{project.description}</p>
+              <p
+                className="text-gray-400 mb-6 font-sans"
+                aria-describedby={`project-title-${project.id}`}
+              >
+                {project.description}
+              </p>
 
-              <div className="flex flex-wrap gap-2 mb-6">
+              <div className="flex flex-wrap gap-2 mb-6" role="list" aria-label="Technologies used">
                 {project.tech?.map((tech, i) => (
                   <motion.span
                     key={tech}
@@ -138,17 +164,22 @@ export function ProjectGrid({ projects, className }: ProjectGridProps) {
                       backgroundColor: 'rgba(255, 255, 255, 0.1)',
                       borderColor: 'rgba(255, 255, 255, 0.2)',
                     }}
+                    role="listitem"
+                    aria-label={`Technology: ${tech}`}
                   >
                     {tech}
                   </motion.span>
                 ))}
               </div>
 
-              <div className="flex gap-4">
+              <div className="flex gap-4" role="group" aria-label="Project links">
                 {project.link && (
                   <Link
                     href={project.link}
                     className="inline-flex items-center gap-1 text-sm text-violet-400 hover:text-violet-300 transition-colors group/link"
+                    aria-label={`Visit ${project.title} project`}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     Visit
                     <motion.div
@@ -164,6 +195,9 @@ export function ProjectGrid({ projects, className }: ProjectGridProps) {
                   <Link
                     href={project.github}
                     className="inline-flex items-center gap-1 text-sm text-violet-400 hover:text-violet-300 transition-colors group/link"
+                    aria-label={`View ${project.title} source code on GitHub`}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <motion.div whileHover={{ rotate: 360 }} transition={{ duration: 0.5 }}>
                       <Github className="w-4 h-4" />
@@ -173,7 +207,7 @@ export function ProjectGrid({ projects, className }: ProjectGridProps) {
                 )}
               </div>
             </div>
-          </div>
+          </article>
         </MagneticCard>
       ))}
     </div>

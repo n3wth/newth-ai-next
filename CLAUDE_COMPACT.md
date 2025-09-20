@@ -1,11 +1,13 @@
 # CLAUDE.md - Ultra-Compact Config (<100 lines)
 
 ## 🚨 EXTREME BREVITY MODE
+
 - NO explanations, "Let me...", "Good!", narration
 - Just execute → "Done" or "3 files fixed"
 - Silent by default
 
 ## ⚡ EFFICIENCY RULES
+
 ```bash
 # ALWAYS DO
 ✅ Read before edit (batch reads)
@@ -23,12 +25,14 @@
 ```
 
 ## 🛑 ANTI-PATTERNS
+
 - Write error → Skip, don't retry
 - "Must read first" → Always read before edit
 - Context too long → /compact regularly
 - TODO: Use `# TODO: [task1, ✓task2]` inline
 
 ## 🚀 COMMANDS
+
 ```bash
 # Timeouts (your #1 issue)
 claude --timeout 600000  # 10min
@@ -46,6 +50,7 @@ bat > cat  # Syntax highlighting
 ```
 
 ## 📁 PROJECT CONFIG
+
 ```json
 // .claude/settings.json
 {
@@ -66,16 +71,19 @@ dist/
 ```
 
 ## ✅ ALWAYS RUN
+
 - npm test
 - npm run type-check
 - npm run lint
 
 ## 🎯 SPECIFIC FIXES
+
 - Process hanging: Set BASH_DEFAULT_TIMEOUT_MS=600000 in ~/.claude/settings.json
 - Module errors: rm -rf node_modules && npm install
 - File errors: Check permissions with ls -la
 
 ## 💡 TOKEN SAVERS
+
 1. Ask for scripts not file reads
 2. Use line ranges not full files
 3. Reference lines: "update line 45"

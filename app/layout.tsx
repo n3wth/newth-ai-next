@@ -14,6 +14,8 @@ import { WebVitalsReporter } from './layout-client'
 import { JsonLdPerson, JsonLdWebsite } from '@/components/JsonLd'
 import { KeyboardNavProvider } from '@/components/KeyboardNavProvider'
 import { UnifiedToolbar } from '@/components/UnifiedToolbar'
+import { AnalyticsProvider } from '@/components/AnalyticsProvider'
+import { AccessibilityAnnouncer } from '@/components/AccessibilityAnnouncer'
 import './refined-globals.css'
 
 // TODO: Typography - Add variable font weights for better performance
@@ -103,7 +105,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} scroll-smooth`}>
+    <html lang="en" className={`${inter.variable} scroll-smooth`} data-scroll-behavior="smooth">
       <head>
         {/* Preload critical resources */}
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
@@ -127,15 +129,30 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased font-sans bg-black">
+        {/* Skip Navigation Link */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] bg-white text-black px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-violet-500"
+        >
+          Skip to main content
+        </a>
         <JsonLdPerson />
         <JsonLdWebsite />
         <WebVitalsReporter />
-        <KeyboardNavProvider>
-          <Navigation />
-          {children}
-          <ConditionalFooter />
-        </KeyboardNavProvider>
+        <AnalyticsProvider
+          enableConsentBanner={true}
+          enableLocalStorage={false}
+          respectDoNotTrack={true}
+          sessionTimeout={30}
+        >
+          <KeyboardNavProvider>
+            <Navigation />
+            <div id="main-content">{children}</div>
+            <ConditionalFooter />
+          </KeyboardNavProvider>
+        </AnalyticsProvider>
         <UnifiedToolbar />
+        <AccessibilityAnnouncer />
         <Analytics />
         <SpeedInsights />
       </body>

@@ -1,6 +1,6 @@
 'use client'
 
-// TODO: Feature - Add search functionality in navigation
+// ✅ Feature - Search functionality implemented with modal and keyboard shortcuts
 // TODO: Performance - Memoize navigation items
 // TODO: Feature - Add dark/light mode toggle
 // TODO: Accessibility - Add keyboard shortcuts for navigation
@@ -8,7 +8,15 @@
 // TODO: Mobile - Improve mobile menu animations
 
 import Link from 'next/link'
-import { ArrowRight, ExternalLink, Github, Briefcase, FolderOpen } from 'lucide-react'
+import {
+  ArrowRight,
+  ExternalLink,
+  Github,
+  Briefcase,
+  FolderOpen,
+  Search,
+  Edit3,
+} from 'lucide-react'
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Container } from '@/components/layout/Container'
@@ -16,11 +24,14 @@ import { socialLinks } from '@/lib/config/social'
 import { NavItem } from '@/lib/types'
 import { usePathname } from 'next/navigation'
 import { AnimatedLogo } from '@/components/AnimatedLogo'
+import { SearchModal } from '@/components/SearchModal'
+import { useSearch } from '@/hooks/useSearch'
 
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const pathname = usePathname()
+  const { isOpen: isSearchOpen, openSearch, closeSearch } = useSearch()
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
 
@@ -68,11 +79,14 @@ export function Navigation() {
   const navItems: NavItem[] = [
     { href: '/projects', text: 'Projects', icon: FolderOpen },
     { href: '/work', text: 'Work', icon: Briefcase },
+    { href: '/blog', text: 'Writing', icon: Edit3 },
     { href: socialLinks.github, text: 'GitHub', external: true, icon: Github },
   ]
 
   return (
     <nav
+      role="navigation"
+      aria-label="Main navigation"
       className={`fixed top-0 left-0 right-0 z-[102] transition-all duration-300 ${
         isMenuOpen
           ? 'bg-black/95 backdrop-blur-sm'
@@ -84,11 +98,26 @@ export function Navigation() {
       <Container>
         <div className="flex h-20 items-center justify-between">
           <div className="flex items-center">
-            <Link href="/" className="flex items-center relative z-[103] group">
+            <Link
+              href="/"
+              className="flex items-center relative z-[103] group"
+              aria-label="Home - Oliver Newth"
+            >
               <AnimatedLogo />
             </Link>
           </div>
-          <div className="hidden md:flex md:space-x-2">
+          <div className="hidden md:flex md:items-center md:space-x-2">
+            {/* Search Button */}
+            <button
+              onClick={openSearch}
+              className="p-3 text-gray-300 hover:text-white rounded-lg hover:bg-white/5 transition-all flex items-center"
+              aria-label="Open search modal"
+              aria-keyshortcuts="Meta+k"
+              title="Search (⌘K)"
+            >
+              <Search size={18} />
+            </button>
+
             {navItems.map((item) =>
               item.external ? (
                 <a
@@ -115,7 +144,9 @@ export function Navigation() {
             <button
               onClick={toggleMenu}
               className="relative p-3 -mr-3 text-white z-[102] hover:bg-white/10 rounded-lg transition-colors"
-              aria-label="Toggle menu"
+              aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-menu"
               type="button"
             >
               <div className="relative w-6 h-6 pointer-events-none">
@@ -149,12 +180,38 @@ export function Navigation() {
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 30, stiffness: 300 }}
               className="fixed right-0 top-0 h-screen w-full z-[101] md:hidden bg-black"
+              id="mobile-menu"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="mobile-menu-title"
             >
               <div className="h-screen w-full flex flex-col pt-20">
                 {/* Menu content */}
                 <div className="flex-grow overflow-y-auto px-6 pt-8 pb-8">
+                  {/* Search Button */}
+                  <button
+                    onClick={() => {
+                      setIsMenuOpen(false)
+                      openSearch()
+                    }}
+                    className="flex items-center justify-between w-full p-4 rounded-lg hover:bg-white/5 transition-colors mb-6 border border-white/10"
+                    aria-label="Open search modal"
+                    aria-keyshortcuts="Meta+k"
+                  >
+                    <div className="flex items-center gap-3">
+                      <Search size={20} className="text-gray-400" />
+                      <span className="text-white text-base font-medium">Search</span>
+                    </div>
+                    <div className="flex items-center text-xs text-gray-400 bg-white/10 px-2 py-1 rounded">
+                      ⌘K
+                    </div>
+                  </button>
+
                   {/* Navigation links */}
-                  <nav className="space-y-2 mb-8">
+                  <nav className="space-y-2 mb-8" aria-label="Mobile navigation links">
+                    <h2 id="mobile-menu-title" className="sr-only">
+                      Navigation Menu
+                    </h2>
                     {navItems.map((item) => {
                       const IconComponent = item.icon
                       return item.external ? (
@@ -165,6 +222,7 @@ export function Navigation() {
                           rel="noopener noreferrer"
                           className="flex items-center justify-between p-4 rounded-lg hover:bg-white/5 transition-colors"
                           onClick={() => setIsMenuOpen(false)}
+                          aria-label={`${item.text} (opens in new tab)`}
                         >
                           <div className="flex items-center gap-3">
                             {IconComponent && <IconComponent size={20} className="text-gray-400" />}
@@ -178,6 +236,7 @@ export function Navigation() {
                           href={item.href}
                           className="flex items-center justify-between p-4 rounded-lg hover:bg-white/5 transition-colors"
                           onClick={() => setIsMenuOpen(false)}
+                          aria-label={`Go to ${item.text} page`}
                         >
                           <div className="flex items-center gap-3">
                             {IconComponent && <IconComponent size={20} className="text-gray-400" />}
@@ -195,6 +254,7 @@ export function Navigation() {
                       href="/work"
                       className="block w-full text-center p-4 rounded-full bg-white text-black font-semibold hover:bg-gray-100 transition-colors"
                       onClick={() => setIsMenuOpen(false)}
+                      aria-label="View my work and projects"
                     >
                       See My Work
                     </Link>
@@ -202,6 +262,7 @@ export function Navigation() {
                       href="mailto:oliver@newth.ai"
                       className="block w-full text-center p-4 rounded-full border border-white/20 text-white font-semibold hover:bg-white/10 transition-colors"
                       onClick={() => setIsMenuOpen(false)}
+                      aria-label="Send me an email"
                     >
                       Get in Touch
                     </a>
@@ -209,7 +270,7 @@ export function Navigation() {
                 </div>
 
                 {/* Footer */}
-                <div className="flex-shrink-0 p-6 border-t border-white/10">
+                <div className="flex-shrink-0 p-6 border-t border-white/10" role="contentinfo">
                   <p className="text-center text-sm text-white/40">© 2024 Oliver Newth</p>
                 </div>
               </div>
@@ -217,6 +278,9 @@ export function Navigation() {
           </>
         )}
       </AnimatePresence>
+
+      {/* Search Modal */}
+      <SearchModal isOpen={isSearchOpen} onClose={closeSearch} />
     </nav>
   )
 }

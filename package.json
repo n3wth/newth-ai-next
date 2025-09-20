@@ -32,6 +32,8 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@emotion/is-prop-valid": "^1.4.0",
+    "@headlessui/react": "^2.2.8",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
     "@vercel/toolbar": "^0.1.41",

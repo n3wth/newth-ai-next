@@ -7,14 +7,14 @@ const meta = {
   parameters: {
     layout: 'fullscreen',
     backgrounds: {
-      default: 'dark'
+      default: 'dark',
     },
     docs: {
       description: {
-        component: 'Contact section with social links and call-to-action'
-      }
-    }
-  }
+        component: 'Contact section with social links and call-to-action',
+      },
+    },
+  },
 } satisfies Meta<typeof ContactSection>
 
 export default meta
@@ -28,6 +28,6 @@ export const WithGradientBackground: Story = {
       <div className="bg-gradient-to-b from-black via-purple-900/10 to-black">
         <Story />
       </div>
-    )
-  ]
+    ),
+  ],
 }

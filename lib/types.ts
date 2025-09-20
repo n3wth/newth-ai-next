@@ -1,3 +1,7 @@
+/**
+ * @deprecated Use types from '@/lib/data/types' instead
+ * This interface is kept for backward compatibility
+ */
 export interface Project {
   id: string
   title: string
@@ -95,4 +99,25 @@ export interface HeroContent {
     text: string
     href: string
   }
+}
+
+export interface BlogPost {
+  id: string
+  title: string
+  description: string
+  content: string
+  slug: string
+  tags: string[]
+  category: 'technical' | 'product' | 'design' | 'ai' | 'personal'
+  publishedAt: string
+  updatedAt?: string
+  readingTime: number
+  featured: boolean
+  status: 'draft' | 'published' | 'archived'
+  author: {
+    name: string
+    avatar?: string
+  }
+  image?: string
+  excerpt?: string
 }

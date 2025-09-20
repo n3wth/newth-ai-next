@@ -1,37 +1,37 @@
 export function JsonLdPerson() {
   const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    name: "Oliver Newth",
-    url: "https://newth.ai",
-    image: "https://newth.ai/og-image.png",
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Oliver Newth',
+    url: 'https://newth.ai',
+    image: 'https://newth.ai/og-image.png',
     sameAs: [
-      "https://github.com/n3wth",
-      "https://linkedin.com/in/olivernewth",
-      "https://twitter.com/olivernewth"
+      'https://github.com/n3wth',
+      'https://linkedin.com/in/olivernewth',
+      'https://twitter.com/olivernewth',
     ],
-    jobTitle: "Senior Product Manager",
+    jobTitle: 'Senior Product Manager',
     worksFor: {
-      "@type": "Organization",
-      name: "Google"
+      '@type': 'Organization',
+      name: 'Google',
     },
     alumniOf: [
       {
-        "@type": "CollegeOrUniversity",
-        name: "Massachusetts Institute of Technology"
+        '@type': 'CollegeOrUniversity',
+        name: 'Massachusetts Institute of Technology',
       },
       {
-        "@type": "CollegeOrUniversity",
-        name: "University of Warwick"
-      }
+        '@type': 'CollegeOrUniversity',
+        name: 'University of Warwick',
+      },
     ],
     knowsAbout: [
-      "Machine Learning",
-      "AI Infrastructure",
-      "Product Management",
-      "Software Engineering",
-      "Open Source Development"
-    ]
+      'Machine Learning',
+      'AI Infrastructure',
+      'Product Management',
+      'Software Engineering',
+      'Open Source Development',
+    ],
   }
 
   return (
@@ -44,23 +44,23 @@ export function JsonLdPerson() {
 
 export function JsonLdWebsite() {
   const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    url: "https://newth.ai",
-    name: "Oliver Newth - AI Developer",
-    description: "Building ML infrastructure that powers billions of predictions daily.",
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    url: 'https://newth.ai',
+    name: 'Oliver Newth - AI Developer',
+    description: 'Building ML infrastructure that powers billions of predictions daily.',
     author: {
-      "@type": "Person",
-      name: "Oliver Newth"
+      '@type': 'Person',
+      name: 'Oliver Newth',
     },
     potentialAction: {
-      "@type": "SearchAction",
+      '@type': 'SearchAction',
       target: {
-        "@type": "EntryPoint",
-        urlTemplate: "https://newth.ai/search?q={search_term_string}"
+        '@type': 'EntryPoint',
+        urlTemplate: 'https://newth.ai/search?q={search_term_string}',
       },
-      "query-input": "required name=search_term_string"
-    }
+      'query-input': 'required name=search_term_string',
+    },
   }
 
   return (
@@ -77,7 +77,7 @@ export function JsonLdProject({
   url,
   github,
   dateCreated,
-  technologies
+  technologies,
 }: {
   name: string
   description: string
@@ -87,29 +87,29 @@ export function JsonLdProject({
   technologies: string[]
 }) {
   const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
     name,
     description,
     url: url || github,
-    applicationCategory: "DeveloperApplication",
-    operatingSystem: "Web",
+    applicationCategory: 'DeveloperApplication',
+    operatingSystem: 'Web',
     offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "USD"
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
     },
     author: {
-      "@type": "Person",
-      name: "Oliver Newth",
-      url: "https://newth.ai"
+      '@type': 'Person',
+      name: 'Oliver Newth',
+      url: 'https://newth.ai',
     },
     dateCreated,
-    keywords: technologies.join(", "),
+    keywords: technologies.join(', '),
     ...(github && {
       codeRepository: github,
-      programmingLanguage: technologies
-    })
+      programmingLanguage: technologies,
+    }),
   }
 
   return (

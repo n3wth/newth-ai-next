@@ -1,10 +1,10 @@
 /* Global style entrypoint composed from modular layers */
+/* Import custom styles before Tailwind directives */
+@import './styles/view-transitions.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* Import custom styles after Tailwind directives */
-@import './styles/view-transitions.css';
 
 @layer base {
   /* Design tokens */

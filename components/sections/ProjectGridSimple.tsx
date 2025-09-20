@@ -4,7 +4,6 @@
 // TODO: Feature - Add filter/sort functionality for projects
 // TODO: Animation - Add stagger effect for cards on initial load
 // TODO: Feature - Add project preview on hover (screenshots/videos)
-// TODO: Analytics - Track which projects get most clicks
 // TODO: Accessibility - Improve keyboard navigation between cards
 
 import Link from 'next/link'
@@ -12,14 +11,28 @@ import { ArrowUpRight, Github } from 'lucide-react'
 import { ProjectGridProps } from '@/lib/types'
 import { cn } from '@/lib/utils'
 import { motion } from 'framer-motion'
+import { useProjectAnalytics } from '@/lib/hooks/useAnalytics'
 
 export function ProjectGrid({ projects, className }: ProjectGridProps) {
+  const { trackProjectClick, isTrackingAllowed } = useProjectAnalytics()
+
   const getGridClass = (index: number): string => {
     if (index === 0) return 'lg:col-span-2'
     if (index === 1) return 'lg:col-span-1'
     if (index === 2) return 'lg:col-span-1'
     if (index === 3) return 'lg:col-span-2'
     return 'lg:col-span-1'
+  }
+
+  const handleProjectClick = (
+    projectId: string,
+    projectTitle: string,
+    linkType: 'visit' | 'github',
+    position: number
+  ) => {
+    if (isTrackingAllowed) {
+      trackProjectClick(projectId, projectTitle, linkType, position)
+    }
   }
 
   return (
@@ -29,6 +42,9 @@ export function ProjectGrid({ projects, className }: ProjectGridProps) {
           key={project.id}
           className={cn('relative group', getGridClass(index))}
           whileHover={{ y: -2, transition: { duration: 0.3, ease: [0.23, 1, 0.32, 1] } }}
+          data-analytics-project-id={project.id}
+          data-analytics-project-title={project.title}
+          data-analytics-position={index}
         >
           <div className="relative h-full p-8 rounded-2xl bg-white/[0.02] border border-white/[0.06] transition-all duration-300 hover:bg-white/[0.04] hover:border-white/[0.12] overflow-hidden">
             {/* Clean gradient overlay */}
@@ -73,6 +89,10 @@ export function ProjectGrid({ projects, className }: ProjectGridProps) {
                   <Link
                     href={project.link}
                     className="inline-flex items-center gap-1.5 text-sm text-gray-400 hover:text-white transition-colors duration-200 group/link"
+                    onClick={() => handleProjectClick(project.id, project.title, 'visit', index)}
+                    data-analytics-link-type="visit"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     Visit
                     <ArrowUpRight className="w-3 h-3 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
@@ -82,6 +102,10 @@ export function ProjectGrid({ projects, className }: ProjectGridProps) {
                   <Link
                     href={project.github}
                     className="inline-flex items-center gap-1.5 text-sm text-gray-400 hover:text-white transition-colors duration-200 group/link"
+                    onClick={() => handleProjectClick(project.id, project.title, 'github', index)}
+                    data-analytics-link-type="github"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <Github className="w-4 h-4 transition-transform group-hover/link:scale-110" />
                     Code

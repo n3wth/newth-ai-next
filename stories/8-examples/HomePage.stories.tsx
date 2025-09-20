@@ -8,10 +8,10 @@ const meta = {
     layout: 'fullscreen',
     docs: {
       description: {
-        component: 'Complete home page with all sections'
-      }
-    }
-  }
+        component: 'Complete home page with all sections',
+      },
+    },
+  },
 } satisfies Meta<typeof Home>
 
 export default meta

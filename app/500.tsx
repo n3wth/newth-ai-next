@@ -38,7 +38,7 @@ export default function Error500Page() {
             className="absolute w-full"
             style={{
               height: '2px',
-              top: `${(i * 10) + 5}%`,
+              top: `${i * 10 + 5}%`,
             }}
             animate={{
               x: [0, -10, 10, -5, 5, 0],
@@ -54,7 +54,7 @@ export default function Error500Page() {
               duration: 0.2,
               repeat: Infinity,
               delay: i * 0.1,
-              repeatDelay: 3 + (i * 0.5),
+              repeatDelay: 3 + i * 0.5,
             }}
           />
         ))}
@@ -71,12 +71,7 @@ export default function Error500Page() {
               height: '4px',
             }}
             animate={{
-              backgroundColor: [
-                'transparent',
-                '#ef4444',
-                '#dc2626',
-                'transparent',
-              ],
+              backgroundColor: ['transparent', '#ef4444', '#dc2626', 'transparent'],
               scale: [0, 1, 1, 0],
             }}
             transition={{
@@ -168,20 +163,19 @@ export default function Error500Page() {
                 <motion.span
                   key={j}
                   className="inline-block"
-                  animate={i < 2 ? {
-                    color: [
-                      '#ef4444',
-                      '#dc2626',
-                      '#b91c1c',
-                      '#ef4444',
-                    ],
-                    textShadow: [
-                      '0 0 5px rgba(239, 68, 68, 0.5)',
-                      '0 0 10px rgba(220, 38, 38, 0.7)',
-                      '0 0 5px rgba(185, 28, 28, 0.5)',
-                      '0 0 5px rgba(239, 68, 68, 0.5)',
-                    ],
-                  } : {}}
+                  animate={
+                    i < 2
+                      ? {
+                          color: ['#ef4444', '#dc2626', '#b91c1c', '#ef4444'],
+                          textShadow: [
+                            '0 0 5px rgba(239, 68, 68, 0.5)',
+                            '0 0 10px rgba(220, 38, 38, 0.7)',
+                            '0 0 5px rgba(185, 28, 28, 0.5)',
+                            '0 0 5px rgba(239, 68, 68, 0.5)',
+                          ],
+                        }
+                      : {}
+                  }
                   transition={{
                     duration: 2,
                     repeat: Infinity,
@@ -203,9 +197,7 @@ export default function Error500Page() {
           transition={{ delay: 0.5 }}
           className="space-y-4 mb-8"
         >
-          <h1 className="text-3xl sm:text-4xl font-bold text-white">
-            Server Error
-          </h1>
+          <h1 className="text-3xl sm:text-4xl font-bold text-white">Server Error</h1>
           <p className="text-gray-400 text-lg max-w-md mx-auto">
             Something went wrong on our end. Our team has been notified and is working on a fix.
           </p>
@@ -251,9 +243,7 @@ export default function Error500Page() {
           transition={{ delay: 0.8 }}
           className="mt-12 pt-8 border-t border-white/10"
         >
-          <p className="text-xs text-gray-500 font-mono">
-            ERROR_CODE: INTERNAL_SERVER_ERROR
-          </p>
+          <p className="text-xs text-gray-500 font-mono">ERROR_CODE: INTERNAL_SERVER_ERROR</p>
           <p className="text-xs text-gray-600 font-mono mt-1">
             TIMESTAMP: {new Date().toISOString()}
           </p>

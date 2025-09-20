@@ -47,16 +47,16 @@ export default function ProjectsLoading() {
               <div key={i} className="bg-white/5 rounded-2xl p-6 animate-pulse">
                 {/* Project image skeleton */}
                 <div className="h-48 bg-white/10 rounded-lg mb-4"></div>
-                
+
                 {/* Project title skeleton */}
                 <div className="h-6 bg-white/10 rounded mb-3 w-3/4"></div>
-                
+
                 {/* Project description skeleton */}
                 <div className="space-y-2 mb-4">
                   <div className="h-4 bg-white/5 rounded w-full"></div>
                   <div className="h-4 bg-white/5 rounded w-5/6"></div>
                 </div>
-                
+
                 {/* Project tags skeleton */}
                 <div className="flex flex-wrap gap-2 mb-4">
                   {[...Array(3)].map((_, j) => (
@@ -67,7 +67,7 @@ export default function ProjectsLoading() {
                     ></div>
                   ))}
                 </div>
-                
+
                 {/* Project status and links skeleton */}
                 <div className="flex justify-between items-center">
                   <div className="h-6 bg-white/5 rounded w-20"></div>

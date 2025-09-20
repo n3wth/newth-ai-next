@@ -56,6 +56,7 @@ stories/
 ```
 
 ## Naming Convention
+
 - Numbers prefix for ordering (1-foundations first, 8-examples last)
 - Singular for categories (Component, not Components)
 - PascalCase for component names

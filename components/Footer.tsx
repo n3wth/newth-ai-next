@@ -6,7 +6,11 @@ export function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="border-t border-white/10 bg-black">
+    <footer
+      className="border-t border-white/10 bg-black"
+      role="contentinfo"
+      aria-label="Site footer"
+    >
       <Container className="py-8">
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
           {/* Left side - Copyright */}
@@ -15,11 +19,22 @@ export function Footer() {
           </p>
 
           {/* Right side - Navigation and Social Links */}
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm order-1 sm:order-2">
-            <Link href="/#projects" className="text-gray-400 hover:text-white transition-colors">
+          <nav
+            className="flex flex-wrap gap-x-6 gap-y-2 text-sm order-1 sm:order-2"
+            aria-label="Footer navigation"
+          >
+            <Link
+              href="/#projects"
+              className="text-gray-400 hover:text-white transition-colors"
+              aria-label="Go to projects section"
+            >
               Projects
             </Link>
-            <Link href="/work" className="text-gray-400 hover:text-white transition-colors">
+            <Link
+              href="/work"
+              className="text-gray-400 hover:text-white transition-colors"
+              aria-label="View my work page"
+            >
               Work
             </Link>
             <a
@@ -27,6 +42,7 @@ export function Footer() {
               className="text-gray-400 hover:text-white transition-colors"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Visit my GitHub profile (opens in new tab)"
             >
               GitHub
             </a>
@@ -35,10 +51,11 @@ export function Footer() {
               className="text-gray-400 hover:text-white transition-colors"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Visit my LinkedIn profile (opens in new tab)"
             >
               LinkedIn
             </a>
-          </div>
+          </nav>
         </div>
       </Container>
     </footer>

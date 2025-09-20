@@ -5,13 +5,13 @@ const meta = {
   parameters: {
     layout: 'fullscreen',
     backgrounds: {
-      default: 'dark'
+      default: 'dark',
     },
     docs: {
       description: {
-        component: 'Spacing system based on 8px grid'
-      }
-    }
+        component: 'Spacing system based on 8px grid',
+      },
+    },
   },
   tags: ['autodocs', 'foundations'],
 } satisfies Meta
@@ -70,7 +70,7 @@ export const Scale: Story = {
         </div>
       </div>
     </div>
-  )
+  ),
 }
 
 export const Padding: Story = {
@@ -120,7 +120,9 @@ export const Padding: Story = {
               </div>
               <div className="bg-gray-900 rounded">
                 <div className="pl-12 pr-4 py-4 bg-violet-500/20 rounded m-px">
-                  <div className="bg-gray-700 rounded text-xs text-center py-2">pl-12 pr-4 py-4</div>
+                  <div className="bg-gray-700 rounded text-xs text-center py-2">
+                    pl-12 pr-4 py-4
+                  </div>
                 </div>
               </div>
               <div className="bg-gray-900 rounded">
@@ -133,7 +135,7 @@ export const Padding: Story = {
         </div>
       </div>
     </div>
-  )
+  ),
 }
 
 export const Margin: Story = {
@@ -167,7 +169,7 @@ export const Margin: Story = {
         </div>
       </div>
     </div>
-  )
+  ),
 }
 
 export const Gap: Story = {
@@ -183,24 +185,30 @@ export const Gap: Story = {
               <div>
                 <p className="text-sm text-gray-500 mb-2">gap-2 (8px)</p>
                 <div className="flex gap-2">
-                  {[1, 2, 3, 4].map(i => (
-                    <div key={i} className="bg-violet-500 rounded p-4 text-xs text-center">Item</div>
+                  {[1, 2, 3, 4].map((i) => (
+                    <div key={i} className="bg-violet-500 rounded p-4 text-xs text-center">
+                      Item
+                    </div>
                   ))}
                 </div>
               </div>
               <div>
                 <p className="text-sm text-gray-500 mb-2">gap-4 (16px)</p>
                 <div className="flex gap-4">
-                  {[1, 2, 3, 4].map(i => (
-                    <div key={i} className="bg-violet-500 rounded p-4 text-xs text-center">Item</div>
+                  {[1, 2, 3, 4].map((i) => (
+                    <div key={i} className="bg-violet-500 rounded p-4 text-xs text-center">
+                      Item
+                    </div>
                   ))}
                 </div>
               </div>
               <div>
                 <p className="text-sm text-gray-500 mb-2">gap-8 (32px)</p>
                 <div className="flex gap-8">
-                  {[1, 2, 3, 4].map(i => (
-                    <div key={i} className="bg-violet-500 rounded p-4 text-xs text-center">Item</div>
+                  {[1, 2, 3, 4].map((i) => (
+                    <div key={i} className="bg-violet-500 rounded p-4 text-xs text-center">
+                      Item
+                    </div>
                   ))}
                 </div>
               </div>
@@ -213,16 +221,20 @@ export const Gap: Story = {
               <div>
                 <p className="text-sm text-gray-500 mb-2">gap-4 (16px)</p>
                 <div className="grid grid-cols-4 gap-4">
-                  {[1, 2, 3, 4, 5, 6, 7, 8].map(i => (
-                    <div key={i} className="bg-violet-500 rounded p-4 text-xs text-center">Cell</div>
+                  {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
+                    <div key={i} className="bg-violet-500 rounded p-4 text-xs text-center">
+                      Cell
+                    </div>
                   ))}
                 </div>
               </div>
               <div>
                 <p className="text-sm text-gray-500 mb-2">gap-x-2 gap-y-6</p>
                 <div className="grid grid-cols-4 gap-x-2 gap-y-6">
-                  {[1, 2, 3, 4, 5, 6, 7, 8].map(i => (
-                    <div key={i} className="bg-violet-500 rounded p-4 text-xs text-center">Cell</div>
+                  {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
+                    <div key={i} className="bg-violet-500 rounded p-4 text-xs text-center">
+                      Cell
+                    </div>
                   ))}
                 </div>
               </div>
@@ -231,7 +243,7 @@ export const Gap: Story = {
         </div>
       </div>
     </div>
-  )
+  ),
 }
 
 export const SpaceUtilities: Story = {
@@ -254,7 +266,9 @@ export const SpaceUtilities: Story = {
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold text-gray-400 mb-4">Horizontal Spacing (space-x)</h3>
+            <h3 className="text-lg font-semibold text-gray-400 mb-4">
+              Horizontal Spacing (space-x)
+            </h3>
             <div className="bg-gray-900 p-4 rounded">
               <div className="flex space-x-4">
                 <div className="bg-violet-500 rounded p-3 text-xs text-center">Item 1</div>
@@ -294,5 +308,5 @@ export const SpaceUtilities: Story = {
         </div>
       </div>
     </div>
-  )
+  ),
 }
