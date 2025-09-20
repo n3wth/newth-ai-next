@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/nextjs'
 import { DataFlowBackground } from '@/components/backgrounds/DataFlowBackground'
 
 const meta = {
-  title: 'Effects/Backgrounds/Data Flow',
+  title: 'Backgrounds/Flow',
   component: DataFlowBackground,
   parameters: {
     layout: 'fullscreen',

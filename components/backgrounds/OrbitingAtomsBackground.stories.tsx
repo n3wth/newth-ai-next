@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/nextjs'
 import { OrbitingAtomsBackground } from '@/components/backgrounds/OrbitingAtomsBackground'
 
 const meta = {
-  title: 'Effects/Backgrounds/Orbiting Atoms',
+  title: 'Backgrounds/Orbital',
   component: OrbitingAtomsBackground,
   parameters: {
     layout: 'fullscreen',

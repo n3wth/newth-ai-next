@@ -1,0 +1,99 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Backgrounds/Overview" />
+
+# Background Animations
+
+Dynamic, interactive background effects that bring life to your applications.
+
+## Available Backgrounds
+
+Our collection of animated backgrounds provides various visual effects suitable for different use cases:
+
+### 🌊 CodeRain Background
+Matrix-style falling code animation perfect for tech-focused interfaces.
+- Customizable speed and density
+- Multiple character sets
+- Color themes
+
+### ⚡ Glitch Background
+Cyberpunk-inspired glitch effects for edgy, modern designs.
+- Random glitch intervals
+- Adjustable intensity
+- RGB color splits
+
+### 🌐 Neural Network Background
+Interconnected nodes visualization representing AI and connectivity.
+- Interactive node connections
+- Dynamic movement
+- Customizable node count
+
+### 🌀 Warp Background
+Space warp effect creating depth and motion.
+- Speed controls
+- Star density options
+- Direction configuration
+
+### 📊 Waveform Background
+Audio waveform-style animations for music and media applications.
+- Frequency visualization
+- Amplitude controls
+- Color gradients
+
+### 💫 Particle Field Background
+Floating particles with physics-based movement.
+- Particle count control
+- Interaction effects
+- Speed variations
+
+### 🔄 Data Flow Background
+Flowing data streams representing information transfer.
+- Flow direction
+- Stream density
+- Speed controls
+
+### ⚛️ Orbiting Atoms Background
+Atomic orbit animations for science and tech themes.
+- Orbit speed
+- Electron count
+- Nucleus styling
+
+## Implementation
+
+All background components are optimized for performance using:
+- RequestAnimationFrame for smooth animations
+- Canvas rendering for complex effects
+- React.memo to prevent unnecessary re-renders
+- Cleanup on unmount to prevent memory leaks
+
+## Usage
+
+```tsx
+import { CodeRainBackground } from '@/components/backgrounds/CodeRainBackground'
+
+export default function Page() {
+  return (
+    <div className="relative min-h-screen">
+      <CodeRainBackground />
+      <div className="relative z-10">
+        {/* Your content here */}
+      </div>
+    </div>
+  )
+}
+```
+
+## Performance Considerations
+
+- Use `will-change` CSS property for GPU acceleration
+- Implement visibility API to pause animations when tab is inactive
+- Consider reduced motion preferences for accessibility
+- Lazy load background components when not immediately visible
+
+## Accessibility
+
+All animated backgrounds respect user preferences:
+- `prefers-reduced-motion` media query support
+- Option to disable animations
+- Ensure sufficient contrast for overlaid content
+- Provide static alternatives when needed

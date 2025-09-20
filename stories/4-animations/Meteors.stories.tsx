@@ -2,25 +2,25 @@ import type { Meta, StoryObj } from '@storybook/nextjs'
 import { Meteors } from '@/components/Meteors'
 
 const meta = {
-  title: 'Effects/Animations/Meteors',
+  title: 'Components/Animations/Meteors',
   component: Meteors,
   parameters: {
     layout: 'fullscreen',
     backgrounds: {
-      default: 'dark'
+      default: 'dark',
     },
     docs: {
       description: {
-        component: 'Animated meteors falling across the screen'
-      }
-    }
+        component: 'Animated meteors falling across the screen',
+      },
+    },
   },
   argTypes: {
     number: {
       control: { type: 'range', min: 1, max: 50, step: 1 },
-      description: 'Number of meteors'
-    }
-  }
+      description: 'Number of meteors',
+    },
+  },
 } satisfies Meta<typeof Meteors>
 
 export default meta
@@ -31,7 +31,7 @@ export const Default: Story = {
     <div className="relative w-full h-screen bg-black overflow-hidden">
       <Meteors />
     </div>
-  )
+  ),
 }
 
 export const FewMeteors: Story = {
@@ -39,7 +39,7 @@ export const FewMeteors: Story = {
     <div className="relative w-full h-screen bg-black overflow-hidden">
       <Meteors number={5} />
     </div>
-  )
+  ),
 }
 
 export const ManyMeteors: Story = {
@@ -47,7 +47,7 @@ export const ManyMeteors: Story = {
     <div className="relative w-full h-screen bg-black overflow-hidden">
       <Meteors number={30} />
     </div>
-  )
+  ),
 }
 
 export const WithContent: Story = {
@@ -58,5 +58,5 @@ export const WithContent: Story = {
         <h1 className="text-6xl font-bold text-white">Meteor Shower</h1>
       </div>
     </div>
-  )
+  ),
 }

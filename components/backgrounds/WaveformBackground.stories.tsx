@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/nextjs'
 import { WaveformBackground } from '@/components/backgrounds/WaveformBackground'
 
 const meta = {
-  title: 'Effects/Backgrounds/Waveform',
+  title: 'Backgrounds/Wave',
   component: WaveformBackground,
   parameters: {
     layout: 'fullscreen',

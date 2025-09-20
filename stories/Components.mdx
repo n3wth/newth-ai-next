@@ -1,0 +1,85 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Components/Overview" />
+
+# Component Library
+
+A comprehensive collection of reusable React components built with TypeScript and Tailwind CSS.
+
+## Component Categories
+
+### UI Components
+Core interface elements for building applications:
+- **Buttons** - Primary, secondary, and variant button styles
+- **Forms** - Input fields, checkboxes, selects, and form layouts
+- **Modals** - Dialog and overlay components
+- **Cards** - Content containers with various layouts
+- **Navigation** - Headers, sidebars, and menu components
+
+### Background Components
+Dynamic animated backgrounds for visual interest:
+- **CodeRain** - Matrix-style falling code animation
+- **GridPattern** - Animated grid backgrounds
+- **ParticleField** - Interactive particle effects
+- **GradientMesh** - Smooth animated gradients
+
+### Layout Components
+Structure and organize your application:
+- **Container** - Responsive width containers
+- **Grid** - Flexible grid layouts
+- **Stack** - Vertical and horizontal stacks
+- **Section** - Page section wrappers
+
+### Data Display
+Present information effectively:
+- **Tables** - Sortable, filterable data tables
+- **Lists** - Various list layouts and styles
+- **Stats** - Statistics and metric displays
+- **Charts** - Data visualization components
+
+## Component Standards
+
+### Props & Types
+All components include:
+- Full TypeScript definitions
+- JSDoc documentation
+- Default props where appropriate
+- Proper prop validation
+
+### Styling
+Components follow consistent patterns:
+- Tailwind utility classes
+- CSS-in-JS for dynamic styles
+- Dark mode support
+- Responsive by default
+
+### Accessibility
+Every component ensures:
+- Semantic HTML structure
+- ARIA labels and roles
+- Keyboard navigation
+- Focus management
+
+### Testing
+Components include:
+- Unit tests with Vitest
+- Visual regression tests
+- Accessibility audits
+- Storybook documentation
+
+## Usage Examples
+
+```tsx
+import { Button } from '@/components/ui/button'
+import { Card } from '@/components/ui/card'
+
+function MyComponent() {
+  return (
+    <Card>
+      <Button variant="primary">
+        Click me
+      </Button>
+    </Card>
+  )
+}
+```

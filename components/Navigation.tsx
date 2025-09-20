@@ -1,5 +1,12 @@
 'use client'
 
+// TODO: Feature - Add search functionality in navigation
+// TODO: Performance - Memoize navigation items
+// TODO: Feature - Add dark/light mode toggle
+// TODO: Accessibility - Add keyboard shortcuts for navigation
+// TODO: Feature - Add breadcrumbs for deeper pages
+// TODO: Mobile - Improve mobile menu animations
+
 import Link from 'next/link'
 import { ArrowRight, ExternalLink, Github, Briefcase, FolderOpen } from 'lucide-react'
 import { useState, useEffect } from 'react'

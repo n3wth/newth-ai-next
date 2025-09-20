@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/nextjs'
 import { ParticleFieldBackground } from '@/components/backgrounds/ParticleFieldBackground'
 
 const meta = {
-  title: 'Effects/Backgrounds/Particle Field',
+  title: 'Backgrounds/Particles',
   component: ParticleFieldBackground,
   parameters: {
     layout: 'fullscreen',

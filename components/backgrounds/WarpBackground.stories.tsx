@@ -3,7 +3,7 @@ import { WarpBackground } from '@/components/WarpBackground'
 import { Button } from '@/components/ui/Button'
 
 const meta = {
-  title: 'Effects/Backgrounds/Warp',
+  title: 'Backgrounds/Warp',
   component: WarpBackground,
   parameters: {
     layout: 'fullscreen',

@@ -1,3 +1,9 @@
+// TODO: Performance - Split CSS into critical and non-critical stylesheets
+// TODO: Font - Consider adding a display font for headings
+// TODO: Security - Add Content Security Policy headers
+// TODO: i18n - Add internationalization support
+// TODO: PWA - Add service worker for offline support
+
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
@@ -10,6 +16,8 @@ import { KeyboardNavProvider } from '@/components/KeyboardNavProvider'
 import { UnifiedToolbar } from '@/components/UnifiedToolbar'
 import './refined-globals.css'
 
+// TODO: Typography - Add variable font weights for better performance
+// TODO: Font - Consider adding code font for technical content
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',

@@ -1,5 +1,11 @@
 'use client'
 
+// TODO: Accessibility - Add aria-labels for screen readers
+// TODO: Performance - Lazy load WarpBackground on interaction
+// TODO: Animation - Add entrance animations for text elements
+// TODO: Feature - Add typing animation for dynamic headlines
+// TODO: Responsive - Optimize font sizes for more breakpoints
+
 import { ArrowRight, ChevronDown } from 'lucide-react'
 import { WarpBackground } from '@/components/WarpBackground'
 import { HeroSectionProps } from '@/lib/types'

@@ -32,6 +32,40 @@ const meta = {
       },
     },
   },
+  argTypes: {
+    currentPath: {
+      control: 'select',
+      options: ['/', '/projects', '/blog', '/contact'],
+      description: 'Current active path for navigation highlighting',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '/' },
+      },
+    },
+    showMobileMenu: {
+      control: 'boolean',
+      description: 'Control mobile menu visibility (for testing)',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+      },
+    },
+    onNavigate: {
+      action: 'navigated',
+      description: 'Called when a navigation link is clicked',
+      table: {
+        type: { summary: '(path: string) => void' },
+      },
+    },
+    onMenuToggle: {
+      action: 'menu-toggled',
+      description: 'Called when mobile menu is toggled',
+      table: {
+        type: { summary: '() => void' },
+      },
+    },
+  },
+  args: {},
   decorators: [
     (Story) => (
       <div className="bg-black w-full">

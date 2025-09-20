@@ -39,7 +39,8 @@
             },
             docs: {
               description: {
-                component: 'The n3wth.AI ASCII art logo with glitch effects and rainbow animations',
+                component:
+                  "\n## n3wth.AI Logo Component\n\nThe AnimatedLogo component displays the iconic n3wth.AI ASCII art logo with customizable glitch effects and rainbow animations.\n\n### Features\n- 🌈 **Rainbow hover effects** - Smooth color transitions on mouse interaction\n- ⚡ **Glitch animations** - Random glitch effects for a cyberpunk aesthetic\n- 🎨 **Customizable colors** - Adjust saturation and intensity\n- 📱 **Responsive** - Scales appropriately across screen sizes\n\n### Usage\n\n```tsx\nimport { AnimatedLogo } from '@/components/AnimatedLogo'\n\n// Basic usage with hover effects\n<AnimatedLogo\n  enableColorOnHover={true}\n  baseSaturation={85}\n/>\n\n// With glitch effects\n<AnimatedLogo\n  enableColorOnGlitch={true}\n  colorIntensity={0.8}\n/>\n```\n        ",
               },
             },
           },
@@ -220,6 +221,7 @@
               },
             },
           },
+          tags: ['!autodocs', '!test'],
         },
         __namedExportsOrder = [
           'Default',
@@ -302,7 +304,7 @@
             ...Playground.parameters?.docs,
             source: {
               originalSource:
-                "{\n  args: {\n    enableColorOnHover: true,\n    enableColorOnGlitch: false,\n    baseSaturation: 85,\n    colorIntensity: 1\n  },\n  parameters: {\n    docs: {\n      description: {\n        story: 'Use the controls to experiment with different configurations'\n      }\n    }\n  }\n}",
+                "{\n  args: {\n    enableColorOnHover: true,\n    enableColorOnGlitch: false,\n    baseSaturation: 85,\n    colorIntensity: 1\n  },\n  parameters: {\n    docs: {\n      description: {\n        story: 'Use the controls to experiment with different configurations'\n      }\n    }\n  },\n  tags: ['!autodocs', '!test']\n}",
               ...Playground.parameters?.docs?.source,
             },
           },

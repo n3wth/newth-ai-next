@@ -1,0 +1,177 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Getting Started" />
+
+# Getting Started
+
+Quick guide to using the n3wth.AI component library in your projects.
+
+## Installation
+
+### Prerequisites
+- Node.js 18+ and npm 9+
+- React 18 or 19
+- TypeScript 5+
+
+### Package Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/n3wth/newth-ai-next-v1.git
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+```
+
+## Project Setup
+
+### 1. Configure Tailwind CSS
+
+```javascript
+// tailwind.config.js
+module.exports = {
+  content: [
+    './src/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
+  ],
+  theme: {
+    extend: {
+      colors: {
+        purple: {
+          400: '#a78bfa',
+          500: '#8b5cf6',
+          600: '#7c3aed',
+        },
+      },
+    },
+  },
+  plugins: [],
+}
+```
+
+### 2. Import Global Styles
+
+```css
+/* app/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+### 3. Set Up Dark Mode
+
+```tsx
+// app/layout.tsx
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <html lang="en" className="dark">
+      <body className="dark bg-black text-white">
+        {children}
+      </body>
+    </html>
+  )
+}
+```
+
+## Using Components
+
+### Basic Usage
+
+```tsx
+import { Button } from '@/components/ui/button'
+import { Card } from '@/components/ui/card'
+import { CodeRain } from '@/components/backgrounds/CodeRain'
+
+export default function HomePage() {
+  return (
+    <div className="relative min-h-screen">
+      <CodeRain />
+      <div className="relative z-10 p-8">
+        <Card>
+          <h1>Welcome to n3wth.AI</h1>
+          <Button onClick={() => console.log('Clicked!')}>
+            Get Started
+          </Button>
+        </Card>
+      </div>
+    </div>
+  )
+}
+```
+
+### Advanced Patterns
+
+```tsx
+// Custom theme provider
+import { ThemeProvider } from '@/components/theme-provider'
+
+// Wrap your app
+<ThemeProvider defaultTheme="dark">
+  <App />
+</ThemeProvider>
+```
+
+## Development Workflow
+
+### Available Scripts
+
+```bash
+# Development
+npm run dev          # Start Next.js dev server
+npm run storybook    # Start Storybook
+
+# Building
+npm run build        # Build for production
+npm run build:storybook  # Build Storybook
+
+# Testing
+npm run test         # Run tests
+npm run lint         # Lint code
+npm run type-check   # TypeScript checks
+```
+
+### Component Development
+
+1. Create component in `components/`
+2. Add story file `Component.stories.tsx`
+3. Write tests in `Component.test.tsx`
+4. Document props and usage
+
+## Best Practices
+
+### Performance
+- Use dynamic imports for heavy components
+- Implement React.memo for pure components
+- Lazy load background animations
+
+### Accessibility
+- Always include aria-labels
+- Ensure keyboard navigation works
+- Test with screen readers
+- Check color contrast ratios
+
+### Code Quality
+- Follow TypeScript strict mode
+- Use ESLint and Prettier
+- Write comprehensive tests
+- Document complex logic
+
+## Resources
+
+- [GitHub Repository](https://github.com/n3wth/newth-ai-next-v1)
+- [Live Demo](https://newth.ai)
+- [Component Storybook](https://storybook.newth.ai)
+- [Documentation](https://docs.newth.ai)
+
+## Support
+
+For issues and questions:
+- Open an issue on [GitHub](https://github.com/n3wth/newth-ai-next-v1/issues)
+- Contact the team at support@newth.ai

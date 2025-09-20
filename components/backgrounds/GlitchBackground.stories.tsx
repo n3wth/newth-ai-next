@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/nextjs'
 import { GlitchBackground } from '@/components/backgrounds/GlitchBackground'
 
 const meta = {
-  title: 'Effects/Backgrounds/Glitch',
+  title: 'Backgrounds/Glitch',
   component: GlitchBackground,
   parameters: {
     layout: 'fullscreen',

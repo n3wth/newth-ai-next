@@ -1,23 +1,26 @@
 'use strict'
 ;(self.webpackChunknewth_ai_next = self.webpackChunknewth_ai_next || []).push([
-  [247],
+  [80],
   {
-    './node_modules/@storybook/addon-docs/dist/DocsRenderer-PQXLIZUC.mjs': (
+    './node_modules/@storybook/addon-docs/dist/blocks.mjs': (
       __unused_webpack_module,
       __webpack_exports__,
       __webpack_require__
     ) => {
-      __webpack_require__.d(__webpack_exports__, { DocsRenderer: () => DocsRenderer })
-      var react = __webpack_require__('./node_modules/next/dist/compiled/react/index.js'),
-        react_18 = __webpack_require__(
-          './node_modules/@storybook/react-dom-shim/dist/react-18.mjs'
-        ),
-        chunk_SPFYY5GD = __webpack_require__(
+      __webpack_require__.d(__webpack_exports__, {
+        zE: () => AnchorMdx,
+        XA: () => CodeOrSourceMdx,
+        kQ: () => Docs,
+        Sw: () => HeadersMdx,
+        W8: () => Meta,
+      })
+      var chunk_SPFYY5GD = __webpack_require__(
           './node_modules/@storybook/addon-docs/dist/chunk-SPFYY5GD.mjs'
         ),
         chunk_QUZPS4B6 = __webpack_require__(
           './node_modules/@storybook/addon-docs/dist/chunk-QUZPS4B6.mjs'
         ),
+        react = __webpack_require__('./node_modules/next/dist/compiled/react/index.js'),
         external_STORYBOOK_MODULE_CLIENT_LOGGER_ = __webpack_require__(
           'storybook/internal/client-logger'
         ),
@@ -9453,60 +9456,16 @@
           }
         }
       external_STORYBOOK_MODULE_PREVIEW_API_.Preview
-      var defaultComponents = { code: CodeOrSourceMdx, a: AnchorMdx, ...HeadersMdx },
-        ErrorBoundary = class extends react.Component {
-          constructor() {
-            ;(super(...arguments), (this.state = { hasError: !1 }))
-          }
-          static getDerivedStateFromError() {
-            return { hasError: !0 }
-          }
-          componentDidCatch(err) {
-            let { showException } = this.props
-            showException(err)
-          }
-          render() {
-            let { hasError } = this.state,
-              { children } = this.props
-            return hasError ? null : react.createElement(react.Fragment, null, children)
-          }
-        },
-        DocsRenderer = class {
-          constructor() {
-            ;((this.render = async (context, docsParameter, element) => {
-              let components = { ...defaultComponents, ...docsParameter?.components },
-                TDocs = Docs
-              return new Promise((resolve, reject) => {
-                __webpack_require__
-                  .e(648)
-                  .then(
-                    __webpack_require__.bind(
-                      __webpack_require__,
-                      './node_modules/@mdx-js/react/index.js'
-                    )
-                  )
-                  .then(({ MDXProvider }) =>
-                    (0, react_18.renderElement)(
-                      react.createElement(
-                        ErrorBoundary,
-                        { showException: reject, key: Math.random() },
-                        react.createElement(
-                          MDXProvider,
-                          { components },
-                          react.createElement(TDocs, { context, docsParameter })
-                        )
-                      ),
-                      element
-                    )
-                  )
-                  .then(() => resolve())
-              })
-            }),
-              (this.unmount = (element) => {
-                ;(0, react_18.unmountElement)(element)
-              }))
-          }
+      var Meta = ({ of }) => {
+        let context = (0, react.useContext)(DocsContext)
+        of && context.referenceMeta(of, !0)
+        try {
+          let primary = context.storyById()
+          return react.createElement(Anchor, { storyId: primary.id })
+        } catch {
+          return null
         }
+      }
     },
     './node_modules/@storybook/addon-docs/dist/chunk-QUZPS4B6.mjs': (
       __unused_webpack_module,
@@ -27116,4 +27075,4 @@
     },
   },
 ])
-//# sourceMappingURL=247.51a0b171.iframe.bundle.js.map
+//# sourceMappingURL=80.c5f8fc2a.iframe.bundle.js.map

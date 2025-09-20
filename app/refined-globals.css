@@ -179,6 +179,73 @@
 }
 
 @layer utilities {
+  /* Reduced motion utilities */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+
+    .motion-reduce\:static {
+      transform: none !important;
+    }
+
+    .motion-reduce\:opacity-50 {
+      opacity: 0.5 !important;
+    }
+
+    .motion-reduce\:no-animation {
+      animation: none !important;
+    }
+
+    .motion-reduce\:no-transform {
+      transform: none !important;
+    }
+
+    /* Hide decorative animations completely for reduced motion */
+    .motion-reduce\:hidden {
+      display: none !important;
+    }
+
+    /* Simplified hover states for reduced motion */
+    .motion-reduce\:hover\:scale-100:hover {
+      transform: scale(1) !important;
+    }
+
+    .motion-reduce\:hover\:translate-y-0:hover {
+      transform: translateY(0) !important;
+    }
+  }
+
+  /* Motion-safe utilities (only animate when motion is allowed) */
+  @media (prefers-reduced-motion: no-preference) {
+    .motion-safe\:animate-pulse {
+      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+
+    .motion-safe\:animate-bounce {
+      animation: bounce 1s infinite;
+    }
+
+    .motion-safe\:transition-transform {
+      transition-property: transform;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 150ms;
+    }
+
+    .motion-safe\:hover\:scale-105:hover {
+      transform: scale(1.05);
+    }
+
+    .motion-safe\:hover\:translate-y-1:hover {
+      transform: translateY(-0.25rem);
+    }
+  }
+
   /* ASCII-inspired 3D glitch shapes */
   .shape-ascii-cube {
     position: absolute;
@@ -293,6 +360,41 @@
       20px 20px 0 rgba(0, 255, 255, 0.02),
       30px 30px 0 rgba(255, 255, 0, 0.02);
     animation: trail-move 20s infinite ease-in-out, glitch-shadow 0.3s infinite;
+  }
+
+  /* Reduced motion overrides for existing animations */
+  @media (prefers-reduced-motion: reduce) {
+    .shape-ascii-cube,
+    .shape-ascii-pyramid,
+    .shape-glitch-smoke,
+    .shape-ascii-grid,
+    .shape-digital-rain,
+    .shape-wireframe-sphere,
+    .shape-glitch-trail {
+      animation: none !important;
+      opacity: 0.2 !important;
+    }
+
+    .status-dot span {
+      animation: none !important;
+    }
+
+    .card-glass:hover {
+      transform: none !important;
+    }
+
+    .btn-premium:hover,
+    .btn-primary:hover {
+      transform: none !important;
+    }
+
+    .hover-lift:hover {
+      transform: none !important;
+    }
+
+    button:active {
+      transform: none !important;
+    }
   }
 
   /* Glitch animations */

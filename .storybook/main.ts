@@ -2,6 +2,7 @@ import type { StorybookConfig } from '@storybook/nextjs'
 
 const config: StorybookConfig = {
   stories: [
+    '../stories/Welcome.mdx',
     '../components/**/*.stories.@(js|jsx|mjs|ts|tsx)',
     '../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)',
     '../stories/**/*.mdx',
@@ -16,7 +17,7 @@ const config: StorybookConfig = {
     name: '@storybook/nextjs',
     options: {},
   },
-  staticDirs: ['../public'],
+  staticDirs: [{ from: '../public', to: '/' }],
   features: {
     buildStoriesJson: true,
   },

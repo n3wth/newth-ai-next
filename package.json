@@ -6,7 +6,7 @@
     "dev": "next dev --turbo",
     "build": "npm run build:next && npm run build:storybook",
     "build:next": "next build",
-    "build:storybook": "storybook build -o public/storybook",
+    "build:storybook": "storybook build -o storybook-static && rm -rf public/storybook && mv storybook-static public/storybook",
     "start": "next start",
     "lint": "eslint . --ext .ts,.tsx",
     "lint:fix": "eslint . --ext .ts,.tsx --fix",
@@ -28,6 +28,7 @@
     "analyze": "ANALYZE=true next build",
     "prepare": "husky",
     "storybook": "storybook dev -p 6006",
+    "storybook:debug": "NODE_OPTIONS='--inspect' storybook dev -p 6006 --debug-webpack",
     "build-storybook": "storybook build"
   },
   "dependencies": {

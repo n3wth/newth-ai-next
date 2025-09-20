@@ -1,6 +1,11 @@
 'use client'
 
+// TODO: Performance - Consider lazy loading this component as it's heavy with animations
+// TODO: Optimization - Use CSS transforms instead of Framer Motion for better performance
+// TODO: Mobile - Reduce number of shapes on mobile devices for better performance
+
 import { cn } from '@/lib/utils'
+import { useReducedMotion } from '@/lib/hooks/useReducedMotion'
 import { motion } from 'framer-motion'
 import React, { HTMLAttributes, useMemo } from 'react'
 
@@ -16,13 +21,17 @@ const AnimatedShape = React.memo(
     delay,
     type,
     colorSet,
+    reduceMotion,
   }: {
     x: number
     y: number
     delay: number
     type: string
     colorSet: number
+    reduceMotion: boolean
   }) => {
+    // TODO: Theming - Move color palettes to a theme configuration file
+    // TODO: Customization - Allow users to select their preferred color scheme
     // Vibrant color palettes
     const colors = [
       ['#FF006E', '#FB5607', '#FFBE0B'], // Hot pink, orange, yellow
@@ -47,20 +56,35 @@ const AnimatedShape = React.memo(
             height: '100px',
             transformStyle: 'preserve-3d',
           }}
-          animate={{
-            rotateX: [0, 360],
-            rotateY: [0, -360],
-            z: ['-800px', '500px'],
-            scale: [0.2, 3],
-            opacity: [0, 1, 1, 0],
-          }}
-          transition={{
-            duration: 6,
-            repeat: Infinity,
-            delay,
-            ease: 'easeOut',
-            times: [0, 0.3, 0.7, 1],
-          }}
+          animate={
+            reduceMotion
+              ? {
+                  opacity: [0.3, 0.5, 0.3],
+                }
+              : {
+                  rotateX: [0, 360],
+                  rotateY: [0, -360],
+                  z: ['-800px', '500px'],
+                  scale: [0.2, 3],
+                  opacity: [0, 1, 1, 0],
+                }
+          }
+          transition={
+            reduceMotion
+              ? {
+                  duration: 4,
+                  repeat: Infinity,
+                  delay,
+                  ease: 'easeInOut',
+                }
+              : {
+                  duration: 6,
+                  repeat: Infinity,
+                  delay,
+                  ease: 'easeOut',
+                  times: [0, 0.3, 0.7, 1],
+                }
+          }
         >
           <div
             className="absolute inset-0"
@@ -71,22 +95,24 @@ const AnimatedShape = React.memo(
             }}
           />
           {/* Glitch layers */}
-          <motion.div
-            className="absolute inset-0"
-            style={{
-              background: `${palette[2]}22`,
-              mixBlendMode: 'screen',
-            }}
-            animate={{
-              opacity: [0, 1, 0],
-              x: [-2, 2, -2],
-            }}
-            transition={{
-              duration: 0.1,
-              repeat: Infinity,
-              repeatDelay: 2,
-            }}
-          />
+          {!reduceMotion && (
+            <motion.div
+              className="absolute inset-0"
+              style={{
+                background: `${palette[2]}22`,
+                mixBlendMode: 'screen',
+              }}
+              animate={{
+                opacity: [0, 1, 0],
+                x: [-2, 2, -2],
+              }}
+              transition={{
+                duration: 0.1,
+                repeat: Infinity,
+                repeatDelay: 2,
+              }}
+            />
+          )}
         </motion.div>
       ),
       pyramid: (
@@ -96,19 +122,34 @@ const AnimatedShape = React.memo(
             left: `${x}%`,
             top: `${y}%`,
           }}
-          animate={{
-            rotateY: [0, 720],
-            z: ['-1000px', '400px'],
-            scale: [0.1, 2.5],
-            opacity: [0, 0.9, 0.9, 0],
-          }}
-          transition={{
-            duration: 7,
-            repeat: Infinity,
-            delay,
-            ease: 'easeOut',
-            times: [0, 0.4, 0.8, 1],
-          }}
+          animate={
+            reduceMotion
+              ? {
+                  opacity: [0.2, 0.4, 0.2],
+                }
+              : {
+                  rotateY: [0, 720],
+                  z: ['-1000px', '400px'],
+                  scale: [0.1, 2.5],
+                  opacity: [0, 0.9, 0.9, 0],
+                }
+          }
+          transition={
+            reduceMotion
+              ? {
+                  duration: 5,
+                  repeat: Infinity,
+                  delay,
+                  ease: 'easeInOut',
+                }
+              : {
+                  duration: 7,
+                  repeat: Infinity,
+                  delay,
+                  ease: 'easeOut',
+                  times: [0, 0.4, 0.8, 1],
+                }
+          }
         >
           <div
             style={{
@@ -153,18 +194,33 @@ const AnimatedShape = React.memo(
             width: '80px',
             height: '80px',
           }}
-          animate={{
-            z: ['-600px', '300px'],
-            scale: [0.3, 2],
-            opacity: [0, 0.8, 0.8, 0],
-          }}
-          transition={{
-            duration: 5,
-            repeat: Infinity,
-            delay,
-            ease: 'easeOut',
-            times: [0, 0.3, 0.7, 1],
-          }}
+          animate={
+            reduceMotion
+              ? {
+                  opacity: [0.2, 0.4, 0.2],
+                }
+              : {
+                  z: ['-600px', '300px'],
+                  scale: [0.3, 2],
+                  opacity: [0, 0.8, 0.8, 0],
+                }
+          }
+          transition={
+            reduceMotion
+              ? {
+                  duration: 4,
+                  repeat: Infinity,
+                  delay,
+                  ease: 'easeInOut',
+                }
+              : {
+                  duration: 5,
+                  repeat: Infinity,
+                  delay,
+                  ease: 'easeOut',
+                  times: [0, 0.3, 0.7, 1],
+                }
+          }
         >
           <div
             style={{
@@ -177,28 +233,30 @@ const AnimatedShape = React.memo(
             }}
           />
           {/* RGB split glitch */}
-          <motion.div
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%',
-              borderRadius: '50%',
-              background: palette[2],
-              opacity: 0.2,
-              mixBlendMode: 'multiply',
-            }}
-            animate={{
-              x: [-3, 3, 0],
-              y: [0, -3, 3],
-            }}
-            transition={{
-              duration: 0.15,
-              repeat: Infinity,
-              repeatDelay: 3,
-            }}
-          />
+          {!reduceMotion && (
+            <motion.div
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                borderRadius: '50%',
+                background: palette[2],
+                opacity: 0.2,
+                mixBlendMode: 'multiply',
+              }}
+              animate={{
+                x: [-3, 3, 0],
+                y: [0, -3, 3],
+              }}
+              transition={{
+                duration: 0.15,
+                repeat: Infinity,
+                repeatDelay: 3,
+              }}
+            />
+          )}
         </motion.div>
       ),
       helix: (
@@ -210,19 +268,34 @@ const AnimatedShape = React.memo(
             width: '120px',
             height: '120px',
           }}
-          animate={{
-            rotate: [0, 1080],
-            z: ['-1200px', '200px'],
-            scale: [0.1, 2.5],
-            opacity: [0, 0.7, 0.7, 0],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            delay,
-            ease: 'easeOut',
-            times: [0, 0.35, 0.75, 1],
-          }}
+          animate={
+            reduceMotion
+              ? {
+                  opacity: [0.2, 0.4, 0.2],
+                }
+              : {
+                  rotate: [0, 1080],
+                  z: ['-1200px', '200px'],
+                  scale: [0.1, 2.5],
+                  opacity: [0, 0.7, 0.7, 0],
+                }
+          }
+          transition={
+            reduceMotion
+              ? {
+                  duration: 6,
+                  repeat: Infinity,
+                  delay,
+                  ease: 'easeInOut',
+                }
+              : {
+                  duration: 8,
+                  repeat: Infinity,
+                  delay,
+                  ease: 'easeOut',
+                  times: [0, 0.35, 0.75, 1],
+                }
+          }
         >
           <div
             style={{
@@ -240,14 +313,22 @@ const AnimatedShape = React.memo(
               background: `conic-gradient(from 180deg at 50% 50%, ${palette[2]}66, transparent, ${palette[1]}66)`,
               borderRadius: '50%',
             }}
-            animate={{
-              rotate: [0, -360],
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: 'linear',
-            }}
+            animate={
+              reduceMotion
+                ? {}
+                : {
+                    rotate: [0, -360],
+                  }
+            }
+            transition={
+              reduceMotion
+                ? {}
+                : {
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: 'linear',
+                  }
+            }
           />
         </motion.div>
       ),
@@ -260,20 +341,35 @@ const AnimatedShape = React.memo(
             width: '90px',
             height: '90px',
           }}
-          animate={{
-            rotateY: [0, 360],
-            rotateZ: [0, 180],
-            z: ['-700px', '350px'],
-            scale: [0.2, 2.2],
-            opacity: [0, 0.9, 0.9, 0],
-          }}
-          transition={{
-            duration: 6,
-            repeat: Infinity,
-            delay,
-            ease: 'easeOut',
-            times: [0, 0.3, 0.7, 1],
-          }}
+          animate={
+            reduceMotion
+              ? {
+                  opacity: [0.2, 0.4, 0.2],
+                }
+              : {
+                  rotateY: [0, 360],
+                  rotateZ: [0, 180],
+                  z: ['-700px', '350px'],
+                  scale: [0.2, 2.2],
+                  opacity: [0, 0.9, 0.9, 0],
+                }
+          }
+          transition={
+            reduceMotion
+              ? {
+                  duration: 5,
+                  repeat: Infinity,
+                  delay,
+                  ease: 'easeInOut',
+                }
+              : {
+                  duration: 6,
+                  repeat: Infinity,
+                  delay,
+                  ease: 'easeOut',
+                  times: [0, 0.3, 0.7, 1],
+                }
+          }
         >
           <div
             style={{
@@ -285,23 +381,25 @@ const AnimatedShape = React.memo(
             }}
           />
           {/* Glitch flicker */}
-          <motion.div
-            style={{
-              position: 'absolute',
-              inset: 0,
-              background: `linear-gradient(45deg, ${palette[2]}55, transparent)`,
-              clipPath: 'polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%)',
-              mixBlendMode: 'screen',
-            }}
-            animate={{
-              opacity: [0, 1, 0],
-            }}
-            transition={{
-              duration: 0.1,
-              repeat: Infinity,
-              repeatDelay: 2.5,
-            }}
-          />
+          {!reduceMotion && (
+            <motion.div
+              style={{
+                position: 'absolute',
+                inset: 0,
+                background: `linear-gradient(45deg, ${palette[2]}55, transparent)`,
+                clipPath: 'polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%)',
+                mixBlendMode: 'screen',
+              }}
+              animate={{
+                opacity: [0, 1, 0],
+              }}
+              transition={{
+                duration: 0.1,
+                repeat: Infinity,
+                repeatDelay: 2.5,
+              }}
+            />
+          )}
         </motion.div>
       ),
       torus: (
@@ -313,20 +411,35 @@ const AnimatedShape = React.memo(
             width: '100px',
             height: '100px',
           }}
-          animate={{
-            rotateX: [0, 360],
-            rotateY: [0, -720],
-            z: ['-900px', '400px'],
-            scale: [0.2, 2.8],
-            opacity: [0, 0.8, 0.8, 0],
-          }}
-          transition={{
-            duration: 7,
-            repeat: Infinity,
-            delay,
-            ease: 'easeOut',
-            times: [0, 0.35, 0.7, 1],
-          }}
+          animate={
+            reduceMotion
+              ? {
+                  opacity: [0.2, 0.4, 0.2],
+                }
+              : {
+                  rotateX: [0, 360],
+                  rotateY: [0, -720],
+                  z: ['-900px', '400px'],
+                  scale: [0.2, 2.8],
+                  opacity: [0, 0.8, 0.8, 0],
+                }
+          }
+          transition={
+            reduceMotion
+              ? {
+                  duration: 6,
+                  repeat: Infinity,
+                  delay,
+                  ease: 'easeInOut',
+                }
+              : {
+                  duration: 7,
+                  repeat: Infinity,
+                  delay,
+                  ease: 'easeOut',
+                  times: [0, 0.35, 0.7, 1],
+                }
+          }
         >
           <div
             style={{
@@ -345,15 +458,23 @@ const AnimatedShape = React.memo(
               borderRadius: '50%',
               background: `radial-gradient(circle, ${palette[2]}66, transparent)`,
             }}
-            animate={{
-              scale: [0.8, 1.2, 0.8],
-              opacity: [0.5, 1, 0.5],
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: 'easeInOut',
-            }}
+            animate={
+              reduceMotion
+                ? {}
+                : {
+                    scale: [0.8, 1.2, 0.8],
+                    opacity: [0.5, 1, 0.5],
+                  }
+            }
+            transition={
+              reduceMotion
+                ? {}
+                : {
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                  }
+            }
           />
         </motion.div>
       ),
@@ -366,20 +487,35 @@ const AnimatedShape = React.memo(
             width: '150px',
             height: '150px',
           }}
-          animate={{
-            rotateX: [75, 75],
-            rotateZ: [0, 180],
-            z: ['-1000px', '300px'],
-            scale: [0.1, 3],
-            opacity: [0, 0.6, 0.6, 0],
-          }}
-          transition={{
-            duration: 9,
-            repeat: Infinity,
-            delay,
-            ease: 'easeOut',
-            times: [0, 0.4, 0.8, 1],
-          }}
+          animate={
+            reduceMotion
+              ? {
+                  opacity: [0.2, 0.3, 0.2],
+                }
+              : {
+                  rotateX: [75, 75],
+                  rotateZ: [0, 180],
+                  z: ['-1000px', '300px'],
+                  scale: [0.1, 3],
+                  opacity: [0, 0.6, 0.6, 0],
+                }
+          }
+          transition={
+            reduceMotion
+              ? {
+                  duration: 7,
+                  repeat: Infinity,
+                  delay,
+                  ease: 'easeInOut',
+                }
+              : {
+                  duration: 9,
+                  repeat: Infinity,
+                  delay,
+                  ease: 'easeOut',
+                  times: [0, 0.4, 0.8, 1],
+                }
+          }
         >
           <div
             style={{
@@ -399,14 +535,22 @@ const AnimatedShape = React.memo(
               height: '2px',
               background: `linear-gradient(90deg, transparent, ${palette[2]}88, transparent)`,
             }}
-            animate={{
-              y: [0, 150],
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: 'linear',
-            }}
+            animate={
+              reduceMotion
+                ? {}
+                : {
+                    y: [0, 150],
+                  }
+            }
+            transition={
+              reduceMotion
+                ? {}
+                : {
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: 'linear',
+                  }
+            }
           />
         </motion.div>
       ),
@@ -426,6 +570,8 @@ const seededRandom = (seed: number) => {
 
 export const WarpBackground: React.FC<WarpBackgroundProps> = React.memo(
   ({ children, className, ...props }) => {
+    const prefersReducedMotion = useReducedMotion()
+
     // Generate 3D shapes with consistent values for SSR
     const shapes = useMemo(() => {
       const shapeArray = []
@@ -483,6 +629,7 @@ export const WarpBackground: React.FC<WarpBackgroundProps> = React.memo(
               delay={shape.delay}
               type={shape.type}
               colorSet={shape.colorSet}
+              reduceMotion={prefersReducedMotion}
             />
           ))}
         </div>

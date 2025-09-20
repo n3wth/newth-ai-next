@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/nextjs'
 import { NeuralNetworkBackground } from '@/components/backgrounds/NeuralNetworkBackground'
 
 const meta = {
-  title: 'Effects/Backgrounds/Neural Network',
+  title: 'Backgrounds/Neural',
   component: NeuralNetworkBackground,
   parameters: {
     layout: 'fullscreen',

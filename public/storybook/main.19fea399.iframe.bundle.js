@@ -95,50 +95,35 @@
           chromatic: { viewports: [375, 768, 1440] },
           storySort: {
             order: [
-              'Introduction',
+              'Welcome',
+              'Getting Started',
               'Foundations',
-              ['Colors', 'Typography', 'Spacing', 'Grid', 'Layout'],
+              ['Overview', 'Colors', 'Typography', 'Spacing', 'Grid', 'Layout'],
               'Components',
-              ['UI', 'Backgrounds', 'Layout', 'Navigation', 'Cards'],
+              ['Overview', 'UI', 'Backgrounds', 'Layout', 'Navigation', 'Cards'],
+              'Brand',
+              ['Logo'],
               'Sections',
               'Examples',
             ],
           },
         },
-        globalTypes: {
-          theme: {
-            name: 'Theme',
-            description: 'Global theme for components',
-            defaultValue: 'dark',
-            toolbar: {
-              icon: 'circlehollow',
-              items: [
-                { value: 'light', title: 'Light', icon: 'sun' },
-                { value: 'dark', title: 'Dark', icon: 'moon' },
-                { value: 'cyberpunk', title: 'Cyberpunk', icon: 'lightning' },
-              ],
-              showName: !0,
-            },
-          },
-        },
+        globalTypes: {},
         decorators: [
-          (Story, context) => {
-            const { theme } = context.globals
+          (Story) => {
             ;(0, react.useEffect)(() => {
-              const html = document.documentElement
-              ;(html.classList.remove('light', 'dark', 'cyberpunk'),
-                html.classList.add(theme),
-                document.body.classList.remove('light', 'dark', 'cyberpunk'),
-                document.body.classList.add(theme))
-            }, [theme])
-            const storyContainerStyle = {
-              backgroundColor: 'transparent',
-              color: 'light' === theme ? '#0a0a0a' : '#ffffff',
-              padding: '1rem',
-              transition: 'color 0.3s ease',
-            }
+              const html = document.documentElement,
+                body = document.body
+              return (
+                html.classList.add('dark'),
+                body.classList.add('dark'),
+                () => {
+                  ;(html.classList.remove('dark'), body.classList.remove('dark'))
+                }
+              )
+            }, [])
             return (0, jsx_runtime.jsx)('div', {
-              style: storyContainerStyle,
+              style: { backgroundColor: 'transparent', color: '#ffffff', padding: '1rem' },
               children: (0, jsx_runtime.jsx)(Story, {}),
             })
           },
@@ -421,18 +406,29 @@
         const __WEBPACK_DEFAULT_EXPORT__ = ___CSS_LOADER_EXPORT___
       },
     './stories lazy recursive ^\\.\\/.*$ include: (?%21.*node_modules)(?:\\/stories(?:\\/(?%21\\.)(?:(?:(?%21(?:^%7C\\/)\\.).)*?)\\/%7C\\/%7C$)(?%21\\.)(?=.)[^/]*?\\.mdx)$':
-      (module) => {
-        function webpackEmptyAsyncContext(req) {
-          return Promise.resolve().then(() => {
-            var e = new Error("Cannot find module '" + req + "'")
-            throw ((e.code = 'MODULE_NOT_FOUND'), e)
-          })
+      (module, __unused_webpack_exports, __webpack_require__) => {
+        var map = {
+          './Components.mdx': ['./stories/Components.mdx', 80, 165],
+          './Foundations.mdx': ['./stories/Foundations.mdx', 80, 377],
+          './GettingStarted.mdx': ['./stories/GettingStarted.mdx', 80, 626],
+          './Welcome.mdx': ['./stories/Welcome.mdx', 80, 555],
         }
-        ;((webpackEmptyAsyncContext.keys = () => []),
-          (webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext),
-          (webpackEmptyAsyncContext.id =
+        function webpackAsyncContext(req) {
+          if (!__webpack_require__.o(map, req))
+            return Promise.resolve().then(() => {
+              var e = new Error("Cannot find module '" + req + "'")
+              throw ((e.code = 'MODULE_NOT_FOUND'), e)
+            })
+          var ids = map[req],
+            id = ids[0]
+          return Promise.all(ids.slice(1).map(__webpack_require__.e)).then(() =>
+            __webpack_require__(id)
+          )
+        }
+        ;((webpackAsyncContext.keys = () => Object.keys(map)),
+          (webpackAsyncContext.id =
             './stories lazy recursive ^\\.\\/.*$ include: (?%21.*node_modules)(?:\\/stories(?:\\/(?%21\\.)(?:(?:(?%21(?:^%7C\\/)\\.).)*?)\\/%7C\\/%7C$)(?%21\\.)(?=.)[^/]*?\\.mdx)$'),
-          (module.exports = webpackEmptyAsyncContext))
+          (module.exports = webpackAsyncContext))
       },
     './stories lazy recursive ^\\.\\/.*$ include: (?%21.*node_modules)(?:\\/stories(?:\\/(?%21\\.)(?:(?:(?%21(?:^%7C\\/)\\.).)*?)\\/%7C\\/%7C$)(?%21\\.)(?=.)[^/]*?\\.stories\\.(js%7Cjsx%7Cmjs%7Cts%7Ctsx))$':
       (module, __unused_webpack_exports, __webpack_require__) => {
@@ -597,6 +593,26 @@
             './stories lazy recursive ^\\.\\/.*$ include: (?%21.*node_modules)(?:\\/stories(?:\\/(?%21\\.)(?:(?:(?%21(?:^%7C\\/)\\.).)*?)\\/%7C\\/%7C$)(?%21\\.)(?=.)[^/]*?\\.stories\\.(js%7Cjsx%7Cmjs%7Cts%7Ctsx))$'),
           (module.exports = webpackAsyncContext))
       },
+    './stories lazy recursive ^\\.\\/.*$ include: (?%21.*node_modules)(?:\\/stories\\/Welcome\\.mdx)$':
+      (module, __unused_webpack_exports, __webpack_require__) => {
+        var map = { './Welcome.mdx': ['./stories/Welcome.mdx', 80, 555] }
+        function webpackAsyncContext(req) {
+          if (!__webpack_require__.o(map, req))
+            return Promise.resolve().then(() => {
+              var e = new Error("Cannot find module '" + req + "'")
+              throw ((e.code = 'MODULE_NOT_FOUND'), e)
+            })
+          var ids = map[req],
+            id = ids[0]
+          return Promise.all(ids.slice(1).map(__webpack_require__.e)).then(() =>
+            __webpack_require__(id)
+          )
+        }
+        ;((webpackAsyncContext.keys = () => Object.keys(map)),
+          (webpackAsyncContext.id =
+            './stories lazy recursive ^\\.\\/.*$ include: (?%21.*node_modules)(?:\\/stories\\/Welcome\\.mdx)$'),
+          (module.exports = webpackAsyncContext))
+      },
     './storybook-config-entry.js': (
       __unused_webpack_module,
       __unused_webpack___webpack_exports__,
@@ -611,6 +627,13 @@
         external_STORYBOOK_MODULE_PREVIEW_API_ = __webpack_require__('storybook/preview-api')
       const pipeline = (x) => x(),
         importers = [
+          async (path) => {
+            if (!/^\.[\\/](?:stories\/Welcome\.mdx)$/.exec(path)) return
+            const pathRemainder = path.substring(10)
+            return __webpack_require__(
+              './stories lazy recursive ^\\.\\/.*$ include: (?%21.*node_modules)(?:\\/stories\\/Welcome\\.mdx)$'
+            )('./' + pathRemainder)
+          },
           async (path) => {
             if (
               !/^\.[\\/](?:components(?:\/(?!\.)(?:(?:(?!(?:^|\/)\.).)*?)\/|\/|$)(?!\.)(?=.)[^/]*?\.stories\.(js|jsx|mjs|ts|tsx))$/.exec(

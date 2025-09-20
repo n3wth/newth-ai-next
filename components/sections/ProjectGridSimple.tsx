@@ -1,5 +1,12 @@
 'use client'
 
+// TODO: Performance - Virtualize grid for large project lists
+// TODO: Feature - Add filter/sort functionality for projects
+// TODO: Animation - Add stagger effect for cards on initial load
+// TODO: Feature - Add project preview on hover (screenshots/videos)
+// TODO: Analytics - Track which projects get most clicks
+// TODO: Accessibility - Improve keyboard navigation between cards
+
 import Link from 'next/link'
 import { ArrowUpRight, Github } from 'lucide-react'
 import { ProjectGridProps } from '@/lib/types'

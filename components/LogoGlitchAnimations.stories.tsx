@@ -44,7 +44,7 @@ const GlitchDemo = ({ mode, description }: { mode: string; description: string }
 }
 
 const meta = {
-  title: 'Effects/Logo Glitch Animations',
+  title: 'Brand/Effects/Logo Glitch Animations',
   component: AnimatedLogo,
   parameters: {
     layout: 'padded',

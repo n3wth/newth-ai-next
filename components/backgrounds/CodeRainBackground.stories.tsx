@@ -2,16 +2,49 @@ import type { Meta, StoryObj } from '@storybook/nextjs'
 import { CodeRainBackground } from '@/components/backgrounds/CodeRainBackground'
 
 const meta = {
-  title: 'Effects/Backgrounds/Code Rain',
+  title: 'Backgrounds/Matrix',
   component: CodeRainBackground,
   parameters: {
     layout: 'fullscreen',
     docs: {
       description: {
-        component: 'Matrix-style code rain animation background',
+        component: `
+## Matrix Code Rain Background
+
+Iconic Matrix-style falling code animation that creates a dynamic cyberpunk atmosphere.
+
+### Features
+- 🌧️ **Falling characters** - Continuous stream of digital rain
+- 🎯 **Performance optimized** - Canvas-based rendering with requestAnimationFrame
+- 🎨 **Customizable** - Adjustable speed, density, and colors
+- ♿ **Respects motion preferences** - Pauses for users with reduced motion
+
+### Usage
+\`\`\`tsx
+import { CodeRainBackground } from '@/components/backgrounds/CodeRainBackground'
+
+<div className="relative">
+  <CodeRainBackground className="absolute inset-0" />
+  <div className="relative z-10">
+    {/* Your content */}
+  </div>
+</div>
+\`\`\`
+        `,
       },
     },
   },
+  argTypes: {
+    className: {
+      control: 'text',
+      description: 'Additional CSS classes for styling',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+      },
+    },
+  },
+  tags: ['autodocs'],
 } satisfies Meta<typeof CodeRainBackground>
 
 export default meta

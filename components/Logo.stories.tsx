@@ -16,7 +16,35 @@ const meta: Meta<AnimatedLogoProps> = {
     },
     docs: {
       description: {
-        component: 'The n3wth.AI ASCII art logo with glitch effects and rainbow animations',
+        component: `
+## n3wth.AI Logo Component
+
+The AnimatedLogo component displays the iconic n3wth.AI ASCII art logo with customizable glitch effects and rainbow animations.
+
+### Features
+- 🌈 **Rainbow hover effects** - Smooth color transitions on mouse interaction
+- ⚡ **Glitch animations** - Random glitch effects for a cyberpunk aesthetic
+- 🎨 **Customizable colors** - Adjust saturation and intensity
+- 📱 **Responsive** - Scales appropriately across screen sizes
+
+### Usage
+
+\`\`\`tsx
+import { AnimatedLogo } from '@/components/AnimatedLogo'
+
+// Basic usage with hover effects
+<AnimatedLogo
+  enableColorOnHover={true}
+  baseSaturation={85}
+/>
+
+// With glitch effects
+<AnimatedLogo
+  enableColorOnGlitch={true}
+  colorIntensity={0.8}
+/>
+\`\`\`
+        `,
       },
     },
   },
@@ -207,7 +235,7 @@ export const DarkBackground: Story = {
   ],
 }
 
-// Configuration playground
+// Configuration playground - hidden from sidebar
 export const Playground: Story = {
   args: {
     enableColorOnHover: true,
@@ -222,4 +250,5 @@ export const Playground: Story = {
       },
     },
   },
+  tags: ['!autodocs', '!test'],
 }

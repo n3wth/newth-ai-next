@@ -1,4 +1,4 @@
-import type { Preview } from '@storybook/nextjs-vite'
+import type { Preview } from '@storybook/nextjs'
 import { Decorator } from '@storybook/react'
 import { useEffect } from 'react'
 import React from 'react'
@@ -6,26 +6,26 @@ import './storybook-globals.css'
 import '../app/styles/components.css'
 import './preview-docs.css'
 
-const WithThemeDecorator: Decorator = (Story, context) => {
-  const { theme } = context.globals
-
+const WithThemeDecorator: Decorator = (Story) => {
   useEffect(() => {
     const html = document.documentElement
-    // Remove all theme classes
-    html.classList.remove('light', 'dark', 'cyberpunk')
-    // Add the new theme class
-    html.classList.add(theme)
-    // Also apply to the body to ensure consistency
-    document.body.classList.remove('light', 'dark', 'cyberpunk')
-    document.body.classList.add(theme)
-  }, [theme])
+    const body = document.body
+    // Always use dark theme
+    html.classList.add('dark')
+    body.classList.add('dark')
 
-  // Apply dark theme as a default style for the story container
+    return () => {
+      // Cleanup if needed
+      html.classList.remove('dark')
+      body.classList.remove('dark')
+    }
+  }, [])
+
+  // Apply dark theme style for the story container
   const storyContainerStyle: React.CSSProperties = {
     backgroundColor: 'transparent',
-    color: theme === 'light' ? '#0a0a0a' : '#ffffff',
+    color: '#ffffff',
     padding: '1rem',
-    transition: 'color 0.3s ease',
   }
 
   return (
@@ -95,34 +95,50 @@ const preview: Preview = {
     chromatic: {
       viewports: [375, 768, 1440],
     },
-    storySort: {
-      order: [
-        'Introduction',
+    storySort: (a: [string, { kind: string }], b: [string, { kind: string }]) => {
+      // Define the main category order
+      const categoryOrder = [
+        'Welcome',
+        'Getting Started',
+        'Brand',
         'Foundations',
-        ['Colors', 'Typography', 'Spacing', 'Grid', 'Layout'],
         'Components',
-        ['UI', 'Backgrounds', 'Layout', 'Navigation', 'Cards'],
+        'Backgrounds',
+        'Layout',
         'Sections',
         'Examples',
-      ],
+      ]
+
+      // Get the story paths
+      const aPath = a[1].kind.split('/')
+      const bPath = b[1].kind.split('/')
+
+      // Get main categories
+      const aCat = aPath[0]
+      const bCat = bPath[0]
+
+      // Compare main categories
+      const aIndex = categoryOrder.indexOf(aCat)
+      const bIndex = categoryOrder.indexOf(bCat)
+
+      if (aIndex !== bIndex) {
+        if (aIndex === -1) return 1
+        if (bIndex === -1) return -1
+        return aIndex - bIndex
+      }
+
+      // Within same category, Overview always comes first
+      const aName = aPath[aPath.length - 1]
+      const bName = bPath[bPath.length - 1]
+
+      if (aName === 'Overview') return -1
+      if (bName === 'Overview') return 1
+
+      // Otherwise alphabetical
+      return aName.localeCompare(bName)
     },
   },
-  globalTypes: {
-    theme: {
-      name: 'Theme',
-      description: 'Global theme for components',
-      defaultValue: 'dark',
-      toolbar: {
-        icon: 'circlehollow',
-        items: [
-          { value: 'light', title: 'Light', icon: 'sun' },
-          { value: 'dark', title: 'Dark', icon: 'moon' },
-          { value: 'cyberpunk', title: 'Cyberpunk', icon: 'lightning' },
-        ],
-        showName: true,
-      },
-    },
-  },
+  globalTypes: {},
   decorators: [WithThemeDecorator],
   tags: ['autodocs'],
 }
