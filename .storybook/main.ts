@@ -17,7 +17,7 @@ const config: StorybookConfig = {
     name: '@storybook/nextjs-vite',
     options: {},
   },
-  staticDirs: ['../public'],
+  staticDirs: [],
   features: {
     interactionsDebugger: true,
     buildStoriesJson: true,

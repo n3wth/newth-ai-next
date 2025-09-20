@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>storybook - Storybook</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    
+    <style>
+      @font-face {
+        font-family: 'Nunito Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url('./sb-common-assets/nunito-sans-regular.woff2') format('woff2');
+      }
+
+      @font-face {
+        font-family: 'Nunito Sans';
+        font-style: italic;
+        font-weight: 400;
+        font-display: swap;
+        src: url('./sb-common-assets/nunito-sans-italic.woff2') format('woff2');
+      }
+
+      @font-face {
+        font-family: 'Nunito Sans';
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: url('./sb-common-assets/nunito-sans-bold.woff2') format('woff2');
+      }
+
+      @font-face {
+        font-family: 'Nunito Sans';
+        font-style: italic;
+        font-weight: 700;
+        font-display: swap;
+        src: url('./sb-common-assets/nunito-sans-bold-italic.woff2') format('woff2');
+      }
+    </style>
+
+    <link href="./sb-manager/runtime.js" rel="modulepreload" />
+
+    
+    <link href="./sb-addons/storybook-core-server-presets-0/common-manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/chromatic-com-storybook-1/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/docs-2/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/onboarding-3/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/a11y-4/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/vitest-5/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/storybook-6/manager-bundle.js" rel="modulepreload" />
+      <style>
+  /* Custom styles for Storybook manager */
+
+  /* Hide default Storybook logo and replace with custom */
+  [data-item-id="0-docs-welcome--page"] {
+    font-weight: bold !important;
+  }
+
+  /* Animate the brand image */
+  img[alt="n3wth.AI Components"] {
+    animation: pulse 4s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+  }
+
+  /* Add glow to sidebar */
+  .sidebar-container {
+    box-shadow: inset 0 0 20px rgba(147, 51, 234, 0.05);
+  }
+
+  /* Style the toolbar */
+  [role="toolbar"] {
+    background: linear-gradient(90deg, rgba(147, 51, 234, 0.02) 0%, rgba(59, 130, 246, 0.02) 100%);
+  }
+
+  /* Enhanced hover effects */
+  button:hover {
+    transform: translateY(-1px);
+    transition: all 0.2s ease;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #9333ea, #3b82f6);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #a855f7, #60a5fa);
+  }
+</style>
+
+<script>
+  // Add custom animations when page loads
+  window.addEventListener('DOMContentLoaded', () => {
+    // Animate logo on hover
+    const logo = document.querySelector('img[alt="n3wth.AI Components"]');
+    if (logo) {
+      logo.style.transition = 'all 0.3s ease';
+      logo.addEventListener('mouseenter', () => {
+        logo.style.filter = 'brightness(1.2) drop-shadow(0 0 10px rgba(147, 51, 234, 0.5))';
+      });
+      logo.addEventListener('mouseleave', () => {
+        logo.style.filter = 'brightness(1)';
+      });
+    }
+  });
+</script> 
+
+    <style>
+      #storybook-root[hidden] {
+        display: none !important;
+      }
+    </style>
+
+    
+  </head>
+  <body>
+    <div id="root"></div>
+
+    
+    <script>
+      
+        
+          window['FEATURES'] = {
+  "argTypeTargetsV7": true,
+  "legacyDecoratorFileOrder": false,
+  "disallowImplicitActionsInRenderV8": true,
+  "viewport": true,
+  "highlight": true,
+  "controls": true,
+  "interactions": true,
+  "actions": true,
+  "backgrounds": true,
+  "outline": true,
+  "measure": true,
+  "interactionsDebugger": true,
+  "buildStoriesJson": true
+};
+        
+      
+        
+          window['REFS'] = {};
+        
+      
+        
+          window['LOGLEVEL'] = "info";
+        
+      
+        
+          window['DOCS_OPTIONS'] = {
+  "defaultName": "Docs"
+};
+        
+      
+        
+          window['CONFIG_TYPE'] = "PRODUCTION";
+        
+      
+        
+      
+        
+      
+        
+          window['TAGS_OPTIONS'] = {
+  "dev-only": {
+    "excludeFromDocsStories": true
+  },
+  "docs-only": {
+    "excludeFromSidebar": true
+  },
+  "test-only": {
+    "excludeFromSidebar": true,
+    "excludeFromDocsStories": true
+  }
+};
+        
+      
+        
+          window['STORYBOOK_RENDERER'] = "react";
+        
+      
+        
+          window['STORYBOOK_BUILDER'] = "@storybook/builder-vite";
+        
+      
+        
+          window['STORYBOOK_FRAMEWORK'] = "@storybook/nextjs-vite";
+        
+      
+    </script>
+    
+
+    <script type="module">
+      import './sb-manager/globals-runtime.js';
+
+      
+        import './sb-addons/storybook-core-server-presets-0/common-manager-bundle.js';
+      
+        import './sb-addons/chromatic-com-storybook-1/manager-bundle.js';
+      
+        import './sb-addons/docs-2/manager-bundle.js';
+      
+        import './sb-addons/onboarding-3/manager-bundle.js';
+      
+        import './sb-addons/a11y-4/manager-bundle.js';
+      
+        import './sb-addons/vitest-5/manager-bundle.js';
+      
+        import './sb-addons/storybook-6/manager-bundle.js';
+      
+
+      import './sb-manager/runtime.js';
+    </script>
+  </body>
+</html>
