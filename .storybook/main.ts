@@ -18,6 +18,10 @@ const config: StorybookConfig = {
     options: {},
   },
   staticDirs: [{ from: '../public', to: '/' }],
+  managerHead: (head) => `
+    ${head}
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  `,
   features: {
     buildStoriesJson: true,
   },

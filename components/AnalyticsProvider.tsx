@@ -134,7 +134,7 @@ export function AnalyticsProvider({
       sessionSummary: getAnalyticsSummary(),
       generatedAt: new Date().toISOString(),
     })
-  }, [eventQueue.length]) // Only depend on length to avoid function reference changes
+  }, [eventQueue, getAnalyticsSummary])
 
   const getInsights = (): AnalyticsInsights | null => insights
 

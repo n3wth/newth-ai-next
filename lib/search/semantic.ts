@@ -103,7 +103,7 @@ function createEmbedding(text: string): number[] {
   // Create embedding vector based on semantic category presence
   const embedding: number[] = []
 
-  Object.entries(semanticCategories).forEach(([_category, keywords]) => {
+  Object.entries(semanticCategories).forEach(([, keywords]) => {
     let score = 0
     keywords.forEach((keyword) => {
       if (normalized.includes(keyword)) {
@@ -220,7 +220,7 @@ export class SemanticSearch {
         (semanticScore * 0.6 + keywordScore * 0.4) * categoryBoost * recencyBoost
 
       // Generate match reasons
-      const matchReasons = this.generateMatchReasons(query, result, semanticScore, keywordScore)
+      const matchReasons = this.generateMatchReasons(query, result, semanticScore)
 
       return {
         ...result,
@@ -275,8 +275,7 @@ export class SemanticSearch {
   private generateMatchReasons(
     query: string,
     result: SearchResult,
-    semanticScore: number,
-    _keywordScore: number
+    semanticScore: number
   ): string[] {
     const reasons: string[] = []
     const queryLower = query.toLowerCase()

@@ -212,61 +212,37 @@ export function useEnhancedSearch(config: Partial<SearchConfig> = {}) {
     }
   }, [allResults])
 
-  // Enhanced search results with AI-powered scoring
-  const searchResults = useMemo((): EnhancedSearchResult[] => {
-    if (!query.trim()) return []
-
-    const enhancedQuery = enhanceQuery(query.trim())
-
-    if (isSemanticMode) {
-      const results = enhancedSearch(enhancedQuery, allResults, {
-        threshold: searchConfig.semanticThreshold,
-        maxResults: searchConfig.maxResults,
-        boostRecency: searchConfig.boostRecency,
-        categoryWeights: searchConfig.categoryWeights,
-      })
-
-      // Update analytics
-      updateSearchAnalytics(query, results)
+  // Traditional search for comparison/fallback
+  const traditionalSearch = useCallback(
+    (searchQuery: string, results: SearchResult[]): EnhancedSearchResult[] => {
+      const searchTerm = searchQuery.toLowerCase().trim()
 
       return results
-    } else {
-      // Fallback to traditional search
-      return traditionalSearch(query, allResults)
-    }
-  }, [query, allResults, isSemanticMode, searchConfig])
+        .map((item) => {
+          let score = 0
 
-  // Traditional search for comparison/fallback
-  const traditionalSearch = (
-    searchQuery: string,
-    results: SearchResult[]
-  ): EnhancedSearchResult[] => {
-    const searchTerm = searchQuery.toLowerCase().trim()
+          // Title matching
+          if (item.title.toLowerCase() === searchTerm) score += 100
+          else if (item.title.toLowerCase().startsWith(searchTerm)) score += 80
+          else if (item.title.toLowerCase().includes(searchTerm)) score += 60
 
-    return results
-      .map((item) => {
-        let score = 0
+          // Description matching
+          if (item.description.toLowerCase().includes(searchTerm)) score += 40
 
-        // Title matching
-        if (item.title.toLowerCase() === searchTerm) score += 100
-        else if (item.title.toLowerCase().startsWith(searchTerm)) score += 80
-        else if (item.title.toLowerCase().includes(searchTerm)) score += 60
+          // Tag matching
+          if (item.tags?.some((tag) => tag.toLowerCase().includes(searchTerm))) score += 50
 
-        // Description matching
-        if (item.description.toLowerCase().includes(searchTerm)) score += 40
+          // Category matching
+          if (item.category?.toLowerCase().includes(searchTerm)) score += 30
 
-        // Tag matching
-        if (item.tags?.some((tag) => tag.toLowerCase().includes(searchTerm))) score += 50
-
-        // Category matching
-        if (item.category?.toLowerCase().includes(searchTerm)) score += 30
-
-        return { ...item, keywordScore: score / 100, combinedScore: score / 100 }
-      })
-      .filter((item) => (item.combinedScore || 0) > 0)
-      .sort((a, b) => (b.combinedScore || 0) - (a.combinedScore || 0))
-      .slice(0, searchConfig.maxResults)
-  }
+          return { ...item, keywordScore: score / 100, combinedScore: score / 100 }
+        })
+        .filter((item) => (item.combinedScore || 0) > 0)
+        .sort((a, b) => (b.combinedScore || 0) - (a.combinedScore || 0))
+        .slice(0, searchConfig.maxResults)
+    },
+    [searchConfig.maxResults]
+  )
 
   // Update search analytics
   const updateSearchAnalytics = useCallback(
@@ -306,6 +282,30 @@ export function useEnhancedSearch(config: Partial<SearchConfig> = {}) {
     },
     [searchAnalytics]
   )
+
+  // Enhanced search results with AI-powered scoring
+  const searchResults = useMemo((): EnhancedSearchResult[] => {
+    if (!query.trim()) return []
+
+    const enhancedQuery = enhanceQuery(query.trim())
+
+    if (isSemanticMode) {
+      const results = enhancedSearch(enhancedQuery, allResults, {
+        threshold: searchConfig.semanticThreshold,
+        maxResults: searchConfig.maxResults,
+        boostRecency: searchConfig.boostRecency,
+        categoryWeights: searchConfig.categoryWeights,
+      })
+
+      // Update analytics
+      updateSearchAnalytics(query, results)
+
+      return results
+    } else {
+      // Fallback to traditional search
+      return traditionalSearch(query, allResults)
+    }
+  }, [query, allResults, isSemanticMode, searchConfig, updateSearchAnalytics, traditionalSearch])
 
   // Get AI-powered search suggestions
   const getSuggestions = useCallback(

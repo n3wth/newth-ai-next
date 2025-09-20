@@ -109,7 +109,7 @@ export function AnimatedLogo({
       variant: 0,
     }))
     setCharStates(states)
-  }, [])
+  }, [asciiLogo, asciiDotAI])
 
   // Smooth glitch intensity transitions - reduced frequency for performance
   useEffect(() => {
@@ -231,7 +231,7 @@ export function AnimatedLogo({
 
     const interval = setInterval(checkGlitch, 500) // Reduced from 50ms to 500ms
     return () => clearInterval(interval)
-  }, [isHovered])
+  }, [isHovered, asciiLogo, asciiDotAI])
 
   // Frame animation for dynamic effects - reduced frequency for performance
   useEffect(() => {

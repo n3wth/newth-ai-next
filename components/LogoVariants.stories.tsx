@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/nextjs'
+import Image from 'next/image'
 import { AnimatedLogo } from './AnimatedLogo'
 import { StaticLogo } from './StaticLogo'
 
@@ -94,7 +95,7 @@ export const AllVariants: Story = {
             zIndex: 1,
           }}
         >
-          <img src="/logo-custom.svg" alt="n3wth.AI" style={{ height: '50px', width: 'auto' }} />
+          <Image src="/logo-custom.svg" alt="n3wth.AI" height={50} width={150} />
         </div>
 
         <p
@@ -194,7 +195,7 @@ export const AllVariants: Story = {
             justifyContent: 'center',
           }}
         >
-          <img src="/logo-storybook.svg" alt="n3wth.AI" style={{ height: '30px', width: 'auto' }} />
+          <Image src="/logo-storybook.svg" alt="n3wth.AI" height={30} width={90} />
         </div>
         <p style={{ color: '#666', fontSize: '11px', marginTop: '0.5rem' }}>
           SVG with rectangles forming ASCII blocks + rainbow gradient animation
@@ -252,11 +253,7 @@ export const AllVariants: Story = {
             justifyContent: 'center',
           }}
         >
-          <img
-            src="/logo-ascii-art.svg"
-            alt="n3wth.AI ASCII"
-            style={{ height: '36px', width: 'auto' }}
-          />
+          <Image src="/logo-ascii-art.svg" alt="n3wth.AI ASCII" height={36} width={108} />
         </div>
         <p style={{ color: '#666', fontSize: '11px', marginTop: '0.5rem' }}>
           True ASCII characters with rainbow gradient + glitch effects
@@ -280,7 +277,7 @@ export const HeaderLogo: Story = {
           display: 'inline-block',
         }}
       >
-        <img src="/logo-storybook.svg" alt="n3wth.AI" style={{ height: '40px' }} />
+        <Image src="/logo-storybook.svg" alt="n3wth.AI" height={40} width={120} />
       </div>
       <p style={{ color: '#888', marginTop: '2rem', maxWidth: '600px' }}>
         This SVG file is located at <code>/public/logo-storybook.svg</code> and is used by

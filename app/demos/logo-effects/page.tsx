@@ -55,7 +55,7 @@ function AnimatedLogoForced({
       const totalChars = asciiLogo.join('').length + asciiDotAI.join('').length
       setInvertedCharIndex(Math.floor(Math.random() * totalChars))
     }
-  }, [glitchMode])
+  }, [glitchMode, asciiLogo, asciiDotAI])
 
   useEffect(() => {
     if (forcedFrame === undefined) {
