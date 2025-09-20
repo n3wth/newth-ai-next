@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/nextjs'
-import { Navigation } from '@/components/Navigation'
+import { NavigationStorybook as Navigation } from '@/components/NavigationStorybook'
 
 /**
  * The Navigation component provides the main site navigation with responsive design,
@@ -24,22 +24,22 @@ const meta = {
   parameters: {
     layout: 'fullscreen',
     backgrounds: {
-      default: 'dark'
+      default: 'dark',
     },
     docs: {
       description: {
-        component: 'Main navigation bar with responsive menu and accessibility features'
-      }
-    }
+        component: 'Main navigation bar with responsive menu and accessibility features',
+      },
+    },
   },
   decorators: [
     (Story) => (
-      <div className="min-h-[400px] bg-black">
+      <div className="bg-black w-full">
         <Story />
       </div>
-    )
+    ),
   ],
-  tags: ['autodocs', 'layout']
+  tags: ['autodocs', 'layout'],
 } satisfies Meta<typeof Navigation>
 
 export default meta
@@ -56,11 +56,11 @@ export const Default: Story = {}
 export const WithGradientBackground: Story = {
   decorators: [
     (Story) => (
-      <div className="min-h-[400px] bg-gradient-to-b from-black via-gray-900 to-black">
+      <div className="bg-gradient-to-b from-black via-gray-900 to-black">
         <Story />
       </div>
-    )
-  ]
+    ),
+  ],
 }
 
 /**
@@ -81,8 +81,8 @@ export const StickyNavigation: Story = {
           </div>
         </div>
       </div>
-    )
-  ]
+    ),
+  ],
 }
 
 /**
@@ -91,16 +91,16 @@ export const StickyNavigation: Story = {
 export const MobileView: Story = {
   parameters: {
     viewport: {
-      defaultViewport: 'mobile1'
-    }
+      defaultViewport: 'mobile1',
+    },
   },
   decorators: [
     (Story) => (
-      <div className="min-h-[400px] bg-black max-w-[375px] mx-auto">
+      <div className="bg-black max-w-[375px] mx-auto">
         <Story />
       </div>
-    )
-  ]
+    ),
+  ],
 }
 
 /**
@@ -109,12 +109,12 @@ export const MobileView: Story = {
 export const WithActiveLink: Story = {
   decorators: [
     (Story) => (
-      <div className="min-h-[400px] bg-black">
+      <div className="bg-black">
         <p className="text-center text-gray-500 py-4 text-sm">
           Note: Active link styles depend on current route
         </p>
         <Story />
       </div>
-    )
-  ]
+    ),
+  ],
 }

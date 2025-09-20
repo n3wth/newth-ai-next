@@ -1,23 +1,39 @@
-import type { Preview } from '@storybook/nextjs-vite';
-import { Decorator } from '@storybook/react';
-import { useEffect } from 'react';
-import React from 'react';
-import './storybook-globals.css';
-import './preview-docs.css';
+import type { Preview } from '@storybook/nextjs-vite'
+import { Decorator } from '@storybook/react'
+import { useEffect } from 'react'
+import React from 'react'
+import './storybook-globals.css'
+import '../app/styles/components.css'
+import './preview-docs.css'
 
 const WithThemeDecorator: Decorator = (Story, context) => {
-  const { theme } = context.globals;
+  const { theme } = context.globals
 
   useEffect(() => {
-    const html = document.documentElement;
+    const html = document.documentElement
     // Remove all theme classes
-    html.classList.remove('light', 'dark', 'cyberpunk');
+    html.classList.remove('light', 'dark', 'cyberpunk')
     // Add the new theme class
-    html.classList.add(theme);
-  }, [theme]);
+    html.classList.add(theme)
+    // Also apply to the body to ensure consistency
+    document.body.classList.remove('light', 'dark', 'cyberpunk')
+    document.body.classList.add(theme)
+  }, [theme])
 
-  return React.createElement(Story);
-};
+  // Apply dark theme as a default style for the story container
+  const storyContainerStyle: React.CSSProperties = {
+    backgroundColor: 'transparent',
+    color: theme === 'light' ? '#0a0a0a' : '#ffffff',
+    padding: '1rem',
+    transition: 'color 0.3s ease',
+  }
+
+  return (
+    <div style={storyContainerStyle}>
+      <Story />
+    </div>
+  )
+}
 
 const preview: Preview = {
   parameters: {
@@ -109,6 +125,6 @@ const preview: Preview = {
   },
   decorators: [WithThemeDecorator],
   tags: ['autodocs'],
-};
+}
 
-export default preview;
+export default preview

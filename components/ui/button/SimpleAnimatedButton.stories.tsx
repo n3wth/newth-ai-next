@@ -20,6 +20,36 @@ const meta = {
     variant: {
       control: { type: 'select' },
       options: ['primary', 'secondary', 'ghost'],
+      description: 'Visual style variant',
+      table: {
+        type: { summary: '"primary" | "secondary" | "ghost"' },
+        defaultValue: { summary: 'primary' },
+        category: 'Appearance',
+      },
+    },
+    children: {
+      control: 'text',
+      description: 'Button content',
+      table: {
+        type: { summary: 'ReactNode' },
+        category: 'Content',
+      },
+    },
+    className: {
+      control: 'text',
+      description: 'Additional CSS classes',
+      table: {
+        type: { summary: 'string' },
+        category: 'Styling',
+      },
+    },
+    onClick: {
+      action: 'clicked',
+      description: 'Click event handler',
+      table: {
+        type: { summary: '() => void' },
+        category: 'Events',
+      },
     },
   },
 } satisfies Meta<typeof SimpleAnimatedButton>

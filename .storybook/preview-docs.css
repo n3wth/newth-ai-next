@@ -3,9 +3,22 @@
 /* Only target the docs story preview area */
 .docs-story {
   background: #000000;
+  border: none !important;
+  box-shadow: none !important;
 }
 
-/* Docs content wrapper - don't override font sizes */
+/* Remove borders from story canvases */
+.docs-story > div {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.sbdocs [id^="story--"] {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Docs content wrapper */
 .sbdocs.sbdocs-wrapper {
   background: #0a0a0a;
   color: #e5e5e5;
@@ -16,7 +29,7 @@
   max-width: 1200px;
 }
 
-/* Docs headings - inherit font sizes from Storybook */
+/* Docs headings */
 .sbdocs h1,
 .sbdocs h2,
 .sbdocs h3,
@@ -26,7 +39,7 @@
   color: #ffffff;
 }
 
-/* Docs paragraphs and lists - only color, not typography */
+/* Docs paragraphs and lists */
 .sbdocs p,
 .sbdocs li {
   color: #d4d4d8;
@@ -52,28 +65,30 @@
 
 /* ArgsTable in docs */
 .docblock-argstable {
-  background: #0a0a0a;
+  background: #0a0a0a !important;
 }
 
 .docblock-argstable-head {
-  background: #18181b;
+  background: #18181b !important;
 }
 
 .docblock-argstable th {
-  color: #a1a1aa;
+  color: #a1a1aa !important;
   font-weight: 600;
 }
 
 .docblock-argstable-body tr {
-  border-color: #27272a;
+  border-color: #27272a !important;
+  background: #0a0a0a !important;
 }
 
 .docblock-argstable-body tr:hover {
-  background: rgba(139, 92, 246, 0.05);
+  background: rgba(139, 92, 246, 0.05) !important;
 }
 
 .docblock-argstable-body td {
-  color: #d4d4d8;
+  color: #e5e5e5 !important;
+  background: transparent !important;
 }
 
 /* Controls in ArgsTable */

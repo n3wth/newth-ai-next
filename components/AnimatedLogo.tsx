@@ -385,7 +385,7 @@ export function AnimatedLogo({
                     const lightness = 55 + Math.sin(frame * 0.07 + charIndex * 0.2) * 10
                     const baseColor = showColor
                       ? `hsl(${hue}, ${appliedSaturation}%, ${lightness}%)`
-                      : 'white'
+                      : 'currentColor'
 
                     return (
                       <motion.span
@@ -466,7 +466,7 @@ export function AnimatedLogo({
                 const lightness = 55 + Math.sin(frame * 0.07 + charIndex * 0.2) * 10
                 const baseColor = showColor
                   ? `hsl(${hue}, ${appliedSaturation}%, ${lightness}%)`
-                  : 'white'
+                  : 'currentColor'
 
                 return (
                   <span

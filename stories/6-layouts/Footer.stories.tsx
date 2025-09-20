@@ -7,14 +7,14 @@ const meta = {
   parameters: {
     layout: 'fullscreen',
     backgrounds: {
-      default: 'dark'
+      default: 'dark',
     },
     docs: {
       description: {
-        component: 'Site footer with social links and copyright'
-      }
-    }
-  }
+        component: 'Site footer with social links and copyright',
+      },
+    },
+  },
 } satisfies Meta<typeof Footer>
 
 export default meta
@@ -25,9 +25,9 @@ export const Default: Story = {}
 export const WithBackground: Story = {
   decorators: [
     (Story) => (
-      <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black flex flex-col justify-end">
+      <div className="bg-gradient-to-b from-gray-900 to-black">
         <Story />
       </div>
-    )
-  ]
+    ),
+  ],
 }

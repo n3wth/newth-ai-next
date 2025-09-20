@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/nextjs'
-import { Button } from './Button'
+import { Button } from '../Button'
 import {
   ArrowRight,
   Download,
@@ -25,7 +25,7 @@ import {
  * ## Usage Guidelines
  *
  * ```tsx
- * import { Button } from './Button'
+ * import { Button } from '../Button'
  *
  * // Primary action
  * <Button variant="primary">Save Changes</Button>

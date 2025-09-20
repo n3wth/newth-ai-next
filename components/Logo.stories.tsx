@@ -6,12 +6,26 @@ const meta = {
   component: Logo,
   parameters: {
     layout: 'centered',
+    backgrounds: {
+      default: 'black',
+      values: [
+        { name: 'black', value: '#000000' },
+        { name: 'dark', value: '#0a0a0a' },
+      ],
+    },
     docs: {
       description: {
         component: 'The n3wth.AI ASCII art logo with glitch effects and rainbow animations',
       },
     },
   },
+  decorators: [
+    (Story) => (
+      <div style={{ zoom: 3 }}>
+        <Story />
+      </div>
+    ),
+  ],
   tags: ['autodocs'],
   argTypes: {
     enableColorOnHover: {
@@ -40,53 +54,13 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-// Standard logo with hover rainbow
+// Default logo with hover rainbow
 export const Default: Story = {
   args: {
     enableColorOnHover: true,
     enableColorOnGlitch: false,
     baseSaturation: 85,
     colorIntensity: 1,
-  },
-}
-
-// Static version without colors
-export const Static: Story = {
-  args: {
-    enableColorOnHover: false,
-    enableColorOnGlitch: false,
-    baseSaturation: 0,
-    colorIntensity: 0,
-  },
-}
-
-// Glitch colors only
-export const GlitchColorsOnly: Story = {
-  args: {
-    enableColorOnHover: false,
-    enableColorOnGlitch: true,
-    baseSaturation: 85,
-    colorIntensity: 1,
-  },
-}
-
-// Full effects (hover + glitch colors)
-export const FullEffects: Story = {
-  args: {
-    enableColorOnHover: true,
-    enableColorOnGlitch: true,
-    baseSaturation: 90,
-    colorIntensity: 1,
-  },
-}
-
-// Subtle colors
-export const SubtleColors: Story = {
-  args: {
-    enableColorOnHover: true,
-    enableColorOnGlitch: false,
-    baseSaturation: 50,
-    colorIntensity: 0.5,
   },
 }
 
@@ -126,6 +100,12 @@ export const Monochrome: Story = {
 
 // Color intensity comparison
 export const ColorIntensityComparison: Story = {
+  args: {
+    enableColorOnHover: true,
+    enableColorOnGlitch: false,
+    baseSaturation: 85,
+    colorIntensity: 1,
+  },
   render: () => (
     <div
       style={{
@@ -160,6 +140,12 @@ export const ColorIntensityComparison: Story = {
 
 // Saturation comparison
 export const SaturationComparison: Story = {
+  args: {
+    enableColorOnHover: true,
+    enableColorOnGlitch: false,
+    baseSaturation: 85,
+    colorIntensity: 1,
+  },
   render: () => (
     <div
       style={{

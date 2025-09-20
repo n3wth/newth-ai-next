@@ -7,9 +7,20 @@ const meta = {
   parameters: {
     layout: 'centered',
     backgrounds: {
-      default: 'dark',
+      default: 'black',
+      values: [
+        { name: 'black', value: '#000000' },
+        { name: 'dark', value: '#0a0a0a' },
+      ],
     },
   },
+  decorators: [
+    (Story) => (
+      <div style={{ zoom: 2 }}>
+        <Story />
+      </div>
+    ),
+  ],
 } satisfies Meta
 
 export default meta
