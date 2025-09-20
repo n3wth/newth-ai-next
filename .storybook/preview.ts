@@ -1,23 +1,23 @@
-import type { Preview } from '@storybook/nextjs-vite'
-import { Decorator } from '@storybook/react'
-import { useEffect } from 'react'
-import React from 'react'
-import '../app/refined-globals.css'
-import './preview-docs.css'
+import type { Preview } from '@storybook/nextjs-vite';
+import { Decorator } from '@storybook/react';
+import { useEffect } from 'react';
+import React from 'react';
+import './storybook-globals.css';
+import './preview-docs.css';
 
 const WithThemeDecorator: Decorator = (Story, context) => {
-  const { theme } = context.globals
+  const { theme } = context.globals;
 
   useEffect(() => {
-    const html = document.documentElement
+    const html = document.documentElement;
     // Remove all theme classes
-    html.classList.remove('light', 'dark', 'cyberpunk')
+    html.classList.remove('light', 'dark', 'cyberpunk');
     // Add the new theme class
-    html.classList.add(theme)
-  }, [theme])
+    html.classList.add(theme);
+  }, [theme]);
 
-  return React.createElement(Story)
-}
+  return React.createElement(Story);
+};
 
 const preview: Preview = {
   parameters: {
@@ -79,6 +79,17 @@ const preview: Preview = {
     chromatic: {
       viewports: [375, 768, 1440],
     },
+    storySort: {
+      order: [
+        'Introduction',
+        'Foundations',
+        ['Colors', 'Typography', 'Spacing', 'Grid', 'Layout'],
+        'Components',
+        ['UI', 'Backgrounds', 'Layout', 'Navigation', 'Cards'],
+        'Sections',
+        'Examples',
+      ],
+    },
   },
   globalTypes: {
     theme: {
@@ -98,6 +109,6 @@ const preview: Preview = {
   },
   decorators: [WithThemeDecorator],
   tags: ['autodocs'],
-}
+};
 
-export default preview
+export default preview;
