@@ -1,11 +1,9 @@
 /* Global style entrypoint composed from modular layers */
 @import './styles/view-transitions.css';
+@import './styles/base.css';
+@import './styles/components.css';
+@import './styles/utilities.css';
 
 @tailwind base;
-@import './styles/base.css';
-
 @tailwind components;
-@import './styles/components.css';
-
 @tailwind utilities;
-@import './styles/utilities.css';

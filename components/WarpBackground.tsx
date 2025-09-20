@@ -68,11 +68,11 @@ export const WarpBackground: React.FC<WarpBackgroundProps> = React.memo(
       for (let i = 0; i < 20; i++) {
         cubeArray.push({
           id: i,
-          x: 5 + ((i * 11) % 90),
-          y: 5 + ((i * 19) % 90),
-          delay: (i * 0.2) % 6, // Shorter delays, max 6 seconds
-          size: 6 + (i % 3) * 2,
-          color: colors[i % colors.length],
+          x: Math.random() * 90 + 5,
+          y: Math.random() * 90 + 5,
+          delay: Math.random() * 6, // Random delays up to 6 seconds
+          size: 6 + Math.floor(Math.random() * 3) * 2,
+          color: colors[Math.floor(Math.random() * colors.length)],
         })
       }
       return cubeArray

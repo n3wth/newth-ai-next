@@ -1,0 +1,94 @@
+/* Dark theme for Storybook Docs - More specific selectors */
+
+/* Only target the docs story preview area */
+.docs-story {
+  background: #000000 !important;
+}
+
+/* Docs content wrapper */
+.sbdocs.sbdocs-wrapper {
+  background: #0a0a0a !important;
+  color: #e5e5e5 !important;
+}
+
+.sbdocs.sbdocs-content {
+  color: #e5e5e5 !important;
+  max-width: 1200px;
+}
+
+/* Docs headings */
+.sbdocs h1,
+.sbdocs h2,
+.sbdocs h3,
+.sbdocs h4,
+.sbdocs h5,
+.sbdocs h6 {
+  color: #ffffff !important;
+}
+
+/* Docs paragraphs and lists */
+.sbdocs p,
+.sbdocs li {
+  color: #d4d4d8 !important;
+}
+
+/* Docs code blocks */
+.sbdocs code {
+  background: #18181b !important;
+  color: #a78bfa !important;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.sbdocs pre {
+  background: #18181b !important;
+  border: 1px solid #27272a !important;
+}
+
+.sbdocs pre code {
+  color: #e5e5e5 !important;
+  background: transparent !important;
+}
+
+/* ArgsTable in docs */
+.docblock-argstable {
+  background: #0a0a0a !important;
+}
+
+.docblock-argstable-head {
+  background: #18181b !important;
+}
+
+.docblock-argstable th {
+  color: #a1a1aa !important;
+  font-weight: 600 !important;
+}
+
+.docblock-argstable-body tr {
+  border-color: #27272a !important;
+}
+
+.docblock-argstable-body tr:hover {
+  background: rgba(139, 92, 246, 0.05) !important;
+}
+
+.docblock-argstable-body td {
+  color: #d4d4d8 !important;
+}
+
+/* Controls in ArgsTable */
+.docblock-argstable input[type="text"],
+.docblock-argstable select {
+  background: #18181b !important;
+  color: #e5e5e5 !important;
+  border: 1px solid #3f3f46 !important;
+}
+
+/* Links in docs */
+.sbdocs a {
+  color: #a78bfa !important;
+}
+
+.sbdocs a:hover {
+  color: #c4b5fd !important;
+}
