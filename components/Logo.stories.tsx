@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/nextjs'
 import { AnimatedLogo as Logo } from './AnimatedLogo'
+import type { AnimatedLogoProps } from './AnimatedLogo'
 
-const meta: Meta<typeof Logo> = {
+const meta: Meta<AnimatedLogoProps> = {
   title: 'Brand/Logo',
   component: Logo,
   parameters: {
