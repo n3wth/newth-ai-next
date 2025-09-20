@@ -110,19 +110,17 @@
               (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)('div', {
                 className: 'flex flex-wrap gap-2 mb-4',
                 children: [
-                  (project.tags || project.tech || [])
-                    .slice(0, 3)
-                    .map((tag) =>
-                      (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(
-                        'span',
-                        {
-                          className:
-                            'px-2 py-1 text-xs font-medium rounded-lg bg-white/5 text-gray-300 border border-white/10',
-                          children: tag,
-                        },
-                        tag
-                      )
-                    ),
+                  (project.tags || project.tech || []).slice(0, 3).map((tag) =>
+                    (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(
+                      'span',
+                      {
+                        className:
+                          'px-2 py-1 text-xs font-medium rounded-lg bg-white/5 text-gray-300 border border-white/10',
+                        children: tag,
+                      },
+                      tag
+                    )
+                  ),
                   (project.tags || project.tech || []).length > 3 &&
                     (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)('span', {
                       className: 'px-2 py-1 text-xs font-medium rounded-lg text-gray-500',

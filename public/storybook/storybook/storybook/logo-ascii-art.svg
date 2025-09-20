@@ -1,0 +1,120 @@
+<svg width="140" height="40" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 40">
+  <defs>
+    <!-- Rainbow gradient -->
+    <linearGradient id="rainbow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#9333ea"/>
+      <stop offset="25%" style="stop-color:#3b82f6"/>
+      <stop offset="50%" style="stop-color:#06b6d4"/>
+      <stop offset="75%" style="stop-color:#10b981"/>
+      <stop offset="100%" style="stop-color:#9333ea"/>
+      <animate attributeName="x1" values="0%;100%;0%" dur="10s" repeatCount="indefinite"/>
+    </linearGradient>
+
+    <!-- Glitch filter -->
+    <filter id="glitch">
+      <feTurbulence type="turbulence" baseFrequency="0.01" numOctaves="1" seed="2">
+        <animate attributeName="seed" values="2;100;2" dur="0.05s" begin="5s;10s;15s" />
+      </feTurbulence>
+      <feDisplacementMap in="SourceGraphic" scale="0">
+        <animate attributeName="scale" values="0;1;0" dur="0.05s" begin="5s;10s;15s" />
+      </feDisplacementMap>
+    </filter>
+  </defs>
+
+  <!-- Build the ASCII logo with SVG paths and rectangles -->
+  <g fill="white" filter="url(#glitch)">
+    <!-- Row 1 of ASCII blocks -->
+    <!-- n block -->
+    <rect x="2" y="2" width="4" height="8"/>
+    <rect x="7" y="6" width="4" height="4"/>
+    <rect x="13" y="2" width="4" height="8"/>
+
+    <!-- 3 (styled as E blocks) -->
+    <rect x="20" y="2" width="4" height="8"/>
+    <rect x="24" y="2" width="6" height="2"/>
+    <rect x="24" y="5" width="5" height="2"/>
+    <rect x="24" y="8" width="6" height="2"/>
+
+    <!-- w (styled as blocks) -->
+    <rect x="33" y="2" width="4" height="8"/>
+    <rect x="38" y="6" width="3" height="4"/>
+    <rect x="42" y="2" width="3" height="8"/>
+    <rect x="46" y="6" width="3" height="4"/>
+    <rect x="50" y="2" width="4" height="8"/>
+
+    <!-- t (styled as T blocks) -->
+    <rect x="57" y="2" width="10" height="2"/>
+    <rect x="60" y="2" width="4" height="8"/>
+
+    <!-- h blocks -->
+    <rect x="70" y="2" width="4" height="8"/>
+    <rect x="75" y="5" width="6" height="2"/>
+    <rect x="77" y="2" width="4" height="8"/>
+
+    <!-- Row 2 continuation for multi-row letters -->
+    <rect x="2" y="12" width="4" height="8"/>
+    <rect x="13" y="12" width="4" height="8"/>
+
+    <rect x="20" y="12" width="10" height="2"/>
+    <rect x="20" y="18" width="10" height="2"/>
+
+    <rect x="33" y="12" width="4" height="8"/>
+    <rect x="42" y="12" width="3" height="8"/>
+    <rect x="50" y="12" width="4" height="8"/>
+
+    <rect x="60" y="12" width="4" height="8"/>
+
+    <rect x="70" y="12" width="4" height="8"/>
+    <rect x="77" y="12" width="4" height="8"/>
+
+    <!-- Row 3 -->
+    <rect x="2" y="22" width="4" height="6"/>
+    <rect x="13" y="22" width="4" height="6"/>
+
+    <rect x="20" y="22" width="4" height="6"/>
+    <rect x="24" y="26" width="6" height="2"/>
+
+    <rect x="33" y="22" width="4" height="6"/>
+    <rect x="38" y="22" width="3" height="3"/>
+    <rect x="42" y="22" width="3" height="6"/>
+    <rect x="46" y="22" width="3" height="3"/>
+    <rect x="50" y="22" width="4" height="6"/>
+
+    <rect x="60" y="22" width="4" height="6"/>
+
+    <rect x="70" y="22" width="4" height="6"/>
+    <rect x="77" y="22" width="4" height="6"/>
+  </g>
+
+  <!-- .AI part with gradient -->
+  <g fill="url(#rainbow)">
+    <!-- Period -->
+    <circle cx="88" cy="26" r="2"/>
+
+    <!-- A blocks -->
+    <rect x="94" y="8" width="6" height="2"/>
+    <rect x="94" y="4" width="2" height="6"/>
+    <rect x="98" y="4" width="2" height="6"/>
+    <rect x="94" y="6" width="6" height="2"/>
+
+    <rect x="94" y="12" width="2" height="8"/>
+    <rect x="98" y="12" width="2" height="8"/>
+    <rect x="94" y="15" width="6" height="2"/>
+
+    <rect x="94" y="22" width="2" height="6"/>
+    <rect x="98" y="22" width="2" height="6"/>
+
+    <!-- I blocks -->
+    <rect x="104" y="4" width="6" height="2"/>
+    <rect x="105.5" y="4" width="3" height="6"/>
+    <rect x="104" y="8" width="6" height="2"/>
+
+    <rect x="104" y="12" width="6" height="2"/>
+    <rect x="105.5" y="12" width="3" height="8"/>
+    <rect x="104" y="18" width="6" height="2"/>
+
+    <rect x="104" y="22" width="6" height="2"/>
+    <rect x="105.5" y="22" width="3" height="6"/>
+    <rect x="104" y="26" width="6" height="2"/>
+  </g>
+</svg>

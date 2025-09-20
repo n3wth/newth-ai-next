@@ -7,6 +7,19 @@ const withBundleAnalyzer = bundleAnalyzer({
 })
 
 const nextConfig: NextConfig = {
+  // Fix workspace root detection
+  outputFileTracingRoot: __dirname,
+
+  // Add Storybook rewrite for deployment
+  async rewrites() {
+    return [
+      {
+        source: '/storybook',
+        destination: '/storybook/index.html',
+      },
+    ]
+  },
+
   // Performance optimizations
   experimental: {
     // Optimize package imports for better tree-shaking
@@ -29,9 +42,6 @@ const nextConfig: NextConfig = {
   turbopack: {},
   productionBrowserSourceMaps: false,
   poweredByHeader: false,
-
-  // Fix workspace root detection
-  outputFileTracingRoot: __dirname,
 
   // Server external packages (moved from experimental)
   serverExternalPackages: [],

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { motion } from 'framer-motion'
 import { AnimatedLogo } from '@/components/AnimatedLogo'
@@ -46,8 +46,11 @@ function AnimatedLogoForced({
   const [isHovered, setIsHovered] = useState(false)
   const [glitchIntensity, setGlitchIntensity] = useState(forcedIntensity)
 
-  const asciiLogo = ['█▄ █ █▀▀ █ █ █ ▀█▀ █ █', '█ ▀█ █▀▀ ▀▄▀▄▀  █  █▀█', '█  █ █▄▄  ▀ ▀   █  █ █']
-  const asciiDotAI = ['  ▄▀█ █', '  █▀█ █', '°']
+  const asciiLogo = useMemo(
+    () => ['█▄ █ █▀▀ █ █ █ ▀█▀ █ █', '█ ▀█ █▀▀ ▀▄▀▄▀  █  █▀█', '█  █ █▄▄  ▀ ▀   █  █ █'],
+    []
+  )
+  const asciiDotAI = useMemo(() => ['  ▄▀█ █', '  █▀█ █', '°'], [])
   // Removed - now defined locally in transformChar
 
   useEffect(() => {

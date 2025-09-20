@@ -28,8 +28,7 @@
     "analyze": "ANALYZE=true next build",
     "prepare": "husky",
     "storybook": "storybook dev -p 6006",
-    "storybook:debug": "NODE_OPTIONS='--inspect' storybook dev -p 6006 --debug-webpack",
-    "build-storybook": "storybook build"
+    "storybook:debug": "NODE_OPTIONS='--inspect' storybook dev -p 6006 --debug-webpack"
   },
   "dependencies": {
     "@emotion/is-prop-valid": "^1.4.0",
@@ -69,7 +68,6 @@
     "@storybook/addon-onboarding": "^9.1.7",
     "@storybook/addon-vitest": "^9.1.7",
     "@storybook/nextjs": "^9.1.7",
-    "@storybook/nextjs-vite": "^9.1.7",
     "@testing-library/jest-dom": "^6.8.0",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^14.6.1",

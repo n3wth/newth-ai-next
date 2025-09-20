@@ -1,0 +1,23 @@
+
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Pure black background -->
+  <rect width="512" height="512" fill="#000000"/>
+
+  <!-- Clean blocky N design with white color - smaller with padding -->
+  <!-- Left vertical bar -->
+  <rect x="96" y="96" width="80" height="80" fill="#FFFFFF"/>
+  <rect x="96" y="176" width="80" height="80" fill="#FFFFFF"/>
+  <rect x="96" y="256" width="80" height="80" fill="#FFFFFF"/>
+  <rect x="96" y="336" width="80" height="80" fill="#FFFFFF"/>
+
+  <!-- Thicker diagonal connecting blocks -->
+  <rect x="176" y="156" width="80" height="80" fill="#FFFFFF"/>
+  <rect x="216" y="216" width="80" height="80" fill="#FFFFFF"/>
+  <rect x="256" y="276" width="80" height="80" fill="#FFFFFF"/>
+
+  <!-- Right vertical bar -->
+  <rect x="336" y="96" width="80" height="80" fill="#FFFFFF"/>
+  <rect x="336" y="176" width="80" height="80" fill="#FFFFFF"/>
+  <rect x="336" y="256" width="80" height="80" fill="#FFFFFF"/>
+  <rect x="336" y="336" width="80" height="80" fill="#FFFFFF"/>
+</svg>

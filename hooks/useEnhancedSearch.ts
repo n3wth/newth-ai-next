@@ -140,7 +140,7 @@ interface SearchAnalytics {
 }
 
 export function useEnhancedSearch(config: Partial<SearchConfig> = {}) {
-  const searchConfig = { ...defaultConfig, ...config }
+  const searchConfig = useMemo(() => ({ ...defaultConfig, ...config }), [config])
 
   const [query, setQuery] = useState('')
   const [isOpen, setIsOpen] = useState(false)

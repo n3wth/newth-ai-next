@@ -379,9 +379,10 @@
       var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
           './node_modules/next/dist/compiled/react/jsx-runtime.js'
         ),
-        framer_motion__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-          './node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs'
-        ),
+        _barrel_optimize_names_motion_framer_motion__WEBPACK_IMPORTED_MODULE_1__ =
+          __webpack_require__(
+            './node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs'
+          ),
         react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
           './node_modules/next/dist/compiled/react/index.js'
         )
@@ -407,7 +408,7 @@
           className: `absolute inset-0 overflow-hidden opacity-60 ${className || ''}`,
           children: columns.map((col) =>
             (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(
-              framer_motion__WEBPACK_IMPORTED_MODULE_1__.P.div,
+              _barrel_optimize_names_motion_framer_motion__WEBPACK_IMPORTED_MODULE_1__.P.div,
               {
                 className: 'absolute text-sm font-mono font-bold',
                 style: {
@@ -426,7 +427,7 @@
                 },
                 children: col.chars.map((char, i) =>
                   (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(
-                    framer_motion__WEBPACK_IMPORTED_MODULE_1__.P.span,
+                    _barrel_optimize_names_motion_framer_motion__WEBPACK_IMPORTED_MODULE_1__.P.span,
                     {
                       className: 'block',
                       animate: { opacity: [0.3, 1, 1, 0.5] },
@@ -477,12 +478,14 @@
       var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
           './node_modules/next/dist/compiled/react/jsx-runtime.js'
         ),
-        framer_motion__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-          './node_modules/framer-motion/dist/es/components/AnimatePresence/index.mjs'
-        ),
-        framer_motion__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-          './node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs'
-        ),
+        _barrel_optimize_names_AnimatePresence_motion_framer_motion__WEBPACK_IMPORTED_MODULE_1__ =
+          __webpack_require__(
+            './node_modules/framer-motion/dist/es/components/AnimatePresence/index.mjs'
+          ),
+        _barrel_optimize_names_AnimatePresence_motion_framer_motion__WEBPACK_IMPORTED_MODULE_2__ =
+          __webpack_require__(
+            './node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs'
+          ),
         react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
           './node_modules/next/dist/compiled/react/index.js'
         )
@@ -544,7 +547,8 @@
                   'M 10 50 Q 30 80, 50 50 T 90 50',
                 ].map((path, i) =>
                   (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(
-                    framer_motion__WEBPACK_IMPORTED_MODULE_2__.P.path,
+                    _barrel_optimize_names_AnimatePresence_motion_framer_motion__WEBPACK_IMPORTED_MODULE_2__
+                      .P.path,
                     {
                       d: path,
                       stroke: colors[i],
@@ -564,7 +568,8 @@
             }),
             [...Array(40)].map((_, i) =>
               (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(
-                framer_motion__WEBPACK_IMPORTED_MODULE_2__.P.div,
+                _barrel_optimize_names_AnimatePresence_motion_framer_motion__WEBPACK_IMPORTED_MODULE_2__
+                  .P.div,
                 {
                   className: 'absolute text-base font-mono font-bold',
                   style: {
@@ -586,11 +591,12 @@
               )
             ),
             (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(
-              framer_motion__WEBPACK_IMPORTED_MODULE_1__.N,
+              _barrel_optimize_names_AnimatePresence_motion_framer_motion__WEBPACK_IMPORTED_MODULE_1__.N,
               {
                 children: dataPoints.map((point) =>
                   (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(
-                    framer_motion__WEBPACK_IMPORTED_MODULE_2__.P.div,
+                    _barrel_optimize_names_AnimatePresence_motion_framer_motion__WEBPACK_IMPORTED_MODULE_2__
+                      .P.div,
                     {
                       className: 'absolute w-3 h-3 rounded-full',
                       style: {
@@ -609,13 +615,15 @@
             ),
             [25, 50, 75].map((x, i) =>
               (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(
-                framer_motion__WEBPACK_IMPORTED_MODULE_2__.P.div,
+                _barrel_optimize_names_AnimatePresence_motion_framer_motion__WEBPACK_IMPORTED_MODULE_2__
+                  .P.div,
                 {
                   className: 'absolute',
                   style: { left: `${x}%`, top: '50%', transform: 'translate(-50%, -50%)' },
                   children: [
                     (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(
-                      framer_motion__WEBPACK_IMPORTED_MODULE_2__.P.div,
+                      _barrel_optimize_names_AnimatePresence_motion_framer_motion__WEBPACK_IMPORTED_MODULE_2__
+                        .P.div,
                       {
                         className: 'w-16 h-16 border-3 rounded-xl',
                         style: {
@@ -632,7 +640,8 @@
                       }
                     ),
                     (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(
-                      framer_motion__WEBPACK_IMPORTED_MODULE_2__.P.div,
+                      _barrel_optimize_names_AnimatePresence_motion_framer_motion__WEBPACK_IMPORTED_MODULE_2__
+                        .P.div,
                       {
                         className: 'absolute inset-0 bg-gradient-to-r rounded-xl',
                         style: {
@@ -649,7 +658,8 @@
             ),
             [...Array(5)].map((_, i) =>
               (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(
-                framer_motion__WEBPACK_IMPORTED_MODULE_2__.P.div,
+                _barrel_optimize_names_AnimatePresence_motion_framer_motion__WEBPACK_IMPORTED_MODULE_2__
+                  .P.div,
                 {
                   className: 'absolute text-xs font-mono text-cyan-400/60',
                   style: { left: 20 + 15 * i + '%', top: 20 + (i % 2) * 60 + '%' },
@@ -704,9 +714,10 @@
         styled_jsx_style__WEBPACK_IMPORTED_MODULE_1___default = __webpack_require__.n(
           styled_jsx_style__WEBPACK_IMPORTED_MODULE_1__
         ),
-        framer_motion__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-          './node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs'
-        ),
+        _barrel_optimize_names_motion_framer_motion__WEBPACK_IMPORTED_MODULE_2__ =
+          __webpack_require__(
+            './node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs'
+          ),
         react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
           './node_modules/next/dist/compiled/react/index.js'
         )
@@ -746,7 +757,7 @@
             }),
             [...Array(6)].map((_, i) =>
               (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(
-                framer_motion__WEBPACK_IMPORTED_MODULE_2__.P.div,
+                _barrel_optimize_names_motion_framer_motion__WEBPACK_IMPORTED_MODULE_2__.P.div,
                 {
                   className: 'absolute',
                   style: {
@@ -779,7 +790,7 @@
             ),
             glitchBars.map((bar) =>
               (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(
-                framer_motion__WEBPACK_IMPORTED_MODULE_2__.P.div,
+                _barrel_optimize_names_motion_framer_motion__WEBPACK_IMPORTED_MODULE_2__.P.div,
                 {
                   className: 'absolute w-full',
                   style: {
@@ -804,7 +815,7 @@
               )
             ),
             (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(
-              framer_motion__WEBPACK_IMPORTED_MODULE_2__.P.div,
+              _barrel_optimize_names_motion_framer_motion__WEBPACK_IMPORTED_MODULE_2__.P.div,
               {
                 className: 'absolute inset-0 pointer-events-none',
                 animate: { x: [0, -3, 2, -1, 0] },
@@ -819,7 +830,7 @@
               }
             ),
             (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(
-              framer_motion__WEBPACK_IMPORTED_MODULE_2__.P.div,
+              _barrel_optimize_names_motion_framer_motion__WEBPACK_IMPORTED_MODULE_2__.P.div,
               {
                 className: 'absolute inset-0 pointer-events-none',
                 animate: { x: [0, 2, -3, 1, 0] },
@@ -835,7 +846,7 @@
             ),
             [...Array(50)].map((_, i) =>
               (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(
-                framer_motion__WEBPACK_IMPORTED_MODULE_2__.P.div,
+                _barrel_optimize_names_motion_framer_motion__WEBPACK_IMPORTED_MODULE_2__.P.div,
                 {
                   className: 'absolute',
                   style: {
@@ -857,7 +868,7 @@
               )
             ),
             (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(
-              framer_motion__WEBPACK_IMPORTED_MODULE_2__.P.div,
+              _barrel_optimize_names_motion_framer_motion__WEBPACK_IMPORTED_MODULE_2__.P.div,
               {
                 className:
                   'absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none',
@@ -919,9 +930,10 @@
       var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
           './node_modules/next/dist/compiled/react/jsx-runtime.js'
         ),
-        framer_motion__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-          './node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs'
-        ),
+        _barrel_optimize_names_motion_framer_motion__WEBPACK_IMPORTED_MODULE_1__ =
+          __webpack_require__(
+            './node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs'
+          ),
         react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
           './node_modules/next/dist/compiled/react/index.js'
         )
@@ -974,7 +986,7 @@
               className: 'absolute inset-0 w-full h-full',
               children: connections.map((conn, i) =>
                 (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(
-                  framer_motion__WEBPACK_IMPORTED_MODULE_1__.P.line,
+                  _barrel_optimize_names_motion_framer_motion__WEBPACK_IMPORTED_MODULE_1__.P.line,
                   {
                     x1: `${conn.from.x}%`,
                     y1: `${conn.from.y}%`,
@@ -1001,7 +1013,7 @@
             }),
             nodes.map((node) =>
               (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(
-                framer_motion__WEBPACK_IMPORTED_MODULE_1__.P.div,
+                _barrel_optimize_names_motion_framer_motion__WEBPACK_IMPORTED_MODULE_1__.P.div,
                 {
                   className: 'absolute',
                   style: {
@@ -1038,7 +1050,8 @@
                   },
                   children: [
                     (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(
-                      framer_motion__WEBPACK_IMPORTED_MODULE_1__.P.div,
+                      _barrel_optimize_names_motion_framer_motion__WEBPACK_IMPORTED_MODULE_1__.P
+                        .div,
                       {
                         className: 'absolute rounded-full blur-xl',
                         style: {
@@ -1071,7 +1084,8 @@
                       },
                     }),
                     (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(
-                      framer_motion__WEBPACK_IMPORTED_MODULE_1__.P.div,
+                      _barrel_optimize_names_motion_framer_motion__WEBPACK_IMPORTED_MODULE_1__.P
+                        .div,
                       {
                         className: 'absolute rounded-full',
                         style: {
@@ -1107,7 +1121,7 @@
               const startNode = nodes[i % nodes.length],
                 endNode = nodes[(i + 5) % nodes.length]
               return (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(
-                framer_motion__WEBPACK_IMPORTED_MODULE_1__.P.div,
+                _barrel_optimize_names_motion_framer_motion__WEBPACK_IMPORTED_MODULE_1__.P.div,
                 {
                   className: 'absolute w-2 h-2 rounded-full',
                   style: {
@@ -1169,9 +1183,10 @@
       var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
           './node_modules/next/dist/compiled/react/jsx-runtime.js'
         ),
-        framer_motion__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-          './node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs'
-        ),
+        _barrel_optimize_names_motion_framer_motion__WEBPACK_IMPORTED_MODULE_1__ =
+          __webpack_require__(
+            './node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs'
+          ),
         react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
           './node_modules/next/dist/compiled/react/index.js'
         )
@@ -1218,7 +1233,8 @@
                   },
                   children: [
                     (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(
-                      framer_motion__WEBPACK_IMPORTED_MODULE_1__.P.div,
+                      _barrel_optimize_names_motion_framer_motion__WEBPACK_IMPORTED_MODULE_1__.P
+                        .div,
                       {
                         className: 'absolute w-8 h-8',
                         style: { left: '50%', top: '50%', transform: 'translate(-50%, -50%)' },
@@ -1240,7 +1256,8 @@
                     ),
                     [0, 120, 240].map((angle, i) =>
                       (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(
-                        framer_motion__WEBPACK_IMPORTED_MODULE_1__.P.div,
+                        _barrel_optimize_names_motion_framer_motion__WEBPACK_IMPORTED_MODULE_1__.P
+                          .div,
                         {
                           className: 'absolute',
                           style: {
@@ -1291,7 +1308,7 @@
             ),
             [...Array(20)].map((_, i) =>
               (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(
-                framer_motion__WEBPACK_IMPORTED_MODULE_1__.P.div,
+                _barrel_optimize_names_motion_framer_motion__WEBPACK_IMPORTED_MODULE_1__.P.div,
                 {
                   className: 'absolute',
                   style: { left: 100 * Math.random() + '%', top: 100 * Math.random() + '%' },
@@ -1320,7 +1337,7 @@
               children: systems.slice(0, -1).map((system, i) => {
                 const nextSystem = systems[i + 1]
                 return (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(
-                  framer_motion__WEBPACK_IMPORTED_MODULE_1__.P.line,
+                  _barrel_optimize_names_motion_framer_motion__WEBPACK_IMPORTED_MODULE_1__.P.line,
                   {
                     x1: `${system.x}%`,
                     y1: `${system.y}%`,
@@ -1381,9 +1398,10 @@
       var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
           './node_modules/next/dist/compiled/react/jsx-runtime.js'
         ),
-        framer_motion__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-          './node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs'
-        ),
+        _barrel_optimize_names_motion_framer_motion__WEBPACK_IMPORTED_MODULE_1__ =
+          __webpack_require__(
+            './node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs'
+          ),
         react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
           './node_modules/next/dist/compiled/react/index.js'
         )
@@ -1418,7 +1436,7 @@
             }),
             particles.map((particle) =>
               (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(
-                framer_motion__WEBPACK_IMPORTED_MODULE_1__.P.div,
+                _barrel_optimize_names_motion_framer_motion__WEBPACK_IMPORTED_MODULE_1__.P.div,
                 {
                   className: 'absolute',
                   style: { left: `${particle.x}%`, top: `${particle.y}%` },
@@ -1433,7 +1451,7 @@
                     delay: particle.delay,
                   },
                   children: (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(
-                    framer_motion__WEBPACK_IMPORTED_MODULE_1__.P.div,
+                    _barrel_optimize_names_motion_framer_motion__WEBPACK_IMPORTED_MODULE_1__.P.div,
                     {
                       className: 'relative',
                       animate: { scale: [1, 1.5, 1], opacity: [0.3, 0.8, 0.3] },
@@ -1474,7 +1492,7 @@
             ),
             [...Array(30)].map((_, i) =>
               (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(
-                framer_motion__WEBPACK_IMPORTED_MODULE_1__.P.div,
+                _barrel_optimize_names_motion_framer_motion__WEBPACK_IMPORTED_MODULE_1__.P.div,
                 {
                   className: 'absolute w-1 h-1 rounded-full',
                   style: { backgroundColor: '#8B5CF6', boxShadow: '0 0 4px #8B5CF6' },
@@ -1498,7 +1516,7 @@
             ),
             [...Array(3)].map((_, i) =>
               (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(
-                framer_motion__WEBPACK_IMPORTED_MODULE_1__.P.div,
+                _barrel_optimize_names_motion_framer_motion__WEBPACK_IMPORTED_MODULE_1__.P.div,
                 {
                   className: 'absolute h-1 w-40',
                   style: {
@@ -1553,9 +1571,10 @@
       var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
           './node_modules/next/dist/compiled/react/jsx-runtime.js'
         ),
-        framer_motion__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-          './node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs'
-        ),
+        _barrel_optimize_names_motion_framer_motion__WEBPACK_IMPORTED_MODULE_1__ =
+          __webpack_require__(
+            './node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs'
+          ),
         react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
           './node_modules/next/dist/compiled/react/index.js'
         )
@@ -1680,7 +1699,7 @@
                 }),
                 waves.map((wave, index) =>
                   (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(
-                    framer_motion__WEBPACK_IMPORTED_MODULE_1__.P.path,
+                    _barrel_optimize_names_motion_framer_motion__WEBPACK_IMPORTED_MODULE_1__.P.path,
                     {
                       stroke: `url(#waveGradient${(index % 2) + 1})`,
                       strokeWidth: '3',
@@ -1741,7 +1760,7 @@
             }),
             [...Array(30)].map((_, i) =>
               (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(
-                framer_motion__WEBPACK_IMPORTED_MODULE_1__.P.div,
+                _barrel_optimize_names_motion_framer_motion__WEBPACK_IMPORTED_MODULE_1__.P.div,
                 {
                   className: 'absolute',
                   style: { left: 3.3 * i + 2 + '%', top: '50%' },
@@ -1772,7 +1791,7 @@
                 'absolute bottom-0 left-0 right-0 flex items-end justify-center gap-1 px-4',
               children: [...Array(60)].map((_, i) =>
                 (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(
-                  framer_motion__WEBPACK_IMPORTED_MODULE_1__.P.div,
+                  _barrel_optimize_names_motion_framer_motion__WEBPACK_IMPORTED_MODULE_1__.P.div,
                   {
                     className: 'flex-1 max-w-[8px] rounded-t-sm',
                     style: {
@@ -1799,7 +1818,7 @@
             }),
             [...Array(3)].map((_, i) =>
               (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(
-                framer_motion__WEBPACK_IMPORTED_MODULE_1__.P.div,
+                _barrel_optimize_names_motion_framer_motion__WEBPACK_IMPORTED_MODULE_1__.P.div,
                 {
                   className:
                     'absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-2',
@@ -2088,9 +2107,10 @@
       var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
           './node_modules/next/dist/compiled/react/jsx-runtime.js'
         ),
-        framer_motion__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-          './node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs'
-        ),
+        _barrel_optimize_names_motion_framer_motion__WEBPACK_IMPORTED_MODULE_1__ =
+          __webpack_require__(
+            './node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs'
+          ),
         next_link__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__('./node_modules/next/link.js'),
         next_link__WEBPACK_IMPORTED_MODULE_2___default = __webpack_require__.n(
           next_link__WEBPACK_IMPORTED_MODULE_2__
@@ -2104,7 +2124,7 @@
       }) {
         const baseClasses = `\n    inline-flex items-center justify-center\n    px-7 py-3.5\n    text-base font-medium\n    rounded-xl\n    transition-all duration-300\n    select-none\n    ${{ primary: 'bg-white text-black hover:bg-gray-200 transition-colors', secondary: 'bg-transparent text-white border border-white/30 hover:bg-white hover:text-black transition-all' }[variant]}\n    ${className}\n  `,
           content = (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(
-            framer_motion__WEBPACK_IMPORTED_MODULE_1__.P.span,
+            _barrel_optimize_names_motion_framer_motion__WEBPACK_IMPORTED_MODULE_1__.P.span,
             {
               className: 'flex items-center gap-2',
               whileHover: { scale: 1.05 },
@@ -2312,9 +2332,10 @@
         react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
           './node_modules/next/dist/compiled/react/index.js'
         ),
-        framer_motion__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-          './node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs'
-        ),
+        _barrel_optimize_names_motion_framer_motion__WEBPACK_IMPORTED_MODULE_2__ =
+          __webpack_require__(
+            './node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs'
+          ),
         _lib_design_system__WEBPACK_IMPORTED_MODULE_3__ =
           __webpack_require__('./lib/design-system.ts')
       const TerminalCard = (0, react__WEBPACK_IMPORTED_MODULE_1__.memo)(function TerminalCard({
@@ -2329,7 +2350,7 @@
           className
         )
         return (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(
-          framer_motion__WEBPACK_IMPORTED_MODULE_2__.P.div,
+          _barrel_optimize_names_motion_framer_motion__WEBPACK_IMPORTED_MODULE_2__.P.div,
           {
             whileHover: hover ? { scale: 1.02 } : void 0,
             transition: { type: 'spring', stiffness: 300 },
@@ -2427,20 +2448,6 @@
           },
         },
         cn = (...classes) => classes.filter(Boolean).join(' ')
-    },
-    './lib/utils.ts': (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-      __webpack_require__.d(__webpack_exports__, { cn: () => cn })
-      var clsx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-          './node_modules/clsx/dist/clsx.mjs'
-        ),
-        tailwind_merge__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-          './node_modules/tailwind-merge/dist/bundle-mjs.mjs'
-        )
-      function cn(...inputs) {
-        return (0, tailwind_merge__WEBPACK_IMPORTED_MODULE_1__.QP)(
-          (0, clsx__WEBPACK_IMPORTED_MODULE_0__.$)(inputs)
-        )
-      }
     },
     './stories/8-examples/ShowcasePage.stories.tsx': (
       __unused_webpack_module,
@@ -3136,7 +3143,7 @@
           categoryWeights: { expertise: 1.2, technology: 1.1, navigation: 0.9 },
         }
       function useEnhancedSearch(config = {}) {
-        const searchConfig = { ...defaultConfig, ...config },
+        const searchConfig = (0, react.useMemo)(() => ({ ...defaultConfig, ...config }), [config]),
           [query, setQuery] = (0, react.useState)(''),
           [isOpen, setIsOpen] = (0, react.useState)(!1),
           [recentSearches, setRecentSearches] = (0, react.useState)([]),

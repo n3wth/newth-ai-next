@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useMemo } from 'react'
 
 export interface AnimatedLogoProps {
   /**
@@ -83,9 +83,12 @@ export function AnimatedLogo({
   const glitchEndTime = useRef(Date.now()) // Track when glitch actually ends
   const targetIntensity = useRef(0)
 
-  const asciiLogo = ['█▄ █ █▀▀ █ █ █ ▀█▀ █ █', '█ ▀█ █▀▀ ▀▄▀▄▀  █  █▀█', '█  █ █▄▄  ▀ ▀   █  █ █']
+  const asciiLogo = useMemo(
+    () => ['█▄ █ █▀▀ █ █ █ ▀█▀ █ █', '█ ▀█ █▀▀ ▀▄▀▄▀  █  █▀█', '█  █ █▄▄  ▀ ▀   █  █ █'],
+    []
+  )
 
-  const asciiDotAI = ['  ▄▀█ █', '  █▀█ █', '°']
+  const asciiDotAI = useMemo(() => ['  ▄▀█ █', '  █▀█ █', '°'], [])
 
   // ASCII block variations for morphing
   const blockChars = ['█', '▓', '▒', '░', '▄', '▀', '▌', '▐', '■', '□', '▪', '▫']

@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1758402308196,
+  "generatedAt": 1758407695868,
   "userSince": 1758329713283,
   "hasCustomBabel": false,
   "hasCustomWebpack": false,
@@ -37,7 +37,6 @@
   "storybookPackages": {
     "@storybook/addon-vitest": { "version": "9.1.7" },
     "@storybook/nextjs": { "version": "9.1.7" },
-    "@storybook/nextjs-vite": { "version": "9.1.7" },
     "eslint-plugin-storybook": { "version": "9.1.7" },
     "storybook": { "version": "9.1.7" }
   },
