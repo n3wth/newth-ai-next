@@ -4,7 +4,11 @@ import { motion } from 'framer-motion'
 import React, { useMemo } from 'react'
 
 // Modern audio visualization with gradient waves
-export const WaveformBackground: React.FC = React.memo(() => {
+interface WaveformBackgroundProps {
+  className?: string
+}
+
+export const WaveformBackground: React.FC<WaveformBackgroundProps> = React.memo(({ className }) => {
   const waves = useMemo(() => {
     const waveArray = []
 
@@ -24,7 +28,9 @@ export const WaveformBackground: React.FC = React.memo(() => {
   }, [])
 
   return (
-    <div className="absolute inset-0 overflow-hidden bg-gradient-to-br from-purple-900/20 via-black to-pink-900/20">
+    <div
+      className={`absolute inset-0 overflow-hidden bg-gradient-to-br from-purple-900/20 via-black to-pink-900/20 ${className || ''}`}
+    >
       {/* Gradient orbs in background */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl" />

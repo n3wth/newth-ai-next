@@ -3,13 +3,59 @@
 import { motion } from 'framer-motion'
 import { useState, useEffect, useRef } from 'react'
 
-interface AnimatedLogoProps {
-  enableColorOnHover?: boolean // Enable rainbow colors on hover
-  enableColorOnGlitch?: boolean // Enable colors during glitch effects
-  baseSaturation?: number // Base saturation level (0-100)
-  colorIntensity?: number // How much color to apply (0-1)
+export interface AnimatedLogoProps {
+  /**
+   * If true, the logo displays a rainbow color effect on mouse hover.
+   * @default true
+   */
+  enableColorOnHover?: boolean
+  /**
+   * If true, the logo shows colors during random glitch animations.
+   * @default false
+   */
+  enableColorOnGlitch?: boolean
+  /**
+   * The base saturation level (0-100) for the color effects.
+   * @default 85
+   */
+  baseSaturation?: number
+  /**
+   * A multiplier (0-1) to control the intensity of the applied colors.
+   * @default 1
+   */
+  colorIntensity?: number
 }
 
+/**
+ * Renders an animated ASCII art logo with dynamic glitch effects and interactive coloring.
+ * The component cycles through various visual distortions at random intervals and reveals
+ * a vibrant rainbow animation on hover.
+ *
+ * @component
+ * @param {AnimatedLogoProps} props - The props for the AnimatedLogo component.
+ *
+ * @example
+ * // Default usage
+ * <AnimatedLogo />
+ *
+ * @example
+ * // Enable colors during glitches and reduce intensity
+ * <AnimatedLogo enableColorOnGlitch={true} colorIntensity={0.7} />
+ *
+ * @example
+ * // Disable hover effect and set a lower base saturation
+ * <AnimatedLogo enableColorOnHover={false} baseSaturation={60} />
+ *
+ * @implementation
+ * The component uses `framer-motion` for subtle animations and `useEffect` hooks to manage state.
+ * - **Glitch Effects**: A timer periodically triggers one of several glitch modes ('typewriter', 'blocks', 'corruption', etc.).
+ *   Each mode transforms the ASCII characters in a unique way, controlled by a smoothed `glitchIntensity` value.
+ *   This creates short, unpredictable visual disruptions.
+ * - **Rainbow Animation**: When `enableColorOnHover` is true and the user hovers over the component,
+ *   the color of each character is calculated based on its position and a continuously incrementing frame counter.
+ *   This is achieved by cycling the HSL hue value, creating a dynamic, wave-like rainbow effect across the logo.
+ *   The saturation and lightness are also modulated to add more vibrancy.
+ */
 export function AnimatedLogo({
   enableColorOnHover = true,
   enableColorOnGlitch = false,
@@ -51,7 +97,7 @@ export function AnimatedLogo({
     dots: ['•', '◦', '◉', '○', '◌', '◍', '◎', '●'],
     angles: ['◢', '◣', '◤', '◥', '◸', '◹', '◺', '◿'],
     shades: ['░', '▒', '▓', '█'],
-    bars: ['▁', '▂', '▃', '▄', '▅', '▆', '▇', '█'],
+    bars: [' ', '▂', '▃', '▄', '▅', '▆', '▇', '█'],
   }
 
   // Initialize character states

@@ -8,10 +8,10 @@ const meta = {
     layout: 'fullscreen',
     docs: {
       description: {
-        component: 'Animated data flow visualization with particles'
-      }
-    }
-  }
+        component: 'Animated data flow visualization with particles',
+      },
+    },
+  },
 } satisfies Meta<typeof DataFlowBackground>
 
 export default meta
@@ -25,7 +25,7 @@ export const Default: Story = {
         <h1 className="text-5xl font-bold text-white">Data Flow</h1>
       </div>
     </div>
-  )
+  ),
 }
 
 export const WithContent: Story = {
@@ -39,5 +39,5 @@ export const WithContent: Story = {
         </div>
       </div>
     </div>
-  )
+  ),
 }

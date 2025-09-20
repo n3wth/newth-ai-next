@@ -126,7 +126,7 @@ export function ProjectGrid({ projects, className }: ProjectGridProps) {
               <p className="text-gray-400 mb-6 font-sans">{project.description}</p>
 
               <div className="flex flex-wrap gap-2 mb-6">
-                {project.tech.map((tech, i) => (
+                {project.tech?.map((tech, i) => (
                   <motion.span
                     key={tech}
                     className="px-3 py-1 text-xs rounded-full backdrop-blur-xl bg-white/5 border border-white/10 text-gray-300 font-mono"

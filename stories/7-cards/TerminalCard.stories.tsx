@@ -7,19 +7,15 @@ const meta = {
   parameters: {
     layout: 'centered',
     backgrounds: {
-      default: 'dark'
+      default: 'dark',
     },
     docs: {
       description: {
-        component: 'Terminal-style card with ASCII borders and monospace text'
-      }
-    }
+        component: 'Terminal-style card with ASCII borders and monospace text',
+      },
+    },
   },
-  argTypes: {
-    title: {
-      control: 'text'
-    }
-  }
+  argTypes: {},
 } satisfies Meta<typeof TerminalCard>
 
 export default meta
@@ -27,20 +23,18 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    title: 'Terminal Output',
     children: (
       <div className="space-y-2">
         <p className="text-green-400">$ npm run build</p>
         <p className="text-gray-400">Building for production...</p>
         <p className="text-blue-400">✓ Compiled successfully</p>
       </div>
-    )
-  }
+    ),
+  },
 }
 
 export const SystemInfo: Story = {
   args: {
-    title: 'System Status',
     children: (
       <div className="space-y-2 font-mono text-sm">
         <div className="flex justify-between">
@@ -56,13 +50,12 @@ export const SystemInfo: Story = {
           <span className="text-red-400">89%</span>
         </div>
       </div>
-    )
-  }
+    ),
+  },
 }
 
 export const CodeBlock: Story = {
   args: {
-    title: 'server.js',
     children: (
       <pre className="text-sm text-gray-300">
         <code>{`const express = require('express');
@@ -74,6 +67,6 @@ app.get('/', (req, res) => {
 
 app.listen(3000);`}</code>
       </pre>
-    )
-  }
+    ),
+  },
 }

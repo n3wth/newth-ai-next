@@ -14,13 +14,24 @@ export function ContactSection({
           <h2 className="text-3xl sm:text-4xl font-normal mb-6 text-white font-sans">{title}</h2>
           <p className="text-lg text-gray-400 mb-12 font-sans">{subtitle}</p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <Button href={socialLinks.github} external variant="primary">
               GitHub
             </Button>
             <Button href={socialLinks.linkedin} external variant="secondary">
               LinkedIn
             </Button>
+          </div>
+
+          <div className="pt-8 border-t border-gray-800">
+            <a
+              href="https://storybook.newth.ai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-gray-500 hover:text-gray-300 transition-colors"
+            >
+              Component Library →
+            </a>
           </div>
         </div>
       </Container>

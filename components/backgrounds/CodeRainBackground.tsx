@@ -4,7 +4,11 @@ import { motion } from 'framer-motion'
 import React, { useMemo } from 'react'
 
 // Matrix-style code rain with AI/ML terms
-export const CodeRainBackground: React.FC = React.memo(() => {
+interface CodeRainBackgroundProps {
+  className?: string
+}
+
+export const CodeRainBackground: React.FC<CodeRainBackgroundProps> = React.memo(({ className }) => {
   const columns = useMemo(() => {
     const cols = []
     const terms = ['AI', 'ML', '01', '{}', '[]', '<>', 'fn', '=>', '::']
@@ -26,7 +30,7 @@ export const CodeRainBackground: React.FC = React.memo(() => {
   }, [])
 
   return (
-    <div className="absolute inset-0 overflow-hidden opacity-60">
+    <div className={`absolute inset-0 overflow-hidden opacity-60 ${className || ''}`}>
       {columns.map((col) => (
         <motion.div
           key={col.id}

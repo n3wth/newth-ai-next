@@ -7,14 +7,14 @@ const meta = {
   parameters: {
     layout: 'padded',
     backgrounds: {
-      default: 'dark'
+      default: 'dark',
     },
     docs: {
       description: {
-        component: 'Grid layout for displaying project cards'
-      }
-    }
-  }
+        component: 'Grid layout for displaying project cards',
+      },
+    },
+  },
 } satisfies Meta<typeof ProjectGrid>
 
 export default meta
@@ -26,56 +26,60 @@ const sampleProjects = [
     title: 'AI Memory Layer',
     description: 'Production-ready memory system for LLMs with sub-millisecond response times',
     year: '2024',
+    tags: ['TypeScript', 'Redis', 'MCP Protocol'],
     tech: ['TypeScript', 'Redis', 'MCP Protocol'],
+    status: 'active' as const,
     link: 'https://example.com',
     github: 'https://github.com',
     featured: true,
     color: 'text-violet-400',
     metrics: [
       { label: '5ms response', color: 'text-violet-400' },
-      { label: '1000+ users', color: 'text-green-400' }
-    ]
+      { label: '1000+ users', color: 'text-green-400' },
+    ],
   },
   {
     id: 'data-viz',
     title: 'Data Visualization Platform',
     description: 'Interactive dashboards for complex data analysis',
     year: '2024',
+    tags: ['React', 'D3.js', 'WebGL'],
     tech: ['React', 'D3.js', 'WebGL'],
+    status: 'experimental' as const,
     featured: false,
-    color: 'text-blue-400'
+    color: 'text-blue-400',
   },
   {
     id: 'ecommerce',
     title: 'E-commerce Solution',
     description: 'Full-stack marketplace with real-time inventory',
     year: '2024',
+    tags: ['Next.js', 'Stripe', 'PostgreSQL'],
     tech: ['Next.js', 'Stripe', 'PostgreSQL'],
+    status: 'active' as const,
     featured: true,
     color: 'text-emerald-400',
-    metrics: [
-      { label: '99.9% uptime', color: 'text-green-400' }
-    ]
-  }
+    metrics: [{ label: '99.9% uptime', color: 'text-green-400' }],
+  },
 ]
 
 export const Default: Story = {
   args: {
-    projects: sampleProjects
-  }
+    projects: sampleProjects,
+  },
 }
 
 export const SingleProject: Story = {
   args: {
-    projects: [sampleProjects[0]]
-  }
+    projects: [sampleProjects[0]],
+  },
 }
 
 export const ManyProjects: Story = {
   args: {
     projects: [...sampleProjects, ...sampleProjects].map((p, i) => ({
       ...p,
-      id: `${p.id}-${i}`
-    }))
-  }
+      id: `${p.id}-${i}`,
+    })),
+  },
 }

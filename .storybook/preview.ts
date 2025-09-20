@@ -1,6 +1,23 @@
 import type { Preview } from '@storybook/nextjs-vite'
+import { Decorator } from '@storybook/react'
+import { useEffect } from 'react'
+import React from 'react'
 import '../app/refined-globals.css'
 import './preview-docs.css'
+
+const WithThemeDecorator: Decorator = (Story, context) => {
+  const { theme } = context.globals
+
+  useEffect(() => {
+    const html = document.documentElement
+    // Remove all theme classes
+    html.classList.remove('light', 'dark', 'cyberpunk')
+    // Add the new theme class
+    html.classList.add(theme)
+  }, [theme])
+
+  return React.createElement(Story)
+}
 
 const preview: Preview = {
   parameters: {
@@ -73,12 +90,13 @@ const preview: Preview = {
         items: [
           { value: 'light', title: 'Light', icon: 'sun' },
           { value: 'dark', title: 'Dark', icon: 'moon' },
-          { value: 'cyberpunk', title: 'Cyberpunk', icon: 'lightning' }
+          { value: 'cyberpunk', title: 'Cyberpunk', icon: 'lightning' },
         ],
         showName: true,
       },
     },
   },
+  decorators: [WithThemeDecorator],
   tags: ['autodocs'],
 }
 

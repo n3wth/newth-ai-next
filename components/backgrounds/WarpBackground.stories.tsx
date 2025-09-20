@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/nextjs'
 import { WarpBackground } from '@/components/WarpBackground'
-import { Button } from '@/components/ui/button'
+import { Button } from '@/components/ui/Button'
 
 const meta = {
   title: 'Effects/Backgrounds/Warp',
@@ -9,11 +9,11 @@ const meta = {
     layout: 'fullscreen',
     docs: {
       description: {
-        component: '3D animated background with floating blocks and warp effect'
-      }
-    }
+        component: '3D animated background with floating blocks and warp effect',
+      },
+    },
   },
-  tags: ['autodocs']
+  tags: ['autodocs'],
 } satisfies Meta<typeof WarpBackground>
 
 export default meta
@@ -24,7 +24,7 @@ export const Default: Story = {
     <div className="relative w-full min-h-[400px] h-screen">
       <WarpBackground className="absolute inset-0" />
     </div>
-  )
+  ),
 }
 
 export const WithContent: Story = {
@@ -33,9 +33,7 @@ export const WithContent: Story = {
       <WarpBackground className="absolute inset-0">
         <div className="relative z-10 flex h-full items-center justify-center">
           <div className="text-center space-y-6">
-            <h1 className="text-6xl font-bold text-white">
-              Welcome to the Future
-            </h1>
+            <h1 className="text-6xl font-bold text-white">Welcome to the Future</h1>
             <p className="text-xl text-white/80 max-w-md mx-auto">
               Experience the next generation of web interfaces with immersive 3D backgrounds
             </p>
@@ -46,7 +44,7 @@ export const WithContent: Story = {
         </div>
       </WarpBackground>
     </div>
-  )
+  ),
 }
 
 export const HalfHeight: Story = {
@@ -54,7 +52,7 @@ export const HalfHeight: Story = {
     <div className="relative w-full h-[50vh]">
       <WarpBackground className="absolute inset-0" />
     </div>
-  )
+  ),
 }
 
 export const WithOverlay: Story = {
@@ -67,5 +65,5 @@ export const WithOverlay: Story = {
         </div>
       </WarpBackground>
     </div>
-  )
+  ),
 }

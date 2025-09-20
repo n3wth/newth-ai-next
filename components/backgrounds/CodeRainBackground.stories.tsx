@@ -8,10 +8,10 @@ const meta = {
     layout: 'fullscreen',
     docs: {
       description: {
-        component: 'Matrix-style code rain animation background'
-      }
-    }
-  }
+        component: 'Matrix-style code rain animation background',
+      },
+    },
+  },
 } satisfies Meta<typeof CodeRainBackground>
 
 export default meta
@@ -25,7 +25,7 @@ export const Default: Story = {
         <h1 className="text-4xl font-bold text-green-400">Enter the Matrix</h1>
       </div>
     </div>
-  )
+  ),
 }
 
 export const WithContent: Story = {
@@ -39,5 +39,5 @@ export const WithContent: Story = {
         </div>
       </div>
     </div>
-  )
+  ),
 }

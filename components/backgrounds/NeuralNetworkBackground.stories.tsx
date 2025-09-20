@@ -8,10 +8,10 @@ const meta = {
     layout: 'fullscreen',
     docs: {
       description: {
-        component: 'Interactive neural network visualization with connected nodes'
-      }
-    }
-  }
+        component: 'Interactive neural network visualization with connected nodes',
+      },
+    },
+  },
 } satisfies Meta<typeof NeuralNetworkBackground>
 
 export default meta
@@ -28,7 +28,7 @@ export const Default: Story = {
         </div>
       </div>
     </div>
-  )
+  ),
 }
 
 export const Minimal: Story = {
@@ -36,5 +36,5 @@ export const Minimal: Story = {
     <div className="relative w-full h-[400px]">
       <NeuralNetworkBackground className="absolute inset-0" />
     </div>
-  )
+  ),
 }

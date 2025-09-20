@@ -4,7 +4,11 @@ import { motion, AnimatePresence } from 'framer-motion'
 import React, { useState, useEffect } from 'react'
 
 // Data flow visualization with branching paths - more visible
-export const DataFlowBackground: React.FC = React.memo(() => {
+interface DataFlowBackgroundProps {
+  className?: string
+}
+
+export const DataFlowBackground: React.FC<DataFlowBackgroundProps> = React.memo(({ className }) => {
   const [dataPoints, setDataPoints] = useState<Array<{ id: number; path: number }>>([])
 
   useEffect(() => {
@@ -36,7 +40,9 @@ export const DataFlowBackground: React.FC = React.memo(() => {
   const colors = ['#00D9FF', '#FF6B6B', '#4ECDC4']
 
   return (
-    <div className="absolute inset-0 overflow-hidden bg-gradient-to-br from-slate-900 via-blue-950/30 to-slate-900">
+    <div
+      className={`absolute inset-0 overflow-hidden bg-gradient-to-br from-slate-900 via-blue-950/30 to-slate-900 ${className || ''}`}
+    >
       {/* Grid background */}
       <div
         className="absolute inset-0 opacity-20"

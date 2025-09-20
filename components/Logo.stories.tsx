@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/nextjs';
-import { AnimatedLogo as Logo } from '../components/AnimatedLogo';
+import type { Meta, StoryObj } from '@storybook/nextjs'
+import { AnimatedLogo as Logo } from './AnimatedLogo'
 
 const meta = {
   title: 'Brand/Logo',
@@ -35,10 +35,10 @@ const meta = {
       defaultValue: 1,
     },
   },
-} satisfies Meta<typeof Logo>;
+} satisfies Meta<typeof Logo>
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+export default meta
+type Story = StoryObj<typeof meta>
 
 // Standard logo with hover rainbow
 export const Default: Story = {
@@ -48,7 +48,7 @@ export const Default: Story = {
     baseSaturation: 85,
     colorIntensity: 1,
   },
-};
+}
 
 // Static version without colors
 export const Static: Story = {
@@ -58,7 +58,7 @@ export const Static: Story = {
     baseSaturation: 0,
     colorIntensity: 0,
   },
-};
+}
 
 // Glitch colors only
 export const GlitchColorsOnly: Story = {
@@ -68,7 +68,7 @@ export const GlitchColorsOnly: Story = {
     baseSaturation: 85,
     colorIntensity: 1,
   },
-};
+}
 
 // Full effects (hover + glitch colors)
 export const FullEffects: Story = {
@@ -78,7 +78,7 @@ export const FullEffects: Story = {
     baseSaturation: 90,
     colorIntensity: 1,
   },
-};
+}
 
 // Subtle colors
 export const SubtleColors: Story = {
@@ -88,7 +88,7 @@ export const SubtleColors: Story = {
     baseSaturation: 50,
     colorIntensity: 0.5,
   },
-};
+}
 
 // Vivid rainbow
 export const VividRainbow: Story = {
@@ -105,7 +105,7 @@ export const VividRainbow: Story = {
       },
     },
   },
-};
+}
 
 // Monochrome (no color)
 export const Monochrome: Story = {
@@ -122,17 +122,19 @@ export const Monochrome: Story = {
       },
     },
   },
-};
+}
 
 // Color intensity comparison
 export const ColorIntensityComparison: Story = {
   render: () => (
-    <div style={{
-      display: 'flex',
-      gap: '2rem',
-      alignItems: 'center',
-      flexWrap: 'wrap',
-    }}>
+    <div
+      style={{
+        display: 'flex',
+        gap: '2rem',
+        alignItems: 'center',
+        flexWrap: 'wrap',
+      }}
+    >
       {[0, 0.25, 0.5, 0.75, 1].map((intensity) => (
         <div
           key={intensity}
@@ -149,24 +151,24 @@ export const ColorIntensityComparison: Story = {
             baseSaturation={85}
             colorIntensity={intensity}
           />
-          <span style={{ fontSize: '0.75rem', color: '#666' }}>
-            {intensity * 100}% intensity
-          </span>
+          <span style={{ fontSize: '0.75rem', color: '#666' }}>{intensity * 100}% intensity</span>
         </div>
       ))}
     </div>
   ),
-};
+}
 
 // Saturation comparison
 export const SaturationComparison: Story = {
   render: () => (
-    <div style={{
-      display: 'flex',
-      gap: '2rem',
-      alignItems: 'center',
-      flexWrap: 'wrap',
-    }}>
+    <div
+      style={{
+        display: 'flex',
+        gap: '2rem',
+        alignItems: 'center',
+        flexWrap: 'wrap',
+      }}
+    >
       {[0, 25, 50, 75, 100].map((saturation) => (
         <div
           key={saturation}
@@ -183,14 +185,12 @@ export const SaturationComparison: Story = {
             baseSaturation={saturation}
             colorIntensity={1}
           />
-          <span style={{ fontSize: '0.75rem', color: '#666' }}>
-            {saturation}% saturation
-          </span>
+          <span style={{ fontSize: '0.75rem', color: '#666' }}>{saturation}% saturation</span>
         </div>
       ))}
     </div>
   ),
-};
+}
 
 // Dark background preview
 export const DarkBackground: Story = {
@@ -207,16 +207,18 @@ export const DarkBackground: Story = {
   },
   decorators: [
     (Story) => (
-      <div style={{
-        padding: '2rem',
-        background: '#0a0a0a',
-        borderRadius: '8px',
-      }}>
+      <div
+        style={{
+          padding: '2rem',
+          background: '#0a0a0a',
+          borderRadius: '8px',
+        }}
+      >
         <Story />
       </div>
     ),
   ],
-};
+}
 
 // Configuration playground
 export const Playground: Story = {
@@ -233,4 +235,4 @@ export const Playground: Story = {
       },
     },
   },
-};
+}

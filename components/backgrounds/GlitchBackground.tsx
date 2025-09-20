@@ -3,8 +3,12 @@
 import { motion } from 'framer-motion'
 import React, { useMemo } from 'react'
 
+interface GlitchBackgroundProps {
+  className?: string
+}
+
 // Glitch/cyberpunk aesthetic - more intense and visible
-export const GlitchBackground: React.FC = React.memo(() => {
+export const GlitchBackground: React.FC<GlitchBackgroundProps> = React.memo(({ className }) => {
   const glitchBars = useMemo(() => {
     const bars = []
     const colors = ['#FF0080', '#00FFFF', '#FFFF00', '#FF00FF', '#00FF00']
@@ -24,7 +28,7 @@ export const GlitchBackground: React.FC = React.memo(() => {
   }, [])
 
   return (
-    <div className="absolute inset-0 overflow-hidden">
+    <div className={`absolute inset-0 overflow-hidden ${className || ''}`}>
       {/* CRT TV effect background */}
       <div
         className="absolute inset-0"

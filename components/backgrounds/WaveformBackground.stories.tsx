@@ -8,10 +8,10 @@ const meta = {
     layout: 'fullscreen',
     docs: {
       description: {
-        component: 'Animated audio waveform visualization background'
-      }
-    }
-  }
+        component: 'Animated audio waveform visualization background',
+      },
+    },
+  },
 } satisfies Meta<typeof WaveformBackground>
 
 export default meta
@@ -25,7 +25,7 @@ export const Default: Story = {
         <h1 className="text-5xl font-bold text-white">Sound Waves</h1>
       </div>
     </div>
-  )
+  ),
 }
 
 export const WithMusicTheme: Story = {
@@ -41,5 +41,5 @@ export const WithMusicTheme: Story = {
         </div>
       </div>
     </div>
-  )
+  ),
 }

@@ -3,7 +3,7 @@
 import { memo } from 'react'
 import { ArrowUpRight, Github, Globe, Star, Download } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import type { Project } from '@/lib/projects'
+import type { Project } from '@/lib/types'
 
 interface ProjectCardProps {
   project: Project
@@ -72,7 +72,7 @@ export const ProjectCard = memo(function ProjectCard({ project }: ProjectCardPro
         <p className="text-gray-400 text-sm mb-4 line-clamp-2">{project.description}</p>
 
         <div className="flex flex-wrap gap-2 mb-4">
-          {project.tags.slice(0, 3).map((tag) => (
+          {(project.tags || project.tech || []).slice(0, 3).map((tag) => (
             <span
               key={tag}
               className="px-2 py-1 text-xs font-medium rounded-lg bg-white/5 text-gray-300 border border-white/10"
@@ -80,9 +80,9 @@ export const ProjectCard = memo(function ProjectCard({ project }: ProjectCardPro
               {tag}
             </span>
           ))}
-          {project.tags.length > 3 && (
+          {(project.tags || project.tech || []).length > 3 && (
             <span className="px-2 py-1 text-xs font-medium rounded-lg text-gray-500">
-              +{project.tags.length - 3} more
+              +{(project.tags || project.tech || []).length - 3} more
             </span>
           )}
         </div>

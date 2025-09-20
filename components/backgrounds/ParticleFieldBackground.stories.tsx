@@ -8,10 +8,10 @@ const meta = {
     layout: 'fullscreen',
     docs: {
       description: {
-        component: 'Interactive particle field with mouse-following effects'
-      }
-    }
-  }
+        component: 'Interactive particle field with mouse-following effects',
+      },
+    },
+  },
 } satisfies Meta<typeof ParticleFieldBackground>
 
 export default meta
@@ -25,7 +25,7 @@ export const Default: Story = {
         <h1 className="text-5xl font-bold text-white">Interactive Particles</h1>
       </div>
     </div>
-  )
+  ),
 }
 
 export const WithContent: Story = {
@@ -41,5 +41,5 @@ export const WithContent: Story = {
         </div>
       </div>
     </div>
-  )
+  ),
 }

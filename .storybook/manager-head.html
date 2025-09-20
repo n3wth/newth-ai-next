@@ -1,0 +1,70 @@
+<style>
+  /* Custom styles for Storybook manager */
+
+  /* Hide default Storybook logo and replace with custom */
+  [data-item-id="0-docs-welcome--page"] {
+    font-weight: bold !important;
+  }
+
+  /* Animate the brand image */
+  img[alt="n3wth.AI Components"] {
+    animation: pulse 4s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+  }
+
+  /* Add glow to sidebar */
+  .sidebar-container {
+    box-shadow: inset 0 0 20px rgba(147, 51, 234, 0.05);
+  }
+
+  /* Style the toolbar */
+  [role="toolbar"] {
+    background: linear-gradient(90deg, rgba(147, 51, 234, 0.02) 0%, rgba(59, 130, 246, 0.02) 100%);
+  }
+
+  /* Enhanced hover effects */
+  button:hover {
+    transform: translateY(-1px);
+    transition: all 0.2s ease;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #9333ea, #3b82f6);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #a855f7, #60a5fa);
+  }
+</style>
+
+<script>
+  // Add custom animations when page loads
+  window.addEventListener('DOMContentLoaded', () => {
+    // Animate logo on hover
+    const logo = document.querySelector('img[alt="n3wth.AI Components"]');
+    if (logo) {
+      logo.style.transition = 'all 0.3s ease';
+      logo.addEventListener('mouseenter', () => {
+        logo.style.filter = 'brightness(1.2) drop-shadow(0 0 10px rgba(147, 51, 234, 0.5))';
+      });
+      logo.addEventListener('mouseleave', () => {
+        logo.style.filter = 'brightness(1)';
+      });
+    }
+  });
+</script>

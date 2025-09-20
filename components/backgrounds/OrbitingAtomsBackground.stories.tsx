@@ -8,10 +8,10 @@ const meta = {
     layout: 'fullscreen',
     docs: {
       description: {
-        component: '3D atomic particles orbiting in space'
-      }
-    }
-  }
+        component: '3D atomic particles orbiting in space',
+      },
+    },
+  },
 } satisfies Meta<typeof OrbitingAtomsBackground>
 
 export default meta
@@ -25,7 +25,7 @@ export const Default: Story = {
         <h1 className="text-5xl font-bold text-white">Quantum Space</h1>
       </div>
     </div>
-  )
+  ),
 }
 
 export const WithGradientText: Story = {
@@ -38,5 +38,5 @@ export const WithGradientText: Story = {
         </h1>
       </div>
     </div>
-  )
+  ),
 }

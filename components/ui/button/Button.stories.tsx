@@ -1,6 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/nextjs'
-import { Button } from '@/components/ui/button'
-import { ArrowRight, Download, ExternalLink, Loader2, Check, X, Settings, Mail, Heart } from 'lucide-react'
+import { Button } from './Button'
+import {
+  ArrowRight,
+  Download,
+  ExternalLink,
+  Loader2,
+  Check,
+  X,
+  Settings,
+  Mail,
+  Heart,
+} from 'lucide-react'
 
 /**
  * Buttons trigger actions or navigate to new pages. They are the primary way users interact with your application.
@@ -15,7 +25,7 @@ import { ArrowRight, Download, ExternalLink, Loader2, Check, X, Settings, Mail, 
  * ## Usage Guidelines
  *
  * ```tsx
- * import { Button } from '@/components/ui/button'
+ * import { Button } from './Button'
  *
  * // Primary action
  * <Button variant="primary">Save Changes</Button>
@@ -63,9 +73,9 @@ const meta = {
     docs: {
       toc: true,
       description: {
-        component: 'A versatile button component with multiple variants, sizes, and states.'
-      }
-    }
+        component: 'A versatile button component with multiple variants, sizes, and states.',
+      },
+    },
   },
   decorators: [
     (Story) => (
@@ -83,8 +93,8 @@ const meta = {
       table: {
         type: { summary: '"primary" | "secondary" | "ghost" | "destructive"' },
         defaultValue: { summary: 'primary' },
-        category: 'Appearance'
-      }
+        category: 'Appearance',
+      },
     },
     size: {
       control: { type: 'select' },
@@ -93,8 +103,8 @@ const meta = {
       table: {
         type: { summary: '"sm" | "md" | "lg"' },
         defaultValue: { summary: 'md' },
-        category: 'Appearance'
-      }
+        category: 'Appearance',
+      },
     },
     iconPosition: {
       control: { type: 'select' },
@@ -103,24 +113,24 @@ const meta = {
       table: {
         type: { summary: '"left" | "right"' },
         defaultValue: { summary: 'right' },
-        category: 'Icon'
-      }
+        category: 'Icon',
+      },
     },
     icon: {
       control: false,
       description: 'Icon element to display in the button',
       table: {
         type: { summary: 'ReactNode' },
-        category: 'Icon'
-      }
+        category: 'Icon',
+      },
     },
     href: {
       control: 'text',
       description: 'URL to navigate to (renders button as a link)',
       table: {
         type: { summary: 'string' },
-        category: 'Navigation'
-      }
+        category: 'Navigation',
+      },
     },
     external: {
       control: 'boolean',
@@ -128,8 +138,8 @@ const meta = {
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: 'false' },
-        category: 'Navigation'
-      }
+        category: 'Navigation',
+      },
     },
     disabled: {
       control: 'boolean',
@@ -137,8 +147,8 @@ const meta = {
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: 'false' },
-        category: 'State'
-      }
+        category: 'State',
+      },
     },
     loading: {
       control: 'boolean',
@@ -146,34 +156,34 @@ const meta = {
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: 'false' },
-        category: 'State'
-      }
+        category: 'State',
+      },
     },
     children: {
       control: 'text',
       description: 'Button label text',
       table: {
         type: { summary: 'ReactNode' },
-        category: 'Content'
-      }
+        category: 'Content',
+      },
     },
     className: {
       control: 'text',
       description: 'Additional CSS classes',
       table: {
         type: { summary: 'string' },
-        category: 'Styling'
-      }
+        category: 'Styling',
+      },
     },
     onClick: {
       action: 'clicked',
       description: 'Click event handler',
       table: {
         type: { summary: '(event: MouseEvent) => void' },
-        category: 'Events'
-      }
-    }
-  }
+        category: 'Events',
+      },
+    },
+  },
 } satisfies Meta<typeof Button>
 
 export default meta
@@ -188,8 +198,8 @@ type Story = StoryObj<typeof meta>
 export const Primary: Story = {
   args: {
     children: 'Primary Button',
-    variant: 'primary'
-  }
+    variant: 'primary',
+  },
 }
 
 /**
@@ -199,8 +209,8 @@ export const Primary: Story = {
 export const Secondary: Story = {
   args: {
     children: 'Secondary Button',
-    variant: 'secondary'
-  }
+    variant: 'secondary',
+  },
 }
 
 /**
@@ -210,8 +220,8 @@ export const Secondary: Story = {
 export const Ghost: Story = {
   args: {
     children: 'Ghost Button',
-    variant: 'ghost'
-  }
+    variant: 'ghost',
+  },
 }
 
 /**
@@ -222,8 +232,8 @@ export const Destructive: Story = {
   name: 'Destructive (New)',
   args: {
     children: 'Delete Account',
-    variant: 'destructive'
-  }
+    variant: 'destructive',
+  },
 }
 
 // Sizes Section
@@ -235,8 +245,8 @@ export const Small: Story = {
   args: {
     children: 'Small Button',
     size: 'sm',
-    variant: 'primary'
-  }
+    variant: 'primary',
+  },
 }
 
 /**
@@ -246,8 +256,8 @@ export const Medium: Story = {
   args: {
     children: 'Medium Button',
     size: 'md',
-    variant: 'primary'
-  }
+    variant: 'primary',
+  },
 }
 
 /**
@@ -257,8 +267,8 @@ export const Large: Story = {
   args: {
     children: 'Large Button',
     size: 'lg',
-    variant: 'primary'
-  }
+    variant: 'primary',
+  },
 }
 
 // Icons Section
@@ -271,8 +281,8 @@ export const WithIconRight: Story = {
   args: {
     children: 'Continue',
     variant: 'primary',
-    icon: <ArrowRight size={16} />
-  }
+    icon: <ArrowRight size={16} />,
+  },
 }
 
 /**
@@ -283,8 +293,8 @@ export const WithIconLeft: Story = {
     children: 'Download',
     variant: 'secondary',
     icon: <Download size={16} />,
-    iconPosition: 'left'
-  }
+    iconPosition: 'left',
+  },
 }
 
 /**
@@ -296,8 +306,8 @@ export const IconOnly: Story = {
     'aria-label': 'Settings',
     variant: 'ghost',
     size: 'sm',
-    children: <Settings size={16} />
-  }
+    children: <Settings size={16} />,
+  },
 }
 
 // States Section
@@ -312,8 +322,8 @@ export const Loading: Story = {
     variant: 'primary',
     loading: true,
     icon: <Loader2 className="animate-spin" size={16} />,
-    iconPosition: 'left'
-  }
+    iconPosition: 'left',
+  },
 }
 
 /**
@@ -324,8 +334,8 @@ export const Disabled: Story = {
   args: {
     children: 'Disabled Button',
     variant: 'primary',
-    disabled: true
-  }
+    disabled: true,
+  },
 }
 
 /**
@@ -336,8 +346,8 @@ export const Success: Story = {
     children: 'Success!',
     variant: 'primary',
     className: 'bg-green-600 hover:bg-green-700',
-    icon: <Check size={16} />
-  }
+    icon: <Check size={16} />,
+  },
 }
 
 /**
@@ -347,8 +357,8 @@ export const Error: Story = {
   args: {
     children: 'Failed',
     variant: 'destructive',
-    icon: <X size={16} />
-  }
+    icon: <X size={16} />,
+  },
 }
 
 // Navigation Section
@@ -362,8 +372,8 @@ export const AsLink: Story = {
     children: 'View Dashboard',
     href: '/dashboard',
     variant: 'primary',
-    icon: <ArrowRight size={16} />
-  }
+    icon: <ArrowRight size={16} />,
+  },
 }
 
 /**
@@ -376,8 +386,8 @@ export const ExternalLinkButton: Story = {
     href: 'https://example.com',
     external: true,
     variant: 'secondary',
-    icon: <ExternalLink size={16} />
-  }
+    icon: <ExternalLink size={16} />,
+  },
 }
 
 // Composition Examples
@@ -386,18 +396,24 @@ export const ExternalLinkButton: Story = {
  * A common button group pattern for forms.
  */
 export const ButtonGroup: Story = {
+  args: {
+    children: 'Button',
+  },
   render: () => (
     <div className="flex gap-3">
       <Button variant="primary">Save Changes</Button>
       <Button variant="secondary">Cancel</Button>
     </div>
-  )
+  ),
 }
 
 /**
  * Toolbar with icon buttons.
  */
 export const Toolbar: Story = {
+  args: {
+    children: 'Button',
+  },
   render: () => (
     <div className="flex gap-1 p-2 bg-gray-900 rounded-lg">
       <Button variant="ghost" size="sm" aria-label="Mail">
@@ -410,26 +426,38 @@ export const Toolbar: Story = {
         <Heart size={16} />
       </Button>
     </div>
-  )
+  ),
 }
 
 /**
  * Different button sizes in context.
  */
 export const SizeComparison: Story = {
+  args: {
+    children: 'Button',
+  },
   render: () => (
     <div className="flex items-center gap-4">
-      <Button size="sm" variant="primary">Small</Button>
-      <Button size="md" variant="primary">Medium</Button>
-      <Button size="lg" variant="primary">Large</Button>
+      <Button size="sm" variant="primary">
+        Small
+      </Button>
+      <Button size="md" variant="primary">
+        Medium
+      </Button>
+      <Button size="lg" variant="primary">
+        Large
+      </Button>
     </div>
-  )
+  ),
 }
 
 /**
  * All variants for visual comparison.
  */
 export const AllVariants: Story = {
+  args: {
+    children: 'Button',
+  },
   render: () => (
     <div className="flex flex-wrap gap-4">
       <Button variant="primary">Primary</Button>
@@ -437,32 +465,53 @@ export const AllVariants: Story = {
       <Button variant="ghost">Ghost</Button>
       <Button variant="destructive">Destructive</Button>
     </div>
-  )
+  ),
 }
 
 /**
  * Loading states across different variants.
  */
 export const LoadingStates: Story = {
+  args: {
+    children: 'Button',
+  },
   render: () => (
     <div className="flex flex-wrap gap-4">
-      <Button variant="primary" loading icon={<Loader2 className="animate-spin" size={16} />} iconPosition="left">
+      <Button
+        variant="primary"
+        loading
+        icon={<Loader2 className="animate-spin" size={16} />}
+        iconPosition="left"
+      >
         Saving...
       </Button>
-      <Button variant="secondary" loading icon={<Loader2 className="animate-spin" size={16} />} iconPosition="left">
+      <Button
+        variant="secondary"
+        loading
+        icon={<Loader2 className="animate-spin" size={16} />}
+        iconPosition="left"
+      >
         Processing...
       </Button>
-      <Button variant="ghost" loading icon={<Loader2 className="animate-spin" size={16} />} iconPosition="left">
+      <Button
+        variant="ghost"
+        loading
+        icon={<Loader2 className="animate-spin" size={16} />}
+        iconPosition="left"
+      >
         Loading...
       </Button>
     </div>
-  )
+  ),
 }
 
 /**
  * Mobile-friendly button examples.
  */
 export const MobileButtons: Story = {
+  args: {
+    children: 'Button',
+  },
   render: () => (
     <div className="space-y-3 max-w-sm">
       <Button variant="primary" size="lg" className="w-full">
@@ -472,9 +521,13 @@ export const MobileButtons: Story = {
         Learn More
       </Button>
       <div className="grid grid-cols-2 gap-3">
-        <Button variant="ghost" size="md">Skip</Button>
-        <Button variant="primary" size="md">Next</Button>
+        <Button variant="ghost" size="md">
+          Skip
+        </Button>
+        <Button variant="primary" size="md">
+          Next
+        </Button>
       </div>
     </div>
-  )
+  ),
 }

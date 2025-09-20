@@ -8,10 +8,10 @@ const meta = {
     layout: 'fullscreen',
     docs: {
       description: {
-        component: 'Glitch effect animated background with distortion patterns'
-      }
-    }
-  }
+        component: 'Glitch effect animated background with distortion patterns',
+      },
+    },
+  },
 } satisfies Meta<typeof GlitchBackground>
 
 export default meta
@@ -25,7 +25,7 @@ export const Default: Story = {
         <h1 className="text-5xl font-bold text-white">GLITCH</h1>
       </div>
     </div>
-  )
+  ),
 }
 
 export const WithNeonText: Story = {
@@ -38,5 +38,5 @@ export const WithNeonText: Story = {
         </h1>
       </div>
     </div>
-  )
+  ),
 }

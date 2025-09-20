@@ -1,16 +1,19 @@
 import { HeroSection } from '@/components/sections/HeroSectionOptimized'
 import { ProjectGrid } from '@/components/sections/ProjectGridSimple'
 import { ContactSection } from '@/components/sections/ContactSection'
+import type { Project } from '@/lib/types'
 
 export default function Home() {
-  const featuredProjects = [
+  const featuredProjects: Project[] = [
     {
       id: 'r3-memory',
       title: 'r3 — Intelligent Memory for AI',
       description:
         'Production-ready memory layer for LLMs. Sub-millisecond response times. MCP protocol native. Used by 1000+ developers.',
       year: '2025',
-      tech: ['TypeScript', 'Redis', 'MCP Protocol', 'AI/ML'],
+      tags: ['TypeScript', 'Redis', 'MCP Protocol', 'AI/ML'],
+      tech: ['TypeScript', 'Redis', 'MCP Protocol', 'AI/ML'], // backward compat
+      status: 'active' as const,
       link: 'https://r3.newth.ai',
       github: 'https://github.com/n3wth/r3',
       featured: true,
@@ -26,7 +29,9 @@ export default function Home() {
       description:
         'An experimental game exploring absurdist design principles. Built to test engagement mechanics in unconventional contexts.',
       year: '2025',
-      tech: ['React', 'Canvas', 'Game Design', 'Absurdist Art'],
+      tags: ['React', 'Canvas', 'Game Design', 'Absurdist Art'],
+      tech: ['React', 'Canvas', 'Game Design', 'Absurdist Art'], // backward compat
+      status: 'experimental' as const,
       link: 'https://meat.newth.ai',
       featured: true,
       color: 'text-red-400',
@@ -41,7 +46,9 @@ export default function Home() {
       description:
         '1000+ interconnected notes on AI, product strategy, and system design. Public knowledge base built with Quartz.',
       year: '2025',
-      tech: ['Quartz', 'Obsidian', 'Knowledge Management'],
+      tags: ['Quartz', 'Obsidian', 'Knowledge Management'],
+      tech: ['Quartz', 'Obsidian', 'Knowledge Management'], // backward compat
+      status: 'active' as const,
       github: 'https://github.com/n3wth/quartz',
       featured: false,
       color: 'text-emerald-400',
@@ -56,7 +63,9 @@ export default function Home() {
       description:
         'Open testbed for MCP protocol extensions and AI agent architectures. Contributing back to the community.',
       year: '2025',
-      tech: ['TypeScript', 'MCP', 'AI Tools'],
+      tags: ['TypeScript', 'MCP', 'AI Tools'],
+      tech: ['TypeScript', 'MCP', 'AI Tools'], // backward compat
+      status: 'experimental' as const,
       github: 'https://github.com/n3wth/neuros',
       featured: false,
       color: 'text-orange-400',

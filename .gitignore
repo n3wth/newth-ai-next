@@ -69,3 +69,6 @@ Desktop.ini
 
 *storybook.log
 storybook-static
+
+# Playwright MCP
+.playwright-mcp/
