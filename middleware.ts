@@ -25,7 +25,10 @@ export const config = {
      * - favicon.ico (favicon file)
      * - public files (public folder)
      * - storybook (Storybook static files)
+     * - sb-addons (Storybook addons)
+     * - sb-manager (Storybook manager)
+     * - sb-preview (Storybook preview)
      */
-    '/((?!_next/static|_next/image|favicon.ico|storybook|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
+    '/((?!_next/static|_next/image|favicon.ico|storybook|sb-addons|sb-manager|sb-preview|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
   ],
 }

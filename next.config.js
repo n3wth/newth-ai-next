@@ -2,13 +2,10 @@
 const nextConfig = {
   async rewrites() {
     return [
+      // Serve index.html for /storybook
       {
         source: '/storybook',
         destination: '/storybook/index.html',
-      },
-      {
-        source: '/storybook/:path*',
-        destination: '/storybook/:path*',
       },
     ]
   },
