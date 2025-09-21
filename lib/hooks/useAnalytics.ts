@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState, useMemo } from 'react'
 import { track } from '@vercel/analytics'
 
 export interface AnalyticsEvent {
@@ -63,7 +63,7 @@ export function useAnalytics(options: UseAnalyticsOptions = {}) {
   // Check if tracking is allowed
   const isTrackingAllowed = useCallback(() => {
     // Respect Do Not Track header
-    if (respectDoNotTrack && navigator.doNotTrack === '1') {
+    if (respectDoNotTrack && typeof navigator !== 'undefined' && navigator.doNotTrack === '1') {
       return false
     }
 
@@ -101,28 +101,31 @@ export function useAnalytics(options: UseAnalyticsOptions = {}) {
         }
       }
     }
-  }, [analyticsState.sessionId, generateSessionId, enableLocalStorage])
+  }, [enableLocalStorage]) // Removed problematic dependencies
 
   // Session timeout management
   useEffect(() => {
     const checkSessionTimeout = () => {
-      const now = Date.now()
-      const timeSinceActivity = now - analyticsState.lastActivity
-      const timeoutMs = sessionTimeout * 60 * 1000
+      setAnalyticsState((prev) => {
+        const now = Date.now()
+        const timeSinceActivity = now - prev.lastActivity
+        const timeoutMs = sessionTimeout * 60 * 1000
 
-      if (timeSinceActivity > timeoutMs) {
-        setAnalyticsState((prev) => ({
-          ...prev,
-          sessionId: generateSessionId(),
-          eventsCount: 0,
-          lastActivity: now,
-        }))
-      }
+        if (timeSinceActivity > timeoutMs) {
+          return {
+            ...prev,
+            sessionId: generateSessionId(),
+            eventsCount: 0,
+            lastActivity: now,
+          }
+        }
+        return prev
+      })
     }
 
     const interval = setInterval(checkSessionTimeout, 60000) // Check every minute
     return () => clearInterval(interval)
-  }, [analyticsState.lastActivity, sessionTimeout, generateSessionId])
+  }, [sessionTimeout]) // Removed problematic dependencies
 
   // Set analytics consent
   const setConsent = useCallback(
@@ -247,6 +250,9 @@ export function useAnalytics(options: UseAnalyticsOptions = {}) {
     }
   }, [enableLocalStorage, generateSessionId])
 
+  // Memoize the isTrackingAllowed result to prevent render loops
+  const trackingAllowed = useMemo(() => isTrackingAllowed(), [respectDoNotTrack, analyticsState.consentGiven])
+
   return {
     // Core tracking functions
     trackEvent,
@@ -258,12 +264,12 @@ export function useAnalytics(options: UseAnalyticsOptions = {}) {
 
     // State and utilities
     sessionId: analyticsState.sessionId,
-    isTrackingAllowed: isTrackingAllowed(),
+    isTrackingAllowed: trackingAllowed,
     getAnalyticsSummary,
     clearAnalyticsData,
 
     // Event queue for debugging
-    eventQueue: eventQueue.slice(-10), // Return last 10 events for debugging
+    eventQueue: useMemo(() => eventQueue.slice(-10), [eventQueue.length]), // Memoize to prevent render loops
   }
 }
 

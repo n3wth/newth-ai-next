@@ -1,0 +1,25 @@
+
+/* Performance-optimized background animation */
+@keyframes backgroundScroll {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(20px);
+  }
+}
+
+/* GPU acceleration for transforms */
+.transform-gpu {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

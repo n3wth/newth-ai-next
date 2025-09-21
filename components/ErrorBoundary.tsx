@@ -26,7 +26,7 @@ export default function ErrorBoundary({ error, reset }: ErrorBoundaryProps) {
         >
           Try again
         </button>
-        {error.digest && <p className="text-xs text-gray-400">Error ID: {error.digest}</p>}
+        {error?.digest && <p className="text-xs text-gray-400">Error ID: {error.digest}</p>}
       </div>
     </div>
   )

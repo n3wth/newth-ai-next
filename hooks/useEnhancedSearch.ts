@@ -309,15 +309,6 @@ export function useEnhancedSearch(config: Partial<SearchConfig> = {}) {
     }
   }, [query, isSemanticMode]) // Removed searchResults and updateSearchAnalytics to prevent loops
 
-  // Get AI-powered search suggestions
-  const getSuggestions = useCallback(
-    (partialQuery: string): string[] => {
-      if (!searchConfig.enableSuggestions || partialQuery.length < 2) return []
-
-      return semanticSearch.getSuggestions(partialQuery, allResults)
-    },
-    [allResults, searchConfig.enableSuggestions]
-  )
 
   // Update suggestions when query changes
   useEffect(() => {

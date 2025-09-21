@@ -102,7 +102,7 @@ export function InteractiveHero() {
   useEffect(() => {
     window.addEventListener('mousemove', throttledMouseMove)
     return () => window.removeEventListener('mousemove', throttledMouseMove)
-  }, [throttledMouseMove])
+  }, []) // Fixed: removed throttledMouseMove dependency to prevent render loops
 
   return (
     <div ref={containerRef} className="relative">

@@ -7,7 +7,7 @@
 // TODO: Responsive - Optimize font sizes for more breakpoints
 
 import { ArrowRight, ChevronDown } from 'lucide-react'
-import { WarpBackgroundLazy } from '@/components/WarpBackgroundLazy'
+import { WarpBackground } from '@/components/WarpBackground'
 import { HeroSectionProps } from '@/lib/types'
 import { SimpleAnimatedButton } from '@/components/ui/SimpleAnimatedButton'
 
@@ -33,7 +33,7 @@ export function HeroSection({
       aria-labelledby="hero-heading"
     >
       {/* Background layer */}
-      <WarpBackgroundLazy className="absolute inset-0" />
+      <WarpBackground className="absolute inset-0" />
 
       {/* Content layer */}
       <div className="relative z-10 flex items-center justify-center min-h-screen w-full px-4 sm:px-6 lg:px-8">
