@@ -1,6 +1,6 @@
 'use client'
 
-import { createContext, useContext, useEffect, useState } from 'react'
+import { createContext, useContext, useEffect, useState, useMemo } from 'react'
 import { AnalyticsConsent, ConsentStatus } from './AnalyticsConsent'
 import { useAnalytics } from '@/lib/hooks/useAnalytics'
 
@@ -67,7 +67,6 @@ export function AnalyticsProvider({
     consentGiven,
     sessionId,
     eventQueue,
-    getAnalyticsSummary,
   } = useAnalytics({
     enableLocalStorage,
     respectDoNotTrack,
@@ -131,21 +130,21 @@ export function AnalyticsProvider({
       topProjects: projectInsights
         .sort((a: ProjectMetric, b: ProjectMetric) => b.totalClicks - a.totalClicks)
         .slice(0, 5),
-      sessionSummary: getAnalyticsSummary(),
+      sessionSummary: null, // Removed getAnalyticsSummary() to prevent infinite loop
       generatedAt: new Date().toISOString(),
     })
-  }, [eventQueue, getAnalyticsSummary])
+  }, [eventQueue.length]) // Only depend on length to prevent constant re-renders
 
-  const getInsights = (): AnalyticsInsights | null => insights
+  const getInsights = useMemo(() => (): AnalyticsInsights | null => insights, [insights])
 
-  const contextValue: AnalyticsContextType = {
+  const contextValue: AnalyticsContextType = useMemo(() => ({
     trackEvent,
     trackProjectClick,
     isTrackingAllowed,
     consentGiven,
     sessionId,
     getInsights,
-  }
+  }), [trackEvent, trackProjectClick, isTrackingAllowed, consentGiven, sessionId, getInsights])
 
   return (
     <AnalyticsContext.Provider value={contextValue}>

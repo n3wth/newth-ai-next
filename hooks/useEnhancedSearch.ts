@@ -290,22 +290,24 @@ export function useEnhancedSearch(config: Partial<SearchConfig> = {}) {
     const enhancedQuery = enhanceQuery(query.trim())
 
     if (isSemanticMode) {
-      const results = enhancedSearch(enhancedQuery, allResults, {
+      return enhancedSearch(enhancedQuery, allResults, {
         threshold: searchConfig.semanticThreshold,
         maxResults: searchConfig.maxResults,
         boostRecency: searchConfig.boostRecency,
         categoryWeights: searchConfig.categoryWeights,
       })
-
-      // Update analytics
-      updateSearchAnalytics(query, results)
-
-      return results
     } else {
       // Fallback to traditional search
       return traditionalSearch(query, allResults)
     }
-  }, [query, allResults, isSemanticMode, searchConfig, updateSearchAnalytics, traditionalSearch])
+  }, [query, allResults, isSemanticMode, searchConfig, traditionalSearch])
+
+  // Separate effect for analytics to prevent infinite loops
+  useEffect(() => {
+    if (searchResults.length > 0 && query.trim() && isSemanticMode) {
+      updateSearchAnalytics(query, searchResults)
+    }
+  }, [query, isSemanticMode]) // Removed searchResults and updateSearchAnalytics to prevent loops
 
   // Get AI-powered search suggestions
   const getSuggestions = useCallback(
@@ -319,9 +321,13 @@ export function useEnhancedSearch(config: Partial<SearchConfig> = {}) {
 
   // Update suggestions when query changes
   useEffect(() => {
-    const newSuggestions = getSuggestions(query)
-    setSuggestions(newSuggestions)
-  }, [query, getSuggestions])
+    if (query.length >= 2 && searchConfig.enableSuggestions) {
+      const newSuggestions = semanticSearch.getSuggestions(query, allResults)
+      setSuggestions(newSuggestions)
+    } else {
+      setSuggestions([])
+    }
+  }, [query, searchConfig.enableSuggestions]) // Removed getSuggestions to prevent loops
 
   // Smart suggestions when no query (contextual recommendations)
   const smartSuggestions = useMemo((): SearchResult[] => {
