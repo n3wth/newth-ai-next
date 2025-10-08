@@ -91,9 +91,18 @@ export default function Home() {
         aria-labelledby="projects-heading"
       >
         <div className="max-w-7xl mx-auto">
-          <h2 id="projects-heading" className="text-4xl font-bold mb-16 text-white">
-            Featured Projects
-          </h2>
+          <div className="mb-20">
+            <h2
+              id="projects-heading"
+              className="text-4xl sm:text-5xl font-bold mb-4 text-white tracking-tight"
+            >
+              Featured Projects
+            </h2>
+            <p className="text-lg text-gray-400 max-w-2xl">
+              Building production systems and experimental explorations in AI, tooling, and
+              knowledge management.
+            </p>
+          </div>
           <ProjectGrid projects={featuredProjects} />
         </div>
       </section>

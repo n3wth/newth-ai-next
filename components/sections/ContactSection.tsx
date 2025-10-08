@@ -13,11 +13,13 @@ export function ContactSection({
         <div className="text-center">
           <h2
             id="contact-heading"
-            className="text-3xl sm:text-4xl font-normal mb-6 text-white font-sans"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-white font-sans tracking-tight"
           >
             {title}
           </h2>
-          <p className="text-lg text-gray-400 mb-12 font-sans">{subtitle}</p>
+          <p className="text-lg sm:text-xl text-gray-400 mb-12 font-sans max-w-2xl mx-auto leading-relaxed">
+            {subtitle}
+          </p>
 
           <div
             className="flex flex-col sm:flex-row gap-4 justify-center mb-8"
