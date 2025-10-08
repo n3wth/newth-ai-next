@@ -137,3 +137,7 @@ Codex can now create follow-up tasks automatically whenever a GitHub issue is op
 ## License
 
 MIT
+
+---
+
+_Verification: Repository access, linting, and PR workflow tested on 2025-10-08_

@@ -101,7 +101,8 @@ export function useAnalytics(options: UseAnalyticsOptions = {}) {
         }
       }
     }
-  }, [enableLocalStorage]) // Removed problematic dependencies
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [enableLocalStorage]) // Intentionally omit analyticsState.sessionId and generateSessionId
 
   // Session timeout management
   useEffect(() => {
@@ -125,7 +126,8 @@ export function useAnalytics(options: UseAnalyticsOptions = {}) {
 
     const interval = setInterval(checkSessionTimeout, 60000) // Check every minute
     return () => clearInterval(interval)
-  }, [sessionTimeout]) // Removed problematic dependencies
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sessionTimeout]) // Intentionally omit generateSessionId
 
   // Set analytics consent
   const setConsent = useCallback(
@@ -251,7 +253,7 @@ export function useAnalytics(options: UseAnalyticsOptions = {}) {
   }, [enableLocalStorage, generateSessionId])
 
   // Memoize the isTrackingAllowed result to prevent render loops
-  const trackingAllowed = useMemo(() => isTrackingAllowed(), [respectDoNotTrack, analyticsState.consentGiven])
+  const trackingAllowed = useMemo(() => isTrackingAllowed(), [isTrackingAllowed])
 
   return {
     // Core tracking functions
@@ -269,7 +271,7 @@ export function useAnalytics(options: UseAnalyticsOptions = {}) {
     clearAnalyticsData,
 
     // Event queue for debugging
-    eventQueue: useMemo(() => eventQueue.slice(-10), [eventQueue.length]), // Memoize to prevent render loops
+    eventQueue: useMemo(() => eventQueue.slice(-10), [eventQueue]), // Memoize to prevent render loops
   }
 }
 

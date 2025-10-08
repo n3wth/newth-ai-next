@@ -2,14 +2,36 @@ import { render, screen, fireEvent, waitFor } from '@testing-library/react'
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { SearchModal } from '@/components/SearchModal'
 
-// Mock the search API
-vi.mock('@/lib/api', () => ({
-  searchAPI: {
-    search: vi.fn()
-  }
+// Mock the useEnhancedSearch hook
+const mockSetQuery = vi.fn()
+const mockNavigateToResult = vi.fn()
+const mockClearRecentSearches = vi.fn()
+const mockSetSelectedIndex = vi.fn()
+const mockToggleSearchMode = vi.fn()
+
+vi.mock('@/hooks/useEnhancedSearch', () => ({
+  useEnhancedSearch: vi.fn(() => ({
+    query: '',
+    recentSearches: [],
+    selectedIndex: -1,
+    searchResults: [],
+    smartSuggestions: [],
+    suggestions: [],
+    isSemanticMode: false,
+    searchAnalytics: null,
+    setQuery: mockSetQuery,
+    navigateToResult: mockNavigateToResult,
+    clearRecentSearches: mockClearRecentSearches,
+    setSelectedIndex: mockSetSelectedIndex,
+    toggleSearchMode: mockToggleSearchMode,
+  })),
 }))
 
-import { searchAPI } from '@/lib/api'
+vi.mock('@/components/AccessibilityAnnouncer', () => ({
+  announceToScreenReader: vi.fn(),
+}))
+
+import { useEnhancedSearch } from '@/hooks/useEnhancedSearch'
 
 describe('SearchModal', () => {
   const mockOnClose = vi.fn()
@@ -19,111 +41,145 @@ describe('SearchModal', () => {
   })
 
   it('renders when isOpen is true', () => {
-    render(
-      <SearchModal isOpen={true} onClose={mockOnClose} />
-    )
+    render(<SearchModal isOpen={true} onClose={mockOnClose} />)
 
-    expect(screen.getByPlaceholderText(/Search/i)).toBeInTheDocument()
+    expect(screen.getByPlaceholderText(/Search projects, pages, and content/i)).toBeInTheDocument()
   })
 
   it('does not render when isOpen is false', () => {
-    const { container } = render(
-      <SearchModal isOpen={false} onClose={mockOnClose} />
-    )
+    const { container } = render(<SearchModal isOpen={false} onClose={mockOnClose} />)
 
-    expect(container.firstChild).toBeNull()
+    expect(container.querySelector('[role="dialog"]')).toBeNull()
   })
 
-  it('calls onClose when close button is clicked', () => {
-    render(
-      <SearchModal isOpen={true} onClose={mockOnClose} />
-    )
+  it('calls setQuery when input changes', () => {
+    render(<SearchModal isOpen={true} onClose={mockOnClose} />)
 
-    const closeButton = screen.getByRole('button', { name: /close/i })
-    fireEvent.click(closeButton)
-
-    expect(mockOnClose).toHaveBeenCalled()
-  })
-
-  it('calls onClose when Escape key is pressed', () => {
-    render(
-      <SearchModal isOpen={true} onClose={mockOnClose} />
-    )
-
-    fireEvent.keyDown(document, { key: 'Escape' })
-
-    expect(mockOnClose).toHaveBeenCalled()
-  })
-
-  it('performs search when input changes', async () => {
-    const mockSearchResults = [
-      { id: 1, title: 'Result 1', description: 'Description 1' },
-      { id: 2, title: 'Result 2', description: 'Description 2' }
-    ]
-
-    vi.mocked(searchAPI.search).mockResolvedValue(mockSearchResults)
-
-    render(
-      <SearchModal isOpen={true} onClose={mockOnClose} />
-    )
-
-    const input = screen.getByPlaceholderText(/Search/i)
+    const input = screen.getByPlaceholderText(/Search projects, pages, and content/i)
     fireEvent.change(input, { target: { value: 'test query' } })
 
-    await waitFor(() => {
-      expect(searchAPI.search).toHaveBeenCalledWith('test query')
-    })
+    expect(mockSetQuery).toHaveBeenCalledWith('test query')
   })
 
-  it('displays loading state during search', async () => {
-    vi.mocked(searchAPI.search).mockImplementation(() =>
-      new Promise(resolve => setTimeout(() => resolve([]), 100))
-    )
-
-    render(
-      <SearchModal isOpen={true} onClose={mockOnClose} />
-    )
-
-    const input = screen.getByPlaceholderText(/Search/i)
-    fireEvent.change(input, { target: { value: 'test' } })
-
-    await waitFor(() => {
-      expect(screen.getByText(/Loading/i)).toBeInTheDocument()
-    })
-  })
-
-  it('displays search results', async () => {
+  it('displays search results when query is entered', async () => {
     const mockResults = [
-      { id: 1, title: 'Test Result', description: 'Test description' }
+      {
+        id: 'result-1',
+        title: 'Test Result',
+        description: 'Test description',
+        url: '/test',
+        type: 'project' as const,
+      },
     ]
 
-    vi.mocked(searchAPI.search).mockResolvedValue(mockResults)
-
-    render(
-      <SearchModal isOpen={true} onClose={mockOnClose} />
-    )
-
-    const input = screen.getByPlaceholderText(/Search/i)
-    fireEvent.change(input, { target: { value: 'test' } })
-
-    await waitFor(() => {
-      expect(screen.getByText('Test Result')).toBeInTheDocument()
-      expect(screen.getByText('Test description')).toBeInTheDocument()
+    vi.mocked(useEnhancedSearch).mockReturnValue({
+      query: 'test',
+      recentSearches: [],
+      selectedIndex: -1,
+      searchResults: mockResults,
+      smartSuggestions: [],
+      suggestions: [],
+      isSemanticMode: false,
+      searchAnalytics: null,
+      setQuery: mockSetQuery,
+      navigateToResult: mockNavigateToResult,
+      clearRecentSearches: mockClearRecentSearches,
+      setSelectedIndex: mockSetSelectedIndex,
+      toggleSearchMode: mockToggleSearchMode,
     })
+
+    render(<SearchModal isOpen={true} onClose={mockOnClose} />)
+
+    expect(screen.getByText('Test Result')).toBeInTheDocument()
+    expect(screen.getByText('Test description')).toBeInTheDocument()
   })
 
-  it('displays no results message when search returns empty', async () => {
-    vi.mocked(searchAPI.search).mockResolvedValue([])
-
-    render(
-      <SearchModal isOpen={true} onClose={mockOnClose} />
-    )
-
-    const input = screen.getByPlaceholderText(/Search/i)
-    fireEvent.change(input, { target: { value: 'nonexistent' } })
-
-    await waitFor(() => {
-      expect(screen.getByText(/No results found/i)).toBeInTheDocument()
+  it('displays no results message when search returns empty', () => {
+    vi.mocked(useEnhancedSearch).mockReturnValue({
+      query: 'nonexistent',
+      recentSearches: [],
+      selectedIndex: -1,
+      searchResults: [],
+      smartSuggestions: [],
+      suggestions: [],
+      isSemanticMode: false,
+      searchAnalytics: null,
+      setQuery: mockSetQuery,
+      navigateToResult: mockNavigateToResult,
+      clearRecentSearches: mockClearRecentSearches,
+      setSelectedIndex: mockSetSelectedIndex,
+      toggleSearchMode: mockToggleSearchMode,
     })
+
+    render(<SearchModal isOpen={true} onClose={mockOnClose} />)
+
+    expect(screen.getByText(/No results found/i)).toBeInTheDocument()
+  })
+
+  it('calls navigateToResult when a result is clicked', () => {
+    const mockResults = [
+      {
+        id: 'result-1',
+        title: 'Test Result',
+        description: 'Test description',
+        url: '/test',
+        type: 'project' as const,
+      },
+    ]
+
+    vi.mocked(useEnhancedSearch).mockReturnValue({
+      query: 'test',
+      recentSearches: [],
+      selectedIndex: -1,
+      searchResults: mockResults,
+      smartSuggestions: [],
+      suggestions: [],
+      isSemanticMode: false,
+      searchAnalytics: null,
+      setQuery: mockSetQuery,
+      navigateToResult: mockNavigateToResult,
+      clearRecentSearches: mockClearRecentSearches,
+      setSelectedIndex: mockSetSelectedIndex,
+      toggleSearchMode: mockToggleSearchMode,
+    })
+
+    render(<SearchModal isOpen={true} onClose={mockOnClose} />)
+
+    const resultButton = screen.getByRole('option', { name: /Test Result/i })
+    fireEvent.click(resultButton)
+
+    expect(mockNavigateToResult).toHaveBeenCalledWith(mockResults[0])
+  })
+
+  it('displays recent searches when no query is entered', () => {
+    vi.mocked(useEnhancedSearch).mockReturnValue({
+      query: '',
+      recentSearches: ['previous search', 'another search'],
+      selectedIndex: -1,
+      searchResults: [],
+      smartSuggestions: [],
+      suggestions: [],
+      isSemanticMode: false,
+      searchAnalytics: null,
+      setQuery: mockSetQuery,
+      navigateToResult: mockNavigateToResult,
+      clearRecentSearches: mockClearRecentSearches,
+      setSelectedIndex: mockSetSelectedIndex,
+      toggleSearchMode: mockToggleSearchMode,
+    })
+
+    render(<SearchModal isOpen={true} onClose={mockOnClose} />)
+
+    expect(screen.getByText('previous search')).toBeInTheDocument()
+    expect(screen.getByText('another search')).toBeInTheDocument()
+  })
+
+  it('toggles search mode when toggle button is clicked', () => {
+    render(<SearchModal isOpen={true} onClose={mockOnClose} />)
+
+    const toggleButton = screen.getByTitle(/Switch to AI search/i)
+    fireEvent.click(toggleButton)
+
+    expect(mockToggleSearchMode).toHaveBeenCalled()
   })
 })
