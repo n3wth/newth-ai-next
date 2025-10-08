@@ -41,15 +41,18 @@ export function ProjectGrid({ projects, className }: ProjectGridProps) {
         <motion.div
           key={project.id}
           className={cn('relative group', getGridClass(index))}
-          whileHover={{ y: -2, transition: { duration: 0.3, ease: [0.23, 1, 0.32, 1] } }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: index * 0.1, ease: [0.23, 1, 0.32, 1] }}
+          whileHover={{ y: -4, transition: { duration: 0.3, ease: [0.23, 1, 0.32, 1] } }}
           data-analytics-project-id={project.id}
           data-analytics-project-title={project.title}
           data-analytics-position={index}
         >
-          <div className="relative h-full p-8 rounded-2xl bg-white/[0.02] border border-white/[0.06] transition-all duration-300 hover:bg-white/[0.04] hover:border-white/[0.12] overflow-hidden">
-            {/* Clean gradient overlay */}
+          <div className="relative h-full p-8 rounded-2xl bg-white/[0.03] border border-white/[0.08] transition-all duration-300 hover:bg-white/[0.05] hover:border-white/[0.15] overflow-hidden shadow-2xl shadow-black/50 hover:shadow-violet-500/10">
+            {/* Enhanced gradient overlay */}
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-              <div className="absolute -inset-x-20 -top-20 h-40 bg-gradient-to-b from-violet-500/5 via-transparent to-transparent blur-3xl" />
+              <div className="absolute -inset-x-20 -top-20 h-40 bg-gradient-to-b from-violet-500/10 via-purple-500/5 to-transparent blur-3xl" />
             </div>
 
             <div className="relative">
@@ -57,27 +60,27 @@ export function ProjectGrid({ projects, className }: ProjectGridProps) {
                 <span className="text-xs text-gray-500 font-sans">{project.year}</span>
               </div>
 
-              <h3 className="text-xl sm:text-2xl font-semibold mb-3 text-white font-sans transition-colors duration-300">
+              <h3 className="text-xl sm:text-2xl font-bold mb-3 text-white font-sans transition-colors duration-300 group-hover:text-violet-100">
                 {project.title}
               </h3>
 
               {project.metrics && (
                 <div className="flex gap-4 mb-4">
                   {project.metrics.map((metric, i) => (
-                    <span key={i} className={cn('text-sm font-medium', metric.color)}>
+                    <span key={i} className={cn('text-sm font-semibold', metric.color)}>
                       {metric.label}
                     </span>
                   ))}
                 </div>
               )}
 
-              <p className="text-gray-500 mb-6 font-sans leading-relaxed">{project.description}</p>
+              <p className="text-gray-400 mb-6 font-sans leading-relaxed">{project.description}</p>
 
               <div className="flex flex-wrap gap-2 mb-6">
                 {project.tech?.map((tech) => (
                   <span
                     key={tech}
-                    className="px-3 py-1 text-xs rounded-lg bg-white/[0.03] border border-white/[0.06] text-gray-500 font-mono transition-colors duration-200 hover:text-gray-400 hover:bg-white/[0.05]"
+                    className="px-3 py-1.5 text-xs rounded-lg bg-white/[0.05] border border-white/[0.08] text-gray-400 font-mono transition-all duration-200 hover:text-gray-300 hover:bg-white/[0.08] hover:border-white/[0.12]"
                   >
                     {tech}
                   </span>
@@ -88,20 +91,20 @@ export function ProjectGrid({ projects, className }: ProjectGridProps) {
                 {project.link && (
                   <Link
                     href={project.link}
-                    className="inline-flex items-center gap-1.5 text-sm text-gray-400 hover:text-white transition-colors duration-200 group/link"
+                    className="inline-flex items-center gap-1.5 text-sm font-medium text-gray-400 hover:text-white transition-all duration-200 group/link"
                     onClick={() => handleProjectClick(project.id, project.title, 'visit', index)}
                     data-analytics-link-type="visit"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     Visit
-                    <ArrowUpRight className="w-3 h-3 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+                    <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
                   </Link>
                 )}
                 {project.github && (
                   <Link
                     href={project.github}
-                    className="inline-flex items-center gap-1.5 text-sm text-gray-400 hover:text-white transition-colors duration-200 group/link"
+                    className="inline-flex items-center gap-1.5 text-sm font-medium text-gray-400 hover:text-white transition-all duration-200 group/link"
                     onClick={() => handleProjectClick(project.id, project.title, 'github', index)}
                     data-analytics-link-type="github"
                     target="_blank"

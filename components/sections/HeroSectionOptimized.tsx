@@ -42,22 +42,22 @@ export function HeroSection({
             {/* Main heading - visible immediately for LCP */}
             <h1
               id="hero-heading"
-              className="text-[2.5rem] sm:text-[3.5rem] md:text-[4.5rem] lg:text-[5.5rem] xl:text-[6.5rem] font-semibold tracking-[-0.02em] leading-[1.05] text-white"
+              className="text-[2.5rem] sm:text-[3.5rem] md:text-[4.5rem] lg:text-[5.5rem] xl:text-[6.5rem] font-bold tracking-[-0.03em] leading-[1.1] text-white"
             >
-              <span className="block">{title.line1}</span>
-              <span className="block bg-gradient-to-br from-violet-200 via-purple-200 to-violet-400 bg-clip-text text-transparent">
+              <span className="block mb-2">{title.line1}</span>
+              <span className="block bg-gradient-to-br from-violet-300 via-purple-300 to-indigo-400 bg-clip-text text-transparent">
                 {title.line2}
               </span>
             </h1>
 
             {/* Subtitle - visible immediately */}
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 max-w-3xl mx-auto leading-[1.6] font-light px-6">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 max-w-2xl mx-auto leading-[1.7] font-normal px-6">
               {subtitle}
             </p>
 
             {/* CTAs - visible immediately, interactive immediately */}
             <div
-              className="flex flex-col sm:flex-row gap-4 justify-center pt-4"
+              className="flex flex-col sm:flex-row gap-4 justify-center pt-6"
               role="group"
               aria-label="Primary actions"
             >
