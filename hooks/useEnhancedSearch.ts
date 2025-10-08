@@ -307,8 +307,8 @@ export function useEnhancedSearch(config: Partial<SearchConfig> = {}) {
     if (searchResults.length > 0 && query.trim() && isSemanticMode) {
       updateSearchAnalytics(query, searchResults)
     }
-  }, [query, isSemanticMode]) // Removed searchResults and updateSearchAnalytics to prevent loops
-
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [query, isSemanticMode]) // Intentionally omit searchResults and updateSearchAnalytics to prevent loops
 
   // Update suggestions when query changes
   useEffect(() => {
@@ -318,7 +318,8 @@ export function useEnhancedSearch(config: Partial<SearchConfig> = {}) {
     } else {
       setSuggestions([])
     }
-  }, [query, searchConfig.enableSuggestions]) // Removed getSuggestions to prevent loops
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [query, searchConfig.enableSuggestions]) // Intentionally omit allResults to prevent loops
 
   // Smart suggestions when no query (contextual recommendations)
   const smartSuggestions = useMemo((): SearchResult[] => {

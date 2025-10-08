@@ -60,18 +60,12 @@ export function AnalyticsProvider({
   respectDoNotTrack = true,
   sessionTimeout = 30,
 }: AnalyticsProviderProps) {
-  const {
-    trackEvent,
-    trackProjectClick,
-    isTrackingAllowed,
-    consentGiven,
-    sessionId,
-    eventQueue,
-  } = useAnalytics({
-    enableLocalStorage,
-    respectDoNotTrack,
-    sessionTimeout,
-  })
+  const { trackEvent, trackProjectClick, isTrackingAllowed, consentGiven, sessionId, eventQueue } =
+    useAnalytics({
+      enableLocalStorage,
+      respectDoNotTrack,
+      sessionTimeout,
+    })
 
   const [insights, setInsights] = useState<AnalyticsInsights | null>(null)
 
@@ -133,18 +127,21 @@ export function AnalyticsProvider({
       sessionSummary: null, // Removed getAnalyticsSummary() to prevent infinite loop
       generatedAt: new Date().toISOString(),
     })
-  }, [eventQueue.length]) // Only depend on length to prevent constant re-renders
+  }, [eventQueue])
 
   const getInsights = useMemo(() => (): AnalyticsInsights | null => insights, [insights])
 
-  const contextValue: AnalyticsContextType = useMemo(() => ({
-    trackEvent,
-    trackProjectClick,
-    isTrackingAllowed,
-    consentGiven,
-    sessionId,
-    getInsights,
-  }), [trackEvent, trackProjectClick, isTrackingAllowed, consentGiven, sessionId, getInsights])
+  const contextValue: AnalyticsContextType = useMemo(
+    () => ({
+      trackEvent,
+      trackProjectClick,
+      isTrackingAllowed,
+      consentGiven,
+      sessionId,
+      getInsights,
+    }),
+    [trackEvent, trackProjectClick, isTrackingAllowed, consentGiven, sessionId, getInsights]
+  )
 
   return (
     <AnalyticsContext.Provider value={contextValue}>
