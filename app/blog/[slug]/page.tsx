@@ -154,12 +154,75 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
             <div
               className="text-gray-300 leading-relaxed [&>h1]:text-white [&>h1]:text-3xl [&>h1]:font-medium [&>h1]:mt-12 [&>h1]:mb-6 [&>h2]:text-white [&>h2]:text-2xl [&>h2]:font-medium [&>h2]:mt-10 [&>h2]:mb-4 [&>h3]:text-white [&>h3]:text-xl [&>h3]:font-medium [&>h3]:mt-8 [&>h3]:mb-3 [&>p]:mb-6 [&>ul]:mb-6 [&>ol]:mb-6 [&>li]:mb-2 [&>blockquote]:border-l-4 [&>blockquote]:border-purple-500/50 [&>blockquote]:pl-6 [&>blockquote]:italic [&>blockquote]:text-gray-400 [&>code]:bg-white/10 [&>code]:px-2 [&>code]:py-1 [&>code]:rounded [&>code]:text-purple-300 [&>pre]:bg-white/5 [&>pre]:border [&>pre]:border-white/10 [&>pre]:rounded-lg [&>pre]:p-4 [&>pre]:overflow-x-auto [&>a]:text-purple-400 [&>a]:underline [&>a]:underline-offset-2 hover:[&>a]:text-purple-300"
               dangerouslySetInnerHTML={{
-                __html: post.content
-                  .replace(/\n/g, '<br />')
-                  .replace(/#{1,6}\s/g, '')
-                  .replace(/```[\s\S]*?```/g, (match) => {
+                __html: (() => {
+                  // First, handle code blocks to protect them
+                  const processedContent = post.content.replace(/```[\s\S]*?```/g, (match) => {
                     return `<pre><code>${match.replace(/```/g, '').trim()}</code></pre>`
-                  }),
+                  })
+
+                  // Split into lines and process
+                  const lines = processedContent.split('\n')
+                  const htmlLines = []
+                  let currentParagraph = []
+
+                  for (let i = 0; i < lines.length; i++) {
+                    const line = lines[i].trim()
+
+                    // Check for headers
+                    if (line.startsWith('#')) {
+                      // Close any open paragraph
+                      if (currentParagraph.length > 0) {
+                        htmlLines.push(`<p>${currentParagraph.join(' ')}</p>`)
+                        currentParagraph = []
+                      }
+
+                      // Convert markdown header to HTML
+                      if (line.startsWith('###### ')) {
+                        htmlLines.push(`<h6>${line.substring(7)}</h6>`)
+                      } else if (line.startsWith('##### ')) {
+                        htmlLines.push(`<h5>${line.substring(6)}</h5>`)
+                      } else if (line.startsWith('#### ')) {
+                        htmlLines.push(`<h4>${line.substring(5)}</h4>`)
+                      } else if (line.startsWith('### ')) {
+                        htmlLines.push(`<h3>${line.substring(4)}</h3>`)
+                      } else if (line.startsWith('## ')) {
+                        htmlLines.push(`<h2>${line.substring(3)}</h2>`)
+                      } else if (line.startsWith('# ')) {
+                        htmlLines.push(`<h1>${line.substring(2)}</h1>`)
+                      }
+                    } else if (line === '') {
+                      // Empty line - close paragraph if exists
+                      if (currentParagraph.length > 0) {
+                        htmlLines.push(`<p>${currentParagraph.join(' ')}</p>`)
+                        currentParagraph = []
+                      }
+                    } else if (line.startsWith('<pre>') || line.startsWith('<code>')) {
+                      // Code block - add directly
+                      if (currentParagraph.length > 0) {
+                        htmlLines.push(`<p>${currentParagraph.join(' ')}</p>`)
+                        currentParagraph = []
+                      }
+                      htmlLines.push(line)
+                    } else if (line.startsWith('- ')) {
+                      // List item
+                      if (currentParagraph.length > 0) {
+                        htmlLines.push(`<p>${currentParagraph.join(' ')}</p>`)
+                        currentParagraph = []
+                      }
+                      htmlLines.push(`<li>${line.substring(2)}</li>`)
+                    } else {
+                      // Regular text - add to current paragraph
+                      currentParagraph.push(line)
+                    }
+                  }
+
+                  // Close any remaining paragraph
+                  if (currentParagraph.length > 0) {
+                    htmlLines.push(`<p>${currentParagraph.join(' ')}</p>`)
+                  }
+
+                  return htmlLines.join('')
+                })(),
               }}
             />
           </div>

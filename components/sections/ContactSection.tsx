@@ -4,8 +4,8 @@ import { socialLinks } from '@/lib/config/social'
 import { ContactSectionProps } from '@/lib/types'
 
 export function ContactSection({
-  title = 'Ready to ship something amazing?',
-  subtitle = 'I work with teams that move fast and dream big.',
+  title = 'Want to build something together?',
+  subtitle = "I'm always interested in new challenges and collaborations.",
 }: ContactSectionProps) {
   return (
     <section className="py-32 bg-black mt-20" role="region" aria-labelledby="contact-heading">

@@ -372,8 +372,8 @@ export function AnimatedLogo({
                     const isGlitching = displayChar !== char
 
                     // Enhanced rainbow with configurable saturation
-                    const waveOffset = Math.sin(frame * 0.03 + lineIndex * 2) * 30
-                    const rawHue = charIndex * 15 - frame * 2 + waveOffset
+                    const waveOffset = Math.sin(frame * 0.18 + lineIndex * 2) * 30
+                    const rawHue = charIndex * 15 - frame * 12 + waveOffset
                     const hue = ((rawHue % 360) + 360) % 360
 
                     // Determine when to show colors
@@ -382,10 +382,10 @@ export function AnimatedLogo({
                       (enableColorOnGlitch && glitchMode !== 'normal' && glitchIntensity > 0)
 
                     // Calculate saturation with options
-                    const dynamicSaturation = baseSaturation + Math.sin(frame * 0.05) * 10
+                    const dynamicSaturation = baseSaturation + Math.sin(frame * 0.3) * 10
                     const appliedSaturation = showColor ? dynamicSaturation * colorIntensity : 0
 
-                    const lightness = 55 + Math.sin(frame * 0.07 + charIndex * 0.2) * 10
+                    const lightness = 55 + Math.sin(frame * 0.42 + charIndex * 0.2) * 10
                     const baseColor = showColor
                       ? `hsl(${hue}, ${appliedSaturation}%, ${lightness}%)`
                       : 'currentColor'
@@ -455,8 +455,8 @@ export function AnimatedLogo({
 
                 // Enhanced rainbow continuation for .AI suffix
                 const continuedIndex = 24 + charIndex
-                const waveOffset = Math.sin(frame * 0.03 + lineIndex * 2) * 30
-                const rawHue = continuedIndex * 15 - frame * 2 + waveOffset
+                const waveOffset = Math.sin(frame * 0.18 + lineIndex * 2) * 30
+                const rawHue = continuedIndex * 15 - frame * 12 + waveOffset
                 const hue = ((rawHue % 360) + 360) % 360
 
                 // Apply same color settings to .AI suffix
@@ -464,9 +464,9 @@ export function AnimatedLogo({
                   (enableColorOnHover && isHovered) ||
                   (enableColorOnGlitch && glitchMode !== 'normal' && glitchIntensity > 0)
 
-                const dynamicSaturation = baseSaturation + Math.sin(frame * 0.05) * 10
+                const dynamicSaturation = baseSaturation + Math.sin(frame * 0.3) * 10
                 const appliedSaturation = showColor ? dynamicSaturation * colorIntensity : 0
-                const lightness = 55 + Math.sin(frame * 0.07 + charIndex * 0.2) * 10
+                const lightness = 55 + Math.sin(frame * 0.42 + charIndex * 0.2) * 10
                 const baseColor = showColor
                   ? `hsl(${hue}, ${appliedSaturation}%, ${lightness}%)`
                   : 'currentColor'

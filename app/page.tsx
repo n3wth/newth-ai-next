@@ -9,9 +9,9 @@ export default function Home() {
   const featuredProjects: Project[] = [
     {
       id: 'r3-memory',
-      title: 'r3 — Intelligent Memory for AI',
+      title: 'r3 — Memory Layer for AI',
       description:
-        'Production-ready memory layer for LLMs. Sub-millisecond response times. MCP protocol native. Used by 1000+ developers.',
+        'Open-source memory system for LLMs with MCP protocol support. Fast response times and easy integration.',
       year: '2025',
       tags: ['TypeScript', 'Redis', 'MCP Protocol', 'AI/ML'],
       tech: ['TypeScript', 'Redis', 'MCP Protocol', 'AI/ML'], // backward compat
@@ -21,15 +21,15 @@ export default function Home() {
       featured: true,
       color: 'text-violet-400',
       metrics: [
-        { label: '5ms response', color: 'text-violet-400' },
-        { label: 'MCP native', color: 'text-green-400' },
+        { label: 'Fast response', color: 'text-violet-400' },
+        { label: 'MCP protocol', color: 'text-green-400' },
       ],
     },
     {
       id: 'meat-game',
       title: 'Meat — The Game',
       description:
-        'An experimental game exploring absurdist design principles. Built to test engagement mechanics in unconventional contexts.',
+        'A silly experimental game I made for fun. Sometimes you just need to build something weird.',
       year: '2025',
       tags: ['React', 'Canvas', 'Game Design', 'Absurdist Art'],
       tech: ['React', 'Canvas', 'Game Design', 'Absurdist Art'], // backward compat
@@ -46,7 +46,7 @@ export default function Home() {
       id: 'quartz-knowledge',
       title: 'Personal Knowledge Graph',
       description:
-        '1000+ interconnected notes on AI, product strategy, and system design. Public knowledge base built with Quartz.',
+        'My notes on AI, product strategy, and system design. Public knowledge base built with Quartz.',
       year: '2025',
       tags: ['Quartz', 'Obsidian', 'Knowledge Management'],
       tech: ['Quartz', 'Obsidian', 'Knowledge Management'], // backward compat
@@ -55,15 +55,15 @@ export default function Home() {
       featured: false,
       color: 'text-emerald-400',
       metrics: [
-        { label: '1000+ notes', color: 'text-emerald-400' },
-        { label: 'Always growing', color: 'text-teal-400' },
+        { label: 'Public notes', color: 'text-emerald-400' },
+        { label: 'Actively maintained', color: 'text-teal-400' },
       ],
     },
     {
       id: 'neuros',
       title: 'Neuros — AI Dev Experiments',
       description:
-        'Open testbed for MCP protocol extensions and AI agent architectures. Contributing back to the community.',
+        'Experiments with MCP protocol extensions and AI agent architectures. Open source playground.',
       year: '2025',
       tags: ['TypeScript', 'MCP', 'AI Tools'],
       tech: ['TypeScript', 'MCP', 'AI Tools'], // backward compat

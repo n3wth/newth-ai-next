@@ -13,10 +13,10 @@ import { SimpleAnimatedButton } from '@/components/ui/SimpleAnimatedButton'
 
 export function HeroSection({
   title = {
-    line1: 'I ship AI products',
-    line2: 'at massive scale.',
+    line1: 'Building AI products',
+    line2: 'that actually work.',
   },
-  subtitle = 'Building ML infrastructure that powers billions of predictions. Open source contributor. Side project enthusiast.',
+  subtitle = 'Product manager at Google. Working on ML infrastructure and exploring ideas through side projects.',
   primaryCTA = {
     text: 'See My Work',
     href: '#projects',
