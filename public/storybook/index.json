@@ -428,7 +428,7 @@
       "name": "Primary",
       "title": "Components/Buttons/Button",
       "importPath": "./components/ui/button/Button.stories.tsx",
-      "componentPath": "./components/ui/Button",
+      "componentPath": "./components/ui/Button.tsx",
       "tags": ["dev", "test", "autodocs", "component"]
     },
     "components-buttons-button--secondary": {
@@ -437,7 +437,7 @@
       "name": "Secondary",
       "title": "Components/Buttons/Button",
       "importPath": "./components/ui/button/Button.stories.tsx",
-      "componentPath": "./components/ui/Button",
+      "componentPath": "./components/ui/Button.tsx",
       "tags": ["dev", "test", "autodocs", "component"]
     },
     "components-buttons-button--ghost": {
@@ -446,7 +446,7 @@
       "name": "Ghost",
       "title": "Components/Buttons/Button",
       "importPath": "./components/ui/button/Button.stories.tsx",
-      "componentPath": "./components/ui/Button",
+      "componentPath": "./components/ui/Button.tsx",
       "tags": ["dev", "test", "autodocs", "component"]
     },
     "components-buttons-button--destructive": {
@@ -455,7 +455,7 @@
       "name": "Destructive (New)",
       "title": "Components/Buttons/Button",
       "importPath": "./components/ui/button/Button.stories.tsx",
-      "componentPath": "./components/ui/Button",
+      "componentPath": "./components/ui/Button.tsx",
       "tags": ["dev", "test", "autodocs", "component"]
     },
     "components-buttons-button--small": {
@@ -464,7 +464,7 @@
       "name": "Small",
       "title": "Components/Buttons/Button",
       "importPath": "./components/ui/button/Button.stories.tsx",
-      "componentPath": "./components/ui/Button",
+      "componentPath": "./components/ui/Button.tsx",
       "tags": ["dev", "test", "autodocs", "component"]
     },
     "components-buttons-button--medium": {
@@ -473,7 +473,7 @@
       "name": "Medium",
       "title": "Components/Buttons/Button",
       "importPath": "./components/ui/button/Button.stories.tsx",
-      "componentPath": "./components/ui/Button",
+      "componentPath": "./components/ui/Button.tsx",
       "tags": ["dev", "test", "autodocs", "component"]
     },
     "components-buttons-button--large": {
@@ -482,7 +482,7 @@
       "name": "Large",
       "title": "Components/Buttons/Button",
       "importPath": "./components/ui/button/Button.stories.tsx",
-      "componentPath": "./components/ui/Button",
+      "componentPath": "./components/ui/Button.tsx",
       "tags": ["dev", "test", "autodocs", "component"]
     },
     "components-buttons-button--with-icon-right": {
@@ -491,7 +491,7 @@
       "name": "With Icon Right",
       "title": "Components/Buttons/Button",
       "importPath": "./components/ui/button/Button.stories.tsx",
-      "componentPath": "./components/ui/Button",
+      "componentPath": "./components/ui/Button.tsx",
       "tags": ["dev", "test", "autodocs", "component"]
     },
     "components-buttons-button--with-icon-left": {
@@ -500,7 +500,7 @@
       "name": "With Icon Left",
       "title": "Components/Buttons/Button",
       "importPath": "./components/ui/button/Button.stories.tsx",
-      "componentPath": "./components/ui/Button",
+      "componentPath": "./components/ui/Button.tsx",
       "tags": ["dev", "test", "autodocs", "component"]
     },
     "components-buttons-button--icon-only": {
@@ -509,7 +509,7 @@
       "name": "Icon Only",
       "title": "Components/Buttons/Button",
       "importPath": "./components/ui/button/Button.stories.tsx",
-      "componentPath": "./components/ui/Button",
+      "componentPath": "./components/ui/Button.tsx",
       "tags": ["dev", "test", "autodocs", "component"]
     },
     "components-buttons-button--loading": {
@@ -518,7 +518,7 @@
       "name": "Loading",
       "title": "Components/Buttons/Button",
       "importPath": "./components/ui/button/Button.stories.tsx",
-      "componentPath": "./components/ui/Button",
+      "componentPath": "./components/ui/Button.tsx",
       "tags": ["dev", "test", "autodocs", "component"]
     },
     "components-buttons-button--disabled": {
@@ -527,7 +527,7 @@
       "name": "Disabled",
       "title": "Components/Buttons/Button",
       "importPath": "./components/ui/button/Button.stories.tsx",
-      "componentPath": "./components/ui/Button",
+      "componentPath": "./components/ui/Button.tsx",
       "tags": ["dev", "test", "autodocs", "component"]
     },
     "components-buttons-button--success": {
@@ -536,7 +536,7 @@
       "name": "Success",
       "title": "Components/Buttons/Button",
       "importPath": "./components/ui/button/Button.stories.tsx",
-      "componentPath": "./components/ui/Button",
+      "componentPath": "./components/ui/Button.tsx",
       "tags": ["dev", "test", "autodocs", "component"]
     },
     "components-buttons-button--error": {
@@ -545,7 +545,7 @@
       "name": "Error",
       "title": "Components/Buttons/Button",
       "importPath": "./components/ui/button/Button.stories.tsx",
-      "componentPath": "./components/ui/Button",
+      "componentPath": "./components/ui/Button.tsx",
       "tags": ["dev", "test", "autodocs", "component"]
     },
     "components-buttons-button--as-link": {
@@ -554,7 +554,7 @@
       "name": "As Link",
       "title": "Components/Buttons/Button",
       "importPath": "./components/ui/button/Button.stories.tsx",
-      "componentPath": "./components/ui/Button",
+      "componentPath": "./components/ui/Button.tsx",
       "tags": ["dev", "test", "autodocs", "component"]
     },
     "components-buttons-button--external-link-button": {
@@ -563,7 +563,7 @@
       "name": "External Link",
       "title": "Components/Buttons/Button",
       "importPath": "./components/ui/button/Button.stories.tsx",
-      "componentPath": "./components/ui/Button",
+      "componentPath": "./components/ui/Button.tsx",
       "tags": ["dev", "test", "autodocs", "component"]
     },
     "components-buttons-button--button-group": {
@@ -572,7 +572,7 @@
       "name": "Button Group",
       "title": "Components/Buttons/Button",
       "importPath": "./components/ui/button/Button.stories.tsx",
-      "componentPath": "./components/ui/Button",
+      "componentPath": "./components/ui/Button.tsx",
       "tags": ["dev", "test", "autodocs", "component"]
     },
     "components-buttons-button--toolbar": {
@@ -581,7 +581,7 @@
       "name": "Toolbar",
       "title": "Components/Buttons/Button",
       "importPath": "./components/ui/button/Button.stories.tsx",
-      "componentPath": "./components/ui/Button",
+      "componentPath": "./components/ui/Button.tsx",
       "tags": ["dev", "test", "autodocs", "component"]
     },
     "components-buttons-button--size-comparison": {
@@ -590,7 +590,7 @@
       "name": "Size Comparison",
       "title": "Components/Buttons/Button",
       "importPath": "./components/ui/button/Button.stories.tsx",
-      "componentPath": "./components/ui/Button",
+      "componentPath": "./components/ui/Button.tsx",
       "tags": ["dev", "test", "autodocs", "component"]
     },
     "components-buttons-button--all-variants": {
@@ -599,7 +599,7 @@
       "name": "All Variants",
       "title": "Components/Buttons/Button",
       "importPath": "./components/ui/button/Button.stories.tsx",
-      "componentPath": "./components/ui/Button",
+      "componentPath": "./components/ui/Button.tsx",
       "tags": ["dev", "test", "autodocs", "component"]
     },
     "components-buttons-button--loading-states": {
@@ -608,7 +608,7 @@
       "name": "Loading States",
       "title": "Components/Buttons/Button",
       "importPath": "./components/ui/button/Button.stories.tsx",
-      "componentPath": "./components/ui/Button",
+      "componentPath": "./components/ui/Button.tsx",
       "tags": ["dev", "test", "autodocs", "component"]
     },
     "components-buttons-button--mobile-buttons": {
@@ -617,7 +617,7 @@
       "name": "Mobile Buttons",
       "title": "Components/Buttons/Button",
       "importPath": "./components/ui/button/Button.stories.tsx",
-      "componentPath": "./components/ui/Button",
+      "componentPath": "./components/ui/Button.tsx",
       "tags": ["dev", "test", "autodocs", "component"]
     },
     "components-buttons-simple-animated--docs": {

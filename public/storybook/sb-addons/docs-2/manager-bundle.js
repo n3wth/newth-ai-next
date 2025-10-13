@@ -14,38 +14,38 @@ try {
         cloneElement: vt,
         createContext: xt,
         createElement: St,
-        createFactory: _t,
-        createRef: Tt,
+        createFactory: Tt,
+        createRef: wt,
         forwardRef: Pt,
-        isValidElement: Et,
-        lazy: wt,
+        isValidElement: _t,
+        lazy: kt,
         memo: Ct,
-        startTransition: It,
+        startTransition: Et,
         unstable_act: Rt,
-        useCallback: kt,
+        useCallback: It,
         useContext: Ot,
         useDebugValue: Ft,
-        useDeferredValue: Lt,
+        useDeferredValue: Ht,
         useEffect: G,
-        useId: At,
-        useImperativeHandle: Nt,
-        useInsertionEffect: Bt,
-        useLayoutEffect: Ht,
-        useMemo: jt,
-        useReducer: zt,
-        useRef: Mt,
-        useState: W,
+        useId: jt,
+        useImperativeHandle: zt,
+        useInsertionEffect: At,
+        useLayoutEffect: Mt,
+        useMemo: Bt,
+        useReducer: Nt,
+        useRef: Lt,
+        useState: K,
         useSyncExternalStore: Dt,
-        useTransition: Ut,
-        version: $t,
+        useTransition: $t,
+        version: qt,
       } = __REACT__
-    var Kt = __STORYBOOK_COMPONENTS__,
+    var Ut = __STORYBOOK_COMPONENTS__,
       {
-        A: Xt,
-        ActionBar: Zt,
-        AddonPanel: K,
-        Badge: Jt,
-        Bar: Qt,
+        A: Zt,
+        ActionBar: Jt,
+        AddonPanel: U,
+        Badge: Qt,
+        Bar: Xt,
         Blockquote: Vt,
         Button: er,
         ClipboardCode: tr,
@@ -69,43 +69,43 @@ try {
         LI: vr,
         Link: xr,
         ListItem: Sr,
-        Loader: _r,
-        Modal: Tr,
+        Loader: Tr,
+        Modal: wr,
         OL: Pr,
-        P: Er,
-        Placeholder: wr,
+        P: _r,
+        Placeholder: kr,
         Pre: Cr,
-        ProgressSpinner: Ir,
+        ProgressSpinner: Er,
         ResetWrapper: Rr,
-        ScrollArea: kr,
+        ScrollArea: Ir,
         Separator: Or,
         Spaced: Fr,
-        Span: Lr,
-        StorybookIcon: Ar,
-        StorybookLogo: Nr,
-        SyntaxHighlighter: X,
-        TT: Br,
-        TabBar: Hr,
-        TabButton: jr,
-        TabWrapper: zr,
-        Table: Mr,
+        Span: Hr,
+        StorybookIcon: jr,
+        StorybookLogo: zr,
+        SyntaxHighlighter: Z,
+        TT: Ar,
+        TabBar: Mr,
+        TabButton: Br,
+        TabWrapper: Nr,
+        Table: Lr,
         Tabs: Dr,
-        TabsState: Ur,
-        TooltipLinkList: $r,
-        TooltipMessage: qr,
+        TabsState: $r,
+        TooltipLinkList: qr,
+        TooltipMessage: Wr,
         TooltipNote: Yr,
         UL: Gr,
-        WithTooltip: Wr,
-        WithTooltipPure: Kr,
-        Zoom: Xr,
-        codeCommon: Zr,
-        components: Jr,
-        createCopyToClipboardFunction: Qr,
+        WithTooltip: Kr,
+        WithTooltipPure: Ur,
+        Zoom: Zr,
+        codeCommon: Jr,
+        components: Qr,
+        createCopyToClipboardFunction: Xr,
         getStoryHref: Vr,
         interleaveSeparators: ea,
         nameSpaceClassNames: ta,
         resetComponents: ra,
-        withReset: Z,
+        withReset: J,
       } = __STORYBOOK_COMPONENTS__
     var ia = __STORYBOOK_API__,
       {
@@ -114,7 +114,7 @@ try {
         ManagerContext: la,
         Provider: da,
         RequestResponseError: fa,
-        addons: L,
+        addons: H,
         combineParameters: ca,
         controlOrMetaKey: ma,
         controlOrMetaSymbol: ha,
@@ -124,38 +124,38 @@ try {
         experimental_UniversalStore: va,
         experimental_getStatusStore: xa,
         experimental_getTestProviderStore: Sa,
-        experimental_requestResponse: _a,
-        experimental_useStatusStore: Ta,
+        experimental_requestResponse: Ta,
+        experimental_useStatusStore: wa,
         experimental_useTestProviderStore: Pa,
-        experimental_useUniversalStore: Ea,
-        internal_fullStatusStore: wa,
+        experimental_useUniversalStore: _a,
+        internal_fullStatusStore: ka,
         internal_fullTestProviderStore: Ca,
-        internal_universalStatusStore: Ia,
+        internal_universalStatusStore: Ea,
         internal_universalTestProviderStore: Ra,
-        isMacLike: ka,
+        isMacLike: Ia,
         isShortcutTaken: Oa,
         keyToSymbol: Fa,
-        merge: La,
-        mockChannel: Aa,
-        optionOrAltSymbol: Na,
-        shortcutMatchesShortcut: Ba,
-        shortcutToHumanString: Ha,
-        types: J,
-        useAddonState: ja,
-        useArgTypes: za,
-        useArgs: Ma,
-        useChannel: Q,
+        merge: Ha,
+        mockChannel: ja,
+        optionOrAltSymbol: za,
+        shortcutMatchesShortcut: Aa,
+        shortcutToHumanString: Ma,
+        types: Q,
+        useAddonState: Ba,
+        useArgTypes: Na,
+        useArgs: La,
+        useChannel: X,
         useGlobalTypes: Da,
-        useGlobals: Ua,
+        useGlobals: $a,
         useParameter: V,
-        useSharedState: $a,
-        useStoryPrepared: qa,
+        useSharedState: qa,
+        useStoryPrepared: Wa,
         useStorybookApi: Ya,
         useStorybookState: Ga,
       } = __STORYBOOK_API__
-    var Ja = __STORYBOOK_THEMING__,
+    var Qa = __STORYBOOK_THEMING__,
       {
-        CacheProvider: Qa,
+        CacheProvider: Xa,
         ClassNames: Va,
         Global: en,
         ThemeProvider: ee,
@@ -169,21 +169,21 @@ try {
         css: pn,
         darken: un,
         ensure: ln,
-        ignoreSsrWarning: A,
+        ignoreSsrWarning: j,
         isPropValid: dn,
         jsx: fn,
         keyframes: cn,
         lighten: mn,
         styled: x,
-        themes: N,
+        themes: z,
         typography: hn,
-        useTheme: B,
+        useTheme: A,
         withTheme: bn,
       } = __STORYBOOK_THEMING__
-    var q = 'storybook/docs',
-      le = `${q}/panel`,
+    var W = 'storybook/docs',
+      le = `${W}/panel`,
       re = 'docs',
-      ae = `${q}/snippet-rendered`
+      ae = `${W}/snippet-rendered`
     function d() {
       return (
         (d = Object.assign
@@ -216,14 +216,14 @@ try {
     function fe(e, t) {
       ;((e.prototype = Object.create(t.prototype)), (e.prototype.constructor = e), C(e, t))
     }
-    function M(e) {
+    function L(e) {
       return (
-        (M = Object.setPrototypeOf
+        (L = Object.setPrototypeOf
           ? Object.getPrototypeOf.bind()
           : function (t) {
               return t.__proto__ || Object.getPrototypeOf(t)
             }),
-        M(e)
+        L(e)
       )
     }
     function ce(e) {
@@ -260,7 +260,7 @@ try {
             t.set(r, a)
           }
           function a() {
-            return me(r, arguments, M(this).constructor)
+            return me(r, arguments, L(this).constructor)
           }
           return (
             (a.prototype = Object.create(r.prototype, {
@@ -522,13 +522,13 @@ To pass a single animation please supply them in simple values, e.g. animation('
       }
       return t
     })(D(Error))
-    function H(e) {
+    function M(e) {
       return Math.round(e * 255)
     }
     function ge(e, t, r) {
-      return H(e) + ',' + H(t) + ',' + H(r)
+      return M(e) + ',' + M(t) + ',' + M(r)
     }
-    function I(e, t, r, a) {
+    function E(e, t, r, a) {
       if ((a === void 0 && (a = ge), t === 0)) return a(r, r, r)
       var n = (((e % 360) + 360) % 360) / 60,
         o = (1 - Math.abs(2 * r - 1)) * t,
@@ -550,8 +550,8 @@ To pass a single animation please supply them in simple values, e.g. animation('
       var h = r - o / 2,
         m = i + h,
         f = p + h,
-        T = u + h
-      return a(m, f, T)
+        w = u + h
+      return a(m, f, w)
     }
     var ne = {
       aliceblue: 'f0f8ff',
@@ -711,13 +711,13 @@ To pass a single animation please supply them in simple values, e.g. animation('
     var ve = /^#[a-fA-F0-9]{6}$/,
       xe = /^#[a-fA-F0-9]{8}$/,
       Se = /^#[a-fA-F0-9]{3}$/,
-      _e = /^#[a-fA-F0-9]{4}$/,
-      j = /^rgb\(\s*(\d{1,3})\s*(?:,)?\s*(\d{1,3})\s*(?:,)?\s*(\d{1,3})\s*\)$/i,
-      Te =
+      Te = /^#[a-fA-F0-9]{4}$/,
+      B = /^rgb\(\s*(\d{1,3})\s*(?:,)?\s*(\d{1,3})\s*(?:,)?\s*(\d{1,3})\s*\)$/i,
+      we =
         /^rgb(?:a)?\(\s*(\d{1,3})\s*(?:,)?\s*(\d{1,3})\s*(?:,)?\s*(\d{1,3})\s*(?:,|\/)\s*([-+]?\d*[.]?\d+[%]?)\s*\)$/i,
       Pe =
         /^hsl\(\s*(\d{0,3}[.]?[0-9]+(?:deg)?)\s*(?:,)?\s*(\d{1,3}[.]?[0-9]?)%\s*(?:,)?\s*(\d{1,3}[.]?[0-9]?)%\s*\)$/i,
-      Ee =
+      _e =
         /^hsl(?:a)?\(\s*(\d{0,3}[.]?[0-9]+(?:deg)?)\s*(?:,)?\s*(\d{1,3}[.]?[0-9]?)%\s*(?:,)?\s*(\d{1,3}[.]?[0-9]?)%\s*(?:,|\/)\s*([-+]?\d*[.]?\d+[%]?)\s*\)$/i
     function S(e) {
       if (typeof e != 'string') throw new b(3)
@@ -743,7 +743,7 @@ To pass a single animation please supply them in simple values, e.g. animation('
           green: parseInt('' + t[2] + t[2], 16),
           blue: parseInt('' + t[3] + t[3], 16),
         }
-      if (t.match(_e)) {
+      if (t.match(Te)) {
         var a = parseFloat((parseInt('' + t[4] + t[4], 16) / 255).toFixed(2))
         return {
           red: parseInt('' + t[1] + t[1], 16),
@@ -752,14 +752,14 @@ To pass a single animation please supply them in simple values, e.g. animation('
           alpha: a,
         }
       }
-      var n = j.exec(t)
+      var n = B.exec(t)
       if (n)
         return {
           red: parseInt('' + n[1], 10),
           green: parseInt('' + n[2], 10),
           blue: parseInt('' + n[3], 10),
         }
-      var o = Te.exec(t.substring(0, 50))
+      var o = we.exec(t.substring(0, 50))
       if (o)
         return {
           red: parseInt('' + o[1], 10),
@@ -772,8 +772,8 @@ To pass a single animation please supply them in simple values, e.g. animation('
         var i = parseInt('' + s[1], 10),
           p = parseInt('' + s[2], 10) / 100,
           u = parseInt('' + s[3], 10) / 100,
-          h = 'rgb(' + I(i, p, u) + ')',
-          m = j.exec(h)
+          h = 'rgb(' + E(i, p, u) + ')',
+          m = B.exec(h)
         if (!m) throw new b(4, t, h)
         return {
           red: parseInt('' + m[1], 10),
@@ -781,13 +781,13 @@ To pass a single animation please supply them in simple values, e.g. animation('
           blue: parseInt('' + m[3], 10),
         }
       }
-      var f = Ee.exec(t.substring(0, 50))
+      var f = _e.exec(t.substring(0, 50))
       if (f) {
-        var T = parseInt('' + f[1], 10),
+        var w = parseInt('' + f[1], 10),
           pe = parseInt('' + f[2], 10) / 100,
           ue = parseInt('' + f[3], 10) / 100,
-          Y = 'rgb(' + I(T, pe, ue) + ')',
-          R = j.exec(Y)
+          Y = 'rgb(' + E(w, pe, ue) + ')',
+          R = B.exec(Y)
         if (!R) throw new b(4, t, Y)
         return {
           red: parseInt('' + R[1], 10),
@@ -798,7 +798,7 @@ To pass a single animation please supply them in simple values, e.g. animation('
       }
       throw new b(5)
     }
-    function we(e) {
+    function ke(e) {
       var t = e.red / 255,
         r = e.green / 255,
         a = e.blue / 255,
@@ -831,26 +831,26 @@ To pass a single animation please supply them in simple values, e.g. animation('
       )
     }
     function g(e) {
-      return we(S(e))
+      return ke(S(e))
     }
     var Ce = function (e) {
         return e.length === 7 && e[1] === e[2] && e[3] === e[4] && e[5] === e[6]
           ? '#' + e[1] + e[3] + e[5]
           : e
       },
-      U = Ce
+      $ = Ce
     function v(e) {
       var t = e.toString(16)
       return t.length === 1 ? '0' + t : t
     }
-    function z(e) {
+    function N(e) {
       return v(Math.round(e * 255))
     }
-    function Ie(e, t, r) {
-      return U('#' + z(e) + z(t) + z(r))
+    function Ee(e, t, r) {
+      return $('#' + N(e) + N(t) + N(r))
     }
     function O(e, t, r) {
-      return I(e, t, r, Ie)
+      return E(e, t, r, Ee)
     }
     function Re(e, t, r) {
       if (typeof e == 'number' && typeof t == 'number' && typeof r == 'number') return O(e, t, r)
@@ -858,25 +858,25 @@ To pass a single animation please supply them in simple values, e.g. animation('
         return O(e.hue, e.saturation, e.lightness)
       throw new b(1)
     }
-    function ke(e, t, r, a) {
+    function Ie(e, t, r, a) {
       if (
         typeof e == 'number' &&
         typeof t == 'number' &&
         typeof r == 'number' &&
         typeof a == 'number'
       )
-        return a >= 1 ? O(e, t, r) : 'rgba(' + I(e, t, r) + ',' + a + ')'
+        return a >= 1 ? O(e, t, r) : 'rgba(' + E(e, t, r) + ',' + a + ')'
       if (typeof e == 'object' && t === void 0 && r === void 0 && a === void 0)
         return e.alpha >= 1
           ? O(e.hue, e.saturation, e.lightness)
-          : 'rgba(' + I(e.hue, e.saturation, e.lightness) + ',' + e.alpha + ')'
+          : 'rgba(' + E(e.hue, e.saturation, e.lightness) + ',' + e.alpha + ')'
       throw new b(2)
     }
-    function $(e, t, r) {
+    function q(e, t, r) {
       if (typeof e == 'number' && typeof t == 'number' && typeof r == 'number')
-        return U('#' + v(e) + v(t) + v(r))
+        return $('#' + v(e) + v(t) + v(r))
       if (typeof e == 'object' && t === void 0 && r === void 0)
-        return U('#' + v(e.red) + v(e.green) + v(e.blue))
+        return $('#' + v(e.red) + v(e.green) + v(e.blue))
       throw new b(6)
     }
     function F(e, t, r, a) {
@@ -890,10 +890,10 @@ To pass a single animation please supply them in simple values, e.g. animation('
           typeof r == 'number' &&
           typeof a == 'number'
         )
-          return a >= 1 ? $(e, t, r) : 'rgba(' + e + ',' + t + ',' + r + ',' + a + ')'
+          return a >= 1 ? q(e, t, r) : 'rgba(' + e + ',' + t + ',' + r + ',' + a + ')'
         if (typeof e == 'object' && t === void 0 && r === void 0 && a === void 0)
           return e.alpha >= 1
-            ? $(e.red, e.green, e.blue)
+            ? q(e.red, e.green, e.blue)
             : 'rgba(' + e.red + ',' + e.green + ',' + e.blue + ',' + e.alpha + ')'
       }
       throw new b(7)
@@ -914,7 +914,7 @@ To pass a single animation please supply them in simple values, e.g. animation('
           typeof e.alpha == 'number'
         )
       },
-      Le = function (e) {
+      He = function (e) {
         return (
           typeof e.hue == 'number' &&
           typeof e.saturation == 'number' &&
@@ -922,7 +922,7 @@ To pass a single animation please supply them in simple values, e.g. animation('
           (typeof e.alpha != 'number' || typeof e.alpha > 'u')
         )
       },
-      Ae = function (e) {
+      je = function (e) {
         return (
           typeof e.hue == 'number' &&
           typeof e.saturation == 'number' &&
@@ -933,9 +933,9 @@ To pass a single animation please supply them in simple values, e.g. animation('
     function y(e) {
       if (typeof e != 'object') throw new b(8)
       if (Fe(e)) return F(e)
-      if (Oe(e)) return $(e)
-      if (Ae(e)) return ke(e)
-      if (Le(e)) return Re(e)
+      if (Oe(e)) return q(e)
+      if (je(e)) return Ie(e)
+      if (He(e)) return Re(e)
       throw new b(8)
     }
     function se(e, t, r) {
@@ -947,34 +947,34 @@ To pass a single animation please supply them in simple values, e.g. animation('
     function c(e) {
       return se(e, e.length, [])
     }
-    function Ne(e, t) {
+    function ze(e, t) {
       if (t === 'transparent') return t
       var r = g(t)
       return y(d({}, r, { hue: r.hue + parseFloat(e) }))
     }
-    c(Ne)
-    function _(e, t, r) {
+    c(ze)
+    function T(e, t, r) {
       return Math.max(e, Math.min(t, r))
     }
+    function Ae(e, t) {
+      if (t === 'transparent') return t
+      var r = g(t)
+      return y(d({}, r, { lightness: T(0, 1, r.lightness - parseFloat(e)) }))
+    }
+    c(Ae)
+    function Me(e, t) {
+      if (t === 'transparent') return t
+      var r = g(t)
+      return y(d({}, r, { saturation: T(0, 1, r.saturation - parseFloat(e)) }))
+    }
+    c(Me)
     function Be(e, t) {
       if (t === 'transparent') return t
       var r = g(t)
-      return y(d({}, r, { lightness: _(0, 1, r.lightness - parseFloat(e)) }))
+      return y(d({}, r, { lightness: T(0, 1, r.lightness + parseFloat(e)) }))
     }
     c(Be)
-    function He(e, t) {
-      if (t === 'transparent') return t
-      var r = g(t)
-      return y(d({}, r, { saturation: _(0, 1, r.saturation - parseFloat(e)) }))
-    }
-    c(He)
-    function je(e, t) {
-      if (t === 'transparent') return t
-      var r = g(t)
-      return y(d({}, r, { lightness: _(0, 1, r.lightness + parseFloat(e)) }))
-    }
-    c(je)
-    function ze(e, t, r) {
+    function Ne(e, t, r) {
       if (t === 'transparent') return r
       if (r === 'transparent') return t
       if (e === 0) return r
@@ -988,38 +988,38 @@ To pass a single animation please supply them in simple values, e.g. animation('
         h = 1 + p * i,
         m = (u / h + 1) / 2,
         f = 1 - m,
-        T = {
+        w = {
           red: Math.floor(n.red * m + s.red * f),
           green: Math.floor(n.green * m + s.green * f),
           blue: Math.floor(n.blue * m + s.blue * f),
           alpha: n.alpha * parseFloat(e) + s.alpha * (1 - parseFloat(e)),
         }
-      return F(T)
+      return F(w)
     }
-    var Me = c(ze),
-      ie = Me
+    var Le = c(Ne),
+      ie = Le
     function De(e, t) {
       if (t === 'transparent') return t
       var r = S(t),
         a = typeof r.alpha == 'number' ? r.alpha : 1,
-        n = d({}, r, { alpha: _(0, 1, (a * 100 + parseFloat(e) * 100) / 100) })
+        n = d({}, r, { alpha: T(0, 1, (a * 100 + parseFloat(e) * 100) / 100) })
       return F(n)
     }
     c(De)
-    function Ue(e, t) {
+    function $e(e, t) {
       if (t === 'transparent') return t
       var r = g(t)
-      return y(d({}, r, { saturation: _(0, 1, r.saturation + parseFloat(e)) }))
-    }
-    c(Ue)
-    function $e(e, t) {
-      return t === 'transparent' ? t : y(d({}, g(t), { hue: parseFloat(e) }))
+      return y(d({}, r, { saturation: T(0, 1, r.saturation + parseFloat(e)) }))
     }
     c($e)
     function qe(e, t) {
-      return t === 'transparent' ? t : y(d({}, g(t), { lightness: parseFloat(e) }))
+      return t === 'transparent' ? t : y(d({}, g(t), { hue: parseFloat(e) }))
     }
     c(qe)
+    function We(e, t) {
+      return t === 'transparent' ? t : y(d({}, g(t), { lightness: parseFloat(e) }))
+    }
+    c(We)
     function Ye(e, t) {
       return t === 'transparent' ? t : y(d({}, g(t), { saturation: parseFloat(e) }))
     }
@@ -1028,20 +1028,20 @@ To pass a single animation please supply them in simple values, e.g. animation('
       return t === 'transparent' ? t : ie(parseFloat(e), 'rgb(0, 0, 0)', t)
     }
     c(Ge)
-    function We(e, t) {
+    function Ke(e, t) {
       return t === 'transparent' ? t : ie(parseFloat(e), 'rgb(255, 255, 255)', t)
     }
-    c(We)
-    function Ke(e, t) {
+    c(Ke)
+    function Ue(e, t) {
       if (t === 'transparent') return t
       var r = S(t),
         a = typeof r.alpha == 'number' ? r.alpha : 1,
-        n = d({}, r, { alpha: _(0, 1, +(a * 100 - parseFloat(e) * 100).toFixed(2) / 100) })
+        n = d({}, r, { alpha: T(0, 1, +(a * 100 - parseFloat(e) * 100).toFixed(2) / 100) })
       return F(n)
     }
-    var Xe = c(Ke),
-      Ze = Xe,
-      Je = x.div(Z, ({ theme: e }) => ({
+    var Ze = c(Ue),
+      Je = Ze,
+      Qe = x.div(J, ({ theme: e }) => ({
         backgroundColor: e.base === 'light' ? 'rgba(0,0,0,.01)' : 'rgba(255,255,255,.01)',
         borderRadius: e.appBorderRadius,
         border: `1px dashed ${e.appBorderColor}`,
@@ -1050,11 +1050,11 @@ To pass a single animation please supply them in simple values, e.g. animation('
         justifyContent: 'center',
         padding: 20,
         margin: '25px 0 40px',
-        color: Ze(0.3, e.color.defaultText),
+        color: Je(0.3, e.color.defaultText),
         fontSize: e.typography.size.s2,
       })),
-      Qe = (e) => l.createElement(Je, { ...e, className: 'docblock-emptyblock sb-unstyled' }),
-      Ve = x(X)(({ theme: e }) => ({
+      Xe = (e) => l.createElement(Qe, { ...e, className: 'docblock-emptyblock sb-unstyled' }),
+      Ve = x(Z)(({ theme: e }) => ({
         fontSize: `${e.typography.size.s2 - 1}px`,
         lineHeight: '19px',
         margin: '25px 0 40px',
@@ -1076,27 +1076,27 @@ To pass a single animation please supply them in simple values, e.g. animation('
         margin: '25px 0 40px',
         padding: '20px 20px 20px 22px',
       })),
-      k = x.div(({ theme: e }) => ({
+      I = x.div(({ theme: e }) => ({
         animation: `${e.animation.glow} 1.5s ease-in-out infinite`,
         background: e.appBorderColor,
         height: 17,
         marginTop: 1,
         width: '60%',
-        [`&:first-child${A}`]: { margin: 0 },
+        [`&:first-child${j}`]: { margin: 0 },
       })),
       tt = () =>
         l.createElement(
           et,
           null,
-          l.createElement(k, null),
-          l.createElement(k, { style: { width: '80%' } }),
-          l.createElement(k, { style: { width: '30%' } }),
-          l.createElement(k, { style: { width: '80%' } })
+          l.createElement(I, null),
+          l.createElement(I, { style: { width: '80%' } }),
+          l.createElement(I, { style: { width: '30%' } }),
+          l.createElement(I, { style: { width: '80%' } })
         ),
       rt = ({ isLoading: e, error: t, language: r, code: a, dark: n, format: o = !0, ...s }) => {
-        let { typography: i } = B()
+        let { typography: i } = A()
         if (e) return l.createElement(tt, null)
-        if (t) return l.createElement(Qe, null, t)
+        if (t) return l.createElement(Xe, null, t)
         let p = l.createElement(
           Ve,
           {
@@ -1110,17 +1110,17 @@ To pass a single animation please supply them in simple values, e.g. animation('
           a
         )
         if (typeof n > 'u') return p
-        let u = n ? N.dark : N.light
+        let u = n ? z.dark : z.light
         return l.createElement(
           ee,
           { theme: te({ ...u, fontCode: i.fonts.mono, fontBase: i.fonts.base }) },
           p
         )
       }
-    L.register(q, (e) => {
-      L.add(le, {
+    H.register(W, (e) => {
+      H.add(le, {
         title: 'Code',
-        type: J.PANEL,
+        type: Q.PANEL,
         paramKey: re,
         disabled: (t) => !t?.docs?.codePanel,
         match: ({ viewMode: t }) => t === 'story',
@@ -1128,19 +1128,19 @@ To pass a single animation please supply them in simple values, e.g. animation('
           let r = e.getChannel(),
             a = e.getCurrentStoryData(),
             n = r?.last(ae)?.[0],
-            [o, s] = W({ source: n?.source, format: n?.format ?? void 0 }),
+            [o, s] = K({ source: n?.source, format: n?.format ?? void 0 }),
             i = V(re, { source: { code: '' }, theme: 'dark' })
           ;(G(() => {
             s({ source: void 0, format: void 0 })
           }, [a?.id]),
-            Q({
+            X({
               [ae]: ({ source: u, format: h }) => {
                 s({ source: u, format: h })
               },
             }))
-          let p = B().base !== 'light'
+          let p = A().base !== 'light'
           return l.createElement(
-            K,
+            U,
             { active: !!t },
             l.createElement(
               at,
@@ -1158,7 +1158,7 @@ To pass a single animation please supply them in simple values, e.g. animation('
     })
     var at = x.div(() => ({
       height: '100%',
-      [`> :first-child${A}`]: { margin: 0, height: '100%', boxShadow: 'none' },
+      [`> :first-child${j}`]: { margin: 0, height: '100%', boxShadow: 'none' },
     }))
   })()
 } catch (e) {

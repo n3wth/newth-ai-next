@@ -277,19 +277,17 @@
               (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)('div', {
                 className: 'flex flex-wrap gap-2 mb-4',
                 children: [
-                  (project.tags || project.tech || [])
-                    .slice(0, 3)
-                    .map((tag) =>
-                      (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(
-                        'span',
-                        {
-                          className:
-                            'px-2 py-1 text-xs font-medium rounded-lg bg-white/5 text-gray-300 border border-white/10',
-                          children: tag,
-                        },
-                        tag
-                      )
-                    ),
+                  (project.tags || project.tech || []).slice(0, 3).map((tag) =>
+                    (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(
+                      'span',
+                      {
+                        className:
+                          'px-2 py-1 text-xs font-medium rounded-lg bg-white/5 text-gray-300 border border-white/10',
+                        children: tag,
+                      },
+                      tag
+                    )
+                  ),
                   (project.tags || project.tech || []).length > 3 &&
                     (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)('span', {
                       className: 'px-2 py-1 text-xs font-medium rounded-lg text-gray-500',
@@ -3887,19 +3885,17 @@
                                                       (0, jsx_runtime.jsxs)('div', {
                                                         className: 'flex flex-wrap gap-1 mt-2',
                                                         children: [
-                                                          result.tags
-                                                            .slice(0, 3)
-                                                            .map((tag) =>
-                                                              (0, jsx_runtime.jsx)(
-                                                                'span',
-                                                                {
-                                                                  className:
-                                                                    'inline-flex items-center px-1.5 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-300',
-                                                                  children: tag,
-                                                                },
-                                                                tag
-                                                              )
-                                                            ),
+                                                          result.tags.slice(0, 3).map((tag) =>
+                                                            (0, jsx_runtime.jsx)(
+                                                              'span',
+                                                              {
+                                                                className:
+                                                                  'inline-flex items-center px-1.5 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-300',
+                                                                children: tag,
+                                                              },
+                                                              tag
+                                                            )
+                                                          ),
                                                           result.tags.length > 3 &&
                                                             (0, jsx_runtime.jsxs)('span', {
                                                               className: 'text-xs text-gray-400',

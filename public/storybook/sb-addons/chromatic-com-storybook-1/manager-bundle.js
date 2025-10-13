@@ -9,24 +9,10 @@ try {
       if (typeof require < 'u') return require.apply(this, arguments)
       throw Error('Dynamic require of "' + e + '" is not supported')
     })
-    var Oe = {
-      NODE_ENV: 'production',
-      NODE_PATH: [],
-      STORYBOOK: 'true',
-      PUBLIC_URL: '.',
-      NEXT_PUBLIC_VERCEL_ENV: 'production',
-      NEXT_TELEMETRY_DISABLED: '1',
-      NEXT_PUBLIC_STAGING_URL: 'https://staging.newth.ai',
-      NEXT_PUBLIC_FIGMA_URL: 'https://figma.com/your-design-system',
-      NEXT_PUBLIC_ANALYTICS_URL: 'https://analytics.vercel.com',
-      NEXT_PUBLIC_GITHUB_REPO: 'https://github.com/yourusername/newth-ai-next-v1',
-      NEXT_PUBLIC_SENTRY_URL: 'https://sentry.io/organizations/your-org',
-      NEXT_PUBLIC_LINEAR_URL: 'https://linear.app/your-team',
-      NEXT_PUBLIC_DATADOG_URL: 'https://app.datadoghq.com',
-    }
+    var _e = { NODE_ENV: 'production', NODE_PATH: [], STORYBOOK: 'true', PUBLIC_URL: '.' }
     var a = __REACT__,
       {
-        Children: O6,
+        Children: _6,
         Component: Tt,
         Fragment: I6,
         Profiler: R6,
@@ -34,8 +20,8 @@ try {
         StrictMode: P6,
         Suspense: V6,
         __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: H6,
-        act: D6,
-        cloneElement: j6,
+        act: j6,
+        cloneElement: D6,
         createContext: He,
         createElement: S,
         createFactory: z6,
@@ -44,10 +30,10 @@ try {
         isValidElement: wl,
         lazy: $6,
         memo: W6,
-        startTransition: G6,
-        unstable_act: q6,
+        startTransition: q6,
+        unstable_act: G6,
         useCallback: K,
-        useContext: qt,
+        useContext: Gt,
         useDebugValue: Y6,
         useDeferredValue: K6,
         useEffect: te,
@@ -91,8 +77,8 @@ try {
         internal_universalStatusStore: Lf,
         internal_universalTestProviderStore: Tf,
         isMacLike: Zf,
-        isShortcutTaken: _f,
-        keyToSymbol: Of,
+        isShortcutTaken: Of,
+        keyToSymbol: _f,
         merge: If,
         mockChannel: Rf,
         optionOrAltSymbol: Bf,
@@ -100,8 +86,8 @@ try {
         shortcutToHumanString: Vf,
         types: Hf,
         useAddonState: Ml,
-        useArgTypes: Df,
-        useArgs: jf,
+        useArgTypes: jf,
+        useArgs: Df,
         useChannel: ya,
         useGlobalTypes: Fl,
         useGlobals: Al,
@@ -156,26 +142,26 @@ try {
         ErrorFormatter: L8,
         FlexBar: T8,
         Form: Z8,
-        H1: _8,
-        H2: O8,
+        H1: O8,
+        H2: _8,
         H3: I8,
         H4: R8,
         H5: B8,
         H6: P8,
         HR: V8,
-        IconButton: _l,
+        IconButton: Ol,
         Img: H8,
-        LI: D8,
-        Link: _t,
-        ListItem: j8,
+        LI: j8,
+        Link: Ot,
+        ListItem: D8,
         Loader: Zr,
         Modal: z8,
         OL: U8,
         P: $8,
         Placeholder: W8,
-        Pre: G8,
-        ProgressSpinner: Ol,
-        ResetWrapper: q8,
+        Pre: q8,
+        ProgressSpinner: _l,
+        ResetWrapper: G8,
         ScrollArea: Y8,
         Separator: K8,
         Spaced: J8,
@@ -226,32 +212,32 @@ try {
       Vl = 'Bc2PgW_p',
       sd = 'Bc2PgW_c',
       Hl = ['#FFC700', '#FF0000', '#2E3191', '#41BBC7'],
-      Dl = 3500,
-      jl = 0.5,
+      jl = 3500,
+      Dl = 0.5,
       zl = 150,
       Ul = 'mix',
       $l = 12,
       Wl = '',
-      Gl = !0,
-      ql = 800,
+      ql = !0,
+      Gl = 800,
       Yl = 1600
     function dd(e, t = {}) {
       let {
         colors: n = Hl,
-        duration: r = Dl,
-        force: i = jl,
+        duration: r = jl,
+        force: i = Dl,
         particleCount: l = zl,
         particleShape: o = Ul,
         particleSize: s = $l,
         particleClass: d = Wl,
-        destroyAfterDone: c = Gl,
-        stageHeight: u = ql,
+        destroyAfterDone: c = ql,
+        stageHeight: u = Gl,
         stageWidth: m = Yl,
       } = t
       ;((function (f) {
         if (document.querySelector('style[data-neoconfetti]')) return
-        let E = _r('style')
-        ;((E.dataset.neoconfetti = ''), (E.textContent = f), Or(document.head, E))
+        let E = Or('style')
+        ;((E.dataset.neoconfetti = ''), (E.textContent = f), _r(document.head, E))
       })(od),
         e.classList.add(sd),
         e.style.setProperty('--sh', u + 'px'))
@@ -276,9 +262,9 @@ try {
           M('--y4', Yt(pd(Ir(ka(E - 180), 0, 180, i, -i), 0), 4)),
           M('--w', (Z ? s : Mn(4 * nt()) + s / 2) + 'px'),
           M('--h', (Z ? s : Mn(2 * nt()) + s) + 'px'))
-        let j = C.toString(2).padStart(3, '0').split('')
-        ;(M('--hr', j.map((X) => +X / 2 + '').join(' ')),
-          M('--r', j.join(' ')),
+        let D = C.toString(2).padStart(3, '0').split('')
+        ;(M('--hr', D.map((X) => +X / 2 + '').join(' ')),
+          M('--r', D.join(' ')),
           M('--rd', Yt(nt() * (cd - Kl) + Kl) + 'ms'),
           M('--br', Z ? '50%' : 0))
       }
@@ -290,10 +276,10 @@ try {
           (v = (function (f, E = [], C) {
             let Z = []
             for (let { color: M } of E) {
-              let V = _r('div')
+              let V = Or('div')
               ;((V.className = `${Vl} ${C}`), V.style.setProperty('--bgc', M))
-              let j = _r('div')
-              ;(Or(V, j), Or(f, V), Z.push(V))
+              let D = Or('div')
+              ;(_r(V, D), _r(f, V), Z.push(V))
             }
             return Z
           })(e, p, d)))
@@ -311,11 +297,11 @@ try {
               Z = f.particleSize ?? $l,
               M = f.particleClass ?? Wl,
               V = f.colors ?? Hl,
-              j = f.stageHeight ?? ql,
-              X = f.duration ?? Dl,
-              oe = f.force ?? jl,
+              D = f.stageHeight ?? Gl,
+              X = f.duration ?? jl,
+              oe = f.force ?? Dl,
               ve = f.stageWidth ?? Yl,
-              fe = f.destroyAfterDone ?? Gl
+              fe = f.destroyAfterDone ?? ql
             p = Ql(E, V)
             let ce = !1
             if (E === l) {
@@ -328,7 +314,7 @@ try {
               }
             } else ce = !0
             ;(c && !fe && clearTimeout(b),
-              e.style.setProperty('--sh', j + 'px'),
+              e.style.setProperty('--sh', D + 'px'),
               (r = X),
               (n = V),
               (i = oe),
@@ -337,7 +323,7 @@ try {
               (s = Z),
               (d = M),
               (c = fe),
-              (u = j),
+              (u = D),
               (m = ve),
               ce && h())
           },
@@ -356,8 +342,8 @@ try {
       nt = Math.random,
       Mn = Math.round,
       pd = Math.max,
-      _r = (e) => document.createElement(e),
-      Or = (e, t) => e.appendChild(t),
+      Or = (e) => document.createElement(e),
+      _r = (e, t) => e.appendChild(t),
       Ql = (e, t) =>
         Array.from({ length: e }, (n, r) => ({ color: t[r % t.length], degree: (360 * r) / e })),
       Yt = (e, t = 2) => Mn((e + Number.EPSILON) * 10 ** t) / 10 ** t,
@@ -455,9 +441,9 @@ try {
       let Z = r === 10 ? 1e3 : 1024,
         M = p === !0,
         V = h < 0,
-        j = Math[y]
+        D = Math[y]
       if (typeof e != 'bigint' && isNaN(e)) throw new TypeError(kd)
-      if (typeof j !== Ed) throw new TypeError(wd)
+      if (typeof D !== Ed) throw new TypeError(wd)
       if (
         (V && (h = -h),
         (b === -1 || isNaN(b)) && ((b = Math.floor(Math.log(h) / Math.log(Z))), b < 0 && (b = 0)),
@@ -470,7 +456,7 @@ try {
         ;((E = h / (r === 2 ? Math.pow(2, b * 10) : Math.pow(1e3, b))),
           t && ((E = E * 8), E >= Z && b < 8 && ((E = E / Z), b++)))
         let X = Math.pow(10, b > 0 ? i : 0)
-        ;((f[0] = j(E * X) / X),
+        ;((f[0] = D(E * X) / X),
           f[0] === Z && b < 8 && g === -1 && ((f[0] = 1), b++),
           (C = f[1] = r === 10 && b === 1 ? (t ? xd : 'kB') : Vr.symbol[u][t ? ao : ro][b]))
       }
@@ -499,7 +485,7 @@ try {
       )
     }
     var Md = Object.create,
-      j1 = Object.defineProperty,
+      D1 = Object.defineProperty,
       Fd = Object.getOwnPropertyDescriptor,
       Ad = Object.getOwnPropertyNames,
       Ld = Object.getPrototypeOf,
@@ -514,17 +500,17 @@ try {
         throw new Error('Dynamic require of "' + e + '" is not supported')
       }),
       At = (e, t) => () => (t || e((t = { exports: {} }).exports, t), t.exports),
-      _d = (e, t, n, r) => {
+      Od = (e, t, n, r) => {
         if ((t && typeof t == 'object') || typeof t == 'function')
           for (let i of Ad(t))
             !Td.call(e, i) &&
               i !== n &&
-              j1(e, i, { get: () => t[i], enumerable: !(r = Fd(t, i)) || r.enumerable })
+              D1(e, i, { get: () => t[i], enumerable: !(r = Fd(t, i)) || r.enumerable })
         return e
       },
       pt = (e, t, n) => (
         (n = e != null ? Md(Ld(e)) : {}),
-        _d(t || !e || !e.__esModule ? j1(n, 'default', { value: e, enumerable: !0 }) : n, e)
+        Od(t || !e || !e.__esModule ? D1(n, 'default', { value: e, enumerable: !0 }) : n, e)
       ),
       Ui = At((e, t) => {
         ;(function (n, r) {
@@ -850,7 +836,7 @@ try {
           )
         })
       }),
-      Od = At((e, t) => {
+      _d = At((e, t) => {
         var n = new Error('Element already at target scroll position'),
           r = new Error('Scroll cancelled'),
           i = Math.min,
@@ -1078,15 +1064,15 @@ try {
       {
         CHROMATIC_INDEX_URL: Hd,
         CHROMATIC_BASE_URL: pr = Hd || 'https://www.chromatic.com',
-        CHROMATIC_API_URL: Dd = `${pr}/api`,
-      } = Oe,
+        CHROMATIC_API_URL: jd = `${pr}/api`,
+      } = _e,
       U = 'chromaui/addon-visual-tests',
       rn = `${U}/panel`,
       ci = `${U}/test-provider`,
       ui = `${U}/access-token/${pr}`,
       Wi = `${U}/configInfo`,
       io = `${U}/configInfoDismissed`,
-      jd = `${U}/gitInfo`,
+      Dd = `${U}/gitInfo`,
       z1 = `${U}/gitInfoError`,
       U1 = `${U}/projectInfo`,
       $1 = `${U}/isOffline`,
@@ -1096,10 +1082,10 @@ try {
       W1 = `${U}/localBuildProgress`,
       $d = `${U}/selectedModeName`,
       Wd = `${U}/selectedBrowserId`,
-      Gd = `${U}/telemetry`,
+      qd = `${U}/telemetry`,
       lo = `${U}/enableFilter`,
-      G1 = `${U}/removeAddon`,
-      qd = 'chromatic',
+      q1 = `${U}/removeAddon`,
+      Gd = 'chromatic',
       Yd = `${U}/ChannelFetch/aborted`,
       Kd = `${U}ChannelFetch/request`,
       Jd = `${U}ChannelFetch/response`,
@@ -1116,15 +1102,15 @@ try {
         skipUpdateCheck: !0,
         storybookBuildDir: void 0,
       },
-      q1 = 'https://www.chromatic.com/docs/visual-tests-addon',
+      G1 = 'https://www.chromatic.com/docs/visual-tests-addon',
       ht = (e, t) => {
-        let n = qt(e)
+        let n = Gt(e)
         if (n == null) throw new Error(`Missing context value for ${t}`)
         return n
       },
       Y1 = He(null),
       Xd = ({ children: e, value: t }) => a.createElement(Y1.Provider, { value: t }, e),
-      Gi = () => ht(Y1, 'AuthState'),
+      qi = () => ht(Y1, 'AuthState'),
       e5 = {
         user: a.createElement(
           a.Fragment,
@@ -2922,7 +2908,7 @@ try {
         verticalAlign: 'middle',
         path: { fill: 'currentColor' },
       }),
-      qi = ({ icon: e, ...t }) =>
+      Gi = ({ icon: e, ...t }) =>
         a.createElement(
           t5,
           { viewBox: '0 0 14 14', width: '14px', height: '14px', ...t },
@@ -3033,11 +3019,11 @@ try {
       }
       return t
     })(hi(Error))
-    function Dr(e) {
+    function jr(e) {
       return Math.round(e * 255)
     }
     function l5(e, t, n) {
-      return Dr(e) + ',' + Dr(t) + ',' + Dr(n)
+      return jr(e) + ',' + jr(t) + ',' + jr(n)
     }
     function $n(e, t, n, r) {
       if ((r === void 0 && (r = l5), t === 0)) return r(n, n, n)
@@ -3223,7 +3209,7 @@ try {
       d5 = /^#[a-fA-F0-9]{8}$/,
       c5 = /^#[a-fA-F0-9]{3}$/,
       u5 = /^#[a-fA-F0-9]{4}$/,
-      jr = /^rgb\(\s*(\d{1,3})\s*(?:,)?\s*(\d{1,3})\s*(?:,)?\s*(\d{1,3})\s*\)$/i,
+      Dr = /^rgb\(\s*(\d{1,3})\s*(?:,)?\s*(\d{1,3})\s*(?:,)?\s*(\d{1,3})\s*\)$/i,
       m5 =
         /^rgb(?:a)?\(\s*(\d{1,3})\s*(?:,)?\s*(\d{1,3})\s*(?:,)?\s*(\d{1,3})\s*(?:,|\/)\s*([-+]?\d*[.]?\d+[%]?)\s*\)$/i,
       p5 =
@@ -3263,7 +3249,7 @@ try {
           alpha: r,
         }
       }
-      var i = jr.exec(t)
+      var i = Dr.exec(t)
       if (i)
         return {
           red: parseInt('' + i[1], 10),
@@ -3284,7 +3270,7 @@ try {
           d = parseInt('' + o[2], 10) / 100,
           c = parseInt('' + o[3], 10) / 100,
           u = 'rgb(' + $n(s, d, c) + ')',
-          m = jr.exec(u)
+          m = Dr.exec(u)
         if (!m) throw new rt(4, t, u)
         return {
           red: parseInt('' + m[1], 10),
@@ -3298,7 +3284,7 @@ try {
           g = parseInt('' + p[2], 10) / 100,
           y = parseInt('' + p[3], 10) / 100,
           w = 'rgb(' + $n(v, g, y) + ')',
-          b = jr.exec(w)
+          b = Dr.exec(w)
         if (!b) throw new rt(4, t, w)
         return {
           red: parseInt('' + b[1], 10),
@@ -3350,12 +3336,12 @@ try {
           : e
       },
       fi = g5
-    function Ot(e) {
+    function _t(e) {
       var t = e.toString(16)
       return t.length === 1 ? '0' + t : t
     }
     function zr(e) {
-      return Ot(Math.round(e * 255))
+      return _t(Math.round(e * 255))
     }
     function v5(e, t, n) {
       return fi('#' + zr(e) + zr(t) + zr(n))
@@ -3385,9 +3371,9 @@ try {
     }
     function gi(e, t, n) {
       if (typeof e == 'number' && typeof t == 'number' && typeof n == 'number')
-        return fi('#' + Ot(e) + Ot(t) + Ot(n))
+        return fi('#' + _t(e) + _t(t) + _t(n))
       if (typeof e == 'object' && t === void 0 && n === void 0)
-        return fi('#' + Ot(e.red) + Ot(e.green) + Ot(e.blue))
+        return fi('#' + _t(e.red) + _t(e.green) + _t(e.blue))
       throw new rt(6)
     }
     function vi(e, t, n, r) {
@@ -3637,7 +3623,7 @@ try {
           ...(!e.src && !e.isLoading && { background: '#37D5D3' }),
         })
       ),
-      T5 = k(qi)(
+      T5 = k(Gi)(
         {
           position: 'relative',
           margin: '0 auto',
@@ -3661,7 +3647,7 @@ try {
             large: { fontSize: `${B.size.s3}px`, lineHeight: `${Rt.large}px` },
           })[e.size || 'medium']
       ),
-      _5 = ({
+      O5 = ({
         isLoading: e = !1,
         username: t = 'loading',
         src: n = void 0,
@@ -3681,7 +3667,7 @@ try {
           a.createElement(L5, { size: r, isLoading: e, src: n, type: i, ...s, ...l }, o)
         )
       },
-      O5 = k.span(
+      _5 = k.span(
         (e) =>
           e.withArrow && {
             '> svg:last-of-type': {
@@ -3762,7 +3748,7 @@ try {
       let i = a.createElement(
         a.Fragment,
         null,
-        a.createElement(O5, { withArrow: !!t }, e, t && a.createElement(qi, { icon: 'arrowright' }))
+        a.createElement(_5, { withArrow: !!t }, e, t && a.createElement(Gi, { icon: 'arrowright' }))
       )
       return a.createElement(I5, { as: is, ref: r, ...n }, i)
     })
@@ -3809,7 +3795,7 @@ try {
         '&[disabled]': { cursor: 'not-allowed', opacity: 0.5 },
         '&:-webkit-autofill': { WebkitBoxShadow: `0 0 0 3em ${P.lightest} inset` },
       }),
-      D5 = (e) => {
+      j5 = (e) => {
         let t = { position: 'relative', ...(e.error && { zIndex: 1 }), '&:focus': { zIndex: 2 } }
         switch (e.stackLevel) {
           case 'top':
@@ -3835,14 +3821,14 @@ try {
             return { borderRadius: '4px' }
         }
       },
-      j5 = k.div((e) => ({
+      D5 = k.div((e) => ({
         display: 'inline-block',
         position: 'relative',
         verticalAlign: 'top',
         width: '100%',
         '.sbds-input-el': {
           position: 'relative',
-          ...D5(e),
+          ...j5(e),
           background: P.lightest,
           color: P.darkest,
           fontSize: `${B.size.s2}px`,
@@ -3969,7 +3955,7 @@ try {
               a.createElement(P5, { htmlFor: e, appearance: t }, s)
             ),
             a.createElement(
-              j5,
+              D5,
               {
                 className: 'sbds-input-input-wrapper',
                 error: h,
@@ -3979,7 +3965,7 @@ try {
                 stackLevel: m,
                 startingType: p,
               },
-              o && a.createElement(qi, { icon: o, 'aria-hidden': !0 }),
+              o && a.createElement(Gi, { icon: o, 'aria-hidden': !0 }),
               a.createElement(
                 U5,
                 {
@@ -4030,7 +4016,7 @@ try {
       )
     })
     os.displayName = 'Input'
-    var G5 = k.div(
+    var q5 = k.div(
         {
           borderRadius: '3em',
           cursor: 'progress',
@@ -4102,13 +4088,13 @@ try {
         })
       ),
       yi = (e) =>
-        a.createElement(G5, {
+        a.createElement(q5, {
           'aria-label': 'Content is loading ...',
           'aria-live': 'polite',
           role: 'status',
           ...e,
         }),
-      q5 = function (e) {
+      G5 = function (e) {
         var t = new WeakMap()
         return function (n) {
           if (t.has(n)) return t.get(n)
@@ -4179,10 +4165,10 @@ try {
         Ki
       ),
       tc = k.span(Ki),
-      nc = q5((e) =>
+      nc = G5((e) =>
         k(({ active: t, isLoading: n, activeColor: r, ...i }) => a.createElement(e, { ...i }))(Ki)
       ),
-      Ge = ({
+      qe = ({
         appearance: e = 'primary',
         left: t,
         title: n = a.createElement('span', null, 'Loading'),
@@ -5019,7 +5005,7 @@ try {
           })
         )
       ),
-      _c = W(({ color: e = 'currentColor', size: t = 14, ...n }, r) =>
+      Oc = W(({ color: e = 'currentColor', size: t = 14, ...n }, r) =>
         S(
           'svg',
           {
@@ -5039,7 +5025,7 @@ try {
           })
         )
       ),
-      Oc = W(({ color: e = 'currentColor', size: t = 14, ...n }, r) =>
+      _c = W(({ color: e = 'currentColor', size: t = 14, ...n }, r) =>
         S(
           'svg',
           {
@@ -5186,7 +5172,7 @@ try {
         let r = Zt().getChannel()
         if (!r) throw new Error('Channel not available')
         let i = () => {
-          ;(r.emit(G1), n(!0))
+          ;(r.emit(q1), n(!0))
         }
         return a.createElement(
           fs.Provider,
@@ -5237,7 +5223,7 @@ try {
             t
           ]) ||
         {},
-      dt = k(_l)(
+      dt = k(Ol)(
         ({ active: e, variant: t, theme: n }) => ({
           display: 'inline-flex',
           alignItems: 'center',
@@ -5279,9 +5265,9 @@ try {
         color: e.color.mediumdark,
       })),
       gr = { width: 14, height: 14, margin: '2px 6px 2px 0', verticalAlign: 'top' },
-      Hc = k(Oc)(gr),
-      Dc = k(fc)(gr),
-      jc = k(ds)(gr),
+      Hc = k(_c)(gr),
+      jc = k(fc)(gr),
+      Dc = k(ds)(gr),
       zc = k(gc)(gr),
       el = k(Qi)({ marginLeft: 'auto' }),
       tl = k(dt)({ margin: -5, marginLeft: 'auto' }),
@@ -5512,14 +5498,14 @@ try {
         padding: 20,
         position: 'relative',
       })),
-      Gc = k.div({ margin: '0 auto', maxWidth: 600, width: '100%' }),
+      qc = k.div({ margin: '0 auto', maxWidth: 600, width: '100%' }),
       fo = k.div(({ theme: e }) => ({
         borderBottom: `1px solid ${e.appBorderColor}`,
         marginBottom: 20,
         paddingBottom: 20,
         code: { fontSize: '90%' },
       })),
-      qc = k(Ha)({ marginBottom: 10 }),
+      Gc = k(Ha)({ marginBottom: 10 }),
       Yc = k.div({ display: 'flex', flexDirection: 'column', gap: 20 }),
       go = k.div(({ theme: e }) => ({
         alignItems: 'center',
@@ -5610,9 +5596,9 @@ try {
             a.createElement(el, { 'aria-label': 'Close' })
           ),
           a.createElement(
-            Gc,
+            qc,
             null,
-            a.createElement(qc, null, 'Configuration'),
+            a.createElement(Gc, null, 'Configuration'),
             o
               ? a.createElement(
                   fo,
@@ -5623,7 +5609,7 @@ try {
                   '. Changes to the config file will be reflected here.',
                   ' ',
                   a.createElement(
-                    _t,
+                    Ot,
                     {
                       href: 'https://www.chromatic.com/docs/configure/',
                       target: '_blank',
@@ -5640,7 +5626,7 @@ try {
                   " in your project's root directory.",
                   ' ',
                   a.createElement(
-                    _t,
+                    Ot,
                     {
                       href: 'https://www.chromatic.com/docs/cli#chromatic-config-file',
                       target: '_blank',
@@ -5813,7 +5799,7 @@ try {
           : o
       },
       yr = () => {
-        let { accessToken: e, setAccessToken: t, subdomain: n } = Gi(),
+        let { accessToken: e, setAccessToken: t, subdomain: n } = qi(),
           { toggleConfig: r } = vn(),
           [i] = we(U1),
           l = va(U),
@@ -6075,7 +6061,7 @@ try {
           }),
           a.createElement(hu, { value: t, placeholder: n, suffix: r })
         ),
-      D = k.div(
+      j = k.div(
         ({ center: e, small: t, block: n, theme: r }) => ({
           display: n ? 'block' : 'inline-block',
           color: r.color.defaultText,
@@ -6188,7 +6174,7 @@ try {
                 null,
                 a.createElement(vu, null),
                 a.createElement(le, null, 'Sign in with SSO'),
-                a.createElement(D, { muted: !0 }, "Enter your team's Chromatic URL.")
+                a.createElement(j, { muted: !0 }, "Enter your team's Chromatic URL.")
               ),
               a.createElement(
                 yu,
@@ -6245,7 +6231,7 @@ try {
                 a.createElement(ku, null),
                 a.createElement(le, null, 'Sign in to begin visual testing'),
                 a.createElement(
-                  D,
+                  j,
                   { center: !0, muted: !0 },
                   'Pinpoint bugs instantly by connecting with cloud browsers that run visual tests in parallel.'
                 )
@@ -6317,12 +6303,12 @@ try {
         }
       },
       ue,
-      q
+      G
     function ye(e) {
-      return new ki(`Syntax Error: Unexpected token at ${q} in ${e}`)
+      return new ki(`Syntax Error: Unexpected token at ${G} in ${e}`)
     }
     function Re(e) {
-      if (((e.lastIndex = q), e.test(ue))) return ue.slice(q, (q = e.lastIndex))
+      if (((e.lastIndex = G), e.test(ue))) return ue.slice(G, (G = e.lastIndex))
     }
     var xa = / +(?=[^\s])/y
     function Su(e) {
@@ -6349,12 +6335,12 @@ try {
     }
     function Q() {
       for (
-        var e = 0 | ue.charCodeAt(q++);
+        var e = 0 | ue.charCodeAt(G++);
         e === 9 || e === 10 || e === 13 || e === 32 || e === 35 || e === 44 || e === 65279;
-        e = 0 | ue.charCodeAt(q++)
+        e = 0 | ue.charCodeAt(G++)
       )
-        if (e === 35) for (; (e = ue.charCodeAt(q++)) !== 10 && e !== 13; );
-      q--
+        if (e === 35) for (; (e = ue.charCodeAt(G++)) !== 10 && e !== 13; );
+      G--
     }
     var xs = /[_A-Za-z]\w*/y
     function ut() {
@@ -6368,7 +6354,7 @@ try {
       Fu = /\\/g,
       Au = /"""(?:"""|(?:[\s\S]*?[^\\])""")/y,
       Lu = /"(?:"|[^\r\n]*?[^\\]")/y
-    function Da(e) {
+    function ja(e) {
       var t, n
       if ((n = Re(xu)))
         t = n === 'null' ? { kind: 'NullValue' } : { kind: 'BooleanValue', value: n === 'true' }
@@ -6387,24 +6373,24 @@ try {
         (t =
           (function (i) {
             var l
-            if (ue.charCodeAt(q) === 91) {
-              ;(q++, Q())
-              for (var o = []; (l = Da(i)); ) o.push(l)
-              if (ue.charCodeAt(q++) !== 93) throw ye('ListValue')
+            if (ue.charCodeAt(G) === 91) {
+              ;(G++, Q())
+              for (var o = []; (l = ja(i)); ) o.push(l)
+              if (ue.charCodeAt(G++) !== 93) throw ye('ListValue')
               return (Q(), { kind: 'ListValue', values: o })
             }
           })(e) ||
           (function (i) {
-            if (ue.charCodeAt(q) === 123) {
-              ;(q++, Q())
+            if (ue.charCodeAt(G) === 123) {
+              ;(G++, Q())
               for (var l = [], o; (o = ut()); ) {
-                if ((Q(), ue.charCodeAt(q++) !== 58)) throw ye('ObjectField')
+                if ((Q(), ue.charCodeAt(G++) !== 58)) throw ye('ObjectField')
                 Q()
-                var s = Da(i)
+                var s = ja(i)
                 if (!s) throw ye('ObjectField')
                 l.push({ kind: 'ObjectField', name: o, value: s })
               }
-              if (ue.charCodeAt(q++) !== 125) throw ye('ObjectValue')
+              if (ue.charCodeAt(G++) !== 125) throw ye('ObjectValue')
               return (Q(), { kind: 'ObjectValue', fields: l })
             }
           })(e))
@@ -6414,24 +6400,24 @@ try {
     }
     function Ms(e) {
       var t = []
-      if ((Q(), ue.charCodeAt(q) === 40)) {
-        ;(q++, Q())
+      if ((Q(), ue.charCodeAt(G) === 40)) {
+        ;(G++, Q())
         for (var n; (n = ut()); ) {
-          if ((Q(), ue.charCodeAt(q++) !== 58)) throw ye('Argument')
+          if ((Q(), ue.charCodeAt(G++) !== 58)) throw ye('Argument')
           Q()
-          var r = Da(e)
+          var r = ja(e)
           if (!r) throw ye('Argument')
           t.push({ kind: 'Argument', name: n, value: r })
         }
-        if (!t.length || ue.charCodeAt(q++) !== 41) throw ye('Argument')
+        if (!t.length || ue.charCodeAt(G++) !== 41) throw ye('Argument')
         Q()
       }
       return t
     }
     function on(e) {
       var t = []
-      for (Q(); ue.charCodeAt(q) === 64; ) {
-        q++
+      for (Q(); ue.charCodeAt(G) === 64; ) {
+        G++
         var n = ut()
         if (!n) throw ye('Directive')
         ;(Q(), t.push({ kind: 'Directive', name: n, arguments: Ms(e) }))
@@ -6443,8 +6429,8 @@ try {
       if (e) {
         Q()
         var t
-        if (ue.charCodeAt(q) === 58) {
-          if ((q++, Q(), (t = e), !(e = ut()))) throw ye('Field')
+        if (ue.charCodeAt(G) === 58) {
+          if ((G++, Q(), (t = e), !(e = ut()))) throw ye('Field')
           Q()
         }
         return {
@@ -6459,14 +6445,14 @@ try {
     }
     function Fs() {
       var e
-      if ((Q(), ue.charCodeAt(q) === 91)) {
-        ;(q++, Q())
+      if ((Q(), ue.charCodeAt(G) === 91)) {
+        ;(G++, Q())
         var t = Fs()
-        if (!t || ue.charCodeAt(q++) !== 93) throw ye('ListType')
+        if (!t || ue.charCodeAt(G++) !== 93) throw ye('ListType')
         e = { kind: 'ListType', type: t }
       } else if ((e = ut())) e = { kind: 'NamedType', name: e }
       else throw ye('NamedType')
-      return (Q(), ue.charCodeAt(q) === 33 ? (q++, Q(), { kind: 'NonNullType', type: e }) : e)
+      return (Q(), ue.charCodeAt(G) === 33 ? (G++, Q(), { kind: 'NonNullType', type: e }) : e)
     }
     var Zu = /on/y
     function As() {
@@ -6477,15 +6463,15 @@ try {
         return (Q(), { kind: 'NamedType', name: e })
       }
     }
-    var _u = /\.\.\./y
-    function Ou() {
-      if (Re(_u)) {
+    var Ou = /\.\.\./y
+    function _u() {
+      if (Re(Ou)) {
         Q()
-        var e = q,
+        var e = G,
           t
         if ((t = ut()) && t.value !== 'on')
           return { kind: 'FragmentSpread', name: t, directives: on(!1) }
-        q = e
+        G = e
         var n = As(),
           r = on(!1),
           i = Er()
@@ -6495,10 +6481,10 @@ try {
     }
     function Er() {
       var e
-      if ((Q(), ue.charCodeAt(q) === 123)) {
-        ;(q++, Q())
-        for (var t = []; (e = Ou() || Tu()); ) t.push(e)
-        if (!t.length || ue.charCodeAt(q++) !== 125) throw ye('SelectionSet')
+      if ((Q(), ue.charCodeAt(G) === 123)) {
+        ;(G++, Q())
+        for (var t = []; (e = _u() || Tu()); ) t.push(e)
+        if (!t.length || ue.charCodeAt(G++) !== 125) throw ye('SelectionSet')
         return (Q(), { kind: 'SelectionSet', selections: t })
       }
     }
@@ -6535,12 +6521,12 @@ try {
         (n = (function () {
           var l,
             o = []
-          if ((Q(), ue.charCodeAt(q) === 40)) {
-            for (q++, Q(); (l = Re(Ns)); ) {
-              if ((Q(), ue.charCodeAt(q++) !== 58)) throw ye('VariableDefinition')
+          if ((Q(), ue.charCodeAt(G) === 40)) {
+            for (G++, Q(); (l = Re(Ns)); ) {
+              if ((Q(), ue.charCodeAt(G++) !== 58)) throw ye('VariableDefinition')
               var s = Fs(),
                 d = void 0
-              if (ue.charCodeAt(q) === 61 && (q++, Q(), !(d = Da(!0))))
+              if (ue.charCodeAt(G) === 61 && (G++, Q(), !(d = ja(!0))))
                 throw ye('VariableDefinition')
               ;(Q(),
                 o.push({
@@ -6551,7 +6537,7 @@ try {
                   directives: on(!0),
                 }))
             }
-            if (ue.charCodeAt(q++) !== 41) throw ye('VariableDefinition')
+            if (ue.charCodeAt(G++) !== 41) throw ye('VariableDefinition')
             Q()
           }
           return o
@@ -6571,7 +6557,7 @@ try {
     function Vu(e, t) {
       return (
         (ue = typeof e.body == 'string' ? e.body : e),
-        (q = 0),
+        (G = 0),
         (function () {
           var n
           Q()
@@ -6583,7 +6569,7 @@ try {
     function Hu(e) {
       return JSON.stringify(e)
     }
-    function Du(e) {
+    function ju(e) {
       return (
         `"""
 ` +
@@ -6592,32 +6578,32 @@ try {
 """`
       )
     }
-    var De = (e) => !(!e || !e.length),
+    var je = (e) => !(!e || !e.length),
       Se = {
         OperationDefinition(e) {
-          if (e.operation === 'query' && !e.name && !De(e.variableDefinitions) && !De(e.directives))
+          if (e.operation === 'query' && !e.name && !je(e.variableDefinitions) && !je(e.directives))
             return Se.SelectionSet(e.selectionSet)
           var t = e.operation
           return (
             e.name && (t += ' ' + e.name.value),
-            De(e.variableDefinitions) &&
+            je(e.variableDefinitions) &&
               (e.name || (t += ' '),
               (t += '(' + e.variableDefinitions.map(Se.VariableDefinition).join(', ') + ')')),
-            De(e.directives) && (t += ' ' + e.directives.map(Se.Directive).join(' ')),
+            je(e.directives) && (t += ' ' + e.directives.map(Se.Directive).join(' ')),
             t + ' ' + Se.SelectionSet(e.selectionSet)
           )
         },
         VariableDefinition(e) {
-          var t = Se.Variable(e.variable) + ': ' + je(e.type)
+          var t = Se.Variable(e.variable) + ': ' + De(e.type)
           return (
-            e.defaultValue && (t += ' = ' + je(e.defaultValue)),
-            De(e.directives) && (t += ' ' + e.directives.map(Se.Directive).join(' ')),
+            e.defaultValue && (t += ' = ' + De(e.defaultValue)),
+            je(e.directives) && (t += ' ' + e.directives.map(Se.Directive).join(' ')),
             t
           )
         },
         Field(e) {
           var t = (e.alias ? e.alias.value + ': ' : '') + e.name.value
-          if (De(e.arguments)) {
+          if (je(e.arguments)) {
             var n = e.arguments.map(Se.Argument),
               r = t + '(' + n.join(', ') + ')'
             t =
@@ -6640,11 +6626,11 @@ try {
                 : r
           }
           return (
-            De(e.directives) && (t += ' ' + e.directives.map(Se.Directive).join(' ')),
+            je(e.directives) && (t += ' ' + e.directives.map(Se.Directive).join(' ')),
             e.selectionSet ? t + ' ' + Se.SelectionSet(e.selectionSet) : t
           )
         },
-        StringValue: (e) => (e.block ? Du(e.value) : Hu(e.value)),
+        StringValue: (e) => (e.block ? ju(e.value) : Hu(e.value)),
         BooleanValue: (e) => '' + e.value,
         NullValue: (e) => 'null',
         IntValue: (e) => e.value,
@@ -6652,12 +6638,12 @@ try {
         EnumValue: (e) => e.value,
         Name: (e) => e.value,
         Variable: (e) => '$' + e.name.value,
-        ListValue: (e) => '[' + e.values.map(je).join(', ') + ']',
+        ListValue: (e) => '[' + e.values.map(De).join(', ') + ']',
         ObjectValue: (e) => '{' + e.fields.map(Se.ObjectField).join(', ') + '}',
-        ObjectField: (e) => e.name.value + ': ' + je(e.value),
+        ObjectField: (e) => e.name.value + ': ' + De(e.value),
         Document: (e) =>
-          De(e.definitions)
-            ? e.definitions.map(je).join(`
+          je(e.definitions)
+            ? e.definitions.map(De).join(`
 
 `)
             : '',
@@ -6665,7 +6651,7 @@ try {
           `{
   ` +
           e.selections
-            .map(je)
+            .map(De)
             .join(
               `
 `
@@ -6677,36 +6663,36 @@ try {
             ) +
           `
 }`,
-        Argument: (e) => e.name.value + ': ' + je(e.value),
+        Argument: (e) => e.name.value + ': ' + De(e.value),
         FragmentSpread(e) {
           var t = '...' + e.name.value
-          return (De(e.directives) && (t += ' ' + e.directives.map(Se.Directive).join(' ')), t)
+          return (je(e.directives) && (t += ' ' + e.directives.map(Se.Directive).join(' ')), t)
         },
         InlineFragment(e) {
           var t = '...'
           return (
             e.typeCondition && (t += ' on ' + e.typeCondition.name.value),
-            De(e.directives) && (t += ' ' + e.directives.map(Se.Directive).join(' ')),
-            t + ' ' + je(e.selectionSet)
+            je(e.directives) && (t += ' ' + e.directives.map(Se.Directive).join(' ')),
+            t + ' ' + De(e.selectionSet)
           )
         },
         FragmentDefinition(e) {
           var t = 'fragment ' + e.name.value
           return (
             (t += ' on ' + e.typeCondition.name.value),
-            De(e.directives) && (t += ' ' + e.directives.map(Se.Directive).join(' ')),
-            t + ' ' + je(e.selectionSet)
+            je(e.directives) && (t += ' ' + e.directives.map(Se.Directive).join(' ')),
+            t + ' ' + De(e.selectionSet)
           )
         },
         Directive(e) {
           var t = '@' + e.name.value
-          return (De(e.arguments) && (t += '(' + e.arguments.map(Se.Argument).join(', ') + ')'), t)
+          return (je(e.arguments) && (t += '(' + e.arguments.map(Se.Argument).join(', ') + ')'), t)
         },
         NamedType: (e) => e.name.value,
-        ListType: (e) => '[' + je(e.type) + ']',
-        NonNullType: (e) => je(e.type) + '!',
+        ListType: (e) => '[' + De(e.type) + ']',
+        NonNullType: (e) => De(e.type) + '!',
       }
-    function je(e) {
+    function De(e) {
       return Se[e.kind] ? Se[e.kind](e) : ''
     }
     var al = () => {},
@@ -6718,7 +6704,7 @@ try {
       return { tag: 1, 0: e }
     }
     var xo = () => (typeof Symbol == 'function' && Symbol.asyncIterator) || '@@asyncIterator',
-      ju = (e) => e
+      Du = (e) => e
     function Ze(e) {
       return (t) => (n) => {
         var r = Pe
@@ -6733,7 +6719,7 @@ try {
           r === 0 || r.tag === 0 ? n(r) : n(oa(e(r[0])))
         })
     }
-    function ja(e) {
+    function Da(e) {
       return (t) => (n) => {
         var r = [],
           i = Pe,
@@ -6775,9 +6761,9 @@ try {
       }
     }
     function zu(e) {
-      return ja(ju)(e)
+      return Da(Du)(e)
     }
-    function Gn(e) {
+    function qn(e) {
       return zu(Wu(e))
     }
     function rl(e) {
@@ -6820,7 +6806,7 @@ try {
           r === 0 ? n(0) : r.tag === 0 ? (n(r), e()) : n(r)
         })
     }
-    function qn(e) {
+    function Gn(e) {
       var t = [],
         n = Pe,
         r = !1
@@ -7007,7 +6993,7 @@ try {
           }
     }
     var Wu = $u
-    function Dn(e) {
+    function jn(e) {
       return (t) => {
         var n = !1
         t(
@@ -7017,7 +7003,7 @@ try {
         )
       }
     }
-    function _s(e) {
+    function Os(e) {
       return (t) => {
         var n = !1,
           r = e({
@@ -7038,7 +7024,7 @@ try {
     function Si() {
       var e, t
       return {
-        source: qn(_s((n) => ((e = n.next), (t = n.complete), al))),
+        source: Gn(Os((n) => ((e = n.next), (t = n.complete), al))),
         next(n) {
           e && e(n)
         },
@@ -7048,7 +7034,7 @@ try {
       }
     }
     function Mo(e) {
-      return _s(
+      return Os(
         (t) => (
           e.then((n) => {
             Promise.resolve(n).then(() => {
@@ -7075,7 +7061,7 @@ try {
         )
       }
     }
-    function Gu(e) {
+    function qu(e) {
       sn((t) => {})(e)
     }
     function il(e) {
@@ -7087,7 +7073,7 @@ try {
         })
       })
     }
-    var qu = (e) =>
+    var Gu = (e) =>
         e && e.message && (e.extensions || e.name === 'GraphQLError')
           ? e
           : typeof e == 'object' && e.message
@@ -7095,7 +7081,7 @@ try {
             : new ki(e),
       ll = class extends Error {
         constructor(e) {
-          var t = (e.graphQLErrors || []).map(qu),
+          var t = (e.graphQLErrors || []).map(Gu),
             n = ((r, i) => {
               var l = ''
               if (r) return `[Network] ${r.message}`
@@ -7184,7 +7170,7 @@ try {
             ? (t = Ao(e))
             : e.loc && Ra.get(e.__key) === e
               ? (t = e.loc.source.body)
-              : ((t = Lo.get(e) || Ao(je(e))), Lo.set(e, t)),
+              : ((t = Lo.get(e) || Ao(De(e))), Lo.set(e, t)),
           typeof e != 'string' &&
             !e.loc &&
             (e.loc = {
@@ -7198,7 +7184,7 @@ try {
       To = (e) => {
         var t = xi(ol(e))
         if (e.definitions) {
-          var n = Os(e)
+          var n = _s(e)
           n &&
             (t = xi(
               `
@@ -7227,7 +7213,7 @@ try {
           o = i.__key
         return (l !== '{}' && (o = xi(l, o)), { key: o, query: i, variables: r, extensions: n })
       },
-      Os = (e) => {
+      _s = (e) => {
         for (var t of e.definitions)
           if (t.kind === Cu.OPERATION_DEFINITION) return t.name ? t.name.value : void 0
       },
@@ -7309,7 +7295,7 @@ try {
           e.extensions && e.extensions.persistedQuery && !e.extensions.persistedQuery.miss
             ? void 0
             : ol(e.query),
-        operationName: Os(e.query),
+        operationName: _s(e.query),
         variables: e.variables || void 0,
         extensions: e.extensions,
       }
@@ -7365,14 +7351,14 @@ try {
       r2 = typeof TextDecoder < 'u' ? new TextDecoder() : null,
       i2 = /boundary="?([^=";]+)"?/i,
       l2 = /data: ?([^\n]+)/,
-      _o = (e) => (e.constructor.name === 'Buffer' ? e.toString() : r2.decode(e))
-    async function* Oo(e) {
-      if (e.body[Symbol.asyncIterator]) for await (var t of e.body) yield _o(t)
+      Oo = (e) => (e.constructor.name === 'Buffer' ? e.toString() : r2.decode(e))
+    async function* _o(e) {
+      if (e.body[Symbol.asyncIterator]) for await (var t of e.body) yield Oo(t)
       else {
         var n = e.body.getReader(),
           r
         try {
-          for (; !(r = await n.read()).done; ) yield _o(r.value)
+          for (; !(r = await n.read()).done; ) yield Oo(r.value)
         } finally {
           n.cancel()
         }
@@ -7399,7 +7385,7 @@ try {
                 g = !0,
                 y
               for await (var w of Io(
-                Oo(m),
+                _o(m),
                 `\r
 ` + v
               )) {
@@ -7428,7 +7414,7 @@ try {
             ? (s = (async function* (u) {
                 var m
                 for await (var p of Io(
-                  Oo(u),
+                  _o(u),
                   `
 
 `
@@ -7506,14 +7492,14 @@ try {
         t
       )
     }
-    function Ga(e, t, n) {
+    function qa(e, t, n) {
       return { ...t, kind: e, context: t.context ? { ...t.context, ...n } : n || t.context }
     }
     var d2 = () => {},
       c2 =
         ({ forward: e, dispatchDebug: t }) =>
         (n) => {
-          var r = ja((l) => {
+          var r = Da((l) => {
               var o = e2(l),
                 s = t2(l, o),
                 d = a2(l, o),
@@ -7533,7 +7519,7 @@ try {
                   (l.kind === 'subscription' && !l.context.fetchSubscriptions)
               )(n)
             )
-          return Gn([r, i])
+          return qn([r, i])
         },
       u2 =
         (e) =>
@@ -7543,7 +7529,7 @@ try {
               l({
                 client: t,
                 forward(o) {
-                  return qn(i(qn(o)))
+                  return Gn(i(Gn(o)))
                 },
                 dispatchDebug(o) {},
               }),
@@ -7553,15 +7539,15 @@ try {
         ({ onOperation: e, onResult: t, onError: n }) =>
         ({ forward: r }) =>
         (i) =>
-          ja((l) => {
+          Da((l) => {
             n && l.error && n(l.error, l.operation)
             var o = (t && t(l)) || l
-            return 'then' in o ? Mo(o) : Dn(o)
+            return 'then' in o ? Mo(o) : jn(o)
           })(
             r(
-              ja((l) => {
+              Da((l) => {
                 var o = (e && e(l)) || l
-                return 'then' in o ? Mo(o) : Dn(o)
+                return 'then' in o ? Mo(o) : jn(o)
               })(i)
             )
           ),
@@ -7611,10 +7597,10 @@ try {
               h.kind !== 'query'
                 ? (f = Ts((E) => !!E.hasNext, !0)(f))
                 : (f = No((E) => {
-                    var C = Dn(E)
+                    var C = jn(E)
                     return E.stale || E.hasNext
                       ? C
-                      : Gn([
+                      : qn([
                           C,
                           wi(() => ((E.stale = !0), E))(
                             kr(1)(Ze((Z) => Z.key === h.key)(d.source))
@@ -7625,7 +7611,7 @@ try {
                 ? (f = rl(() => {
                     ;(l.delete(h.key), r.delete(h.key), i.delete(h.key), (u = !1))
                     for (var E = o.length - 1; E >= 0; E--) o[E].key === h.key && o.splice(E, 1)
-                    c(Ga('teardown', h, h.context))
+                    c(qa('teardown', h, h.context))
                   })(
                     za((E) => {
                       if (E.stale) {
@@ -7641,7 +7627,7 @@ try {
                 : (f = Ci(() => {
                     c(h)
                   })(f)),
-              qn(f)
+              Gn(f)
             )
           },
           v = this instanceof e ? this : Object.create(e.prototype),
@@ -7658,7 +7644,7 @@ try {
             createRequestOperation(h, f, E) {
               return (
                 E || (E = {}),
-                Ga(h, f, {
+                qa(h, f, {
                   _instance: h === 'mutation' ? (n = (n + 1) | 0) : void 0,
                   ...s,
                   ...E,
@@ -7679,7 +7665,7 @@ try {
                         })(f)))
                       var E = r.get(h.key)
                       return h.kind === 'query' && E && (E.stale || E.hasNext)
-                        ? No(Dn)(Gn([f, Ze((C) => C === r.get(h.key))(Dn(E))]))
+                        ? No(jn)(qn([f, Ze((C) => C === r.get(h.key))(jn(E))]))
                         : f
                     })
                   )
@@ -7711,8 +7697,8 @@ try {
           }),
           y = d2,
           w = u2(t.exchanges),
-          b = qn(w({ client: g, dispatchDebug: y, forward: p2({ dispatchDebug: y }) })(d.source))
-        return (Gu(b), g)
+          b = Gn(w({ client: g, dispatchDebug: y, forward: p2({ dispatchDebug: y }) })(d.source))
+        return (qu(b), g)
       },
       f2 = {},
       wr = He(f2),
@@ -7720,7 +7706,7 @@ try {
     wr.Consumer
     wr.displayName = 'UrqlContext'
     var sl = () => {
-        var e = qt(wr)
+        var e = Gt(wr)
         return e
       },
       Ai = {
@@ -7752,7 +7738,7 @@ try {
         for (var n = 0, r = t.length; n < r; n++) if (e[n] !== t[n]) return !0
         return !1
       }
-    function qa(e, t) {
+    function Ga(e, t) {
       e(t)
     }
     function Rs(e) {
@@ -7761,13 +7747,13 @@ try {
         [r, i] = Le(Ai),
         l = K(
           (o, s) => (
-            qa(i, { ...Ai, fetching: !0 }),
+            Ga(i, { ...Ai, fetching: !0 }),
             il(
               kr(1)(
                 Ze((d) => !d.hasNext)(
                   za((d) => {
                     t.current &&
-                      qa(i, {
+                      Ga(i, {
                         fetching: !1,
                         stale: d.stale,
                         data: d.data,
@@ -7869,7 +7855,7 @@ try {
             g = !1,
             y = (b) => {
               ;((g = !0),
-                qa(c, (h) => {
+                Ga(c, (h) => {
                   var f = $r(h[1], b)
                   return h[1] !== f ? [h[0], f, h[2]] : h
                 }))
@@ -7891,7 +7877,7 @@ try {
       var m = K(
         (p) => {
           var v = { requestPolicy: e.requestPolicy, ...e.context, ...p }
-          qa(c, (g) => [
+          Ga(c, (g) => [
             r
               ? za((y) => {
                   n.set(i.key, y)
@@ -9882,7 +9868,7 @@ try {
           },
         ],
       },
-      _2 = {
+      O2 = {
         '\n  query VisualTestsProjectCountQuery {\n    viewer {\n      projectCount\n      accounts {\n        newProjectUrl\n      }\n    }\n  }\n':
           M2,
         '\n  query SelectProjectsQuery {\n    viewer {\n      accounts {\n        id\n        name\n        avatarUrl\n        newProjectUrl\n        projects {\n          id\n          name\n          webUrl\n          lastBuild {\n            branch\n            number\n          }\n        }\n      }\n    }\n  }\n':
@@ -9906,10 +9892,10 @@ try {
           Z2,
       }
     function Qe(e) {
-      return _2[e] ?? {}
+      return O2[e] ?? {}
     }
-    var Wr = (e, t) => Ga(e.kind, e, { ...e.context, authAttempt: t })
-    function O2(e) {
+    var Wr = (e, t) => qa(e.kind, e, { ...e.context, authAttempt: t })
+    function _2(e) {
       return ({ client: t, forward: n }) => {
         var r = new Set(),
           i = Si(),
@@ -9957,7 +9943,7 @@ try {
                       typeof b.context.fetchOptions == 'function'
                         ? b.context.fetchOptions()
                         : b.context.fetchOptions || {}
-                    return Ga(b.kind, b, {
+                    return qa(b.kind, b, {
                       ...b.context,
                       fetchOptions: { ...f, headers: { ...f.headers, ...h } },
                     })
@@ -9995,10 +9981,10 @@ try {
                             })(b)
                           ? (v(b), null)
                           : g(Wr(b, !1))
-              )(Gn([i.source, m]))
+              )(qn([i.source, m]))
             ),
             w = n(y)
-          return Gn([
+          return qn([
             l.source,
             Ze((b) =>
               !r.has(b.operation.context._instance) &&
@@ -10041,17 +10027,17 @@ try {
         Ce[e[t + 15]]
       ).toLowerCase()
     }
-    var Gr,
+    var qr,
       R2 = new Uint8Array(16)
     function B2() {
-      if (!Gr) {
+      if (!qr) {
         if (typeof crypto > 'u' || !crypto.getRandomValues)
           throw new Error(
             'crypto.getRandomValues() not supported. See https://github.com/uuidjs/uuid#getrandomvalues-not-supported'
           )
-        Gr = crypto.getRandomValues.bind(crypto)
+        qr = crypto.getRandomValues.bind(crypto)
       }
-      return Gr(R2)
+      return qr(R2)
     }
     var P2 = typeof crypto < 'u' && crypto.randomUUID && crypto.randomUUID.bind(crypto),
       Bo = { randomUUID: P2 }
@@ -10070,13 +10056,13 @@ try {
     }
     var H2 = V2,
       it,
-      jn,
+      Dn,
       Ya = (e) => {
         try {
           let { exp: t } = e ? JSON.parse(atob(e.split('.')[1])) : { exp: null }
-          ;((it = e), (jn = t))
+          ;((it = e), (Dn = t))
         } catch {
-          ;((it = null), (jn = null))
+          ;((it = null), (Dn = null))
         }
         it ? localStorage.setItem(ui, it) : localStorage.removeItem(ui)
       }
@@ -10091,24 +10077,24 @@ try {
           )
         return [e, n]
       },
-      D2 = H2(),
+      j2 = H2(),
       Ps = (e) => ({
         headers: {
           Accept: '*/*',
           ...(e && { Authorization: `Bearer ${e}` }),
-          'X-Chromatic-Session-ID': D2,
+          'X-Chromatic-Session-ID': j2,
         },
       }),
       Vs = (e) =>
         new h2({
-          url: Dd,
+          url: jd,
           exchanges: [
             m2({
               onResult(t) {
                 t.data?.viewer === null && Ya(null)
               },
             }),
-            O2(async (t) => ({
+            _2(async (t) => ({
               addAuthToOperation(n) {
                 return it ? t.appendHeaders(n, { Authorization: `Bearer ${it}` }) : n
               },
@@ -10121,11 +10107,11 @@ try {
               willAuthError() {
                 if (!it) return !0
                 try {
-                  if (!jn) {
+                  if (!Dn) {
                     let { exp: n } = JSON.parse(atob(it.split('.')[1]))
-                    jn = n
+                    Dn = n
                   }
-                  return Date.now() / 1e3 > (jn || 0)
+                  return Date.now() / 1e3 > (Dn || 0)
                 } catch {
                   return !0
                 }
@@ -10136,7 +10122,7 @@ try {
           fetchOptions: Ps(),
           ...e,
         }),
-      j2 = ({ children: e, value: t = Vs() }) => a.createElement(g2, { value: t }, e),
+      D2 = ({ children: e, value: t = Vs() }) => a.createElement(g2, { value: t }, e),
       ae
     ;(function (e) {
       e.assertEqual = (i) => i
@@ -10485,7 +10471,7 @@ try {
         }
       },
       z = Object.freeze({ status: 'aborted' }),
-      Ds = (e) => ({ status: 'dirty', value: e }),
+      js = (e) => ({ status: 'dirty', value: e }),
       Ae = (e) => ({ status: 'valid', value: e }),
       Ti = (e) => e.status === 'aborted',
       Zi = (e) => e.status === 'dirty',
@@ -10749,12 +10735,12 @@ try {
         }
       },
       W2 = /^c[^\s-]{8,}$/i,
-      G2 = /^[a-z][a-z0-9]*$/,
-      q2 = /^[0-9A-HJKMNP-TV-Z]{26}$/,
+      q2 = /^[a-z][a-z0-9]*$/,
+      G2 = /^[0-9A-HJKMNP-TV-Z]{26}$/,
       Y2 = /^[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}$/i,
       K2 = /^(?!\.)(?!.*\.\.)([A-Z0-9_+-\.]*)[A-Z0-9_+-]@([A-Z0-9][A-Z0-9\-]*\.)+[A-Z]{2,}$/i,
       J2 = '^(\\p{Extended_Pictographic}|\\p{Emoji_Component})+$',
-      qr,
+      Gr,
       Q2 =
         /^(((25[0-5])|(2[0-4][0-9])|(1[0-9]{2})|([0-9]{1,2}))\.){3}((25[0-5])|(2[0-4][0-9])|(1[0-9]{2})|([0-9]{1,2}))$/,
       X2 =
@@ -10841,8 +10827,8 @@ try {
               T(n, { validation: 'email', code: x.invalid_string, message: r.message }),
               t.dirty())
           else if (r.kind === 'emoji')
-            (qr || (qr = new RegExp(J2, 'u')),
-              qr.test(e.data) ||
+            (Gr || (Gr = new RegExp(J2, 'u')),
+              Gr.test(e.data) ||
                 ((n = this._getOrReturnCtx(e, n)),
                 T(n, { validation: 'emoji', code: x.invalid_string, message: r.message }),
                 t.dirty()))
@@ -10857,12 +10843,12 @@ try {
               T(n, { validation: 'cuid', code: x.invalid_string, message: r.message }),
               t.dirty())
           else if (r.kind === 'cuid2')
-            G2.test(e.data) ||
+            q2.test(e.data) ||
               ((n = this._getOrReturnCtx(e, n)),
               T(n, { validation: 'cuid2', code: x.invalid_string, message: r.message }),
               t.dirty())
           else if (r.kind === 'ulid')
-            q2.test(e.data) ||
+            G2.test(e.data) ||
               ((n = this._getOrReturnCtx(e, n)),
               T(n, { validation: 'ulid', code: x.invalid_string, message: r.message }),
               t.dirty())
@@ -11226,7 +11212,7 @@ try {
     }
     Ht.create = (e) =>
       new Ht({ checks: [], typeName: H.ZodNumber, coerce: e?.coerce || !1, ...$(e) })
-    var Dt = class extends Y {
+    var jt = class extends Y {
       constructor() {
         ;(super(...arguments), (this.min = this.gte), (this.max = this.lte))
       }
@@ -11281,7 +11267,7 @@ try {
         return this.setLimit('max', e, !1, R.toString(t))
       }
       setLimit(e, t, n, r) {
-        return new Dt({
+        return new jt({
           ...this._def,
           checks: [
             ...this._def.checks,
@@ -11290,7 +11276,7 @@ try {
         })
       }
       _addCheck(e) {
-        return new Dt({ ...this._def, checks: [...this._def.checks, e] })
+        return new jt({ ...this._def, checks: [...this._def.checks, e] })
       }
       positive(e) {
         return this._addCheck({
@@ -11340,9 +11326,9 @@ try {
         return e
       }
     }
-    Dt.create = (e) => {
+    jt.create = (e) => {
       var t
-      return new Dt({
+      return new jt({
         checks: [],
         typeName: H.ZodBigInt,
         coerce: (t = e?.coerce) !== null && t !== void 0 ? t : !1,
@@ -11750,7 +11736,7 @@ try {
         )
       }
       keyof() {
-        return js(ae.objectKeys(this.shape))
+        return Ds(ae.objectKeys(this.shape))
       }
     }
     he.create = (e, t) =>
@@ -11826,7 +11812,7 @@ try {
             ? Ba(e.innerType())
             : e instanceof aa
               ? [e.value]
-              : e instanceof jt
+              : e instanceof Dt
                 ? e.options
                 : e instanceof ra
                   ? Object.keys(e.enum)
@@ -11890,7 +11876,7 @@ try {
           })
         }
       }
-    function _i(e, t) {
+    function Oi(e, t) {
       let n = St(e),
         r = St(t)
       if (e === t) return { valid: !0, data: e }
@@ -11899,7 +11885,7 @@ try {
           l = ae.objectKeys(e).filter((s) => i.indexOf(s) !== -1),
           o = { ...e, ...t }
         for (let s of l) {
-          let d = _i(e[s], t[s])
+          let d = Oi(e[s], t[s])
           if (!d.valid) return { valid: !1 }
           o[s] = d.data
         }
@@ -11910,7 +11896,7 @@ try {
         for (let l = 0; l < e.length; l++) {
           let o = e[l],
             s = t[l],
-            d = _i(o, s)
+            d = Oi(o, s)
           if (!d.valid) return { valid: !1 }
           i.push(d.data)
         }
@@ -11923,7 +11909,7 @@ try {
         let { status: t, ctx: n } = this._processInputParams(e),
           r = (i, l) => {
             if (Ti(i) || Ti(l)) return z
-            let o = _i(i.value, l.value)
+            let o = Oi(i.value, l.value)
             return o.valid
               ? ((Zi(i) || Zi(l)) && t.dirty(), { status: t.value, value: o.data })
               : (T(n, { code: x.invalid_intersection_types }), z)
@@ -12220,10 +12206,10 @@ try {
       }
     }
     aa.create = (e, t) => new aa({ value: e, typeName: H.ZodLiteral, ...$(t) })
-    function js(e, t) {
-      return new jt({ values: e, typeName: H.ZodEnum, ...$(t) })
+    function Ds(e, t) {
+      return new Dt({ values: e, typeName: H.ZodEnum, ...$(t) })
     }
-    var jt = class extends Y {
+    var Dt = class extends Y {
       _parse(e) {
         if (typeof e.data != 'string') {
           let t = this._getOrReturnCtx(e),
@@ -12259,13 +12245,13 @@ try {
         return e
       }
       extract(e) {
-        return jt.create(e)
+        return Dt.create(e)
       }
       exclude(e) {
-        return jt.create(this.options.filter((t) => !e.includes(t)))
+        return Dt.create(this.options.filter((t) => !e.includes(t)))
       }
     }
-    jt.create = js
+    Dt.create = Ds
     var ra = class extends Y {
       _parse(e) {
         let t = ae.getValidEnumValues(this._def.values),
@@ -12502,7 +12488,7 @@ try {
               return r.status === 'aborted'
                 ? z
                 : r.status === 'dirty'
-                  ? (t.dirty(), Ds(r.value))
+                  ? (t.dirty(), js(r.value))
                   : this._def.out._parseAsync({ data: r.value, path: n.path, parent: n })
             })()
           {
@@ -12585,8 +12571,8 @@ try {
       $s = lt.create,
       Ws = Ht.create,
       lm = rr.create,
-      om = Dt.create,
-      Gs = Jn.create,
+      om = jt.create,
+      qs = Jn.create,
       sm = cn.create,
       dm = Xa.create,
       cm = Qn.create,
@@ -12608,22 +12594,22 @@ try {
       Nm = zn.create,
       Mm = na.create,
       Fm = aa.create,
-      Am = jt.create,
+      Am = Dt.create,
       Lm = ra.create,
       Tm = pn.create,
       Vo = Ke.create,
       Zm = yt.create,
-      _m = zt.create,
-      Om = Ke.createWithPreprocess,
+      Om = zt.create,
+      _m = Ke.createWithPreprocess,
       Im = Cr.create,
       Rm = () => $s().optional(),
       Bm = () => Ws().optional(),
-      Pm = () => Gs().optional(),
+      Pm = () => qs().optional(),
       Vm = {
         string: (e) => lt.create({ ...e, coerce: !0 }),
         number: (e) => Ht.create({ ...e, coerce: !0 }),
         boolean: (e) => Jn.create({ ...e, coerce: !0 }),
-        bigint: (e) => Dt.create({ ...e, coerce: !0 }),
+        bigint: (e) => jt.create({ ...e, coerce: !0 }),
         date: (e) => cn.create({ ...e, coerce: !0 }),
       },
       Hm = z,
@@ -12637,7 +12623,7 @@ try {
         addIssueToContext: T,
         ParseStatus: Fe,
         INVALID: z,
-        DIRTY: Ds,
+        DIRTY: js,
         OK: Ae,
         isAborted: Ti,
         isDirty: Zi,
@@ -12654,7 +12640,7 @@ try {
         ZodType: Y,
         ZodString: lt,
         ZodNumber: Ht,
-        ZodBigInt: Dt,
+        ZodBigInt: jt,
         ZodBoolean: Jn,
         ZodDate: cn,
         ZodSymbol: Xa,
@@ -12676,7 +12662,7 @@ try {
         ZodFunction: zn,
         ZodLazy: na,
         ZodLiteral: aa,
-        ZodEnum: jt,
+        ZodEnum: Dt,
         ZodNativeEnum: ra,
         ZodPromise: pn,
         ZodEffects: Ke,
@@ -12701,7 +12687,7 @@ try {
         any: mm,
         array: gm,
         bigint: om,
-        boolean: Gs,
+        boolean: qs,
         date: sm,
         discriminatedUnion: Em,
         effect: Vo,
@@ -12716,7 +12702,7 @@ try {
         nativeEnum: Lm,
         never: hm,
         null: um,
-        nullable: _m,
+        nullable: Om,
         number: Ws,
         object: vm,
         oboolean: Pm,
@@ -12724,7 +12710,7 @@ try {
         optional: Zm,
         ostring: Rm,
         pipeline: Im,
-        preprocess: Om,
+        preprocess: _m,
         promise: Tm,
         record: Cm,
         set: xm,
@@ -12742,12 +12728,12 @@ try {
         quotelessJson: z2,
         ZodError: Ye,
       }),
-      Dm = gt.union([
+      jm = gt.union([
         gt.object({ message: gt.literal('login') }),
         gt.object({ message: gt.literal('grant'), denied: gt.boolean() }),
         gt.object({ message: gt.literal('createdProject'), projectId: gt.string() }),
       ]),
-      qs = (e) => {
+      Gs = (e) => {
         let t = Ee(),
           n = Ee()
         return (
@@ -12756,7 +12742,7 @@ try {
               if (i === n.current) {
                 let o
                 try {
-                  o = Dm.parse(l)
+                  o = jm.parse(l)
                 } catch {
                   return
                 }
@@ -12782,7 +12768,7 @@ try {
           ]
         )
       },
-      jm = k.ol(({ theme: e }) => ({
+      Dm = k.ol(({ theme: e }) => ({
         display: 'inline-flex',
         listStyle: 'none',
         marginTop: 15,
@@ -12849,7 +12835,7 @@ try {
             },
             [d, i, l, t, n, o, r]
           ),
-          [v, g] = qs(p)
+          [v, g] = Gs(p)
         return (
           (u.current = v),
           (m.current = g),
@@ -12871,13 +12857,13 @@ try {
                     'div',
                     null,
                     a.createElement(
-                      D,
+                      j,
                       { center: !0, muted: !0 },
                       'Check this verification code on Chromatic to grant access to your published Storybooks.'
                     )
                   ),
                   a.createElement(
-                    jm,
+                    Dm,
                     null,
                     s
                       ?.split('')
@@ -13327,14 +13313,14 @@ try {
           gap: 40,
         },
       }),
-      Gm = k.div({
+      qm = k.div({
         display: 'flex',
         gap: 8,
         alignItems: 'center',
         justifyContent: 'center',
         height: 40,
       }),
-      qm = k.div({ display: 'flex', gap: 8 }),
+      Gm = k.div({ display: 'flex', gap: 8 }),
       Ym = k.div({ display: 'flex', flexDirection: 'column', gap: 8 }),
       Km = k.div(({ theme: e }) => ({
         display: 'flex',
@@ -13375,7 +13361,7 @@ try {
                 null,
                 a.createElement($m, null, 'Visual tests in Storybook'),
                 a.createElement(
-                  D,
+                  j,
                   { muted: !0 },
                   'Pinpoint visual bugs across browsers, viewports, and themes using Chromatic.'
                 )
@@ -13384,7 +13370,7 @@ try {
                 Ym,
                 null,
                 a.createElement(
-                  qm,
+                  Gm,
                   null,
                   a.createElement(
                     re,
@@ -13401,7 +13387,7 @@ try {
                     )
                   )
                 ),
-                a.createElement(D, { muted: !0, small: !0 }, 'No credit card required')
+                a.createElement(j, { muted: !0, small: !0 }, 'No credit card required')
               )
             ),
             a.createElement(
@@ -13431,9 +13417,9 @@ try {
             )
           ),
           a.createElement(
-            Gm,
+            qm,
             null,
-            a.createElement(D, { muted: !0 }, 'Not interested?'),
+            a.createElement(j, { muted: !0 }, 'Not interested?'),
             a.createElement(Ne, { onClick: () => t() }, 'Uninstall this addon')
           )
         ),
@@ -13442,7 +13428,7 @@ try {
           [l, o] = Be('exchangeParameters'),
           s = hs(),
           { uninstallAddon: d } = gs(),
-          { setSubdomain: c } = Gi()
+          { setSubdomain: c } = qi()
         Ve('Authentication', r.charAt(0).toUpperCase() + r.slice(1))
         let u = K(
           async (m) => {
@@ -13592,19 +13578,19 @@ try {
                       null,
                       a.createElement(le, null, 'Configure your Git email'),
                       a.createElement(
-                        D,
+                        j,
                         { center: !0, muted: !0 },
                         'Chromatic requires Git to be configured with an email address to connect local builds to CI builds and link builds to user accounts.'
                       )
                     ),
                     a.createElement(
-                      D,
+                      j,
                       { center: !0, muted: !0 },
                       'Run this command to set an email address:'
                     ),
                     a.createElement(Na, null, 'git config user.email "you@example.com"'),
                     a.createElement(
-                      D,
+                      j,
                       { muted: !0, small: !0 },
                       a.createElement(
                         Ne,
@@ -13626,7 +13612,7 @@ try {
                       null,
                       a.createElement(le, null, 'Set up a Git repository'),
                       a.createElement(
-                        D,
+                        j,
                         { center: !0, muted: !0 },
                         'Chromatic requires Git to associate test results with commits and branches. Run these steps to get started:'
                       )
@@ -13719,7 +13705,7 @@ try {
                 null,
                 r?.project?.lastBuild &&
                   a.createElement(
-                    D,
+                    j,
                     { style: { marginLeft: 5 } },
                     'Last build: ',
                     r.project.lastBuild.number,
@@ -13749,7 +13735,7 @@ try {
                     null,
                     a.createElement(le, null, 'Project linked!'),
                     a.createElement(
-                      D,
+                      j,
                       { center: !0, muted: !0, style: { maxWidth: 500 } },
                       'The ',
                       a.createElement(Te, null, 'projectId'),
@@ -13873,7 +13859,7 @@ try {
                 null,
                 a.createElement(le, null, 'Add the project ID to your Chromatic config'),
                 a.createElement(
-                  D,
+                  j,
                   { center: !0, muted: !0 },
                   'The ',
                   a.createElement(Te, null, 'projectId'),
@@ -13952,10 +13938,10 @@ try {
         textTransform: 'uppercase',
       })),
       Ho = k.div({}),
-      Do = k.div(({ theme: e }) => ({
+      jo = k.div(({ theme: e }) => ({
         background: e.base === 'light' ? e.color.lighter : e.color.darker,
       })),
-      jo = k.div(({ theme: e }) => ({
+      Do = k.div(({ theme: e }) => ({
         background: e.base === 'light' ? e.color.lightest : e.color.darkest,
         borderRadius: 5,
         border: `1px solid ${e.appBorderColor}`,
@@ -13971,7 +13957,7 @@ try {
       })),
       Fa = k.div({ height: '100%', overflowY: 'auto' }),
       f4 = k(ne)({ width: '100%' }),
-      g4 = k(_5)({ marginRight: 10 })
+      g4 = k(O5)({ marginRight: 10 })
     function v4({ createdProjectId: e, setCreatedProjectId: t, onSelectProjectId: n }) {
       let [{ data: r, fetching: i, error: l }, o] = dl({ query: p4 })
       te(() => {
@@ -14001,7 +13987,7 @@ try {
           },
           [o, t]
         ),
-        [y, w] = qs(g),
+        [y, w] = Gs(g),
         b = e && c?.projects?.find((h) => h?.id.endsWith(e))
       return (
         te(() => {
@@ -14021,13 +14007,13 @@ try {
                 'div',
                 null,
                 a.createElement(le, null, 'Select a project'),
-                a.createElement(D, { muted: !0 }, 'Your tests will sync with this project.')
+                a.createElement(j, { muted: !0 }, 'Your tests will sync with this project.')
               ),
               l && a.createElement('p', null, l.message),
               !r &&
                 i &&
                 a.createElement(
-                  jo,
+                  Do,
                   null,
                   a.createElement(
                     Ho,
@@ -14036,29 +14022,29 @@ try {
                     a.createElement(
                       Fa,
                       null,
-                      a.createElement(Ge, { appearance: 'secondary', isLoading: !0 }),
-                      a.createElement(Ge, { appearance: 'secondary', isLoading: !0 }),
-                      a.createElement(Ge, { appearance: 'secondary', isLoading: !0 }),
-                      a.createElement(Ge, { appearance: 'secondary', isLoading: !0 }),
-                      a.createElement(Ge, { appearance: 'secondary', isLoading: !0 })
+                      a.createElement(qe, { appearance: 'secondary', isLoading: !0 }),
+                      a.createElement(qe, { appearance: 'secondary', isLoading: !0 }),
+                      a.createElement(qe, { appearance: 'secondary', isLoading: !0 }),
+                      a.createElement(qe, { appearance: 'secondary', isLoading: !0 }),
+                      a.createElement(qe, { appearance: 'secondary', isLoading: !0 })
                     )
                   ),
                   a.createElement(
-                    Do,
+                    jo,
                     null,
                     a.createElement(Ma, null, 'Projects'),
                     a.createElement(
                       Fa,
                       { 'data-testid': 'right-list' },
-                      a.createElement(Ge, { appearance: 'secondary', isLoading: !0 }),
-                      a.createElement(Ge, { appearance: 'secondary', isLoading: !0 }),
-                      a.createElement(Ge, { appearance: 'secondary', isLoading: !0 })
+                      a.createElement(qe, { appearance: 'secondary', isLoading: !0 }),
+                      a.createElement(qe, { appearance: 'secondary', isLoading: !0 }),
+                      a.createElement(qe, { appearance: 'secondary', isLoading: !0 })
                     )
                   )
                 ),
               r?.viewer?.accounts &&
                 a.createElement(
-                  jo,
+                  Do,
                   null,
                   a.createElement(
                     Ho,
@@ -14068,7 +14054,7 @@ try {
                       Fa,
                       { 'data-testid': 'left-list' },
                       r.viewer.accounts?.map((h) =>
-                        a.createElement(Ge, {
+                        a.createElement(qe, {
                           key: h.id,
                           title: h.name,
                           appearance: 'secondary',
@@ -14080,14 +14066,14 @@ try {
                     )
                   ),
                   a.createElement(
-                    Do,
+                    jo,
                     null,
                     a.createElement(Ma, null, 'Projects'),
                     a.createElement(
                       Fa,
                       { 'data-testid': 'right-list' },
                       c &&
-                        a.createElement(Ge, {
+                        a.createElement(qe, {
                           isLink: !1,
                           onClick: () => {
                             if (!c?.newProjectUrl)
@@ -14103,7 +14089,7 @@ try {
                       c?.projects?.map(
                         (h) =>
                           h &&
-                          a.createElement(Ge, {
+                          a.createElement(qe, {
                             appearance: 'secondary',
                             key: h.id,
                             title: h.name,
@@ -14135,7 +14121,7 @@ try {
                 null,
                 a.createElement(le, null, 'Visual tests'),
                 a.createElement(
-                  D,
+                  j,
                   { center: !0, muted: !0 },
                   'Visual tests only runs locally. To test this Storybook, clone it to your machine and run ',
                   a.createElement(Te, null, 'npx storybook dev'),
@@ -14160,7 +14146,7 @@ try {
                 null,
                 a.createElement(le, null, "Can't connect to Chromatic"),
                 a.createElement(
-                  D,
+                  j,
                   { center: !0, muted: !0 },
                   e
                     ? "You're offline. Double check your internet connection."
@@ -14197,7 +14183,7 @@ try {
                 null,
                 a.createElement(le, null, 'Uninstall complete'),
                 a.createElement(
-                  D,
+                  j,
                   { center: !0, muted: !0 },
                   'Visual tests will vanish the next time you restart your Storybook.'
                 )
@@ -14210,7 +14196,7 @@ try {
       Xs = He(Qs),
       sa = () => ht(Xs, 'RunBuild'),
       k4 = ({ children: e, watchState: t = Qs }) => a.createElement(Xs.Provider, { value: t }, e),
-      Oi = {
+      _i = {
         PENDING: 'status-value:warning',
         FAILED: 'status-value:error',
         DENIED: 'status-value:error',
@@ -14236,10 +14222,10 @@ try {
           if (!n.story || !n.status) return
           let r = t[n.story.storyId]
           if (!r) {
-            t[n.story.storyId] = Oi[n.status]
+            t[n.story.storyId] = _i[n.status]
             return
           }
-          t[n.story.storyId] = w4(r, Oi[n.status])
+          t[n.story.storyId] = w4(r, _i[n.status])
         }),
         Object.entries(t).map(([n, r]) => ({
           value: r,
@@ -14290,7 +14276,7 @@ try {
                 'div',
                 null,
                 a.createElement(le, null, r),
-                a.createElement(D, { center: !0, muted: !0 }, i)
+                a.createElement(j, { center: !0, muted: !0 }, i)
               ),
               t &&
                 a.createElement(
@@ -14319,7 +14305,7 @@ try {
                 null,
                 a.createElement(le, null, 'Visual tests disabled for your project'),
                 a.createElement(
-                  D,
+                  j,
                   { center: !0, muted: !0 },
                   'Update your project settings to enable visual testing.'
                 )
@@ -14391,7 +14377,7 @@ try {
       }
       return Number.isNaN(e) && Number.isNaN(t) ? !0 : e === t
     }
-    var _4 = [
+    var O4 = [
         'Array',
         'ArrayBuffer',
         'AsyncFunction',
@@ -14411,7 +14397,7 @@ try {
         'WeakMap',
         'WeakSet',
       ],
-      O4 = ['bigint', 'boolean', 'null', 'number', 'string', 'symbol', 'undefined']
+      _4 = ['bigint', 'boolean', 'null', 'number', 'string', 'symbol', 'undefined']
     function Sr(e) {
       let t = Object.prototype.toString.call(e).slice(8, -1)
       if (/HTML\w+Element/.test(t)) return 'HTMLElement'
@@ -14421,13 +14407,13 @@ try {
       return (t) => Sr(t) === e
     }
     function I4(e) {
-      return _4.includes(e)
+      return O4.includes(e)
     }
     function yn(e) {
       return (t) => typeof t === e
     }
     function R4(e) {
-      return O4.includes(e)
+      return _4.includes(e)
     }
     var B4 = ['innerHTML', 'ownerDocument', 'style', 'attributes', 'nodeValue']
     function A(e) {
@@ -14502,15 +14488,15 @@ try {
     A.undefined = yn('undefined')
     A.weakMap = Xe('WeakMap')
     A.weakSet = Xe('WeakSet')
-    var _ = A
+    var O = A
     function P4(...e) {
-      return e.every((t) => _.string(t) || _.array(t) || _.plainObject(t))
+      return e.every((t) => O.string(t) || O.array(t) || O.plainObject(t))
     }
     function V4(e, t, n) {
       return n0(e, t)
-        ? [e, t].every(_.array)
+        ? [e, t].every(O.array)
           ? !e.some(Ko(n)) && t.some(Ko(n))
-          : [e, t].every(_.plainObject)
+          : [e, t].every(O.plainObject)
             ? !Object.entries(e).some(Yo(n)) && Object.entries(t).some(Yo(n))
             : t === n
         : !1
@@ -14519,40 +14505,40 @@ try {
       let { actual: r, key: i, previous: l, type: o } = n,
         s = ot(e, i),
         d = ot(t, i),
-        c = [s, d].every(_.number) && (o === 'increased' ? s < d : s > d)
-      return (_.undefined(r) || (c = c && d === r), _.undefined(l) || (c = c && s === l), c)
+        c = [s, d].every(O.number) && (o === 'increased' ? s < d : s > d)
+      return (O.undefined(r) || (c = c && d === r), O.undefined(l) || (c = c && s === l), c)
     }
-    function Go(e, t, n) {
+    function qo(e, t, n) {
       let { key: r, type: i, value: l } = n,
         o = ot(e, r),
         s = ot(t, r),
         d = i === 'added' ? o : s,
         c = i === 'added' ? s : o
-      if (!_.nullOrUndefined(l)) {
-        if (_.defined(d)) {
-          if (_.array(d) || _.plainObject(d)) return V4(d, c, l)
+      if (!O.nullOrUndefined(l)) {
+        if (O.defined(d)) {
+          if (O.array(d) || O.plainObject(d)) return V4(d, c, l)
         } else return Me(c, l)
         return !1
       }
-      return [o, s].every(_.array)
+      return [o, s].every(O.array)
         ? !c.every(ul(d))
-        : [o, s].every(_.plainObject)
+        : [o, s].every(O.plainObject)
           ? H4(Object.keys(d), Object.keys(c))
-          : ![o, s].every((u) => _.primitive(u) && _.defined(u)) &&
-            (i === 'added' ? !_.defined(o) && _.defined(s) : _.defined(o) && !_.defined(s))
+          : ![o, s].every((u) => O.primitive(u) && O.defined(u)) &&
+            (i === 'added' ? !O.defined(o) && O.defined(s) : O.defined(o) && !O.defined(s))
     }
-    function qo(e, t, { key: n } = {}) {
+    function Go(e, t, { key: n } = {}) {
       let r = ot(e, n),
         i = ot(t, n)
       if (!n0(r, i)) throw new TypeError('Inputs have different types')
       if (!P4(r, i)) throw new TypeError("Inputs don't have length")
-      return ([r, i].every(_.plainObject) && ((r = Object.keys(r)), (i = Object.keys(i))), [r, i])
+      return ([r, i].every(O.plainObject) && ((r = Object.keys(r)), (i = Object.keys(i))), [r, i])
     }
     function Yo(e) {
       return ([t, n]) =>
-        _.array(e)
-          ? Me(e, n) || e.some((r) => Me(r, n) || (_.array(n) && ul(n)(r)))
-          : _.plainObject(e) && e[t]
+        O.array(e)
+          ? Me(e, n) || e.some((r) => Me(r, n) || (O.array(n) && ul(n)(r)))
+          : O.plainObject(e) && e[t]
             ? !!e[t] && Me(e[t], n)
             : Me(e, n)
     }
@@ -14560,34 +14546,34 @@ try {
       return t.some((n) => !e.includes(n))
     }
     function Ko(e) {
-      return (t) => (_.array(e) ? e.some((n) => Me(n, t) || (_.array(t) && ul(t)(n))) : Me(e, t))
+      return (t) => (O.array(e) ? e.some((n) => Me(n, t) || (O.array(t) && ul(t)(n))) : Me(e, t))
     }
     function An(e, t) {
-      return _.array(e) ? e.some((n) => Me(n, t)) : Me(e, t)
+      return O.array(e) ? e.some((n) => Me(n, t)) : Me(e, t)
     }
     function ul(e) {
       return (t) => e.some((n) => Me(n, t))
     }
     function n0(...e) {
-      return e.every(_.array) || e.every(_.number) || e.every(_.plainObject) || e.every(_.string)
+      return e.every(O.array) || e.every(O.number) || e.every(O.plainObject) || e.every(O.string)
     }
     function ot(e, t) {
-      return _.plainObject(e) || _.array(e)
-        ? _.string(t)
+      return O.plainObject(e) || O.array(e)
+        ? O.string(t)
           ? t.split('.').reduce((n, r) => n && n[r], e)
-          : _.number(t)
+          : O.number(t)
             ? e[t]
             : e
         : e
     }
     function lr(e, t) {
-      if ([e, t].some(_.nullOrUndefined)) throw new Error('Missing required parameters')
-      if (![e, t].every((n) => _.plainObject(n) || _.array(n)))
+      if ([e, t].some(O.nullOrUndefined)) throw new Error('Missing required parameters')
+      if (![e, t].every((n) => O.plainObject(n) || O.array(n)))
         throw new Error('Expected plain objects or array')
       return {
         added: (n, r) => {
           try {
-            return Go(e, t, { key: n, type: 'added', value: r })
+            return qo(e, t, { key: n, type: 'added', value: r })
           } catch {
             return !1
           }
@@ -14596,31 +14582,31 @@ try {
           try {
             let l = ot(e, n),
               o = ot(t, n),
-              s = _.defined(r),
-              d = _.defined(i)
+              s = O.defined(r),
+              d = O.defined(i)
             if (s || d) {
               let c = d ? An(i, l) : !An(r, l),
                 u = An(r, o)
               return c && u
             }
-            return [l, o].every(_.array) || [l, o].every(_.plainObject) ? !Me(l, o) : l !== o
+            return [l, o].every(O.array) || [l, o].every(O.plainObject) ? !Me(l, o) : l !== o
           } catch {
             return !1
           }
         },
         changedFrom: (n, r, i) => {
-          if (!_.defined(n)) return !1
+          if (!O.defined(n)) return !1
           try {
             let l = ot(e, n),
               o = ot(t, n),
-              s = _.defined(i)
+              s = O.defined(i)
             return An(r, l) && (s ? An(i, o) : !s)
           } catch {
             return !1
           }
         },
         decreased: (n, r, i) => {
-          if (!_.defined(n)) return !1
+          if (!O.defined(n)) return !1
           try {
             return Wo(e, t, { key: n, actual: r, previous: i, type: 'decreased' })
           } catch {
@@ -14629,7 +14615,7 @@ try {
         },
         emptied: (n) => {
           try {
-            let [r, i] = qo(e, t, { key: n })
+            let [r, i] = Go(e, t, { key: n })
             return !!r.length && !i.length
           } catch {
             return !1
@@ -14637,14 +14623,14 @@ try {
         },
         filled: (n) => {
           try {
-            let [r, i] = qo(e, t, { key: n })
+            let [r, i] = Go(e, t, { key: n })
             return !r.length && !!i.length
           } catch {
             return !1
           }
         },
         increased: (n, r, i) => {
-          if (!_.defined(n)) return !1
+          if (!O.defined(n)) return !1
           try {
             return Wo(e, t, { key: n, actual: r, previous: i, type: 'increased' })
           } catch {
@@ -14653,23 +14639,23 @@ try {
         },
         removed: (n, r) => {
           try {
-            return Go(e, t, { key: n, type: 'removed', value: r })
+            return qo(e, t, { key: n, type: 'removed', value: r })
           } catch {
             return !1
           }
         },
       }
     }
-    var D4 = pt(Od(), 1),
+    var j4 = pt(_d(), 1),
       a0 = pt(Id(), 1)
-    function j4(e, ...t) {
-      if (!_.plainObject(e)) throw new TypeError('Expected an object')
+    function D4(e, ...t) {
+      if (!O.plainObject(e)) throw new TypeError('Expected an object')
       let n = {}
       for (let r in e) ({}).hasOwnProperty.call(e, r) && (t.includes(r) || (n[r] = e[r]))
       return n
     }
     function z4(e, ...t) {
-      if (!_.plainObject(e)) throw new TypeError('Expected an object')
+      if (!O.plainObject(e)) throw new TypeError('Expected an object')
       if (!t.length) return e
       let n = {}
       for (let r in e) ({}).hasOwnProperty.call(e, r) && t.includes(r) && (n[r] = e[r])
@@ -14704,8 +14690,8 @@ try {
           }, U4))
       }
     }
-    var G4 = da && window.Promise,
-      q4 = G4 ? $4 : W4
+    var q4 = da && window.Promise,
+      G4 = q4 ? $4 : W4
     function r0(e) {
       var t = {}
       return e && t.toString.call(e) === '[object Function]'
@@ -15694,7 +15680,7 @@ try {
             (this.scheduleUpdate = function () {
               return requestAnimationFrame(r.update)
             }),
-            (this.update = q4(this.update.bind(this))),
+            (this.update = G4(this.update.bind(this))),
             (this.options = ze({}, e.Defaults, i)),
             (this.state = { isDestroyed: !1, isCreated: !1, scrollParents: [] }),
             (this.reference = t && t.jquery ? t[0] : t),
@@ -15923,16 +15909,16 @@ try {
       }
     }
     var Zp = b0('function'),
-      _p = function (e) {
+      Op = function (e) {
         return e === null
       },
       a1 = function (e) {
         return Object.prototype.toString.call(e).slice(8, -1) === 'RegExp'
       },
       r1 = function (e) {
-        return !Op(e) && !_p(e) && (Zp(e) || typeof e == 'object')
+        return !_p(e) && !Op(e) && (Zp(e) || typeof e == 'object')
       },
-      Op = b0('undefined'),
+      _p = b0('undefined'),
       Vi = function (e) {
         var t = typeof Symbol == 'function' && Symbol.iterator,
           n = t && e[t],
@@ -15949,7 +15935,7 @@ try {
     function Ip(e, t) {
       var n = e.length
       if (n !== t.length) return !1
-      for (var r = n; r-- !== 0; ) if (!_e(e[r], t[r])) return !1
+      for (var r = n; r-- !== 0; ) if (!Oe(e[r], t[r])) return !1
       return !0
     }
     function Rp(e, t) {
@@ -15978,7 +15964,7 @@ try {
       try {
         for (var c = Vi(e.entries()), u = c.next(); !u.done; u = c.next()) {
           var d = u.value
-          if (!_e(d[1], t.get(d[0]))) return !1
+          if (!Oe(d[1], t.get(d[0]))) return !1
         }
       } catch (m) {
         i = { error: m }
@@ -16010,7 +15996,7 @@ try {
       }
       return !0
     }
-    function _e(e, t) {
+    function Oe(e, t) {
       if (e === t) return !0
       if (e && r1(e) && t && r1(t)) {
         if (e.constructor !== t.constructor) return !1
@@ -16028,7 +16014,7 @@ try {
           if (!Object.prototype.hasOwnProperty.call(t, n[i])) return !1
         for (var i = n.length; i-- !== 0; ) {
           var l = n[i]
-          if (!(l === '_owner' && e.$$typeof) && !_e(e[l], t[l])) return !1
+          if (!(l === '_owner' && e.$$typeof) && !Oe(e[l], t[l])) return !1
         }
         return !0
       }
@@ -16070,13 +16056,13 @@ try {
       if (!I.nullOrUndefined(l)) {
         if (I.defined(d)) {
           if (I.array(d) || I.plainObject(d)) return Hp(d, c, l)
-        } else return _e(c, l)
+        } else return Oe(c, l)
         return !1
       }
       return [o, s].every(I.array)
         ? !c.every(vl(d))
         : [o, s].every(I.plainObject)
-          ? Dp(Object.keys(d), Object.keys(c))
+          ? jp(Object.keys(d), Object.keys(c))
           : ![o, s].every(function (u) {
               return I.primitive(u) && I.defined(u)
             }) && (i === 'added' ? !I.defined(o) && I.defined(s) : I.defined(o) && !I.defined(s))
@@ -16095,16 +16081,16 @@ try {
         var n = t[0],
           r = t[1]
         return I.array(e)
-          ? _e(e, r) ||
+          ? Oe(e, r) ||
               e.some(function (i) {
-                return _e(i, r) || (I.array(r) && vl(r)(i))
+                return Oe(i, r) || (I.array(r) && vl(r)(i))
               })
           : I.plainObject(e) && e[n]
-            ? !!e[n] && _e(e[n], r)
-            : _e(e, r)
+            ? !!e[n] && Oe(e[n], r)
+            : Oe(e, r)
       }
     }
-    function Dp(e, t) {
+    function jp(e, t) {
       return t.some(function (n) {
         return !e.includes(n)
       })
@@ -16113,22 +16099,22 @@ try {
       return function (t) {
         return I.array(e)
           ? e.some(function (n) {
-              return _e(n, t) || (I.array(t) && vl(t)(n))
+              return Oe(n, t) || (I.array(t) && vl(t)(n))
             })
-          : _e(e, t)
+          : Oe(e, t)
       }
     }
     function Ln(e, t) {
       return I.array(e)
         ? e.some(function (n) {
-            return _e(n, t)
+            return Oe(n, t)
           })
-        : _e(e, t)
+        : Oe(e, t)
     }
     function vl(e) {
       return function (t) {
         return e.some(function (n) {
-          return _e(n, t)
+          return Oe(n, t)
         })
       }
     }
@@ -16148,7 +16134,7 @@ try {
       }
       return e
     }
-    function jp(e, t) {
+    function Dp(e, t) {
       if ([e, t].some(I.nullOrUndefined)) throw new Error('Missing required parameters')
       if (
         ![e, t].every(function (m) {
@@ -16174,7 +16160,7 @@ try {
                 f = Ln(p, y)
               return h && f
             }
-            return [g, y].every(I.array) || [g, y].every(I.plainObject) ? !_e(g, y) : g !== y
+            return [g, y].every(I.array) || [g, y].every(I.plainObject) ? !Oe(g, y) : g !== y
           } catch {
             return !1
           }
@@ -16408,8 +16394,8 @@ try {
       var t = Wp(e, 'string')
       return typeof t == 'symbol' ? t : String(t)
     }
-    var Gp = { flip: { padding: 20 }, preventOverflow: { padding: 10 } },
-      qp =
+    var qp = { flip: { padding: 20 }, preventOverflow: { padding: 10 } },
+      Gp =
         'The typeValidator argument must be a function with the signature function(props, propName, componentName).',
       Yp = 'The error message is optional, but must be a string if provided.'
     function Kp(e, t, n, r) {
@@ -16426,7 +16412,7 @@ try {
           )
     }
     function Xp(e, t) {
-      if (typeof e != 'function') throw new TypeError(qp)
+      if (typeof e != 'function') throw new TypeError(Gp)
       if (t && typeof t != 'string') throw new TypeError(Yp)
     }
     function m1(e, t, n) {
@@ -17150,7 +17136,7 @@ try {
                     s = l.open,
                     d = l.target,
                     c = l.wrapperOptions,
-                    u = jp(i, this.state),
+                    u = Dp(i, this.state),
                     m = u.changedFrom,
                     p = u.changed
                   if (r.open !== s) {
@@ -17312,7 +17298,7 @@ try {
               key: 'options',
               get: function () {
                 var r = this.props.options
-                return (0, Pi.default)(Gp, r || {})
+                return (0, Pi.default)(qp, r || {})
               },
             },
             {
@@ -17529,7 +17515,7 @@ try {
         t in e
           ? d3(e, t, { enumerable: !0, configurable: !0, writable: !0, value: n })
           : (e[t] = n),
-      O = (e, t, n) => (c3(e, typeof t != 'symbol' ? t + '' : t, n), n),
+      _ = (e, t, n) => (c3(e, typeof t != 'symbol' ? t + '' : t, n), n),
       ie = {
         INIT: 'init',
         START: 'start',
@@ -17542,7 +17528,7 @@ try {
         SKIP: 'skip',
         UPDATE: 'update',
       },
-      qe = {
+      Ge = {
         TOUR_START: 'tour:start',
         STEP_BEFORE: 'step:before',
         BEACON: 'beacon',
@@ -17553,7 +17539,7 @@ try {
         TARGET_NOT_FOUND: 'error:target_not_found',
         ERROR: 'error',
       },
-      G = {
+      q = {
         INIT: 'init',
         READY: 'ready',
         BEACON: 'beacon',
@@ -17664,7 +17650,7 @@ try {
       return new Promise((i, l) => {
         let { scrollTop: o } = r,
           s = e > o ? e - o : o - e
-        D4.default.top(r, e, { duration: s < 100 ? 50 : n }, (d) =>
+        j4.default.top(r, e, { duration: s < 100 ? 50 : n }, (d) =>
           d && d.message !== 'Element already at target scroll position' ? l(d) : i()
         )
       })
@@ -17703,7 +17689,7 @@ try {
       return (n(e), t.join(' ').trim())
     }
     function y3(e, t) {
-      return !_.plainObject(e) || !_.array(t) ? !1 : Object.keys(e).every((n) => t.includes(n))
+      return !O.plainObject(e) || !O.array(t) ? !1 : Object.keys(e).every((n) => t.includes(n))
     }
     function b3(e) {
       let t = /^#?([\da-f])([\da-f])([\da-f])$/i,
@@ -17727,7 +17713,7 @@ try {
             ),
             Array.isArray(e)
               ? e.forEach((l) => {
-                  _.plainObject(l) && l.key
+                  O.plainObject(l) && l.key
                     ? i.apply(console, [l.key, l.value])
                     : i.apply(console, [l])
                 })
@@ -17746,11 +17732,11 @@ try {
       } = e
       return (
         !l.disableScrolling &&
-        (!t || i || n === G.TOOLTIP) &&
+        (!t || i || n === q.TOOLTIP) &&
         l.placement !== 'center' &&
         (!l.isFixed || !la(o)) &&
         r !== n &&
-        [G.BEACON, G.TOOLTIP].includes(n)
+        [q.BEACON, q.TOOLTIP].includes(n)
       )
     }
     var k3 = {
@@ -17816,7 +17802,7 @@ try {
         width: 380,
         zIndex: 100,
       },
-      _n = {
+      On = {
         backgroundColor: 'transparent',
         border: 0,
         borderRadius: 0,
@@ -17849,7 +17835,7 @@ try {
         },
         o = {
           beacon: {
-            ..._n,
+            ...On,
             display: 'inline-block',
             height: r.beaconSize,
             position: 'relative',
@@ -17905,10 +17891,10 @@ try {
             marginTop: 15,
           },
           tooltipFooterSpacer: { flex: 1 },
-          buttonNext: { ..._n, backgroundColor: r.primaryColor, borderRadius: 4, color: '#fff' },
-          buttonBack: { ..._n, color: r.primaryColor, marginLeft: 'auto', marginRight: 5 },
+          buttonNext: { ...On, backgroundColor: r.primaryColor, borderRadius: 4, color: '#fff' },
+          buttonBack: { ...On, color: r.primaryColor, marginLeft: 'auto', marginRight: 5 },
           buttonClose: {
-            ..._n,
+            ...On,
             color: r.textColor,
             height: 14,
             padding: 15,
@@ -17917,7 +17903,7 @@ try {
             top: 0,
             width: 14,
           },
-          buttonSkip: { ..._n, color: r.textColor, fontSize: 14 },
+          buttonSkip: { ...On, color: r.textColor, fontSize: 14 },
           overlay: { ...l, backgroundColor: r.overlayColor, mixBlendMode: 'hard-light' },
           overlayLegacy: { ...l },
           overlayLegacyCenter: { ...l, backgroundColor: r.overlayColor },
@@ -17952,10 +17938,10 @@ try {
         'tooltipComponent'
       )
     }
-    function On(e, t) {
+    function _n(e, t) {
       var n, r, i, l, o, s
       let d = e ?? {},
-        c = Aa.default.all([w3, N3(t), d], { isMergeableObject: _.plainObject }),
+        c = Aa.default.all([w3, N3(t), d], { isMergeableObject: O.plainObject }),
         u = x3(t.styles, c.styles),
         m = Fr(Mt(c.target), c.disableScrollParentFix),
         p = Aa.default.all([
@@ -17974,12 +17960,12 @@ try {
           ...c,
           locale: Aa.default.all([T0, (s = t.locale) != null ? s : {}, c.locale || {}]),
           floaterProps: p,
-          styles: j4(u, 'floaterStyles'),
+          styles: D4(u, 'floaterStyles'),
         }
       )
     }
     function Z0(e, t = !1) {
-      return _.plainObject(e)
+      return O.plainObject(e)
         ? e.target
           ? !0
           : (Ut({
@@ -17992,7 +17978,7 @@ try {
         : (Ut({ title: 'validateStep', data: 'step must be an object', warn: !0, debug: t }), !1)
     }
     function v1(e, t = !1) {
-      return _.array(e)
+      return O.array(e)
         ? e.every((n) => Z0(n, t))
         : (Ut({ title: 'validateSteps', data: 'steps must be an array', warn: !0, debug: t }), !1)
     }
@@ -18000,41 +17986,41 @@ try {
         action: 'init',
         controlled: !1,
         index: 0,
-        lifecycle: G.INIT,
+        lifecycle: q.INIT,
         size: 0,
         status: J.IDLE,
       },
       y1 = ['action', 'index', 'lifecycle', 'status'],
       F3 = class {
         constructor(e) {
-          ;(O(this, 'beaconPopper'),
-            O(this, 'tooltipPopper'),
-            O(this, 'data', new Map()),
-            O(this, 'listener'),
-            O(this, 'store', new Map()),
-            O(this, 'addListener', (i) => {
+          ;(_(this, 'beaconPopper'),
+            _(this, 'tooltipPopper'),
+            _(this, 'data', new Map()),
+            _(this, 'listener'),
+            _(this, 'store', new Map()),
+            _(this, 'addListener', (i) => {
               this.listener = i
             }),
-            O(this, 'setSteps', (i) => {
+            _(this, 'setSteps', (i) => {
               let { size: l, status: o } = this.getState(),
                 s = { size: i.length, status: o }
               ;(this.data.set('steps', i),
                 o === J.WAITING && !l && i.length && (s.status = J.RUNNING),
                 this.setState(s))
             }),
-            O(this, 'getPopper', (i) => (i === 'beacon' ? this.beaconPopper : this.tooltipPopper)),
-            O(this, 'setPopper', (i, l) => {
+            _(this, 'getPopper', (i) => (i === 'beacon' ? this.beaconPopper : this.tooltipPopper)),
+            _(this, 'setPopper', (i, l) => {
               i === 'beacon' ? (this.beaconPopper = l) : (this.tooltipPopper = l)
             }),
-            O(this, 'cleanupPoppers', () => {
+            _(this, 'cleanupPoppers', () => {
               ;((this.beaconPopper = null), (this.tooltipPopper = null))
             }),
-            O(this, 'close', () => {
+            _(this, 'close', () => {
               let { index: i, status: l } = this.getState()
               l === J.RUNNING &&
                 this.setState({ ...this.getNextState({ action: ie.CLOSE, index: i + 1 }) })
             }),
-            O(this, 'go', (i) => {
+            _(this, 'go', (i) => {
               let { controlled: l, status: o } = this.getState()
               if (l || o !== J.RUNNING) return
               let s = this.getSteps()[i]
@@ -18043,22 +18029,22 @@ try {
                 status: s ? o : J.FINISHED,
               })
             }),
-            O(this, 'info', () => this.getState()),
-            O(this, 'next', () => {
+            _(this, 'info', () => this.getState()),
+            _(this, 'next', () => {
               let { index: i, status: l } = this.getState()
               l === J.RUNNING && this.setState(this.getNextState({ action: ie.NEXT, index: i + 1 }))
             }),
-            O(this, 'open', () => {
+            _(this, 'open', () => {
               let { status: i } = this.getState()
               i === J.RUNNING &&
-                this.setState({ ...this.getNextState({ action: ie.UPDATE, lifecycle: G.TOOLTIP }) })
+                this.setState({ ...this.getNextState({ action: ie.UPDATE, lifecycle: q.TOOLTIP }) })
             }),
-            O(this, 'prev', () => {
+            _(this, 'prev', () => {
               let { index: i, status: l } = this.getState()
               l === J.RUNNING &&
                 this.setState({ ...this.getNextState({ action: ie.PREV, index: i - 1 }) })
             }),
-            O(this, 'reset', (i = !1) => {
+            _(this, 'reset', (i = !1) => {
               let { controlled: l } = this.getState()
               l ||
                 this.setState({
@@ -18066,19 +18052,19 @@ try {
                   status: i ? J.RUNNING : J.READY,
                 })
             }),
-            O(this, 'skip', () => {
+            _(this, 'skip', () => {
               let { status: i } = this.getState()
               i === J.RUNNING &&
-                this.setState({ action: ie.SKIP, lifecycle: G.INIT, status: J.SKIPPED })
+                this.setState({ action: ie.SKIP, lifecycle: q.INIT, status: J.SKIPPED })
             }),
-            O(this, 'start', (i) => {
+            _(this, 'start', (i) => {
               let { index: l, size: o } = this.getState()
               this.setState({
-                ...this.getNextState({ action: ie.START, index: _.number(i) ? i : l }, !0),
+                ...this.getNextState({ action: ie.START, index: O.number(i) ? i : l }, !0),
                 status: o ? J.RUNNING : J.WAITING,
               })
             }),
-            O(this, 'stop', (i = !1) => {
+            _(this, 'stop', (i = !1) => {
               let { index: l, status: o } = this.getState()
               ;[J.FINISHED, J.SKIPPED].includes(o) ||
                 this.setState({
@@ -18086,7 +18072,7 @@ try {
                   status: J.PAUSED,
                 })
             }),
-            O(this, 'update', (i) => {
+            _(this, 'update', (i) => {
               var l
               if (!y3(i, y1)) throw new Error(`State is not valid. Valid keys: ${y1.join(', ')}`)
               this.setState({
@@ -18100,10 +18086,10 @@ try {
           ;(this.setState(
             {
               action: ie.INIT,
-              controlled: _.number(n),
+              controlled: O.number(n),
               continuous: t,
-              index: _.number(n) ? n : 0,
-              lifecycle: G.INIT,
+              index: O.number(n) ? n : 0,
+              lifecycle: q.INIT,
               status: r.length ? J.READY : J.IDLE,
             },
             !0
@@ -18128,13 +18114,13 @@ try {
         getNextState(e, t = !1) {
           var n, r, i, l
           let { action: o, controlled: s, index: d, size: c, status: u } = this.getState(),
-            m = _.number(e.index) ? e.index : d,
+            m = O.number(e.index) ? e.index : d,
             p = s && !t ? d : Math.min(Math.max(m, 0), c)
           return {
             action: (n = e.action) != null ? n : o,
             controlled: s,
             index: p,
-            lifecycle: (r = e.lifecycle) != null ? r : G.INIT,
+            lifecycle: (r = e.lifecycle) != null ? r : q.INIT,
             size: (i = e.size) != null ? i : c,
             status: p === c ? J.FINISHED : (l = e.status) != null ? l : u,
           }
@@ -18180,13 +18166,13 @@ try {
     var L3 = class {
         constructor(e, t) {
           if (
-            (O(this, 'element'),
-            O(this, 'options'),
-            O(this, 'canBeTabbed', (n) => {
+            (_(this, 'element'),
+            _(this, 'options'),
+            _(this, 'canBeTabbed', (n) => {
               let { tabIndex: r } = n
               return r === null || r < 0 ? !1 : this.canHaveFocus(n)
             }),
-            O(this, 'canHaveFocus', (n) => {
+            _(this, 'canHaveFocus', (n) => {
               let r = /input|select|textarea|button|object/,
                 i = n.nodeName.toLowerCase()
               return (
@@ -18195,14 +18181,14 @@ try {
                 this.isVisible(n)
               )
             }),
-            O(this, 'findValidTabElements', () =>
+            _(this, 'findValidTabElements', () =>
               [].slice.call(this.element.querySelectorAll('*'), 0).filter(this.canBeTabbed)
             ),
-            O(this, 'handleKeyDown', (n) => {
+            _(this, 'handleKeyDown', (n) => {
               let { code: r = 'Tab' } = this.options
               n.code === r && this.interceptTab(n)
             }),
-            O(this, 'interceptTab', (n) => {
+            _(this, 'interceptTab', (n) => {
               n.preventDefault()
               let r = this.findValidTabElements(),
                 { shiftKey: i } = n
@@ -18215,7 +18201,7 @@ try {
                   : (l += i ? -1 : 1),
                 r[l].focus())
             }),
-            O(this, 'isHidden', (n) => {
+            _(this, 'isHidden', (n) => {
               let r = n.offsetWidth <= 0 && n.offsetHeight <= 0,
                 i = window.getComputedStyle(n)
               return r && !n.innerHTML
@@ -18223,7 +18209,7 @@ try {
                 : (r && i.getPropertyValue('overflow') !== 'visible') ||
                     i.getPropertyValue('display') === 'none'
             }),
-            O(this, 'isVisible', (n) => {
+            _(this, 'isVisible', (n) => {
               let r = n
               for (; r; )
                 if (r instanceof HTMLElement) {
@@ -18233,14 +18219,14 @@ try {
                 }
               return !0
             }),
-            O(this, 'removeScope', () => {
+            _(this, 'removeScope', () => {
               window.removeEventListener('keydown', this.handleKeyDown)
             }),
-            O(this, 'checkFocus', (n) => {
+            _(this, 'checkFocus', (n) => {
               document.activeElement !== n &&
                 (n.focus(), window.requestAnimationFrame(() => this.checkFocus(n)))
             }),
-            O(this, 'setFocus', () => {
+            _(this, 'setFocus', () => {
               let { selector: n } = this.options
               if (!n) return
               let r = this.element.querySelector(n)
@@ -18259,8 +18245,8 @@ try {
         constructor(e) {
           if (
             (super(e),
-            O(this, 'beacon', null),
-            O(this, 'setBeaconRef', (i) => {
+            _(this, 'beacon', null),
+            _(this, 'setBeaconRef', (i) => {
               this.beacon = i
             }),
             e.beaconComponent)
@@ -18304,7 +18290,7 @@ try {
         componentDidMount() {
           let { shouldFocus: e } = this.props
           setTimeout(() => {
-            _.domElement(this.beacon) && e && this.beacon.focus()
+            O.domElement(this.beacon) && e && this.beacon.focus()
           }, 0)
         }
         componentWillUnmount() {
@@ -18323,7 +18309,7 @@ try {
               step: s,
               styles: d,
             } = this.props,
-            c = _.string(i.open) ? i.open : (0, s3.default)(i.open),
+            c = O.string(i.open) ? i.open : (0, s3.default)(i.open),
             u = { 'aria-label': c, onClick: l, onMouseEnter: l, ref: this.setBeaconRef, title: c },
             m
           return (
@@ -18354,16 +18340,16 @@ try {
         style: e,
       })
     }
-    var _3 = Z3,
-      O3 = class extends Tt {
+    var O3 = Z3,
+      _3 = class extends Tt {
         constructor() {
           ;(super(...arguments),
-            O(this, 'isActive', !1),
-            O(this, 'resizeTimeout'),
-            O(this, 'scrollTimeout'),
-            O(this, 'scrollParent'),
-            O(this, 'state', { isScrolling: !1, mouseOverSpotlight: !1, showSpotlight: !0 }),
-            O(this, 'handleMouseMove', (e) => {
+            _(this, 'isActive', !1),
+            _(this, 'resizeTimeout'),
+            _(this, 'scrollTimeout'),
+            _(this, 'scrollParent'),
+            _(this, 'state', { isScrolling: !1, mouseOverSpotlight: !1, showSpotlight: !0 }),
+            _(this, 'handleMouseMove', (e) => {
               let { mouseOverSpotlight: t } = this.state,
                 { height: n, left: r, position: i, top: l, width: o } = this.spotlightStyles,
                 s = i === 'fixed' ? e.clientY : e.pageY,
@@ -18372,7 +18358,7 @@ try {
                 u = d >= r && d <= r + o && c
               u !== t && this.updateState({ mouseOverSpotlight: u })
             }),
-            O(this, 'handleScroll', () => {
+            _(this, 'handleScroll', () => {
               let { target: e } = this.props,
                 t = Mt(e)
               if (this.scrollParent !== document) {
@@ -18384,7 +18370,7 @@ try {
                   }, 50)))
               } else la(t, 'sticky') && this.updateState({})
             }),
-            O(this, 'handleResize', () => {
+            _(this, 'handleResize', () => {
               ;(clearTimeout(this.resizeTimeout),
                 (this.resizeTimeout = window.setTimeout(() => {
                   this.isActive && this.forceUpdate()
@@ -18407,7 +18393,7 @@ try {
           var t
           let { lifecycle: n, spotlightClicks: r } = this.props,
             { changed: i } = lr(e, this.props)
-          ;(i('lifecycle', G.TOOLTIP) &&
+          ;(i('lifecycle', q.TOOLTIP) &&
             ((t = this.scrollParent) == null ||
               t.addEventListener('scroll', this.handleScroll, { passive: !0 }),
             setTimeout(() => {
@@ -18415,9 +18401,9 @@ try {
               l || this.updateState({ showSpotlight: !0 })
             }, 100)),
             (i('spotlightClicks') || i('disableOverlay') || i('lifecycle')) &&
-              (r && n === G.TOOLTIP
+              (r && n === q.TOOLTIP
                 ? window.addEventListener('mousemove', this.handleMouseMove, !1)
-                : n !== G.TOOLTIP && window.removeEventListener('mousemove', this.handleMouseMove)))
+                : n !== q.TOOLTIP && window.removeEventListener('mousemove', this.handleMouseMove)))
         }
         componentWillUnmount() {
           var e
@@ -18467,7 +18453,7 @@ try {
               placement: o,
               styles: s,
             } = this.props
-          if (n || i !== G.TOOLTIP) return null
+          if (n || i !== q.TOOLTIP) return null
           let d = s.overlay
           f1() && (d = o === 'center' ? s.overlayLegacyCenter : s.overlayLegacy)
           let c = {
@@ -18476,7 +18462,7 @@ try {
               pointerEvents: e ? 'none' : 'auto',
               ...d,
             },
-            u = o !== 'center' && t && S(_3, { styles: this.spotlightStyles })
+            u = o !== 'center' && t && S(O3, { styles: this.spotlightStyles })
           if (L0() === 'safari') {
             let { mixBlendMode: m, zIndex: p, ...v } = c
             ;((u = S('div', { style: { ...v } }, u)), delete c.backgroundColor)
@@ -18496,7 +18482,7 @@ try {
       },
       I3 = class extends Tt {
         constructor() {
-          ;(super(...arguments), O(this, 'node', null))
+          ;(super(...arguments), _(this, 'node', null))
         }
         componentDidMount() {
           let { id: e } = this.props
@@ -18582,14 +18568,14 @@ try {
           title: f,
         } = c,
         { back: E, close: C, last: Z, next: M, skip: V } = y,
-        j = { primary: C }
+        D = { primary: C }
       return (
         r &&
-          ((j.primary = l ? Z : M),
-          w && (j.primary = S('span', null, j.primary, ' (', i + 1, '/', s, ')'))),
+          ((D.primary = l ? Z : M),
+          w && (D.primary = S('span', null, D.primary, ' (', i + 1, '/', s, ')'))),
         b &&
           !l &&
-          (j.skip = S(
+          (D.skip = S(
             'button',
             {
               'aria-live': 'off',
@@ -18602,12 +18588,12 @@ try {
           )),
         !p &&
           i > 0 &&
-          (j.back = S(
+          (D.back = S(
             'button',
             { 'data-test-id': 'button-back', style: h.buttonBack, type: 'button', ...t },
             E
           )),
-        (j.close = !v && S(B3, { 'data-test-id': 'button-close', styles: h.buttonClose, ...n })),
+        (D.close = !v && S(B3, { 'data-test-id': 'button-close', styles: h.buttonClose, ...n })),
         S(
           'div',
           {
@@ -18627,15 +18613,15 @@ try {
             S(
               'div',
               { style: h.tooltipFooter },
-              S('div', { style: h.tooltipFooterSpacer }, j.skip),
-              j.back,
+              S('div', { style: h.tooltipFooterSpacer }, D.skip),
+              D.back,
               S(
                 'button',
                 { 'data-test-id': 'button-primary', style: h.buttonNext, type: 'button', ...o },
-                j.primary
+                D.primary
               )
             ),
-          j.close
+          D.close
         )
       )
     }
@@ -18643,17 +18629,17 @@ try {
       H3 = class extends Tt {
         constructor() {
           ;(super(...arguments),
-            O(this, 'handleClickBack', (e) => {
+            _(this, 'handleClickBack', (e) => {
               e.preventDefault()
               let { helpers: t } = this.props
               t.prev()
             }),
-            O(this, 'handleClickClose', (e) => {
+            _(this, 'handleClickClose', (e) => {
               e.preventDefault()
               let { helpers: t } = this.props
               t.close()
             }),
-            O(this, 'handleClickPrimary', (e) => {
+            _(this, 'handleClickPrimary', (e) => {
               e.preventDefault()
               let { continuous: t, helpers: n } = this.props
               if (!t) {
@@ -18662,12 +18648,12 @@ try {
               }
               n.next()
             }),
-            O(this, 'handleClickSkip', (e) => {
+            _(this, 'handleClickSkip', (e) => {
               e.preventDefault()
               let { helpers: t } = this.props
               t.skip()
             }),
-            O(this, 'getElementsProps', () => {
+            _(this, 'getElementsProps', () => {
               let { continuous: e, isLastStep: t, setTooltipRef: n, step: r } = this.props,
                 i = Nt(r.locale.back),
                 l = Nt(r.locale.close),
@@ -18745,33 +18731,33 @@ try {
           return c
         }
       },
-      D3 = class extends Tt {
+      j3 = class extends Tt {
         constructor() {
           ;(super(...arguments),
-            O(this, 'scope', null),
-            O(this, 'tooltip', null),
-            O(this, 'handleClickHoverBeacon', (e) => {
+            _(this, 'scope', null),
+            _(this, 'tooltip', null),
+            _(this, 'handleClickHoverBeacon', (e) => {
               let { step: t, store: n } = this.props
               ;(e.type === 'mouseenter' && t.event !== 'hover') ||
-                n.update({ lifecycle: G.TOOLTIP })
+                n.update({ lifecycle: q.TOOLTIP })
             }),
-            O(this, 'handleClickOverlay', () => {
+            _(this, 'handleClickOverlay', () => {
               let { helpers: e, step: t } = this.props
               t.disableOverlayClose || e.close()
             }),
-            O(this, 'setTooltipRef', (e) => {
+            _(this, 'setTooltipRef', (e) => {
               this.tooltip = e
             }),
-            O(this, 'setPopper', (e, t) => {
+            _(this, 'setPopper', (e, t) => {
               var n
               let { action: r, step: i, store: l } = this.props
               ;(t === 'wrapper' ? l.setPopper('beacon', e) : l.setPopper('tooltip', e),
                 l.getPopper('beacon') &&
                   l.getPopper('tooltip') &&
-                  l.update({ action: r, lifecycle: G.READY }),
+                  l.update({ action: r, lifecycle: q.READY }),
                 (n = i.floaterProps) != null && n.getPopper && i.floaterProps.getPopper(e, t))
             }),
-            O(this, 'renderTooltip', (e) => {
+            _(this, 'renderTooltip', (e) => {
               let { continuous: t, helpers: n, index: r, size: i, step: l } = this.props
               return S(H3, {
                 continuous: t,
@@ -18808,41 +18794,41 @@ try {
             y = { action: n, controlled: l, index: s, lifecycle: d, size: c, status: u },
             w = i && n !== ie.CLOSE && (s > 0 || n === ie.PREV),
             b = v('action') || v('index') || v('lifecycle') || v('status'),
-            h = g('lifecycle', [G.TOOLTIP, G.INIT], G.INIT),
+            h = g('lifecycle', [q.TOOLTIP, q.INIT], q.INIT),
             f = v('action', [ie.NEXT, ie.PREV, ie.SKIP, ie.CLOSE]),
             E = l && s === e.index
           if (
             (f &&
               (h || E) &&
-              r({ ...y, index: e.index, lifecycle: G.COMPLETE, step: e.step, type: qe.STEP_AFTER }),
+              r({ ...y, index: e.index, lifecycle: q.COMPLETE, step: e.step, type: Ge.STEP_AFTER }),
             m.placement === 'center' &&
               u === J.RUNNING &&
               v('index') &&
               n !== ie.START &&
-              d === G.INIT &&
-              p.update({ lifecycle: G.READY }),
+              d === q.INIT &&
+              p.update({ lifecycle: q.READY }),
             b)
           ) {
             let C = Mt(m.target),
               Z = !!C
             Z && h3(C)
-              ? (g('status', J.READY, J.RUNNING) || g('lifecycle', G.INIT, G.READY)) &&
-                r({ ...y, step: m, type: qe.STEP_BEFORE })
+              ? (g('status', J.READY, J.RUNNING) || g('lifecycle', q.INIT, q.READY)) &&
+                r({ ...y, step: m, type: Ge.STEP_BEFORE })
               : (console.warn(Z ? 'Target not visible' : 'Target not mounted', m),
-                r({ ...y, type: qe.TARGET_NOT_FOUND, step: m }),
+                r({ ...y, type: Ge.TARGET_NOT_FOUND, step: m }),
                 l || p.update({ index: s + (n === ie.PREV ? -1 : 1) }))
           }
-          ;(g('lifecycle', G.INIT, G.READY) &&
-            p.update({ lifecycle: h1(m) || w ? G.TOOLTIP : G.BEACON }),
+          ;(g('lifecycle', q.INIT, q.READY) &&
+            p.update({ lifecycle: h1(m) || w ? q.TOOLTIP : q.BEACON }),
             v('index') &&
               Ut({ title: `step:${d}`, data: [{ key: 'props', value: this.props }], debug: o }),
-            v('lifecycle', G.BEACON) && r({ ...y, step: m, type: qe.BEACON }),
-            v('lifecycle', G.TOOLTIP) &&
-              (r({ ...y, step: m, type: qe.TOOLTIP }),
+            v('lifecycle', q.BEACON) && r({ ...y, step: m, type: Ge.BEACON }),
+            v('lifecycle', q.TOOLTIP) &&
+              (r({ ...y, step: m, type: Ge.TOOLTIP }),
               this.tooltip &&
                 ((this.scope = new L3(this.tooltip, { selector: '[data-action=primary]' })),
                 this.scope.setFocus())),
-            g('lifecycle', [G.TOOLTIP, G.INIT], G.INIT) &&
+            g('lifecycle', [q.TOOLTIP, q.INIT], q.INIT) &&
               ((t = this.scope) == null || t.removeScope(), p.cleanupPoppers()))
         }
         componentWillUnmount() {
@@ -18851,7 +18837,7 @@ try {
         }
         get open() {
           let { lifecycle: e, step: t } = this.props
-          return h1(t) || e === G.TOOLTIP
+          return h1(t) || e === q.TOOLTIP
         }
         render() {
           let {
@@ -18865,7 +18851,7 @@ try {
               step: s,
             } = this.props,
             d = Mt(s.target)
-          return !Z0(s) || !_.domElement(d)
+          return !Z0(s) || !O.domElement(d)
             ? null
             : S(
                 'div',
@@ -18873,7 +18859,7 @@ try {
                 S(
                   I3,
                   { id: 'react-joyride-portal' },
-                  S(O3, { ...s, debug: t, lifecycle: r, onClickOverlay: this.handleClickOverlay })
+                  S(_3, { ...s, debug: t, lifecycle: r, onClickOverlay: this.handleClickOverlay })
                 ),
                 S(
                   yl,
@@ -18904,30 +18890,30 @@ try {
               )
         }
       },
-      _0 = class extends Tt {
+      O0 = class extends Tt {
         constructor(e) {
           ;(super(e),
-            O(this, 'helpers'),
-            O(this, 'store'),
-            O(this, 'callback', (o) => {
+            _(this, 'helpers'),
+            _(this, 'store'),
+            _(this, 'callback', (o) => {
               let { callback: s } = this.props
-              _.function(s) && s(o)
+              O.function(s) && s(o)
             }),
-            O(this, 'handleKeyboard', (o) => {
+            _(this, 'handleKeyboard', (o) => {
               let { index: s, lifecycle: d } = this.state,
                 { steps: c } = this.props,
                 u = c[s]
-              d === G.TOOLTIP &&
+              d === q.TOOLTIP &&
                 o.code === 'Escape' &&
                 u &&
                 !u.disableCloseOnEsc &&
                 this.store.close()
             }),
-            O(this, 'syncState', (o) => {
+            _(this, 'syncState', (o) => {
               this.setState(o)
             }))
           let { debug: t, getHelpers: n, run: r, stepIndex: i } = e
-          ;((this.store = A3({ ...e, controlled: r && _.number(i) })),
+          ;((this.store = A3({ ...e, controlled: r && O.number(i) })),
             (this.helpers = this.store.getHelpers()))
           let { addListener: l } = this.store
           ;(Ut({
@@ -18957,59 +18943,59 @@ try {
             { reset: v, setSteps: g, start: y, stop: w, update: b } = this.store,
             { changed: h } = lr(e, this.props),
             { changed: f, changedFrom: E } = lr(t, this.state),
-            C = On(u[i], this.props),
+            C = _n(u[i], this.props),
             Z = !Me(p, u),
-            M = _.number(c) && h('stepIndex'),
+            M = O.number(c) && h('stepIndex'),
             V = Mt(C.target)
           if (
             (Z && (v1(u, s) ? g(u) : console.warn('Steps are not valid', u)),
             h('run') && (d ? y(c) : w()),
             M)
           ) {
-            let X = _.number(m) && m < c ? ie.NEXT : ie.PREV
+            let X = O.number(m) && m < c ? ie.NEXT : ie.PREV
             ;(n === ie.STOP && (X = ie.START),
               [J.FINISHED, J.SKIPPED].includes(o) ||
-                b({ action: n === ie.CLOSE ? ie.CLOSE : X, index: c, lifecycle: G.INIT }))
+                b({ action: n === ie.CLOSE ? ie.CLOSE : X, index: c, lifecycle: q.INIT }))
           }
           !r &&
             o === J.RUNNING &&
             i === 0 &&
             !V &&
             (this.store.update({ index: i + 1 }),
-            this.callback({ ...this.state, type: qe.TARGET_NOT_FOUND, step: C }))
-          let j = { ...this.state, index: i, step: C }
+            this.callback({ ...this.state, type: Ge.TARGET_NOT_FOUND, step: C }))
+          let D = { ...this.state, index: i, step: C }
           if (f('action', [ie.NEXT, ie.PREV, ie.SKIP, ie.CLOSE]) && f('status', J.PAUSED)) {
-            let X = On(u[t.index], this.props)
+            let X = _n(u[t.index], this.props)
             this.callback({
-              ...j,
+              ...D,
               index: t.index,
-              lifecycle: G.COMPLETE,
+              lifecycle: q.COMPLETE,
               step: X,
-              type: qe.STEP_AFTER,
+              type: Ge.STEP_AFTER,
             })
           }
           if (f('status', [J.FINISHED, J.SKIPPED])) {
-            let X = On(u[t.index], this.props)
+            let X = _n(u[t.index], this.props)
             ;(r ||
               this.callback({
-                ...j,
+                ...D,
                 index: t.index,
-                lifecycle: G.COMPLETE,
+                lifecycle: q.COMPLETE,
                 step: X,
-                type: qe.STEP_AFTER,
+                type: Ge.STEP_AFTER,
               }),
-              this.callback({ ...j, type: qe.TOUR_END, step: X, index: t.index }),
+              this.callback({ ...D, type: Ge.TOUR_END, step: X, index: t.index }),
               v())
           } else
             E('status', [J.IDLE, J.READY], J.RUNNING)
-              ? this.callback({ ...j, type: qe.TOUR_START })
+              ? this.callback({ ...D, type: Ge.TOUR_START })
               : (f('status') || f('action', ie.RESET)) &&
-                this.callback({ ...j, type: qe.TOUR_STATUS })
+                this.callback({ ...D, type: Ge.TOUR_STATUS })
           ;(this.scrollToStep(t),
             C.placement === 'center' &&
               o === J.RUNNING &&
-              l === G.INIT &&
-              this.store.update({ lifecycle: G.READY }))
+              l === q.INIT &&
+              this.store.update({ lifecycle: q.READY }))
         }
         componentWillUnmount() {
           let { disableCloseOnEsc: e } = this.props
@@ -19025,7 +19011,7 @@ try {
               scrollToFirstStep: d = !1,
               steps: c,
             } = this.props,
-            u = On(c[t], this.props),
+            u = _n(c[t], this.props),
             m = Mt(u.target),
             p = E3({
               isFirstStep: t === 0,
@@ -19050,10 +19036,10 @@ try {
             })
             let w = this.store.getPopper('beacon'),
               b = this.store.getPopper('tooltip')
-            if (n === G.BEACON && w) {
+            if (n === q.BEACON && w) {
               let { offsets: h, placement: f } = w
               !['bottom'].includes(f) && !v && (y = Math.floor(h.popper.top - s))
-            } else if (n === G.TOOLTIP && b) {
+            } else if (n === q.TOOLTIP && b) {
               let { flipped: h, offsets: f, placement: E } = b
               ;['top', 'right', 'left'].includes(E) && !h && !v
                 ? (y = Math.floor(f.popper.top - s))
@@ -19081,8 +19067,8 @@ try {
             } = this.props,
             s
           if (t === J.RUNNING && o[e]) {
-            let d = On(o[e], this.props)
-            s = S(D3, {
+            let d = _n(o[e], this.props)
+            s = S(j3, {
               ...this.state,
               callback: this.callback,
               continuous: n,
@@ -19097,8 +19083,8 @@ try {
           return S('div', { className: 'react-joyride' }, s)
         }
       }
-    O(_0, 'defaultProps', C3)
-    var j3 = _0,
+    _(O0, 'defaultProps', C3)
+    var D3 = O0,
       b1 = [
         void 0,
         'SKIPPED',
@@ -19183,18 +19169,18 @@ try {
           return [null, null]
         }
       },
-      O0 = ({ result: e }) => e && !['EQUAL', 'FIXED', 'SKIPPED'].includes(e),
+      _0 = ({ result: e }) => e && !['EQUAL', 'FIXED', 'SKIPPED'].includes(e),
       $3 = (e, t) => {
-        let n = e.filter((i) => i.comparisons.some(O0)),
+        let n = e.filter((i) => i.comparisons.some(_0)),
           r = n.length ? n : e
         return r.find((i) => i.mode.name === t) || r[0]
       },
       W3 = (e, t) => {
-        let n = e.filter(O0),
+        let n = e.filter(_0),
           r = n.length ? n : e
         return r.find((i) => i.browser.id === t) || r[0]
       }
-    function G3(e) {
+    function q3(e) {
       let [t, n] = Le(!0),
         r = U3('theme')[1],
         [i, l] = we($d),
@@ -19220,7 +19206,7 @@ try {
         }
       )
     }
-    var q3 = Qe(`
+    var G3 = Qe(`
   query AddonVisualTestsBuild(
     $projectId: ID!
     $branch: String!
@@ -19440,11 +19426,11 @@ try {
 `),
       e7 = ({ projectId: e, storyId: t, gitInfo: n, selectedBuildInfo: r }) => {
         let [{ data: i, error: l, operation: o }, s] = dl({
-          query: q3,
+          query: G3,
           variables: {
             projectId: e,
             storyId: t,
-            testStatuses: Object.keys(Oi),
+            testStatuses: Object.keys(_i),
             branch: n.branch || '',
             ...(n.slug ? { repositoryOwnerName: n.slug.split('/', 1)[0] } : {}),
             gitUserEmailHash: n.userEmailHash,
@@ -19512,7 +19498,7 @@ try {
             { value: ft(() => t, [JSON.stringify(t?.selectedBuild)]) },
             a.createElement(
               R0.Provider,
-              { value: { hasTests: n, tests: i, summary: l, ...G3(i) } },
+              { value: { hasTests: n, tests: i, summary: l, ...q3(i) } },
               e
             )
           )
@@ -19661,7 +19647,7 @@ try {
             a.Fragment,
             null,
             u && a.createElement(a7, null),
-            a.createElement(j3, {
+            a.createElement(D3, {
               steps: [
                 {
                   target: '#sidebar-bottom-wrapper',
@@ -19874,7 +19860,7 @@ try {
           u7,
           { warning: !0 },
           a.createElement(
-            D,
+            j,
             null,
             a.createElement(
               'span',
@@ -19893,7 +19879,7 @@ try {
               Ne,
               {
                 target: '_blank',
-                href: e.errorDetailsUrl || `${q1}#troubleshooting`,
+                href: e.errorDetailsUrl || `${G1}#troubleshooting`,
                 withArrow: !0,
               },
               e.errorDetailsUrl ? 'Details' : 'Troubleshoot'
@@ -19916,7 +19902,7 @@ try {
                 null,
                 a.createElement(le, null, 'Build failed'),
                 a.createElement(
-                  D,
+                  j,
                   { center: !0, muted: !0 },
                   'Check the Storybook process on the command line for more details.'
                 )
@@ -19927,7 +19913,7 @@ try {
           )
         )
       ),
-      Di = ['initialize', 'build', 'upload', 'verify', 'snapshot'],
+      ji = ['initialize', 'build', 'upload', 'verify', 'snapshot'],
       kl = {
         initialize: {
           key: 'initialize',
@@ -20013,16 +19999,16 @@ try {
       },
       h7 = {
         buildProgressPercentage: 0,
-        currentStep: Di[0],
-        stepProgress: Object.fromEntries(Di.map((e) => [e, {}])),
+        currentStep: ji[0],
+        stepProgress: Object.fromEntries(ji.map((e) => [e, {}])),
       }
     JSON.stringify(h7)
     var V0 = ({ localBuildProgress: e, withEmoji: t = !1, ...n }) => {
         let { emoji: r, renderProgress: i } = kl[e.currentStep],
           l = i(e)
-        return a.createElement(D, { ...n }, t && r, ' ', l)
+        return a.createElement(j, { ...n }, t && r, ' ', l)
       },
-      f7 = k(D)({ display: 'flex', flexDirection: 'column', gap: 10, width: 200, marginTop: 15 }),
+      f7 = k(j)({ display: 'flex', flexDirection: 'column', gap: 10, width: 200, marginTop: 15 }),
       H0 = k.div(({ theme: e }) => ({
         height: 5,
         background: e.background.hoverable,
@@ -20073,7 +20059,7 @@ try {
         padding: 15,
         margin: 0,
       })),
-      C7 = k(D)(({ theme: e }) => ({ color: e.color.darkest })),
+      C7 = k(j)(({ theme: e }) => ({ color: e.color.darkest })),
       S7 = ({ onSkip: e, runningSecondBuild: t }) =>
         a.createElement(
           pe,
@@ -20089,7 +20075,7 @@ try {
                 null,
                 a.createElement(le, null, 'Make a change to this story'),
                 a.createElement(
-                  D,
+                  j,
                   { center: !0, muted: !0, block: !0 },
                   "In your code, adjust the markup, styling, or assets to see how visual testing works. Don't worry, you can undo it later. Here are a few ideas to get you started."
                 )
@@ -20186,7 +20172,7 @@ try {
                 null,
                 a.createElement(le, null, 'Changes detected'),
                 a.createElement(
-                  D,
+                  j,
                   { center: !0, muted: !0 },
                   'Time to run your first visual tests to pinpoint the exact changes made to this story.'
                 )
@@ -20226,7 +20212,7 @@ try {
                 null,
                 a.createElement(le, null, 'Running your first test'),
                 a.createElement(
-                  D,
+                  j,
                   { center: !0, muted: !0 },
                   "A new snapshot is being created in a standardized cloud browser. Once complete, you'll be able to pinpoint exactly what changed."
                 )
@@ -20279,7 +20265,7 @@ try {
           height: '100%',
         },
       }),
-      ji = ({ backgroundColor: e, status: t, thumbnailUrl: n }) =>
+      Di = ({ backgroundColor: e, status: t, thumbnailUrl: n }) =>
         a.createElement(
           F7,
           { status: t },
@@ -20294,7 +20280,7 @@ try {
           ),
           t === 'positive' && a.createElement(Ji, null)
         ),
-      k1 = k(D)({ marginBottom: 5 }),
+      k1 = k(j)({ marginBottom: 5 }),
       w1 = ({ onComplete: e, onSkip: t, ranSecondBuild: n = !1 }) => {
         Ve('Onboarding', 'CatchAChangeComplete')
         let r = Wt()
@@ -20313,12 +20299,12 @@ try {
                     null,
                     a.createElement(le, null, 'Nice. Your stories were saved as test baselines.'),
                     a.createElement(
-                      D,
+                      j,
                       { center: !0, muted: !0, block: !0 },
                       'This story was indexed and snapshotted in a standardized cloud browser.'
                     ),
                     r.selectedComparison?.headCapture?.captureImage &&
-                      a.createElement(ji, {
+                      a.createElement(Di, {
                         ...r.selectedComparison?.headCapture?.captureImage,
                         status: 'positive',
                       })
@@ -20339,12 +20325,12 @@ try {
                     null,
                     a.createElement(le, null, 'Nice. You ran your first tests!'),
                     a.createElement(
-                      D,
+                      j,
                       { center: !0, muted: !0, block: !0 },
                       'This story was indexed and snapshotted in a standardized cloud browser and changes were found.'
                     ),
                     r.selectedComparison?.headCapture?.captureImage &&
-                      a.createElement(ji, {
+                      a.createElement(Di, {
                         ...r.selectedComparison?.headCapture?.captureImage,
                         status: 'positive',
                       })
@@ -20370,7 +20356,7 @@ try {
           null,
           a.createElement(le, null, 'Get started with visual testing'),
           a.createElement(
-            D,
+            j,
             { center: !0, muted: !0 },
             'Take an image snapshot of your stories to save their "last known good state" as test baselines.'
           )
@@ -20408,7 +20394,7 @@ try {
           )
         )
       ),
-      T7 = k(D)({ marginBottom: 5 }),
+      T7 = k(j)({ marginBottom: 5 }),
       Z7 = ({ onCatchAChange: e, onSkip: t }) => {
         Ve('Onboarding', 'InitialBuildComplete')
         let n = Wt()
@@ -20426,12 +20412,12 @@ try {
                 null,
                 a.createElement(le, null, 'Nice. Your stories were saved as test baselines.'),
                 a.createElement(
-                  D,
+                  j,
                   { center: !0, muted: !0, block: !0 },
                   'This story was indexed and snapshotted in a standardized cloud browser.'
                 ),
                 n?.selectedComparison?.headCapture?.captureImage &&
-                  a.createElement(ji, {
+                  a.createElement(Di, {
                     ...n?.selectedComparison?.headCapture.captureImage,
                     status: 'positive',
                   })
@@ -20455,7 +20441,7 @@ try {
           )
         )
       },
-      _7 = ({
+      O7 = ({
         dismissBuildError: e,
         localBuildProgress: t,
         showInitialBuildScreen: n,
@@ -20519,7 +20505,7 @@ try {
                     ? a.createElement(w1, { onComplete: l, onSkip: o, ranSecondBuild: m && w })
                     : null
       },
-      O7 = k.div(({ theme: e }) => ({
+      _7 = k.div(({ theme: e }) => ({
         background: e.background.app,
         padding: '9px 15px',
         lineHeight: '21px',
@@ -20593,13 +20579,13 @@ try {
         '&:last-of-type': { marginBottom: 10 },
         '& > div': { display: 'flex', alignItems: 'center' },
       })),
-      D7 = ({ localBuildProgress: e, expanded: t = !1 }) => {
+      j7 = ({ localBuildProgress: e, expanded: t = !1 }) => {
         let n = Ee({})
         te(() => {
           n.current[e.currentStep] = { ...e }
         }, [e])
         let r = ['aborted', 'error'].includes(e.currentStep),
-          i = Di.map((l) => {
+          i = ji.map((l) => {
             let { startedAt: o, completedAt: s } = e.stepProgress[l],
               d = !!o && !s,
               c = d && r,
@@ -20633,7 +20619,7 @@ try {
           )
         )
       },
-      j7 = ({
+      D7 = ({
         branch: e,
         dismissBuildError: t,
         localBuildProgress: n,
@@ -20672,7 +20658,7 @@ try {
                     a.createElement(B7, { style: { transform: `rotate(${l ? -180 : 0}deg)` } })
                   )
             ),
-            a.createElement(D7, { localBuildProgress: n, expanded: l || u })
+            a.createElement(j7, { localBuildProgress: n, expanded: l || u })
           )
         }
         function d() {
@@ -20691,7 +20677,7 @@ try {
                   null,
                   "There's a newer snapshot with changes.",
                   ' ',
-                  a.createElement(_t, { withArrow: !0, onClick: i }, 'Switch to newer snapshot')
+                  a.createElement(Ot, { withArrow: !0, onClick: i }, 'Switch to newer snapshot')
                 )
             : a.createElement(
                 Za,
@@ -20718,8 +20704,8 @@ try {
               a.createElement(tl, { onClick: e }, a.createElement(el, { 'aria-label': 'Close' }))
             ),
             a.createElement('p', null, a.createElement(Hc, null), 'Delay: 300ms'),
-            a.createElement('p', null, a.createElement(Dc, null), 'Animation pause: Ends'),
-            a.createElement('p', null, a.createElement(jc, null), 'Threshold: 0.2'),
+            a.createElement('p', null, a.createElement(jc, null), 'Animation pause: Ends'),
+            a.createElement('p', null, a.createElement(Dc, null), 'Threshold: 0.2'),
             a.createElement('p', null, a.createElement(zc, null), 'Anti-alias: Included')
           ),
           a.createElement(
@@ -20736,16 +20722,16 @@ try {
             )
           )
         ),
-      D0 = {
+      j0 = {
         isReviewing: !1,
         userCanReview: !1,
         buildIsReviewable: !1,
         acceptTest: (e, t = 'SPEC') => Promise.resolve(),
         unacceptTest: (e, t = 'SPEC') => Promise.resolve(),
       },
-      j0 = He(D0),
-      z0 = () => ht(j0, 'ReviewTest'),
-      U7 = ({ children: e, watchState: t = D0 }) => a.createElement(j0.Provider, { value: t }, e),
+      D0 = He(j0),
+      z0 = () => ht(D0, 'ReviewTest'),
+      U7 = ({ children: e, watchState: t = j0 }) => a.createElement(D0.Provider, { value: t }, e),
       $7 = k.div(
         ({ theme: e }) => ({
           position: 'relative',
@@ -20787,7 +20773,7 @@ try {
         maxWidth: '100%',
         minHeight: 100,
       })),
-      _a = k.img({
+      Oa = k.img({
         display: 'block',
         width: '100%',
         height: 'auto',
@@ -20800,9 +20786,9 @@ try {
         },
       }),
       W7 = k(ne)({ margin: '30px 15px' }),
-      G7 = ({ comparisonImageLoaded: e, focusImageLoaded: t, showDiff: n, showFocus: r }) =>
+      q7 = ({ comparisonImageLoaded: e, focusImageLoaded: t, showDiff: n, showFocus: r }) =>
         n && r ? e && t : n ? e : r ? t : !0,
-      q7 = ({
+      G7 = ({
         componentName: e,
         storyName: t,
         testUrl: n,
@@ -20826,9 +20812,9 @@ try {
           [f, E] = a.useState(!1),
           [C, Z] = a.useState(!1),
           [M, V] = a.useState(!1),
-          [j, X] = a.useState(!1),
+          [D, X] = a.useState(!1),
           oe = o ? C : f,
-          ve = G7({ comparisonImageLoaded: M, focusImageLoaded: j, showDiff: b, showFocus: h })
+          ve = q7({ comparisonImageLoaded: M, focusImageLoaded: D, showDiff: b, showFocus: h })
         return a.createElement(
           $7,
           { ...m, ...w },
@@ -20840,7 +20826,7 @@ try {
                 style: { aspectRatio: `${i.imageWidth} / ${i.imageHeight}`, width: i.imageWidth },
               },
               (!f || !ve) && a.createElement(yi, null),
-              a.createElement(_a, {
+              a.createElement(Oa, {
                 alt: `Latest snapshot for the '${t}' story of the '${e}' component`,
                 src: i.imageUrl,
                 style: { opacity: f ? 1 : 0 },
@@ -20855,7 +20841,7 @@ try {
                 style: { aspectRatio: `${l.imageWidth} / ${l.imageHeight}`, width: l.imageWidth },
               },
               (!C || !ve) && a.createElement(yi, null),
-              a.createElement(_a, {
+              a.createElement(Oa, {
                 alt: `Baseline snapshot for the '${t}' story of the '${e}' component`,
                 src: l.imageUrl,
                 style: { opacity: C ? 1 : 0 },
@@ -20864,7 +20850,7 @@ try {
             ),
           v &&
             oe &&
-            a.createElement(_a, {
+            a.createElement(Oa, {
               alt: '',
               'data-overlay': 'diff',
               src: s.imageUrl,
@@ -20877,14 +20863,14 @@ try {
             }),
           y &&
             oe &&
-            a.createElement(_a, {
+            a.createElement(Oa, {
               alt: '',
               'data-overlay': 'focus',
               src: d.imageUrl,
               style: {
                 width: d.imageWidth,
                 maxWidth: `${(d.imageWidth / i.imageWidth) * 100}%`,
-                opacity: h && j ? 0.7 : 0,
+                opacity: h && D ? 0.7 : 0,
                 filter: h ? 'blur(2px)' : 'none',
               },
               onLoad: () => X(!0),
@@ -20897,7 +20883,7 @@ try {
               null,
               a.createElement(mc, { color: p.base === 'light' ? 'currentColor' : p.color.medium }),
               a.createElement(
-                D,
+                j,
                 { center: !0, muted: !0 },
                 "A snapshot couldn't be captured. This often occurs when a story has a code error. Confirm that this story successfully renders in your local Storybook and run the build again."
               )
@@ -21389,7 +21375,7 @@ try {
               ah,
               null,
               a.createElement(
-                D,
+                j,
                 null,
                 a.createElement(
                   'b',
@@ -21437,7 +21423,7 @@ try {
                     'aria-label': r ? 'Hide spotlight' : 'Show spotlight',
                     onClick: () => o(!r),
                   },
-                  a.createElement(_c, null)
+                  a.createElement(Oc, null)
                 )
               ),
               a.createElement(
@@ -21645,7 +21631,7 @@ try {
             )
         )
       },
-      Oa = pt(Ui()),
+      _a = pt(Ui()),
       oh = (e) =>
         a.createElement(
           'svg',
@@ -21718,7 +21704,7 @@ try {
     function ch() {
       return dh
     }
-    function _1(e) {
+    function O1(e) {
       var t = new Date(
         Date.UTC(
           e.getFullYear(),
@@ -21981,7 +21967,7 @@ try {
         var o = l[0],
           s = (r && e.parsePatterns[r]) || e.parsePatterns[e.defaultParseWidth],
           d = Array.isArray(s)
-            ? _h(s, function (m) {
+            ? Oh(s, function (m) {
                 return m.test(o)
               })
             : Zh(s, function (m) {
@@ -21997,10 +21983,10 @@ try {
     function Zh(e, t) {
       for (var n in e) if (e.hasOwnProperty(n) && t(e[n])) return n
     }
-    function _h(e, t) {
+    function Oh(e, t) {
       for (var n = 0; n < e.length; n++) if (t(e[n])) return n
     }
-    function Oh(e) {
+    function _h(e) {
       return function (t) {
         var n = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {},
           r = t.match(e.matchPattern)
@@ -22024,12 +22010,12 @@ try {
       Ph = { any: [/^b/i, /^(a|c)/i] },
       Vh = { narrow: /^[1234]/i, abbreviated: /^q[1234]/i, wide: /^[1234](th|st|nd|rd)? quarter/i },
       Hh = { any: [/1/i, /2/i, /3/i, /4/i] },
-      Dh = {
+      jh = {
         narrow: /^[jfmasond]/i,
         abbreviated: /^(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)/i,
         wide: /^(january|february|march|april|may|june|july|august|september|october|november|december)/i,
       },
-      jh = {
+      Dh = {
         narrow: [
           /^j/i,
           /^f/i,
@@ -22085,8 +22071,8 @@ try {
           night: /night/i,
         },
       },
-      Gh = {
-        ordinalNumber: Oh({
+      qh = {
+        ordinalNumber: _h({
           matchPattern: Ih,
           parsePattern: Rh,
           valueCallback: function (e) {
@@ -22109,9 +22095,9 @@ try {
           },
         }),
         month: Rn({
-          matchPatterns: Dh,
+          matchPatterns: jh,
           defaultMatchWidth: 'wide',
-          parsePatterns: jh,
+          parsePatterns: Dh,
           defaultParseWidth: 'any',
         }),
         day: Rn({
@@ -22127,28 +22113,28 @@ try {
           defaultParseWidth: 'any',
         }),
       },
-      qh = Gh,
+      Gh = qh,
       Yh = {
         code: 'en-US',
         formatDistance: hh,
         formatLong: bh,
         formatRelative: wh,
         localize: Th,
-        match: qh,
+        match: Gh,
         options: { weekStartsOn: 0, firstWeekContainsDate: 1 },
       },
-      G0 = Yh,
-      Kh = G0
-    function q0(e, t) {
+      q0 = Yh,
+      Kh = q0
+    function G0(e, t) {
       if (e == null)
         throw new TypeError('assign requires that input parameter not be null or undefined')
       for (var n in t) Object.prototype.hasOwnProperty.call(t, n) && (e[n] = t[n])
       return e
     }
     function Jh(e) {
-      return q0({}, e)
+      return G0({}, e)
     }
-    var O1 = 1e3 * 60,
+    var _1 = 1e3 * 60,
       mr = 1440,
       I1 = mr * 30,
       R1 = mr * 365
@@ -22164,7 +22150,7 @@ try {
         throw new RangeError('locale must contain localize.formatDistance property')
       var d = uh(e, t)
       if (isNaN(d)) throw new RangeError('Invalid time value')
-      var c = q0(Jh(n), { addSuffix: !!n?.addSuffix, comparison: d }),
+      var c = G0(Jh(n), { addSuffix: !!n?.addSuffix, comparison: d }),
         u,
         m
       d > 0 ? ((u = tn(t)), (m = tn(e))) : ((u = tn(e)), (m = tn(t)))
@@ -22175,9 +22161,9 @@ try {
       else if (p === 'round') v = Math.round
       else throw new RangeError("roundingMethod must be 'floor', 'ceil' or 'round'")
       var g = m.getTime() - u.getTime(),
-        y = g / O1,
-        w = _1(m) - _1(u),
-        b = (g - w) / O1,
+        y = g / _1,
+        w = O1(m) - O1(u),
+        b = (g - w) / _1,
         h = n?.unit,
         f
       if (
@@ -22213,8 +22199,8 @@ try {
           ? s.formatDistance('xYears', 1, c)
           : s.formatDistance('xMonths', V, c)
       } else if (f === 'year') {
-        var j = v(b / R1)
-        return s.formatDistance('xYears', j, c)
+        var D = v(b / R1)
+        return s.formatDistance('xYears', D, c)
       }
       throw new RangeError("unit must be 'second', 'minute', 'hour', 'day', 'month' or 'year'")
     }
@@ -22249,7 +22235,7 @@ try {
             : `${r} ago`
           : r
     }
-    var n6 = (e) => Xh(e, { addSuffix: !0, locale: { ...G0, formatDistance: t6 } }),
+    var n6 = (e) => Xh(e, { addSuffix: !0, locale: { ...q0, formatDistance: t6 } }),
       Bn = k.div(({ theme: e }) => ({
         gridArea: 'info',
         display: 'flex',
@@ -22364,7 +22350,7 @@ try {
                         a.createElement(
                           'b',
                           null,
-                          a.createElement(_t, { isButton: !0, onClick: o }, 'View latest snapshot')
+                          a.createElement(Ot, { isButton: !0, onClick: o }, 'View latest snapshot')
                         )
                       ),
                       a.createElement(
@@ -22385,9 +22371,9 @@ try {
                           p
                             ? null
                             : m
-                              ? `${(0, Oa.default)('change', m, !0)}${c === 'ACCEPTED' ? ' accepted' : ''}`
+                              ? `${(0, _a.default)('change', m, !0)}${c === 'ACCEPTED' ? ' accepted' : ''}`
                               : 'No changes',
-                          p ? (0, Oa.default)('error', p, !0) : null
+                          p ? (0, _a.default)('error', p, !0) : null
                         ),
                         a.createElement(sh, {
                           icon: p ? 'failed' : c === 'PENDING' ? 'changed' : 'passed',
@@ -22400,9 +22386,9 @@ try {
                           a.createElement(
                             'span',
                             { 'data-hidden-large': !0 },
-                            (0, Oa.default)('mode', v.length, !0),
+                            (0, _a.default)('mode', v.length, !0),
                             ', ',
-                            (0, Oa.default)('browser', g.length, !0)
+                            (0, _a.default)('browser', g.length, !0)
                           ),
                         v.length > 0 &&
                           a.createElement('span', { 'data-hidden-large': !0 }, ' \u2022 '),
@@ -22542,7 +22528,7 @@ try {
             (b.current = o),
             (f.current = v.id))
         }, [v.id, o, y, u, m, p, Z, M, V])
-        let j = a.createElement(r6, {
+        let D = a.createElement(r6, {
           tests: w,
           startedAt: g,
           isStarting: t,
@@ -22555,7 +22541,7 @@ try {
           return a.createElement(
             P1,
             { hidden: l },
-            a.createElement(V1, null, a.createElement(B1, null, j)),
+            a.createElement(V1, null, a.createElement(B1, null, D)),
             a.createElement(H1, null, a.createElement(L1, null))
           )
         let X = bl(w),
@@ -22570,7 +22556,7 @@ try {
           a.createElement(
             V1,
             null,
-            a.createElement(B1, null, j, a.createElement(lh, { isOutdated: e }))
+            a.createElement(B1, null, D, a.createElement(lh, { isOutdated: e }))
           ),
           a.createElement(
             i6,
@@ -22582,7 +22568,7 @@ try {
                 oi,
                 null,
                 a.createElement(
-                  D,
+                  j,
                   null,
                   'New story found. Accept this snapshot as a test baseline.',
                   ' ',
@@ -22603,7 +22589,7 @@ try {
                 oi,
                 null,
                 a.createElement(
-                  D,
+                  j,
                   null,
                   'New mode found. Accept this snapshot as a test baseline.',
                   ' ',
@@ -22624,7 +22610,7 @@ try {
                 oi,
                 null,
                 a.createElement(
-                  D,
+                  j,
                   null,
                   'New browser found. Accept this snapshot as a test baseline.',
                   ' ',
@@ -22641,7 +22627,7 @@ try {
               ),
             !oe &&
               C &&
-              a.createElement(q7, {
+              a.createElement(G7, {
                 key: C.id,
                 componentName: E?.story?.component?.name,
                 storyName: E?.story?.name,
@@ -22727,16 +22713,16 @@ try {
           M = r && r?.buildId === v?.id,
           V =
             Z &&
-            a.createElement(j7, {
+            a.createElement(D7, {
               branch: e,
               dismissBuildError: t,
               localBuildProgress: M || u ? r : void 0,
               lastBuildOnBranchInProgress: C,
               switchToLastBuildOnBranch: i,
             }),
-          j = b?.hasTests && b?.tests.length === 0,
+          D = b?.hasTests && b?.tests.length === 0,
           X = w.id !== `Build:${r?.buildId}`
-        if (j)
+        if (D)
           return a.createElement(
             pe,
             null,
@@ -22752,7 +22738,7 @@ try {
                       null,
                       a.createElement(le, null, 'Snapshotting new story'),
                       a.createElement(
-                        D,
+                        j,
                         { center: !0, muted: !0 },
                         'A new snapshot is being created in a standardized cloud browser to save its "last known good state" as a test baseline.'
                       )
@@ -22767,7 +22753,7 @@ try {
                       null,
                       a.createElement(le, null, 'New story found'),
                       a.createElement(
-                        D,
+                        j,
                         { center: !0, muted: !0 },
                         'Take an image snapshot of this story to save its "last known good state" as a test baseline. This unlocks visual regression testing so you can see exactly what has changed down to the pixel.'
                       )
@@ -22796,7 +22782,7 @@ try {
                   null,
                   a.createElement(le, null, 'This story was skipped'),
                   a.createElement(
-                    D,
+                    j,
                     { center: !0, muted: !0 },
                     'If you would like to resume testing it, comment out or remove',
                     a.createElement(Te, null, 'disableSnapshot = true'),
@@ -22833,7 +22819,7 @@ try {
             !V &&
               ce &&
               a.createElement(
-                O7,
+                _7,
                 null,
                 f
                   ? a.createElement(
@@ -22849,7 +22835,7 @@ try {
                       "You don't have permission to accept changes.",
                       ' ',
                       a.createElement(
-                        _t,
+                        Ot,
                         {
                           href: 'https://www.chromatic.com/docs/collaborators#roles',
                           target: '_blank',
@@ -22895,7 +22881,7 @@ try {
         localBuildProgress: i,
         branch: l,
       }) => {
-        let { setAccessToken: o } = Gi(),
+        let { setAccessToken: o } = qi(),
           { isRunning: s, startBuild: d } = sa(),
           { disable: c, disableSnapshot: u, docsOnly: m } = Ll('chromatic', {}),
           p = () => {
@@ -22929,7 +22915,7 @@ try {
                   !e &&
                   n &&
                   a.createElement(
-                    D,
+                    j,
                     { muted: !0, style: { marginLeft: 5 } },
                     'Waiting for build on ',
                     l
@@ -22949,7 +22935,7 @@ try {
                     'div',
                     null,
                     a.createElement(le, null, 'Network error'),
-                    a.createElement(D, null, e.networkError.message)
+                    a.createElement(j, null, e.networkError.message)
                   ),
                   a.createElement(
                     re,
@@ -22970,7 +22956,7 @@ try {
                       null,
                       a.createElement(le, null, e.graphQLErrors[0].message),
                       a.createElement(
-                        D,
+                        j,
                         { center: !0, muted: !0 },
                         e.graphQLErrors[0].extensions.code === 'FORBIDDEN'
                           ? 'You may have insufficient permissions. Try logging out and back in again.'
@@ -22987,7 +22973,7 @@ try {
                       ),
                       a.createElement(
                         si,
-                        { withArrow: !0, href: `${q1}#troubleshooting`, target: '_blank' },
+                        { withArrow: !0, href: `${G1}#troubleshooting`, target: '_blank' },
                         'Troubleshoot'
                       )
                     )
@@ -23007,7 +22993,7 @@ try {
                             null,
                             a.createElement(le, null, 'Visual tests disabled for this story'),
                             a.createElement(
-                              D,
+                              j,
                               { center: !0, muted: !0 },
                               'Update ',
                               a.createElement(
@@ -23043,7 +23029,7 @@ try {
                               null,
                               a.createElement(le, null, 'Create a test baseline'),
                               a.createElement(
-                                D,
+                                j,
                                 { center: !0, muted: !0 },
                                 'Take an image snapshot of your stories to save their "last known good state" as test baselines.'
                               )
@@ -23062,7 +23048,7 @@ try {
                           null,
                           a.createElement(le, null, 'Project not found'),
                           a.createElement(
-                            D,
+                            j,
                             { center: !0, muted: !0 },
                             'You may not have access to this project or it may not exist.'
                           )
@@ -23192,14 +23178,14 @@ try {
             lastBuildOnBranchIsReady: Z,
             lastBuildOnBranchIsSelectable: M,
             selectedBuild: V,
-            selectedBuildMatchesGit: j,
+            selectedBuildMatchesGit: D,
             queryError: X,
             rerunQuery: oe,
             userCanReview: ve,
           } = g,
           fe = K(
-            ({ onDismiss: Gt }) => {
-              ;(Gt(), p({ selectedPanel: rn }), v(!0))
+            ({ onDismiss: qt }) => {
+              ;(qt(), p({ selectedPanel: rn }), v(!0))
             },
             [p, v]
           ),
@@ -23207,13 +23193,13 @@ try {
             buildIsReviewable: !!V && V.id === C?.id,
             userCanReview: ve,
             onReviewSuccess: oe,
-            onReviewError: (Gt, ad) => {
-              Gt instanceof Error &&
+            onReviewError: (qt, ad) => {
+              qt instanceof Error &&
                 m({
                   id: `${U}/errorAccepting/${Date.now()}`,
                   content: {
                     headline: `Failed to ${ad.status === 'ACCEPTED' ? 'accept' : 'unaccept'} changes`,
-                    subHeadline: Gt.message,
+                    subHeadline: qt.message,
                   },
                   icon: a.createElement(ln, { color: Cn.negative }),
                   duration: 8e3,
@@ -23221,7 +23207,7 @@ try {
                 })
             },
           })
-        te(() => l(!j), [j, l])
+        te(() => l(!D), [D, l])
         let be =
             C && 'testsForStatus' in C && C.testsForStatus?.nodes && an(I0, C.testsForStatus.nodes),
           wt = M ? C4(be || []) : []
@@ -23229,8 +23215,8 @@ try {
           o(wt)
         }, [JSON.stringify(wt), o]),
           te(() => {
-            n((Gt) =>
-              S4(Gt, {
+            n((qt) =>
+              S4(qt, {
                 shouldSwitchToLastBuildOnBranch: M && Z,
                 lastBuildOnBranchId: C?.id,
                 storyId: c,
@@ -23264,7 +23250,7 @@ try {
                     : a.createElement(
                         ai,
                         { watchState: g },
-                        a.createElement(_7, {
+                        a.createElement(O7, {
                           gitInfo: d,
                           projectId: s,
                           updateBuildStatus: o,
@@ -23328,7 +23314,7 @@ try {
       },
       Y0 = ({ localBuildProgress: e, accessToken: t }) => {
         let n = ya({}),
-          r = qt(hr),
+          r = Gt(hr),
           [i, l] = Le(!1),
           [o, s] = Le(!1),
           d = e ? ['initialize', 'build', 'upload'].includes(e?.currentStep) : !1,
@@ -23411,7 +23397,7 @@ try {
           clearProjectIdUpdated: K(() => t({ ...e, dismissed: !0 }), [e, t]),
         }
       },
-      D1 = va(U),
+      j1 = va(U),
       b6 = ({ active: e }) => {
         let [t, n] = Bs(),
           r = K(
@@ -23421,7 +23407,7 @@ try {
             [n]
           ),
           { storyId: i } = wn(),
-          [l] = we(jd),
+          [l] = we(Dd),
           [o] = we(z1),
           [s] = we($1),
           [d] = we(mi),
@@ -23429,7 +23415,7 @@ try {
           [, m] = we(mi),
           p = ya({}),
           v = K((tt) => {
-            ;(D1.unset(), D1.set(tt))
+            ;(j1.unset(), j1.set(tt))
           }, []),
           {
             loading: g,
@@ -23441,9 +23427,9 @@ try {
             clearProjectIdUpdated: E,
           } = K0(),
           [C, Z] = Be('createdProjectId'),
-          [M, V] = we(G1),
-          [j, X] = Be('subdomain', 'www'),
-          oe = K((tt) => p(Gd, tt), [p]),
+          [M, V] = we(q1),
+          [D, X] = Be('subdomain', 'www'),
+          oe = K((tt) => p(qd, tt), [p]),
           {
             isRunning: ve,
             startBuild: fe,
@@ -23453,14 +23439,14 @@ try {
           wt = globalThis.LOGLEVEL === 'debug' ? globalThis.fetch : be,
           ge = (tt) =>
             a.createElement(
-              j2,
+              D2,
               { value: Vs({ fetch: wt }) },
               a.createElement(
                 uc,
                 { value: oe },
                 a.createElement(
                   Xd,
-                  { value: { accessToken: t, setAccessToken: r, subdomain: j, setSubdomain: X } },
+                  { value: { accessToken: t, setAccessToken: r, subdomain: D, setSubdomain: X } },
                   a.createElement(
                     Bc,
                     { addonUninstalled: M, setAddonUninstalled: V },
@@ -23527,7 +23513,7 @@ try {
         color: e ? t.color.negativeText : t.color.defaultText,
       })),
       S6 = k.div(({ theme: e }) => ({ fontSize: e.typography.size.s1, color: e.textMutedColor })),
-      x6 = k(Ol)({ margin: 4 }),
+      x6 = k(_l)({ margin: 4 }),
       N6 = k(pc)({ width: 10 }),
       M6 = () => {
         let { addNotification: e, selectStory: t, setOptions: n, togglePanel: r } = Zt(),
@@ -23537,7 +23523,7 @@ try {
                 .map((be) => be[U]?.value)
                 .filter((be) => be === 'status-value:warning').length
           ),
-          l = qt(hr),
+          l = Gt(hr),
           { projectId: o } = K0(),
           [s] = Bs(),
           d = !!s,
@@ -23558,10 +23544,10 @@ try {
           d || (M = 'Login required'),
           o || (M = 'Set up visual tests'))
         let V = !M && E !== 'test-provider-state:crashed',
-          j = K(() => {
+          D = K(() => {
             V && C()
           }, [V, C])
-        te(() => Sl(ci).onRunAll(j), [j])
+        te(() => Sl(ci).onRunAll(D), [D])
         let X = K(
             (ce) => {
               if ((n({ selectedPanel: rn }), r(!0), b && f !== 'story')) {
@@ -23621,7 +23607,7 @@ try {
           fe
         switch (!0) {
           case !!M:
-            fe = a.createElement(_t, { onClick: ve }, M)
+            fe = a.createElement(Ot, { onClick: ve }, M)
             break
           case E === 'test-provider-state:running':
             fe = p ? kl[p.currentStep].renderProgress(p) : 'Starting...'
@@ -23702,7 +23688,7 @@ try {
                         variant: 'ghost',
                         padding: 'small',
                         disabled: !V,
-                        onClick: j,
+                        onClick: D,
                       },
                       a.createElement(hc, null)
                     )
@@ -23714,7 +23700,7 @@ try {
       ;(ga.add(rn, {
         type: Tr.PANEL,
         title: 'Visual tests',
-        paramKey: qd,
+        paramKey: Gd,
         match: ({ viewMode: t }) => t === 'story',
         render: ({ active: t }) => a.createElement(b6, { active: !!t, api: e }),
       }),

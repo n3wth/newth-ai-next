@@ -1,6 +1,6 @@
 {
-  "generatedAt": 1758407695868,
-  "userSince": 1758329713283,
+  "generatedAt": 1760338542627,
+  "userSince": 1760338537369,
   "hasCustomBabel": false,
   "hasCustomWebpack": false,
   "hasStaticDirs": true,
@@ -30,8 +30,8 @@
   "framework": { "name": "@storybook/nextjs", "options": {} },
   "builder": "@storybook/builder-webpack5",
   "renderer": "@storybook/react",
-  "portableStoriesFileCount": 0,
-  "applicationFileCount": 8,
+  "portableStoriesFileCount": 12,
+  "applicationFileCount": 25,
   "storybookVersion": "9.1.7",
   "language": "typescript",
   "storybookPackages": {

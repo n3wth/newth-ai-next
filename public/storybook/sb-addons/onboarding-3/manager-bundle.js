@@ -1,9 +1,9 @@
 try {
   ;(() => {
-    var Oo = Object.defineProperty
+    var So = Object.defineProperty
     var pe = (e, t) => () => (e && (t = e((e = 0))), t)
     var wo = (e, t) => {
-      for (var n in t) Oo(e, n, { get: t[n], enumerable: !0 })
+      for (var n in t) So(e, n, { get: t[n], enumerable: !0 })
     }
     var Z = pe(() => {})
     var Q = pe(() => {})
@@ -24,8 +24,8 @@ try {
       fl,
       hl,
       En,
-      Ut,
-      Sn,
+      Ht,
+      On,
       ml,
       yl,
       gl,
@@ -34,17 +34,17 @@ try {
       vl,
       El,
       se,
-      Sl,
       Ol,
+      Sl,
       wl,
       Tl,
       Il,
       Cl,
-      Ht,
+      Ut,
       ae,
-      Rl,
       Pl,
-      _l,
+      Rl,
+      xl,
       Et = pe(() => {
         Z()
         Q()
@@ -66,8 +66,8 @@ try {
             createFactory: fl,
             createRef: hl,
             forwardRef: En,
-            isValidElement: Ut,
-            lazy: Sn,
+            isValidElement: Ht,
+            lazy: On,
             memo: ml,
             startTransition: yl,
             unstable_act: gl,
@@ -76,50 +76,50 @@ try {
             useDebugValue: vl,
             useDeferredValue: El,
             useEffect: se,
-            useId: Sl,
-            useImperativeHandle: Ol,
+            useId: Ol,
+            useImperativeHandle: Sl,
             useInsertionEffect: wl,
             useLayoutEffect: Tl,
             useMemo: Il,
             useReducer: Cl,
-            useRef: Ht,
+            useRef: Ut,
             useState: ae,
-            useSyncExternalStore: Rl,
-            useTransition: Pl,
-            version: _l,
+            useSyncExternalStore: Pl,
+            useTransition: Rl,
+            version: xl,
           } = __REACT__))
       })
     var Fe,
       kl,
-      St,
+      Ot,
       Ll,
       jl,
       Ml,
       Dl,
       Fl,
       Bl,
-      On,
+      Sn,
       Wl,
       wn,
-      Ul,
-      Ot = pe(() => {
+      Hl,
+      St = pe(() => {
         Z()
         Q()
         ee()
         ;((Fe = __REACT_DOM__),
           ({
             __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: kl,
-            createPortal: St,
+            createPortal: Ot,
             createRoot: Ll,
             findDOMNode: jl,
             flushSync: Ml,
             hydrate: Dl,
             hydrateRoot: Fl,
             render: Bl,
-            unmountComponentAtNode: On,
+            unmountComponentAtNode: Sn,
             unstable_batchedUpdates: Wl,
             unstable_renderSubtreeIntoContainer: wn,
-            version: Ul,
+            version: Hl,
           } = __REACT_DOM__))
       })
     var wt,
@@ -130,8 +130,8 @@ try {
         wt = 'addon-controls'
       })
     var Kl,
-      Xl,
       Jl,
+      Xl,
       Zl,
       Ql,
       ec,
@@ -156,16 +156,16 @@ try {
       vc,
       Ec,
       Tn,
-      Sc,
       Oc,
+      Sc,
       wc,
       Tc,
       Ic,
       Cc,
-      Rc,
       Pc,
-      _c,
+      Rc,
       xc,
+      _c,
       Ac,
       Nc,
       kc,
@@ -176,8 +176,8 @@ try {
       Fc,
       Bc,
       Wc,
-      Uc,
       Hc,
+      Uc,
       In,
       zc,
       Gc,
@@ -186,15 +186,15 @@ try {
       $c,
       Vc,
       Kc,
-      Xc,
+      Jc,
       Gt = pe(() => {
         Z()
         Q()
         ee()
         ;((Kl = __STORYBOOK_CORE_EVENTS__),
           ({
-            ARGTYPES_INFO_REQUEST: Xl,
-            ARGTYPES_INFO_RESPONSE: Jl,
+            ARGTYPES_INFO_REQUEST: Jl,
+            ARGTYPES_INFO_RESPONSE: Xl,
             CHANNEL_CREATED: Zl,
             CHANNEL_WS_DISCONNECT: Ql,
             CONFIG_ERROR: ec,
@@ -219,16 +219,16 @@ try {
             RESULT_WHATS_NEW_DATA: vc,
             SAVE_STORY_REQUEST: Ec,
             SAVE_STORY_RESPONSE: Tn,
-            SELECT_STORY: Sc,
-            SET_CONFIG: Oc,
+            SELECT_STORY: Oc,
+            SET_CONFIG: Sc,
             SET_CURRENT_STORY: wc,
             SET_FILTER: Tc,
             SET_GLOBALS: Ic,
             SET_INDEX: Cc,
-            SET_STORIES: Rc,
-            SET_WHATS_NEW_CACHE: Pc,
-            SHARED_STATE_CHANGED: _c,
-            SHARED_STATE_SET: xc,
+            SET_STORIES: Pc,
+            SET_WHATS_NEW_CACHE: Rc,
+            SHARED_STATE_CHANGED: xc,
+            SHARED_STATE_SET: _c,
             STORIES_COLLAPSE_ALL: Ac,
             STORIES_EXPAND_ALL: Nc,
             STORY_ARGS_UPDATED: kc,
@@ -239,8 +239,8 @@ try {
             STORY_INDEX_INVALIDATED: Fc,
             STORY_MISSING: Bc,
             STORY_PREPARED: Wc,
-            STORY_RENDERED: Uc,
-            STORY_RENDER_PHASE_CHANGED: Hc,
+            STORY_RENDERED: Hc,
+            STORY_RENDER_PHASE_CHANGED: Uc,
             STORY_SPECIFIED: In,
             STORY_THREW_EXCEPTION: zc,
             STORY_UNCHANGED: Gc,
@@ -249,17 +249,17 @@ try {
             UNHANDLED_ERRORS_WHILE_PLAYING: $c,
             UPDATE_GLOBALS: Vc,
             UPDATE_QUERY_PARAMS: Kc,
-            UPDATE_STORY_ARGS: Xc,
+            UPDATE_STORY_ARGS: Jc,
           } = __STORYBOOK_CORE_EVENTS__))
       })
     var Vu,
       Ku,
-      Xu,
       Ju,
+      Xu,
       Zu,
       Qu,
       ep,
-      Rn,
+      Pn,
       tp,
       np,
       rp,
@@ -276,26 +276,26 @@ try {
       fp,
       hp,
       mp,
-      Pn,
+      Rn,
       yp,
       gp,
       bp,
       vp,
       Ep,
       ze,
-      Sp,
       Op,
+      Sp,
       wp,
       Tp,
       Ip,
       Cp,
-      Rp,
       Pp,
-      _p,
+      Rp,
       xp,
+      _p,
       Ap,
       Np,
-      _n,
+      xn,
       kp,
       Lp,
       jp,
@@ -304,8 +304,8 @@ try {
       Fp,
       Bp,
       Wp,
-      Up,
       Hp,
+      Up,
       zp,
       Gp,
       Yp,
@@ -313,24 +313,24 @@ try {
       $p,
       Vp,
       Kp,
-      Xp,
       Jp,
+      Xp,
       Zp,
       Qp,
       ed,
-      xn = pe(() => {
+      _n = pe(() => {
         Z()
         Q()
         ee()
         ;((Vu = __STORYBOOK_COMPONENTS__),
           ({
             A: Ku,
-            ActionBar: Xu,
-            AddonPanel: Ju,
+            ActionBar: Ju,
+            AddonPanel: Xu,
             Badge: Zu,
             Bar: Qu,
             Blockquote: ep,
-            Button: Rn,
+            Button: Pn,
             ClipboardCode: tp,
             Code: np,
             DL: rp,
@@ -347,26 +347,26 @@ try {
             H5: fp,
             H6: hp,
             HR: mp,
-            IconButton: Pn,
+            IconButton: Rn,
             Img: yp,
             LI: gp,
             Link: bp,
             ListItem: vp,
             Loader: Ep,
             Modal: ze,
-            OL: Sp,
-            P: Op,
+            OL: Op,
+            P: Sp,
             Placeholder: wp,
             Pre: Tp,
             ProgressSpinner: Ip,
             ResetWrapper: Cp,
-            ScrollArea: Rp,
-            Separator: Pp,
-            Spaced: _p,
-            Span: xp,
+            ScrollArea: Pp,
+            Separator: Rp,
+            Spaced: xp,
+            Span: _p,
             StorybookIcon: Ap,
             StorybookLogo: Np,
-            SyntaxHighlighter: _n,
+            SyntaxHighlighter: xn,
             TT: kp,
             TabBar: Lp,
             TabButton: jp,
@@ -375,8 +375,8 @@ try {
             Tabs: Fp,
             TabsState: Bp,
             TooltipLinkList: Wp,
-            TooltipMessage: Up,
-            TooltipNote: Hp,
+            TooltipMessage: Hp,
+            TooltipNote: Up,
             UL: zp,
             WithTooltip: Gp,
             WithTooltipPure: Yp,
@@ -384,8 +384,8 @@ try {
             codeCommon: $p,
             components: Vp,
             createCopyToClipboardFunction: Kp,
-            getStoryHref: Xp,
-            interleaveSeparators: Jp,
+            getStoryHref: Jp,
+            interleaveSeparators: Xp,
             nameSpaceClassNames: Zp,
             resetComponents: Qp,
             withReset: ed,
@@ -411,11 +411,11 @@ try {
       vd,
       rt,
       Ed,
-      X,
+      J,
       An,
-      Sd,
-      Nn,
       Od,
+      Nn,
+      Sd,
       kn = pe(() => {
         Z()
         Q()
@@ -441,17 +441,17 @@ try {
             jsx: vd,
             keyframes: rt,
             lighten: Ed,
-            styled: X,
+            styled: J,
             themes: An,
-            typography: Sd,
+            typography: Od,
             useTheme: Nn,
-            withTheme: Od,
+            withTheme: Sd,
           } = __STORYBOOK_THEMING__))
       })
-    var Rd,
-      Pd,
-      _d,
+    var Pd,
+      Rd,
       xd,
+      _d,
       Ad,
       Nd,
       kd,
@@ -462,9 +462,9 @@ try {
       Fd,
       Bd,
       Wd,
-      Ud,
-      Ln,
       Hd,
+      Ln,
+      Ud,
       zd,
       Gd,
       Yd,
@@ -472,8 +472,8 @@ try {
       $d,
       Vd,
       Kd,
-      Xd,
       Jd,
+      Xd,
       Zd,
       Qd,
       ef,
@@ -496,16 +496,16 @@ try {
       bf,
       vf,
       Ef,
-      Sf,
       Of,
+      Sf,
       wf,
       Tf,
       If,
       Cf,
-      Rf,
       Pf,
-      _f,
+      Rf,
       xf,
+      _f,
       Af,
       Nf,
       kf,
@@ -517,8 +517,8 @@ try {
       Ff,
       Bf,
       Wf,
-      Uf,
       Hf,
+      Uf,
       zf,
       Gf,
       Yf,
@@ -526,8 +526,8 @@ try {
       $f,
       Vf,
       Kf,
-      Xf,
       Jf,
+      Xf,
       Zf,
       Qf,
       eh,
@@ -551,16 +551,16 @@ try {
       bh,
       vh,
       Eh,
-      Sh,
       Oh,
+      Sh,
       wh,
       Th,
       Ih,
       Ch,
-      Rh,
       Ph,
-      _h,
+      Rh,
       xh,
+      _h,
       Ah,
       Nh,
       kh,
@@ -571,8 +571,8 @@ try {
       Fh,
       Bh,
       Wh,
-      Uh,
       Hh,
+      Uh,
       zh,
       Gh,
       Yh,
@@ -580,8 +580,8 @@ try {
       $h,
       Vh,
       Kh,
-      Xh,
       Jh,
+      Xh,
       Zh,
       Qh,
       em,
@@ -605,16 +605,16 @@ try {
       bm,
       vm,
       Em,
-      Sm,
       Om,
+      Sm,
       wm,
       Tm,
       Im,
       Cm,
-      Rm,
       Pm,
-      _m,
+      Rm,
       xm,
+      _m,
       Am,
       Nm,
       km,
@@ -625,8 +625,8 @@ try {
       Fm,
       Bm,
       Wm,
-      Um,
       Hm,
+      Um,
       zm,
       Gm,
       Ym,
@@ -634,8 +634,8 @@ try {
       $m,
       Vm,
       Km,
-      Xm,
       Jm,
+      Xm,
       Zm,
       Qm,
       ey,
@@ -659,16 +659,16 @@ try {
       by,
       vy,
       Ey,
-      Sy,
       Oy,
+      Sy,
       wy,
       Ty,
       Iy,
       Cy,
-      Ry,
       Py,
-      _y,
+      Ry,
       xy,
+      _y,
       Ay,
       Ny,
       ky,
@@ -679,8 +679,8 @@ try {
       Fy,
       By,
       Wy,
-      Uy,
       Hy,
+      Uy,
       zy,
       Gy,
       Yy,
@@ -688,8 +688,8 @@ try {
       $y,
       Vy,
       Ky,
-      Xy,
       Jy,
+      Xy,
       Zy,
       Qy,
       eg,
@@ -699,11 +699,11 @@ try {
         Z()
         Q()
         ee()
-        ;((Rd = __STORYBOOK_ICONS__),
+        ;((Pd = __STORYBOOK_ICONS__),
           ({
-            AccessibilityAltIcon: Pd,
-            AccessibilityIcon: _d,
-            AccessibilityIgnoredIcon: xd,
+            AccessibilityAltIcon: Rd,
+            AccessibilityIcon: xd,
+            AccessibilityIgnoredIcon: _d,
             AddIcon: Ad,
             AdminIcon: Nd,
             AlertAltIcon: kd,
@@ -714,9 +714,9 @@ try {
             ArrowBottomLeftIcon: Fd,
             ArrowBottomRightIcon: Bd,
             ArrowDownIcon: Wd,
-            ArrowLeftIcon: Ud,
+            ArrowLeftIcon: Hd,
             ArrowRightIcon: Ln,
-            ArrowSolidDownIcon: Hd,
+            ArrowSolidDownIcon: Ud,
             ArrowSolidLeftIcon: zd,
             ArrowSolidRightIcon: Gd,
             ArrowSolidUpIcon: Yd,
@@ -724,8 +724,8 @@ try {
             ArrowTopRightIcon: $d,
             ArrowUpIcon: Vd,
             AzureDevOpsIcon: Kd,
-            BackIcon: Xd,
-            BasketIcon: Jd,
+            BackIcon: Jd,
+            BasketIcon: Xd,
             BatchAcceptIcon: Zd,
             BatchDenyIcon: Qd,
             BeakerIcon: ef,
@@ -748,16 +748,16 @@ try {
             CategoryIcon: bf,
             CertificateIcon: vf,
             ChangedIcon: Ef,
-            ChatIcon: Sf,
-            CheckIcon: Of,
+            ChatIcon: Of,
+            CheckIcon: Sf,
             ChevronDownIcon: wf,
             ChevronLeftIcon: Tf,
             ChevronRightIcon: If,
             ChevronSmallDownIcon: Cf,
-            ChevronSmallLeftIcon: Rf,
-            ChevronSmallRightIcon: Pf,
-            ChevronSmallUpIcon: _f,
-            ChevronUpIcon: xf,
+            ChevronSmallLeftIcon: Pf,
+            ChevronSmallRightIcon: Rf,
+            ChevronSmallUpIcon: xf,
+            ChevronUpIcon: _f,
             ChromaticIcon: Af,
             ChromeIcon: Nf,
             CircleHollowIcon: kf,
@@ -769,8 +769,8 @@ try {
             CloudIcon: Ff,
             CogIcon: Bf,
             CollapseIcon: Wf,
-            CommandIcon: Uf,
-            CommentAddIcon: Hf,
+            CommandIcon: Hf,
+            CommentAddIcon: Uf,
             CommentIcon: zf,
             CommentsIcon: Gf,
             CommitIcon: Yf,
@@ -778,8 +778,8 @@ try {
             ComponentDrivenIcon: $f,
             ComponentIcon: Vf,
             ContrastIcon: Kf,
-            ContrastIgnoredIcon: Xf,
-            ControlsIcon: Jf,
+            ContrastIgnoredIcon: Jf,
+            ControlsIcon: Xf,
             CopyIcon: Zf,
             CreditIcon: Qf,
             CrossIcon: eh,
@@ -803,16 +803,16 @@ try {
             EyeIcon: bh,
             FaceHappyIcon: vh,
             FaceNeutralIcon: Eh,
-            FaceSadIcon: Sh,
-            FacebookIcon: Oh,
+            FaceSadIcon: Oh,
+            FacebookIcon: Sh,
             FailedIcon: wh,
             FastForwardIcon: Th,
             FigmaIcon: Ih,
             FilterIcon: Ch,
-            FlagIcon: Rh,
-            FolderIcon: Ph,
-            FormIcon: _h,
-            GDriveIcon: xh,
+            FlagIcon: Ph,
+            FolderIcon: Rh,
+            FormIcon: xh,
+            GDriveIcon: _h,
             GithubIcon: Ah,
             GitlabIcon: Nh,
             GlobeIcon: kh,
@@ -823,8 +823,8 @@ try {
             GridAltIcon: Fh,
             GridIcon: Bh,
             GrowIcon: Wh,
-            HeartHollowIcon: Uh,
-            HeartIcon: Hh,
+            HeartHollowIcon: Hh,
+            HeartIcon: Uh,
             HomeIcon: zh,
             HourglassIcon: Gh,
             InfoIcon: Yh,
@@ -832,8 +832,8 @@ try {
             JumpToIcon: $h,
             KeyIcon: Vh,
             LightningIcon: Kh,
-            LightningOffIcon: Xh,
-            LinkBrokenIcon: Jh,
+            LightningOffIcon: Jh,
+            LinkBrokenIcon: Xh,
             LinkIcon: Zh,
             LinkedinIcon: Qh,
             LinuxIcon: em,
@@ -857,16 +857,16 @@ try {
             PaperClipIcon: bm,
             ParagraphIcon: vm,
             PassedIcon: Em,
-            PhoneIcon: Sm,
-            PhotoDragIcon: Om,
+            PhoneIcon: Om,
+            PhotoDragIcon: Sm,
             PhotoIcon: wm,
             PhotoStabilizeIcon: Tm,
             PinAltIcon: Im,
             PinIcon: Cm,
-            PlayAllHollowIcon: Rm,
-            PlayBackIcon: Pm,
-            PlayHollowIcon: _m,
-            PlayIcon: xm,
+            PlayAllHollowIcon: Pm,
+            PlayBackIcon: Rm,
+            PlayHollowIcon: xm,
+            PlayIcon: _m,
             PlayNextIcon: Am,
             PlusIcon: Nm,
             PointerDefaultIcon: km,
@@ -877,8 +877,8 @@ try {
             ProfileIcon: Fm,
             PullRequestIcon: Bm,
             QuestionIcon: Wm,
-            RSSIcon: Um,
-            RedirectIcon: Hm,
+            RSSIcon: Hm,
+            RedirectIcon: Um,
             ReduxIcon: zm,
             RefreshIcon: Gm,
             ReplyIcon: Ym,
@@ -886,8 +886,8 @@ try {
             RequestChangeIcon: $m,
             RewindIcon: Vm,
             RulerIcon: Km,
-            SaveIcon: Xm,
-            SearchIcon: Jm,
+            SaveIcon: Jm,
+            SearchIcon: Xm,
             ShareAltIcon: Zm,
             ShareIcon: Qm,
             ShieldIcon: ey,
@@ -911,16 +911,16 @@ try {
             StorybookIcon: by,
             StructureIcon: vy,
             SubtractIcon: Ey,
-            SunIcon: Sy,
-            SupportIcon: Oy,
+            SunIcon: Oy,
+            SupportIcon: Sy,
             SweepIcon: wy,
             SwitchAltIcon: Ty,
             SyncIcon: Iy,
             TabletIcon: Cy,
-            ThumbsUpIcon: Ry,
-            TimeIcon: Py,
-            TimerIcon: _y,
-            TransferIcon: xy,
+            ThumbsUpIcon: Py,
+            TimeIcon: Ry,
+            TimerIcon: xy,
+            TransferIcon: _y,
             TrashIcon: Ay,
             TwitterIcon: Ny,
             TypeIcon: ky,
@@ -931,8 +931,8 @@ try {
             UnpinIcon: Fy,
             UploadIcon: By,
             UserAddIcon: Wy,
-            UserAltIcon: Uy,
-            UserIcon: Hy,
+            UserAltIcon: Hy,
+            UserIcon: Uy,
             UsersIcon: zy,
             VSCodeIcon: Gy,
             VerifiedIcon: Yy,
@@ -940,8 +940,8 @@ try {
             WandIcon: $y,
             WatchIcon: Vy,
             WindowsIcon: Ky,
-            WrenchIcon: Xy,
-            XIcon: Jy,
+            WrenchIcon: Jy,
+            XIcon: Xy,
             YoutubeIcon: Zy,
             ZoomIcon: Qy,
             ZoomOutIcon: eg,
@@ -950,14 +950,14 @@ try {
           } = __STORYBOOK_ICONS__))
       })
     var Eo = {}
-    wo(Eo, { default: () => Xs })
-    function Uo(e, t = {}) {
+    wo(Eo, { default: () => Js })
+    function Ho(e, t = {}) {
       let {
         colors: n = Fn,
         duration: r = Bn,
         force: o = Wn,
-        particleCount: i = Un,
-        particleShape: a = Hn,
+        particleCount: i = Hn,
+        particleShape: a = Un,
         particleSize: s = zn,
         particleClass: c = Gn,
         destroyAfterDone: l = Yn,
@@ -975,56 +975,56 @@ try {
         h = [],
         f = () => ct(Ee() * (qo - 1)),
         g = (y, v) => a !== 'rectangles' && (y === 'circles' || $o(v))
-      function O(y, v) {
+      function S(y, v) {
         let w = f(),
-          H = g(a, w),
+          U = g(a, w),
           I = (Ie, je) => y.style.setProperty(Ie, je + '')
-        ;(I('--xlp', Kt(Ct(Jn(v, 90) - 180), 0, 180, -u / 2, u / 2) + 'px'),
+        ;(I('--xlp', Kt(Ct(Xn(v, 90) - 180), 0, 180, -u / 2, u / 2) + 'px'),
           I('--dc', r - ct(1e3 * Ee()) + 'ms'))
         let z = Ee() < zo ? Ge(Ee() * Go, 2) : 0
         ;(I('--x1', z),
           I('--x2', -1 * z),
           I('--x3', z),
-          I('--x4', Ge(Ct(Kt(Ct(Jn(v, 90) - 180), 0, 180, -1, 1)), 4)),
+          I('--x4', Ge(Ct(Kt(Ct(Xn(v, 90) - 180), 0, 180, -1, 1)), 4)),
           I('--y1', Ge(Ee() * Kn, 4)),
           I('--y2', Ge(Ee() * o * (Mr() ? 1 : -1), 4)),
           I('--y3', Kn),
           I('--y4', Ge(Yo(Kt(Ct(v - 180), 0, 180, o, -o), 0), 4)),
-          I('--w', (H ? s : ct(4 * Ee()) + s / 2) + 'px'),
-          I('--h', (H ? s : ct(2 * Ee()) + s) + 'px'))
+          I('--w', (U ? s : ct(4 * Ee()) + s / 2) + 'px'),
+          I('--h', (U ? s : ct(2 * Ee()) + s) + 'px'))
         let te = w.toString(2).padStart(3, '0').split('')
         ;(I('--hr', te.map((Ie) => +Ie / 2 + '').join(' ')),
           I('--r', te.join(' ')),
-          I('--rd', Ge(Ee() * (Ho - Vn) + Vn) + 'ms'),
-          I('--br', H ? '50%' : 0))
+          I('--rd', Ge(Ee() * (Uo - Vn) + Vn) + 'ms'),
+          I('--br', U ? '50%' : 0))
       }
       let b
-      function _() {
+      function x() {
         ;((e.innerHTML = ''),
           clearTimeout(b),
-          (d = Xn(i, n)),
+          (d = Jn(i, n)),
           (h = (function (y, v = [], w) {
-            let H = []
+            let U = []
             for (let { color: I } of v) {
               let z = $t('div')
               ;((z.className = `${Dn} ${w}`), z.style.setProperty('--bgc', I))
               let te = $t('div')
-              ;(Vt(z, te), Vt(y, z), H.push(z))
+              ;(Vt(z, te), Vt(y, z), U.push(z))
             }
-            return H
+            return U
           })(e, d, c)))
-        for (let [y, v] of Zn(h)) O(v, d[+y].degree)
+        for (let [y, v] of Zn(h)) S(v, d[+y].degree)
         b = setTimeout(() => {
           l && (e.innerHTML = '')
         }, r)
       }
       return (
-        _(),
+        x(),
         {
           update(y) {
-            let v = y.particleCount ?? Un,
-              w = y.particleShape ?? Hn,
-              H = y.particleSize ?? zn,
+            let v = y.particleCount ?? Hn,
+              w = y.particleShape ?? Un,
+              U = y.particleSize ?? zn,
               I = y.particleClass ?? Gn,
               z = y.colors ?? Fn,
               te = y.stageHeight ?? qn,
@@ -1032,17 +1032,17 @@ try {
               je = y.force ?? Wn,
               et = y.stageWidth ?? $n,
               Me = y.destroyAfterDone ?? Yn
-            d = Xn(v, z)
-            let He = !1
+            d = Jn(v, z)
+            let Ue = !1
             if (v === i) {
               h = Array.from(e.querySelectorAll(`.${Dn}`))
-              for (let [tt, { color: _e }] of Zn(d)) {
-                let xe = h[+tt]
-                ;(JSON.stringify(n) !== JSON.stringify(z) && xe.style.setProperty('--bgc', _e),
-                  w !== a && xe.style.setProperty('--br', g(w, f()) ? '50%' : '0'),
-                  I !== c && (c && xe.classList.remove(c), I && xe.classList.add(I)))
+              for (let [tt, { color: xe }] of Zn(d)) {
+                let _e = h[+tt]
+                ;(JSON.stringify(n) !== JSON.stringify(z) && _e.style.setProperty('--bgc', xe),
+                  w !== a && _e.style.setProperty('--br', g(w, f()) ? '50%' : '0'),
+                  I !== c && (c && _e.classList.remove(c), I && _e.classList.add(I)))
               }
-            } else He = !0
+            } else Ue = !0
             ;(l && !Me && clearTimeout(b),
               e.style.setProperty('--sh', te + 'px'),
               (r = Ie),
@@ -1050,12 +1050,12 @@ try {
               (o = je),
               (i = v),
               (a = w),
-              (s = H),
+              (s = U),
               (c = I),
               (l = Me),
               (p = te),
               (u = et),
-              He && _())
+              Ue && x())
           },
           destroy() {
             ;((e.innerHTML = ''), clearTimeout(b))
@@ -1064,13 +1064,13 @@ try {
       )
     }
     function Vo({ class: e, ...t }) {
-      let n = Ht(null),
-        r = Ht()
+      let n = Ut(null),
+        r = Ut()
       return (
         se(() => {
           if (typeof window < 'u' && n.current) {
             if (r.current) return (r.current.update(t), r.current.destroy)
-            r.current = Uo(n.current, t)
+            r.current = Ho(n.current, t)
           }
         }, [t]),
         V('div', { ref: n, className: e })
@@ -1174,7 +1174,7 @@ try {
     function ai(e) {
       return oi.includes(e)
     }
-    function Xe(e) {
+    function Je(e) {
       return (t) => typeof t === e
     }
     function si(e) {
@@ -1199,13 +1199,13 @@ try {
       return C.array(e) ? 'Array' : C.plainFunction(e) ? 'Function' : jt(e) || 'Object'
     }
     function ci(...e) {
-      return e.every((t) => x.string(t) || x.array(t) || x.plainObject(t))
+      return e.every((t) => _.string(t) || _.array(t) || _.plainObject(t))
     }
     function ui(e, t, n) {
       return Fr(e, t)
-        ? [e, t].every(x.array)
+        ? [e, t].every(_.array)
           ? !e.some(ar(n)) && t.some(ar(n))
-          : [e, t].every(x.plainObject)
+          : [e, t].every(_.plainObject)
             ? !Object.entries(e).some(ir(n)) && Object.entries(t).some(ir(n))
             : t === n
         : !1
@@ -1214,8 +1214,8 @@ try {
       let { actual: r, key: o, previous: i, type: a } = n,
         s = we(e, o),
         c = we(t, o),
-        l = [s, c].every(x.number) && (a === 'increased' ? s < c : s > c)
-      return (x.undefined(r) || (l = l && c === r), x.undefined(i) || (l = l && s === i), l)
+        l = [s, c].every(_.number) && (a === 'increased' ? s < c : s > c)
+      return (_.undefined(r) || (l = l && c === r), _.undefined(i) || (l = l && s === i), l)
     }
     function rr(e, t, n) {
       let { key: r, type: o, value: i } = n,
@@ -1223,31 +1223,31 @@ try {
         s = we(t, r),
         c = o === 'added' ? a : s,
         l = o === 'added' ? s : a
-      if (!x.nullOrUndefined(i)) {
-        if (x.defined(c)) {
-          if (x.array(c) || x.plainObject(c)) return ui(c, l, i)
+      if (!_.nullOrUndefined(i)) {
+        if (_.defined(c)) {
+          if (_.array(c) || _.plainObject(c)) return ui(c, l, i)
         } else return oe(l, i)
         return !1
       }
-      return [a, s].every(x.array)
+      return [a, s].every(_.array)
         ? !l.every(un(c))
-        : [a, s].every(x.plainObject)
+        : [a, s].every(_.plainObject)
           ? pi(Object.keys(c), Object.keys(l))
-          : ![a, s].every((p) => x.primitive(p) && x.defined(p)) &&
-            (o === 'added' ? !x.defined(a) && x.defined(s) : x.defined(a) && !x.defined(s))
+          : ![a, s].every((p) => _.primitive(p) && _.defined(p)) &&
+            (o === 'added' ? !_.defined(a) && _.defined(s) : _.defined(a) && !_.defined(s))
     }
     function or(e, t, { key: n } = {}) {
       let r = we(e, n),
         o = we(t, n)
       if (!Fr(r, o)) throw new TypeError('Inputs have different types')
       if (!ci(r, o)) throw new TypeError("Inputs don't have length")
-      return ([r, o].every(x.plainObject) && ((r = Object.keys(r)), (o = Object.keys(o))), [r, o])
+      return ([r, o].every(_.plainObject) && ((r = Object.keys(r)), (o = Object.keys(o))), [r, o])
     }
     function ir(e) {
       return ([t, n]) =>
-        x.array(e)
-          ? oe(e, n) || e.some((r) => oe(r, n) || (x.array(n) && un(n)(r)))
-          : x.plainObject(e) && e[t]
+        _.array(e)
+          ? oe(e, n) || e.some((r) => oe(r, n) || (_.array(n) && un(n)(r)))
+          : _.plainObject(e) && e[t]
             ? !!e[t] && oe(e[t], n)
             : oe(e, n)
     }
@@ -1255,29 +1255,29 @@ try {
       return t.some((n) => !e.includes(n))
     }
     function ar(e) {
-      return (t) => (x.array(e) ? e.some((n) => oe(n, t) || (x.array(t) && un(t)(n))) : oe(e, t))
+      return (t) => (_.array(e) ? e.some((n) => oe(n, t) || (_.array(t) && un(t)(n))) : oe(e, t))
     }
     function ot(e, t) {
-      return x.array(e) ? e.some((n) => oe(n, t)) : oe(e, t)
+      return _.array(e) ? e.some((n) => oe(n, t)) : oe(e, t)
     }
     function un(e) {
       return (t) => e.some((n) => oe(n, t))
     }
     function Fr(...e) {
-      return e.every(x.array) || e.every(x.number) || e.every(x.plainObject) || e.every(x.string)
+      return e.every(_.array) || e.every(_.number) || e.every(_.plainObject) || e.every(_.string)
     }
     function we(e, t) {
-      return x.plainObject(e) || x.array(e)
-        ? x.string(t)
+      return _.plainObject(e) || _.array(e)
+        ? _.string(t)
           ? t.split('.').reduce((n, r) => n && n[r], e)
-          : x.number(t)
+          : _.number(t)
             ? e[t]
             : e
         : e
     }
     function At(e, t) {
-      if ([e, t].some(x.nullOrUndefined)) throw new Error('Missing required parameters')
-      if (![e, t].every((n) => x.plainObject(n) || x.array(n)))
+      if ([e, t].some(_.nullOrUndefined)) throw new Error('Missing required parameters')
+      if (![e, t].every((n) => _.plainObject(n) || _.array(n)))
         throw new Error('Expected plain objects or array')
       return {
         added: (n, r) => {
@@ -1291,31 +1291,31 @@ try {
           try {
             let i = we(e, n),
               a = we(t, n),
-              s = x.defined(r),
-              c = x.defined(o)
+              s = _.defined(r),
+              c = _.defined(o)
             if (s || c) {
               let l = c ? ot(o, i) : !ot(r, i),
                 p = ot(r, a)
               return l && p
             }
-            return [i, a].every(x.array) || [i, a].every(x.plainObject) ? !oe(i, a) : i !== a
+            return [i, a].every(_.array) || [i, a].every(_.plainObject) ? !oe(i, a) : i !== a
           } catch {
             return !1
           }
         },
         changedFrom: (n, r, o) => {
-          if (!x.defined(n)) return !1
+          if (!_.defined(n)) return !1
           try {
             let i = we(e, n),
               a = we(t, n),
-              s = x.defined(o)
+              s = _.defined(o)
             return ot(r, i) && (s ? ot(o, a) : !s)
           } catch {
             return !1
           }
         },
         decreased: (n, r, o) => {
-          if (!x.defined(n)) return !1
+          if (!_.defined(n)) return !1
           try {
             return nr(e, t, { key: n, actual: r, previous: o, type: 'decreased' })
           } catch {
@@ -1339,7 +1339,7 @@ try {
           }
         },
         increased: (n, r, o) => {
-          if (!x.defined(n)) return !1
+          if (!_.defined(n)) return !1
           try {
             return nr(e, t, { key: n, actual: r, previous: o, type: 'increased' })
           } catch {
@@ -1379,7 +1379,7 @@ try {
       var t = {}
       return e && t.toString.call(e) === '[object Function]'
     }
-    function Ue(e, t) {
+    function He(e, t) {
       if (e.nodeType !== 1) return []
       var n = e.ownerDocument.defaultView,
         r = n.getComputedStyle(e, null)
@@ -1397,22 +1397,22 @@ try {
         case '#document':
           return e.body
       }
-      var t = Ue(e),
+      var t = He(e),
         n = t.overflow,
         r = t.overflowX,
         o = t.overflowY
       return /(auto|scroll|overlay)/.test(n + o + r) ? e : dt(pn(e))
     }
-    function Ur(e) {
+    function Hr(e) {
       return e && e.referenceNode ? e.referenceNode : e
     }
-    function Je(e) {
+    function Xe(e) {
       return e === 11 ? lr : e === 10 ? cr : lr || cr
     }
     function qe(e) {
       if (!e) return document.documentElement
       for (
-        var t = Je(10) ? document.body : null, n = e.offsetParent || null;
+        var t = Xe(10) ? document.body : null, n = e.offsetParent || null;
         n === t && e.nextElementSibling;
 
       )
@@ -1422,7 +1422,7 @@ try {
         ? e
           ? e.ownerDocument.documentElement
           : document.documentElement
-        : ['TH', 'TD', 'TABLE'].indexOf(n.nodeName) !== -1 && Ue(n, 'position') === 'static'
+        : ['TH', 'TD', 'TABLE'].indexOf(n.nodeName) !== -1 && He(n, 'position') === 'static'
           ? qe(n)
           : n
     }
@@ -1475,17 +1475,17 @@ try {
         n['client' + e],
         n['offset' + e],
         n['scroll' + e],
-        Je(10)
+        Xe(10)
           ? parseInt(n['offset' + e]) +
               parseInt(r['margin' + (e === 'Height' ? 'Top' : 'Left')]) +
               parseInt(r['margin' + (e === 'Height' ? 'Bottom' : 'Right')])
           : 0
       )
     }
-    function Hr(e) {
+    function Ur(e) {
       var t = e.body,
         n = e.documentElement,
-        r = Je(10) && getComputedStyle(n)
+        r = Xe(10) && getComputedStyle(n)
       return { height: pr('Height', t, n, r), width: pr('Width', t, n, r) }
     }
     function ke(e) {
@@ -1494,7 +1494,7 @@ try {
     function nn(e) {
       var t = {}
       try {
-        if (Je(10)) {
+        if (Xe(10)) {
           t = e.getBoundingClientRect()
           var n = $e(e, 'top'),
             r = $e(e, 'left')
@@ -1502,25 +1502,25 @@ try {
         } else t = e.getBoundingClientRect()
       } catch {}
       var o = { left: t.left, top: t.top, width: t.right - t.left, height: t.bottom - t.top },
-        i = e.nodeName === 'HTML' ? Hr(e.ownerDocument) : {},
+        i = e.nodeName === 'HTML' ? Ur(e.ownerDocument) : {},
         a = i.width || e.clientWidth || o.width,
         s = i.height || e.clientHeight || o.height,
         c = e.offsetWidth - a,
         l = e.offsetHeight - s
       if (c || l) {
-        var p = Ue(e)
+        var p = He(e)
         ;((c -= ur(p, 'x')), (l -= ur(p, 'y')), (o.width -= c), (o.height -= l))
       }
       return ke(o)
     }
     function dn(e, t) {
       var n = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : !1,
-        r = Je(10),
+        r = Xe(10),
         o = t.nodeName === 'HTML',
         i = nn(e),
         a = nn(t),
         s = dt(e),
-        c = Ue(t),
+        c = He(t),
         l = parseFloat(c.borderTopWidth),
         p = parseFloat(c.borderLeftWidth)
       n && o && ((a.top = Math.max(a.top, 0)), (a.left = Math.max(a.left, 0)))
@@ -1542,7 +1542,7 @@ try {
       }
       return ((r && !n ? t.contains(s) : t === s && s.nodeName !== 'BODY') && (u = vi(u, t)), u)
     }
-    function Oi(e) {
+    function Si(e) {
       var t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : !1,
         n = e.ownerDocument.documentElement,
         r = dn(e, n),
@@ -1556,20 +1556,20 @@ try {
     function zr(e) {
       var t = e.nodeName
       if (t === 'BODY' || t === 'HTML') return !1
-      if (Ue(e, 'position') === 'fixed') return !0
+      if (He(e, 'position') === 'fixed') return !0
       var n = pn(e)
       return n ? zr(n) : !1
     }
     function Gr(e) {
-      if (!e || !e.parentElement || Je()) return document.documentElement
-      for (var t = e.parentElement; t && Ue(t, 'transform') === 'none'; ) t = t.parentElement
+      if (!e || !e.parentElement || Xe()) return document.documentElement
+      for (var t = e.parentElement; t && He(t, 'transform') === 'none'; ) t = t.parentElement
       return t || document.documentElement
     }
     function fn(e, t, n, r) {
       var o = arguments.length > 4 && arguments[4] !== void 0 ? arguments[4] : !1,
         i = { top: 0, left: 0 },
-        a = o ? Gr(e) : Nt(e, Ur(t))
-      if (r === 'viewport') i = Oi(a, o)
+        a = o ? Gr(e) : Nt(e, Hr(t))
+      if (r === 'viewport') i = Si(a, o)
       else {
         var s = void 0
         r === 'scrollParent'
@@ -1579,7 +1579,7 @@ try {
             : (s = r)
         var c = dn(s, a, o)
         if (s.nodeName === 'HTML' && !zr(a)) {
-          var l = Hr(e.ownerDocument),
+          var l = Ur(e.ownerDocument),
             p = l.height,
             u = l.width
           ;((i.top += c.top - c.marginTop),
@@ -1631,7 +1631,7 @@ try {
     }
     function qr(e, t, n) {
       var r = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : null,
-        o = r ? Gr(t) : Nt(t, Ur(n))
+        o = r ? Gr(t) : Nt(t, Hr(n))
       return dn(n, o, r)
     }
     function $r(e) {
@@ -1725,7 +1725,7 @@ try {
             : ((this.state.isCreated = !0), this.options.onCreate(e)))
       }
     }
-    function Xr(e, t) {
+    function Jr(e, t) {
       return e.some(function (n) {
         var r = n.name,
           o = n.enabled
@@ -1747,7 +1747,7 @@ try {
     function Ci() {
       return (
         (this.state.isDestroyed = !0),
-        Xr(this.modifiers, 'applyStyle') &&
+        Jr(this.modifiers, 'applyStyle') &&
           (this.popper.removeAttribute('x-placement'),
           (this.popper.style.position = ''),
           (this.popper.style.top = ''),
@@ -1761,7 +1761,7 @@ try {
         this
       )
     }
-    function Jr(e) {
+    function Xr(e) {
       var t = e.ownerDocument
       return t ? t.defaultView : window
     }
@@ -1770,8 +1770,8 @@ try {
         i = o ? e.ownerDocument.defaultView : e
       ;(i.addEventListener(t, n, { passive: !0 }), o || Zr(dt(i.parentNode), t, n, r), r.push(i))
     }
-    function Ri(e, t, n, r) {
-      ;((n.updateBound = r), Jr(e).addEventListener('resize', n.updateBound, { passive: !0 }))
+    function Pi(e, t, n, r) {
+      ;((n.updateBound = r), Xr(e).addEventListener('resize', n.updateBound, { passive: !0 }))
       var o = dt(e)
       return (
         Zr(o, 'scroll', n.updateBound, n.scrollParents),
@@ -1780,13 +1780,13 @@ try {
         n
       )
     }
-    function Pi() {
+    function Ri() {
       this.state.eventsEnabled ||
-        (this.state = Ri(this.reference, this.options, this.state, this.scheduleUpdate))
+        (this.state = Pi(this.reference, this.options, this.state, this.scheduleUpdate))
     }
-    function _i(e, t) {
+    function xi(e, t) {
       return (
-        Jr(e).removeEventListener('resize', t.updateBound),
+        Xr(e).removeEventListener('resize', t.updateBound),
         t.scrollParents.forEach(function (n) {
           n.removeEventListener('scroll', t.updateBound)
         }),
@@ -1797,9 +1797,9 @@ try {
         t
       )
     }
-    function xi() {
+    function _i() {
       this.state.eventsEnabled &&
-        (cancelAnimationFrame(this.scheduleUpdate), (this.state = _i(this.reference, this.state)))
+        (cancelAnimationFrame(this.scheduleUpdate), (this.state = xi(this.reference, this.state)))
     }
     function mn(e) {
       return e !== '' && !isNaN(parseFloat(e)) && isFinite(e)
@@ -1842,8 +1842,8 @@ try {
         o = n.reference,
         i = Math.round,
         a = Math.floor,
-        s = function (O) {
-          return O
+        s = function (S) {
+          return S
         },
         c = i(o.width),
         l = i(r.width),
@@ -1899,13 +1899,13 @@ try {
           (l[d] = 0),
           (l.willChange = 'transform'))
       else {
-        var O = u === 'bottom' ? -1 : 1,
+        var S = u === 'bottom' ? -1 : 1,
           b = d === 'right' ? -1 : 1
-        ;((l[u] = g * O), (l[d] = f * b), (l.willChange = u + ', ' + d))
+        ;((l[u] = g * S), (l[d] = f * b), (l.willChange = u + ', ' + d))
       }
-      var _ = { 'x-placement': e.placement }
+      var x = { 'x-placement': e.placement }
       return (
-        (e.attributes = ce({}, _, e.attributes)),
+        (e.attributes = ce({}, x, e.attributes)),
         (e.styles = ce({}, l, e.styles)),
         (e.arrowStyles = ce({}, e.offsets.arrow, e.arrowStyles)),
         e
@@ -1958,10 +1958,10 @@ try {
         s[u] + f > a[h] && (e.offsets.popper[u] += s[u] + f - a[h]),
         (e.offsets.popper = ke(e.offsets.popper)))
       var g = s[u] + s[l] / 2 - f / 2,
-        O = Ue(e.instance.popper),
-        b = parseFloat(O['margin' + p]),
-        _ = parseFloat(O['border' + p + 'Width']),
-        y = g - e.offsets.popper[u] - b - _
+        S = He(e.instance.popper),
+        b = parseFloat(S['margin' + p]),
+        x = parseFloat(S['border' + p + 'Width']),
+        y = g - e.offsets.popper[u] - b - x
       return (
         (y = Math.max(Math.min(a[l] - f, y), 0)),
         (e.arrowElement = r),
@@ -1974,12 +1974,12 @@ try {
     }
     function dr(e) {
       var t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : !1,
-        n = Jt.indexOf(e),
-        r = Jt.slice(n + 1).concat(Jt.slice(0, n))
+        n = Xt.indexOf(e),
+        r = Xt.slice(n + 1).concat(Xt.slice(0, n))
       return t ? r.reverse() : r
     }
     function Bi(e, t) {
-      if (Xr(e.instance.modifiers, 'inner') || (e.flipped && e.placement === e.originalPlacement))
+      if (Jr(e.instance.modifiers, 'inner') || (e.flipped && e.placement === e.originalPlacement))
         return e
       var n = fn(
           e.instance.popper,
@@ -2020,25 +2020,25 @@ try {
             h = u(l.left) < u(n.left),
             f = u(l.right) > u(n.right),
             g = u(l.top) < u(n.top),
-            O = u(l.bottom) > u(n.bottom),
+            S = u(l.bottom) > u(n.bottom),
             b =
               (r === 'left' && h) ||
               (r === 'right' && f) ||
               (r === 'top' && g) ||
-              (r === 'bottom' && O),
-            _ = ['top', 'bottom'].indexOf(r) !== -1,
+              (r === 'bottom' && S),
+            x = ['top', 'bottom'].indexOf(r) !== -1,
             y =
               !!t.flipVariations &&
-              ((_ && i === 'start' && h) ||
-                (_ && i === 'end' && f) ||
-                (!_ && i === 'start' && g) ||
-                (!_ && i === 'end' && O)),
+              ((x && i === 'start' && h) ||
+                (x && i === 'end' && f) ||
+                (!x && i === 'start' && g) ||
+                (!x && i === 'end' && S)),
             v =
               !!t.flipVariationsByContent &&
-              ((_ && i === 'start' && f) ||
-                (_ && i === 'end' && h) ||
-                (!_ && i === 'start' && O) ||
-                (!_ && i === 'end' && g)),
+              ((x && i === 'start' && f) ||
+                (x && i === 'end' && h) ||
+                (!x && i === 'start' && S) ||
+                (!x && i === 'end' && g)),
             w = y || v
           ;(d || b || w) &&
             ((e.flipped = !0),
@@ -2071,7 +2071,7 @@ try {
         e
       )
     }
-    function Ui(e, t, n, r) {
+    function Hi(e, t, n, r) {
       var o = e.match(/((?:\-|\+)?\d*\.?\d*)(.*)/),
         i = +o[1],
         a = o[2]
@@ -2099,7 +2099,7 @@ try {
         )
       } else return i
     }
-    function Hi(e, t, n, r) {
+    function Ui(e, t, n, r) {
       var o = [0, 0],
         i = ['right', 'left'].indexOf(r) !== -1,
         a = e.split(/(\+|\-)/).map(function (p) {
@@ -2131,7 +2131,7 @@ try {
                   : f.concat(g)
             }, [])
             .map(function (f) {
-              return Ui(f, d, t, n)
+              return Hi(f, d, t, n)
             })
         })),
         l.forEach(function (p, u) {
@@ -2151,7 +2151,7 @@ try {
         s = r.split('-')[0],
         c = void 0
       return (
-        mn(+n) ? (c = [+n, 0]) : (c = Hi(n, i, a, s)),
+        mn(+n) ? (c = [+n, 0]) : (c = Ui(n, i, a, s)),
         s === 'left'
           ? ((i.top += c[0]), (i.left -= c[1]))
           : s === 'right'
@@ -2261,7 +2261,7 @@ try {
       }
     }
     function Qi(e) {
-      return Ji.includes(e)
+      return Xi.includes(e)
     }
     function Ze(e) {
       return function (t) {
@@ -2271,7 +2271,7 @@ try {
     function ea(e) {
       return Zi.includes(e)
     }
-    function R(e) {
+    function P(e) {
       if (e === null) return 'null'
       switch (typeof e) {
         case 'bigint':
@@ -2287,8 +2287,8 @@ try {
         case 'undefined':
           return 'undefined'
       }
-      if (R.array(e)) return 'Array'
-      if (R.plainFunction(e)) return 'Function'
+      if (P.array(e)) return 'Array'
+      if (P.plainFunction(e)) return 'Function'
       var t = Dt(e)
       return t || 'Object'
     }
@@ -2406,7 +2406,7 @@ try {
     function da(e) {
       return ua.includes(e)
     }
-    function P(e) {
+    function R(e) {
       if (e === null) return 'null'
       switch (typeof e) {
         case 'bigint':
@@ -2422,8 +2422,8 @@ try {
         case 'undefined':
           return 'undefined'
       }
-      if (P.array(e)) return 'Array'
-      if (P.plainFunction(e)) return 'Function'
+      if (R.array(e)) return 'Array'
+      if (R.plainFunction(e)) return 'Function'
       var t = Ft(e)
       return t || 'Object'
     }
@@ -2560,12 +2560,12 @@ try {
           try {
             var f = Te(e, u),
               g = Te(t, u),
-              O = k.defined(d),
+              S = k.defined(d),
               b = k.defined(h)
-            if (O || b) {
-              var _ = b ? it(h, f) : !it(d, f),
+            if (S || b) {
+              var x = b ? it(h, f) : !it(d, f),
                 y = it(d, g)
-              return _ && y
+              return x && y
             }
             return [f, g].every(k.array) || [f, g].every(k.plainObject) ? !ie(f, g) : f !== g
           } catch {
@@ -2577,8 +2577,8 @@ try {
           try {
             var f = Te(e, u),
               g = Te(t, u),
-              O = k.defined(h)
-            return it(d, f) && (O ? it(h, g) : !O)
+              S = k.defined(h)
+            return it(d, f) && (S ? it(h, g) : !S)
           } catch {
             return !1
           }
@@ -2643,7 +2643,7 @@ try {
         removed: p,
       }
     }
-    function Sr(e, t) {
+    function Or(e, t) {
       var n = Object.keys(e)
       if (Object.getOwnPropertySymbols) {
         var r = Object.getOwnPropertySymbols(e)
@@ -2655,16 +2655,16 @@ try {
       }
       return n
     }
-    function J(e) {
+    function X(e) {
       for (var t = 1; t < arguments.length; t++) {
         var n = arguments[t] != null ? arguments[t] : {}
         t % 2
-          ? Sr(Object(n), !0).forEach(function (r) {
+          ? Or(Object(n), !0).forEach(function (r) {
               re(e, r, n[r])
             })
           : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n))
-            : Sr(Object(n)).forEach(function (r) {
+            : Or(Object(n)).forEach(function (r) {
                 Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(n, r))
               })
       }
@@ -2673,7 +2673,7 @@ try {
     function ht(e, t) {
       if (!(e instanceof t)) throw new TypeError('Cannot call a class as a function')
     }
-    function Or(e, t) {
+    function Sr(e, t) {
       for (var n = 0; n < t.length; n++) {
         var r = t[n]
         ;((r.enumerable = r.enumerable || !1),
@@ -2684,8 +2684,8 @@ try {
     }
     function mt(e, t, n) {
       return (
-        t && Or(e.prototype, t),
-        n && Or(e, n),
+        t && Sr(e.prototype, t),
+        n && Sr(e, n),
         Object.defineProperty(e, 'prototype', { writable: !1 }),
         e
       )
@@ -2766,7 +2766,7 @@ try {
       }
       return n
     }
-    function Re(e) {
+    function Pe(e) {
       if (e === void 0)
         throw new ReferenceError("this hasn't been initialised - super() hasn't been called")
       return e
@@ -2775,7 +2775,7 @@ try {
       if (t && (typeof t == 'object' || typeof t == 'function')) return t
       if (t !== void 0)
         throw new TypeError('Derived constructors may only return object or undefined')
-      return Re(e)
+      return Pe(e)
     }
     function gt(e) {
       var t = ga()
@@ -2816,13 +2816,13 @@ try {
             'Required '.concat(e[t], ' `').concat(t, '` was not specified in `').concat(n, '`.')
           )
     }
-    function Ra(e, t) {
-      if (typeof e != 'function') throw new TypeError(Oa)
+    function Pa(e, t) {
+      if (typeof e != 'function') throw new TypeError(Sa)
       if (t && typeof t != 'string') throw new TypeError(wa)
     }
     function wr(e, t, n) {
       return (
-        Ra(e, n),
+        Pa(e, n),
         function (r, o, i) {
           for (var a = arguments.length, s = new Array(a > 3 ? a - 3 : 0), c = 3; c < a; c++)
             s[c - 3] = arguments[c]
@@ -2834,13 +2834,13 @@ try {
         }
       )
     }
-    function Se() {
+    function Oe() {
       return !!(typeof window < 'u' && window.document && window.document.createElement)
     }
     function Qt() {
       return 'ontouchstart' in window && /Mobi/.test(navigator.userAgent)
     }
-    function _t(e) {
+    function xt(e) {
       var t = e.title,
         n = e.data,
         r = e.warn,
@@ -2864,21 +2864,21 @@ try {
           : s.apply(console, [n]),
         console.groupEnd())
     }
-    function Pa(e, t, n) {
+    function Ra(e, t, n) {
       var r = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : !1
       e.addEventListener(t, n, r)
     }
-    function _a(e, t, n) {
+    function xa(e, t, n) {
       var r = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : !1
       e.removeEventListener(t, n, r)
     }
-    function xa(e, t, n) {
+    function _a(e, t, n) {
       var r = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : !1,
         o
       ;((o = function (i) {
-        ;(n(i), _a(e, t, o))
+        ;(n(i), xa(e, t, o))
       }),
-        Pa(e, t, o, r))
+        Ra(e, t, o, r))
     }
     function Tr() {}
     function so(e) {
@@ -3056,7 +3056,7 @@ try {
         n.offsetHeight
       )
     }
-    function Pe(e) {
+    function Re(e) {
       if (typeof e == 'string')
         try {
           return document.querySelector(e)
@@ -3097,7 +3097,7 @@ try {
             ? Ke(e.parentNode, t)
             : !1
     }
-    function Ua(e) {
+    function Ha(e) {
       var t
       if (!e) return !1
       let n = e
@@ -3110,7 +3110,7 @@ try {
       }
       return !0
     }
-    function Ha(e, t, n) {
+    function Ua(e, t, n) {
       var r, o, i
       let a = po(e),
         s = ut(e, n),
@@ -3170,10 +3170,10 @@ try {
         t
       )
     }
-    function xt(e) {
+    function _t(e) {
       return Object.prototype.toString.call(e).slice(8, -1).toLowerCase()
     }
-    function Oe(e, t = {}) {
+    function Se(e, t = {}) {
       let { defaultValue: n, step: r, steps: o } = t,
         i = (0, sr.default)(e)
       if (i)
@@ -3181,14 +3181,14 @@ try {
           r &&
           o &&
           (i = i.replace('{step}', r.toString()).replace('{steps}', o.toString()))
-      else if (Ut(e) && !Object.values(e.props).length && xt(e.type) === 'function') {
+      else if (Ht(e) && !Object.values(e.props).length && _t(e.type) === 'function') {
         let a = e.type({})
-        i = Oe(a, t)
+        i = Se(a, t)
       } else i = (0, sr.default)(n)
       return i
     }
     function Ya(e, t) {
-      return !x.plainObject(e) || !x.array(t) ? !1 : Object.keys(e).every((n) => t.includes(n))
+      return !_.plainObject(e) || !_.array(t) ? !1 : Object.keys(e).every((n) => t.includes(n))
     }
     function qa(e) {
       let t = /^#?([\da-f])([\da-f])([\da-f])$/i,
@@ -3212,7 +3212,7 @@ try {
             ),
             Array.isArray(e)
               ? e.forEach((i) => {
-                  x.plainObject(i) && i.key
+                  _.plainObject(i) && i.key
                     ? o.apply(console, [i.key, i.value])
                     : o.apply(console, [i])
                 })
@@ -3224,13 +3224,13 @@ try {
       return Object.keys(e)
     }
     function ho(e, ...t) {
-      if (!x.plainObject(e)) throw new TypeError('Expected an object')
+      if (!_.plainObject(e)) throw new TypeError('Expected an object')
       let n = {}
       for (let r in e) ({}).hasOwnProperty.call(e, r) && (t.includes(r) || (n[r] = e[r]))
       return n
     }
     function Va(e, ...t) {
-      if (!x.plainObject(e)) throw new TypeError('Expected an object')
+      if (!_.plainObject(e)) throw new TypeError('Expected an object')
       if (!t.length) return e
       let n = {}
       for (let r in e) ({}).hasOwnProperty.call(e, r) && t.includes(r) && (n[r] = e[r])
@@ -3238,13 +3238,13 @@ try {
     }
     function ln(e, t, n) {
       let r = (i) => i.replace('{step}', String(t)).replace('{steps}', String(n))
-      if (xt(e) === 'string') return r(e)
-      if (!Ut(e)) return e
+      if (_t(e) === 'string') return r(e)
+      if (!Ht(e)) return e
       let { children: o } = e.props
-      if (xt(o) === 'string' && o.includes('{step}')) return Wt(e, { children: r(o) })
+      if (_t(o) === 'string' && o.includes('{step}')) return Wt(e, { children: r(o) })
       if (Array.isArray(o))
         return Wt(e, { children: o.map((i) => (typeof i == 'string' ? r(i) : ln(i, t, n))) })
-      if (xt(e.type) === 'function' && !Object.values(e.props).length) {
+      if (_t(e.type) === 'function' && !Object.values(e.props).length) {
         let i = e.type({})
         return ln(i, t, n)
       }
@@ -3271,9 +3271,9 @@ try {
     function es(e, t) {
       var n, r, o, i, a
       let { floaterProps: s, styles: c } = e,
-        l = (0, Pt.default)((n = t.floaterProps) != null ? n : {}, s ?? {}),
-        p = (0, Pt.default)(c ?? {}, (r = t.styles) != null ? r : {}),
-        u = (0, Pt.default)(Qa, p.options || {}),
+        l = (0, Rt.default)((n = t.floaterProps) != null ? n : {}, s ?? {}),
+        p = (0, Rt.default)(c ?? {}, (r = t.styles) != null ? r : {}),
+        u = (0, Rt.default)(Qa, p.options || {}),
         d = t.placement === 'center' || t.disableBeacon,
         { width: h } = u
       ;(window.innerWidth > 480 && (h = 380),
@@ -3365,9 +3365,9 @@ try {
           overlay: { ...f, backgroundColor: u.overlayColor, mixBlendMode: 'hard-light' },
           overlayLegacy: { ...f },
           overlayLegacyCenter: { ...f, backgroundColor: u.overlayColor },
-          spotlight: { ...Rr, backgroundColor: 'gray' },
+          spotlight: { ...Pr, backgroundColor: 'gray' },
           spotlightLegacy: {
-            ...Rr,
+            ...Pr,
             boxShadow: `0 0 0 9999px ${u.overlayColor}, ${u.spotlightShadow}`,
           },
           floaterStyles: {
@@ -3382,7 +3382,7 @@ try {
           },
           options: u,
         }
-      return (0, Pt.default)(g, p)
+      return (0, Rt.default)(g, p)
     }
     function ts(e) {
       return Va(
@@ -3408,31 +3408,31 @@ try {
     function Ye(e, t) {
       var n, r, o, i, a, s
       let c = t ?? {},
-        l = Rt.default.all([Ja, ts(e), c], { isMergeableObject: x.plainObject }),
+        l = Pt.default.all([Xa, ts(e), c], { isMergeableObject: _.plainObject }),
         p = es(e, l),
-        u = bt(Pe(l.target), l.disableScrollParentFix),
-        d = Rt.default.all([
-          Xa,
+        u = bt(Re(l.target), l.disableScrollParentFix),
+        d = Pt.default.all([
+          Ja,
           (n = e.floaterProps) != null ? n : {},
           (r = l.floaterProps) != null ? r : {},
         ])
       return (
         (d.offset = l.offset),
-        (d.styles = (0, Rt.default)((o = d.styles) != null ? o : {}, p.floaterStyles)),
+        (d.styles = (0, Pt.default)((o = d.styles) != null ? o : {}, p.floaterStyles)),
         (d.offset +=
           (a = (i = e.spotlightPadding) != null ? i : l.spotlightPadding) != null ? a : 0),
         l.placementBeacon && d.wrapperOptions && (d.wrapperOptions.placement = l.placementBeacon),
         u && d.options.preventOverflow && (d.options.preventOverflow.boundariesElement = 'window'),
         {
           ...l,
-          locale: Rt.default.all([mo, (s = e.locale) != null ? s : {}, l.locale || {}]),
+          locale: Pt.default.all([mo, (s = e.locale) != null ? s : {}, l.locale || {}]),
           floaterProps: d,
           styles: ho(p, 'floaterStyles'),
         }
       )
     }
     function yo(e, t = !1) {
-      return x.plainObject(e)
+      return _.plainObject(e)
         ? e.target
           ? !0
           : (Le({
@@ -3444,8 +3444,8 @@ try {
             !1)
         : (Le({ title: 'validateStep', data: 'step must be an object', warn: !0, debug: t }), !1)
     }
-    function Pr(e, t = !1) {
-      return x.array(e)
+    function Rr(e, t = !1) {
+      return _.array(e)
         ? e.every((n) => yo(n, t))
         : (Le({ title: 'validateSteps', data: 'steps must be an array', warn: !0, debug: t }), !1)
     }
@@ -3506,9 +3506,9 @@ try {
           styles: f,
           title: g,
         } = s,
-        O = {}
+        S = {}
       return (
-        (O.primary = V('button', {
+        (S.primary = V('button', {
           'data-test-id': 'button-primary',
           style: f.buttonNext,
           type: 'button',
@@ -3516,7 +3516,7 @@ try {
         })),
         h &&
           !o &&
-          (O.skip = V('button', {
+          (S.skip = V('button', {
             'aria-live': 'off',
             'data-test-id': 'button-skip',
             style: f.buttonSkip,
@@ -3525,18 +3525,18 @@ try {
           })),
         !p &&
           r > 0 &&
-          (O.back = V('button', {
+          (S.back = V('button', {
             'data-test-id': 'button-back',
             style: f.buttonBack,
             type: 'button',
             ...t,
           })),
-        (O.close = !u && V(ps, { 'data-test-id': 'button-close', styles: f.buttonClose, ...n })),
+        (S.close = !u && V(ps, { 'data-test-id': 'button-close', styles: f.buttonClose, ...n })),
         V(
           'div',
           {
             key: 'JoyrideTooltip',
-            'aria-label': Oe(g ?? l),
+            'aria-label': Se(g ?? l),
             className: 'react-joyride__tooltip',
             style: f.tooltip,
             ...c,
@@ -3544,22 +3544,22 @@ try {
           V(
             'div',
             { style: f.tooltipContainer },
-            g && V('h1', { 'aria-label': Oe(g), style: f.tooltipTitle }, g),
+            g && V('h1', { 'aria-label': Se(g), style: f.tooltipTitle }, g),
             V('div', { style: f.tooltipContent }, l)
           ),
           !d &&
             V(
               'div',
               { style: f.tooltipFooter },
-              V('div', { style: f.tooltipFooterSpacer }, O.skip),
-              O.back,
-              O.primary
+              V('div', { style: f.tooltipFooterSpacer }, S.skip),
+              S.back,
+              S.primary
             ),
-          O.close
+          S.close
         )
       )
     }
-    function Rs({ step: e, steps: t, onClose: n, onComplete: r }) {
+    function Ps({ step: e, steps: t, onClose: n, onComplete: r }) {
       let [o, i] = ae(null),
         a = Nn()
       return (
@@ -3619,7 +3619,7 @@ try {
             })
       )
     }
-    function Ps(e) {
+    function Rs(e) {
       let t = e || (typeof window < 'u' && window)
       return !!(
         t &&
@@ -3634,9 +3634,9 @@ try {
       return e
     }
     function en(e) {
-      return Ps() ? e : Object.fromEntries(Ms(Object.entries(e)))
+      return Rs() ? e : Object.fromEntries(Ms(Object.entries(e)))
     }
-    function Xs({ api: e }) {
+    function Js({ api: e }) {
       let [t, n] = ae(!0),
         [r, o] = ae(!1),
         [i, a] = ae('1:Intro'),
@@ -3653,7 +3653,7 @@ try {
           },
           [e]
         ),
-        O = nt(() => {
+        S = nt(() => {
           let I = new URL(window.location.href),
             z = decodeURIComponent(I.searchParams.get('path'))
           ;((I.search = `?path=${z}&onboarding=false`),
@@ -3663,12 +3663,12 @@ try {
         }, [e, n]),
         b = nt(
           (I) => {
-            ;(e.emit(Xt, { step: '7:FinishedOnboarding', type: 'telemetry' }),
-              e.emit(Xt, { answers: I, type: 'survey' }),
+            ;(e.emit(Jt, { step: '7:FinishedOnboarding', type: 'telemetry' }),
+              e.emit(Jt, { answers: I, type: 'survey' }),
               g('configure-your-project--docs'),
-              O())
+              S())
           },
-          [e, g, O]
+          [e, g, S]
         )
       if (
         (se(() => {
@@ -3711,16 +3711,16 @@ try {
             }),
           [e]
         ),
-        se(() => e.emit(Xt, { step: i, type: 'telemetry' }), [e, i]),
+        se(() => e.emit(Jt, { step: i, type: 'telemetry' }), [e, i]),
         !t)
       )
         return null
-      let _ = h?.sourceFileContent,
-        y = _?.lastIndexOf(`export const ${h?.newStoryExportName}`),
-        v = _?.slice(y).trim(),
-        w = _?.slice(0, y).split(`
+      let x = h?.sourceFileContent,
+        y = x?.lastIndexOf(`export const ${h?.newStoryExportName}`),
+        v = x?.slice(y).trim(),
+        w = x?.slice(0, y).split(`
 `).length,
-        H = [
+        U = [
           {
             key: '2:Controls',
             target: '#control-primary',
@@ -3783,7 +3783,7 @@ try {
                     Vs,
                     null,
                     m.createElement(
-                      _n,
+                      xn,
                       { language: 'jsx', showLineNumbers: !0, startingLineNumber: w },
                       v
                     )
@@ -3800,27 +3800,27 @@ try {
       return m.createElement(
         Yt,
         { theme: Ks },
-        r && m.createElement(Xo, null),
+        r && m.createElement(Jo, null),
         i === '1:Intro'
           ? m.createElement(qs, { onDismiss: () => a('2:Controls') })
           : i === '6:IntentSurvey'
-            ? m.createElement(js, { onComplete: b, onDismiss: O })
-            : m.createElement(Rs, {
+            ? m.createElement(js, { onComplete: b, onDismiss: S })
+            : m.createElement(Ps, {
                 step: i,
-                steps: H,
-                onClose: O,
+                steps: U,
+                onClose: S,
                 onComplete: () => a('6:IntentSurvey'),
               })
       )
     }
     var Co,
       Ar,
-      Ro,
-      Nr,
       Po,
-      _o,
-      ue,
+      Nr,
+      Ro,
       xo,
+      ue,
+      _o,
       We,
       Ao,
       No,
@@ -3840,15 +3840,15 @@ try {
       Fn,
       Bn,
       Wn,
-      Un,
       Hn,
+      Un,
       zn,
       Gn,
       Yn,
       qn,
       $n,
       Vn,
-      Ho,
+      Uo,
       zo,
       Go,
       Kn,
@@ -3858,18 +3858,18 @@ try {
       Yo,
       $t,
       Vt,
-      Xn,
+      Jn,
       Ge,
       Kt,
-      Jn,
+      Xn,
       Mr,
       Zn,
       qo,
       $o,
       Ko,
-      Xo,
-      Xt,
       Jo,
+      Jt,
+      Xo,
       Zo,
       er,
       tr,
@@ -3877,13 +3877,13 @@ try {
       oi,
       ii,
       li,
-      x,
+      _,
       di,
       Br,
       sr,
-      Rt,
       Pt,
-      S,
+      Rt,
+      O,
       pt,
       fi,
       yi,
@@ -3891,20 +3891,20 @@ try {
       lr,
       cr,
       Ei,
-      Si,
+      Oi,
       Ve,
       ce,
       ji,
       eo,
-      Jt,
+      Xt,
       Zt,
       Vi,
       Ki,
       Mt,
       fr,
       on,
-      Xi,
       Ji,
+      Xi,
       Zi,
       le,
       ta,
@@ -3917,10 +3917,10 @@ try {
       ca,
       ua,
       k,
-      Sa,
       Oa,
+      Sa,
       wa,
-      U,
+      H,
       at,
       io,
       ao,
@@ -3939,15 +3939,15 @@ try {
       L,
       B,
       st,
-      Xa,
-      mo,
       Ja,
+      mo,
+      Xa,
       Za,
       Qa,
       lt,
-      Rr,
+      Pr,
       go,
-      _r,
+      xr,
       ns,
       is,
       as,
@@ -3964,14 +3964,14 @@ try {
       bs,
       vs,
       Es,
-      Ss,
       Os,
+      Ss,
       ws,
       Ts,
       Is,
       Cs,
-      _s,
       xs,
+      _s,
       As,
       Ns,
       ks,
@@ -3982,50 +3982,50 @@ try {
       Fs,
       Bs,
       Ws,
-      Us,
       Hs,
+      Us,
       zs,
       Gs,
       Ys,
-      xr,
+      _r,
       qs,
       $s,
       Vs,
       Ks,
-      So = pe(() => {
+      Oo = pe(() => {
         Z()
         Q()
         ee()
         Et()
         Et()
-        xn()
+        _n()
         zt()
         Gt()
         kn()
-        Ot()
-        Ot()
+        St()
+        St()
         Mn()
         ;((Co = Object.create),
           (Ar = Object.defineProperty),
-          (Ro = Object.getOwnPropertyDescriptor),
+          (Po = Object.getOwnPropertyDescriptor),
           (Nr = Object.getOwnPropertyNames),
-          (Po = Object.getPrototypeOf),
-          (_o = Object.prototype.hasOwnProperty),
+          (Ro = Object.getPrototypeOf),
+          (xo = Object.prototype.hasOwnProperty),
           (ue = (e, t) =>
             function () {
               return (t || (0, e[Nr(e)[0]])((t = { exports: {} }).exports, t), t.exports)
             }),
-          (xo = (e, t, n, r) => {
+          (_o = (e, t, n, r) => {
             if ((t && typeof t == 'object') || typeof t == 'function')
               for (let o of Nr(t))
-                !_o.call(e, o) &&
+                !xo.call(e, o) &&
                   o !== n &&
-                  Ar(e, o, { get: () => t[o], enumerable: !(r = Ro(t, o)) || r.enumerable })
+                  Ar(e, o, { get: () => t[o], enumerable: !(r = Po(t, o)) || r.enumerable })
             return e
           }),
           (We = (e, t, n) => (
-            (n = e != null ? Co(Po(e)) : {}),
-            xo(t || !e || !e.__esModule ? Ar(n, 'default', { value: e, enumerable: !0 }) : n, e)
+            (n = e != null ? Co(Ro(e)) : {}),
+            _o(t || !e || !e.__esModule ? Ar(n, 'default', { value: e, enumerable: !0 }) : n, e)
           )),
           (Ao = ue({
             '../../node_modules/scroll/index.js'(e, t) {
@@ -4041,18 +4041,18 @@ try {
                     typeof h != 'function' && (h = c))
                   var f = i(),
                     g = p[l],
-                    O = d.ease || s,
+                    S = d.ease || s,
                     b = isNaN(d.duration) ? 350 : +d.duration,
-                    _ = !1
+                    x = !1
                   return (g === u ? h(n, p[l]) : requestAnimationFrame(v), y)
                   function y() {
-                    _ = !0
+                    x = !0
                   }
                   function v(w) {
-                    if (_) return h(r, p[l])
-                    var H = i(),
-                      I = o(1, (H - f) / b),
-                      z = O(I)
+                    if (x) return h(r, p[l])
+                    var U = i(),
+                      I = o(1, (U - f) / b),
+                      z = S(I)
                     ;((p[l] = z * (u - g) + g),
                       I < 1
                         ? requestAnimationFrame(v)
@@ -4142,8 +4142,8 @@ try {
                 return v.clone !== !1 && v.isMergeableObject(y) ? b(c(y), y, v) : y
               }
               function p(y, v, w) {
-                return y.concat(v).map(function (H) {
-                  return l(H, w)
+                return y.concat(v).map(function (U) {
+                  return l(U, w)
                 })
               }
               function u(y, v) {
@@ -4174,20 +4174,20 @@ try {
                   !(Object.hasOwnProperty.call(y, v) && Object.propertyIsEnumerable.call(y, v))
                 )
               }
-              function O(y, v, w) {
-                var H = {}
+              function S(y, v, w) {
+                var U = {}
                 return (
                   w.isMergeableObject(y) &&
                     h(y).forEach(function (I) {
-                      H[I] = l(y[I], w)
+                      U[I] = l(y[I], w)
                     }),
                   h(v).forEach(function (I) {
                     g(y, I) ||
                       (f(y, I) && w.isMergeableObject(v[I])
-                        ? (H[I] = u(I, w)(y[I], v[I], w))
-                        : (H[I] = l(v[I], w)))
+                        ? (U[I] = u(I, w)(y[I], v[I], w))
+                        : (U[I] = l(v[I], w)))
                   }),
-                  H
+                  U
                 )
               }
               function b(y, v, w) {
@@ -4195,19 +4195,19 @@ try {
                   (w.arrayMerge = w.arrayMerge || p),
                   (w.isMergeableObject = w.isMergeableObject || n),
                   (w.cloneUnlessOtherwiseSpecified = l))
-                var H = Array.isArray(v),
+                var U = Array.isArray(v),
                   I = Array.isArray(y),
-                  z = H === I
-                return z ? (H ? w.arrayMerge(y, v, w) : O(y, v, w)) : l(v, w)
+                  z = U === I
+                return z ? (U ? w.arrayMerge(y, v, w) : S(y, v, w)) : l(v, w)
               }
               b.all = function (y, v) {
                 if (!Array.isArray(y)) throw new Error('first argument should be an array')
-                return y.reduce(function (w, H) {
-                  return b(w, H, v)
+                return y.reduce(function (w, U) {
+                  return b(w, U, v)
                 }, {})
               }
-              var _ = b
-              t.exports = _
+              var x = b
+              t.exports = x
             },
           })),
           (Lo = ue({
@@ -4228,9 +4228,9 @@ try {
                   h = t ? Symbol.for('react.suspense_list') : 60120,
                   f = t ? Symbol.for('react.memo') : 60115,
                   g = t ? Symbol.for('react.lazy') : 60116,
-                  O = t ? Symbol.for('react.block') : 60121,
+                  S = t ? Symbol.for('react.block') : 60121,
                   b = t ? Symbol.for('react.fundamental') : 60117,
-                  _ = t ? Symbol.for('react.responder') : 60118,
+                  x = t ? Symbol.for('react.responder') : 60118,
                   y = t ? Symbol.for('react.scope') : 60119
                 function v(T) {
                   return (
@@ -4250,9 +4250,9 @@ try {
                         T.$$typeof === c ||
                         T.$$typeof === u ||
                         T.$$typeof === b ||
-                        T.$$typeof === _ ||
+                        T.$$typeof === x ||
                         T.$$typeof === y ||
-                        T.$$typeof === O))
+                        T.$$typeof === S))
                   )
                 }
                 function w(T) {
@@ -4287,7 +4287,7 @@ try {
                     }
                   }
                 }
-                var H = l,
+                var U = l,
                   I = p,
                   z = c,
                   te = s,
@@ -4295,10 +4295,10 @@ try {
                   je = u,
                   et = o,
                   Me = g,
-                  He = f,
+                  Ue = f,
                   tt = r,
-                  _e = a,
-                  xe = i,
+                  xe = a,
+                  _e = i,
                   ye = d,
                   Ae = !1
                 function Bt(T) {
@@ -4347,7 +4347,7 @@ try {
                 function q(T) {
                   return w(T) === d
                 }
-                ;((e.AsyncMode = H),
+                ;((e.AsyncMode = U),
                   (e.ConcurrentMode = I),
                   (e.ContextConsumer = z),
                   (e.ContextProvider = te),
@@ -4355,10 +4355,10 @@ try {
                   (e.ForwardRef = je),
                   (e.Fragment = et),
                   (e.Lazy = Me),
-                  (e.Memo = He),
+                  (e.Memo = Ue),
                   (e.Portal = tt),
-                  (e.Profiler = _e),
-                  (e.StrictMode = xe),
+                  (e.Profiler = xe),
+                  (e.StrictMode = _e),
                   (e.Suspense = ye),
                   (e.isAsyncMode = Bt),
                   (e.isConcurrentMode = vt),
@@ -4473,8 +4473,8 @@ try {
                         throw ((f.name = 'Invariant Violation'), f)
                       }
                       h = s[d](c, d, p, l, null, r)
-                    } catch (O) {
-                      h = O
+                    } catch (S) {
+                      h = S
                     }
                     if (
                       (h &&
@@ -4540,17 +4540,17 @@ try {
                     symbol: y('symbol'),
                     any: v(),
                     arrayOf: w,
-                    element: H(),
+                    element: U(),
                     elementType: I(),
                     instanceOf: z,
                     node: et(),
                     objectOf: Ie,
                     oneOf: te,
                     oneOfType: je,
-                    shape: He,
+                    shape: Ue,
                     exact: tt,
                   }
-                function O(E, N) {
+                function S(E, N) {
                   return E === N ? E !== 0 || 1 / E === 1 / N : E !== E && N !== N
                 }
                 function b(E, N) {
@@ -4559,7 +4559,7 @@ try {
                     (this.stack = ''))
                 }
                 b.prototype = Error.prototype
-                function _(E) {
+                function x(E) {
                   var N = {},
                     W = 0
                   function D(G, M, F, Y, K, q, T) {
@@ -4628,10 +4628,10 @@ try {
                     }
                     return null
                   }
-                  return _(N)
+                  return x(N)
                 }
                 function v() {
-                  return _(c)
+                  return x(c)
                 }
                 function w(E) {
                   function N(W, D, j, G, M) {
@@ -4661,9 +4661,9 @@ try {
                     }
                     return null
                   }
-                  return _(N)
+                  return x(N)
                 }
-                function H() {
+                function U() {
                   function E(N, W, D, j, G) {
                     var M = N[W]
                     if (!l(M)) {
@@ -4679,7 +4679,7 @@ try {
                     }
                     return null
                   }
-                  return _(E)
+                  return x(E)
                 }
                 function I() {
                   function E(N, W, D, j, G) {
@@ -4701,7 +4701,7 @@ try {
                     }
                     return null
                   }
-                  return _(E)
+                  return x(E)
                 }
                 function z(E) {
                   function N(W, D, j, G, M) {
@@ -4720,7 +4720,7 @@ try {
                     }
                     return null
                   }
-                  return _(N)
+                  return x(N)
                 }
                 function te(E) {
                   if (!Array.isArray(E))
@@ -4735,7 +4735,7 @@ try {
                       c
                     )
                   function N(W, D, j, G, M) {
-                    for (var F = W[D], Y = 0; Y < E.length; Y++) if (O(F, E[Y])) return null
+                    for (var F = W[D], Y = 0; Y < E.length; Y++) if (S(F, E[Y])) return null
                     var K = JSON.stringify(E, function (q, T) {
                       var ne = Ae(T)
                       return ne === 'symbol' ? String(T) : T
@@ -4751,7 +4751,7 @@ try {
                         ('supplied to `' + j + '`, expected one of ' + K + '.')
                     )
                   }
-                  return _(N)
+                  return x(N)
                 }
                 function Ie(E) {
                   function N(W, D, j, G, M) {
@@ -4781,7 +4781,7 @@ try {
                       }
                     return null
                   }
-                  return _(N)
+                  return x(N)
                 }
                 function je(E) {
                   if (!Array.isArray(E))
@@ -4815,11 +4815,11 @@ try {
                       'Invalid ' + F + ' `' + Y + '` supplied to ' + ('`' + M + '`' + Ce + '.')
                     )
                   }
-                  return _(D)
+                  return x(D)
                 }
                 function et() {
                   function E(N, W, D, j, G) {
-                    return _e(N[W])
+                    return xe(N[W])
                       ? null
                       : new b(
                           'Invalid ' +
@@ -4830,7 +4830,7 @@ try {
                             ('`' + D + '`, expected a ReactNode.')
                         )
                   }
-                  return _(E)
+                  return x(E)
                 }
                 function Me(E, N, W, D, j) {
                   return new b(
@@ -4846,7 +4846,7 @@ try {
                       '`.'
                   )
                 }
-                function He(E) {
+                function Ue(E) {
                   function N(W, D, j, G, M) {
                     var F = W[D],
                       Y = ye(F)
@@ -4869,7 +4869,7 @@ try {
                     }
                     return null
                   }
-                  return _(N)
+                  return x(N)
                 }
                 function tt(E) {
                   function N(W, D, j, G, M) {
@@ -4911,9 +4911,9 @@ Valid keys: ` +
                     }
                     return null
                   }
-                  return _(N)
+                  return x(N)
                 }
-                function _e(E) {
+                function xe(E) {
                   switch (typeof E) {
                     case 'number':
                     case 'string':
@@ -4922,18 +4922,18 @@ Valid keys: ` +
                     case 'boolean':
                       return !E
                     case 'object':
-                      if (Array.isArray(E)) return E.every(_e)
+                      if (Array.isArray(E)) return E.every(xe)
                       if (E === null || l(E)) return !0
                       var N = h(E)
                       if (N) {
                         var W = N.call(E),
                           D
                         if (N !== E.entries) {
-                          for (; !(D = W.next()).done; ) if (!_e(D.value)) return !1
+                          for (; !(D = W.next()).done; ) if (!xe(D.value)) return !1
                         } else
                           for (; !(D = W.next()).done; ) {
                             var j = D.value
-                            if (j && !_e(j[1])) return !1
+                            if (j && !xe(j[1])) return !1
                           }
                       } else return !1
                       return !0
@@ -4941,7 +4941,7 @@ Valid keys: ` +
                       return !1
                   }
                 }
-                function xe(E, N) {
+                function _e(E, N) {
                   return E === 'symbol'
                     ? !0
                     : N
@@ -4955,7 +4955,7 @@ Valid keys: ` +
                     ? 'array'
                     : E instanceof RegExp
                       ? 'object'
-                      : xe(N, E)
+                      : _e(N, E)
                         ? 'symbol'
                         : N
                 }
@@ -5007,15 +5007,15 @@ Valid keys: ` +
           (Fn = ['#FFC700', '#FF0000', '#2E3191', '#41BBC7']),
           (Bn = 3500),
           (Wn = 0.5),
-          (Un = 150),
-          (Hn = 'mix'),
+          (Hn = 150),
+          (Un = 'mix'),
           (zn = 12),
           (Gn = ''),
           (Yn = !0),
           (qn = 800),
           ($n = 1600))
         ;((Vn = 200),
-          (Ho = 800),
+          (Uo = 800),
           (zo = 0.1),
           (Go = 0.3),
           (Kn = 0.5),
@@ -5025,19 +5025,19 @@ Valid keys: ` +
           (Yo = Math.max),
           ($t = (e) => document.createElement(e)),
           (Vt = (e, t) => e.appendChild(t)),
-          (Xn = (e, t) =>
+          (Jn = (e, t) =>
             Array.from({ length: e }, (n, r) => ({
               color: t[r % t.length],
               degree: (360 * r) / e,
             }))),
           (Ge = (e, t = 2) => ct((e + Number.EPSILON) * 10 ** t) / 10 ** t),
           (Kt = (e, t, n, r, o) => ((e - t) * (o - r)) / (n - t) + r),
-          (Jn = (e, t) => (e + t > 360 ? e + t - 360 : e + t)),
+          (Xn = (e, t) => (e + t > 360 ? e + t - 360 : e + t)),
           (Mr = () => Ee() > 0.5),
           (Zn = Object.entries),
           (qo = 6),
           ($o = (e) => e !== 1 && Mr()))
-        ;((Ko = X.div({
+        ;((Ko = J.div({
           zIndex: 9999,
           position: 'fixed',
           top: 0,
@@ -5045,7 +5045,7 @@ Valid keys: ` +
           width: '50%',
           height: '100%',
         })),
-          (Xo = m.memo(function ({
+          (Jo = m.memo(function ({
             timeToFade: e = 5e3,
             colors: t = ['#CA90FF', '#FC521F', '#66BF3C', '#FF4785', '#FFAE00', '#1EA7FD'],
             ...n
@@ -5064,11 +5064,11 @@ Valid keys: ` +
               })
             )
           })))
-        Xt = 'STORYBOOK_ADDON_ONBOARDING_CHANNEL'
-        ;((Jo = Dr('function')),
+        Jt = 'STORYBOOK_ADDON_ONBOARDING_CHANNEL'
+        ;((Xo = Dr('function')),
           (Zo = (e) => e === null),
           (er = (e) => Object.prototype.toString.call(e).slice(8, -1) === 'RegExp'),
-          (tr = (e) => !Qo(e) && !Zo(e) && (Jo(e) || typeof e == 'object')),
+          (tr = (e) => !Qo(e) && !Zo(e) && (Xo(e) || typeof e == 'object')),
           (Qo = Dr('undefined')))
         ;((oi = [
           'Array',
@@ -5096,7 +5096,7 @@ Valid keys: ` +
         C.arrayOf = (e, t) => (!C.array(e) && !C.function(t) ? !1 : e.every((n) => t(n)))
         C.asyncGeneratorFunction = (e) => jt(e) === 'AsyncGeneratorFunction'
         C.asyncFunction = fe('AsyncFunction')
-        C.bigint = Xe('bigint')
+        C.bigint = Je('bigint')
         C.boolean = (e) => e === !0 || e === !1
         C.date = fe('Date')
         C.defined = (e) => !C.undefined(e)
@@ -5113,7 +5113,7 @@ Valid keys: ` +
           (C.set(e) && e.size === 0) ||
           (C.map(e) && e.size === 0)
         C.error = fe('Error')
-        C.function = Xe('function')
+        C.function = Je('function')
         C.generator = (e) => C.iterable(e) && C.function(e.next) && C.function(e.throw)
         C.generatorFunction = fe('GeneratorFunction')
         C.instanceOf = (e, t) => (!e || !t ? !1 : Object.getPrototypeOf(e) === t.prototype)
@@ -5122,7 +5122,7 @@ Valid keys: ` +
         C.nan = (e) => Number.isNaN(e)
         C.null = (e) => e === null
         C.nullOrUndefined = (e) => C.null(e) || C.undefined(e)
-        C.number = (e) => Xe('number')(e) && !C.nan(e)
+        C.number = (e) => Je('number')(e) && !C.nan(e)
         C.numericString = (e) => C.string(e) && e.length > 0 && !Number.isNaN(Number(e))
         C.object = (e) => !C.nullOrUndefined(e) && (C.function(e) || typeof e == 'object')
         C.oneOf = (e, t) => (C.array(e) ? e.indexOf(t) > -1 : !1)
@@ -5141,18 +5141,18 @@ Valid keys: ` +
         }
         C.regexp = fe('RegExp')
         C.set = fe('Set')
-        C.string = Xe('string')
-        C.symbol = Xe('symbol')
-        C.undefined = Xe('undefined')
+        C.string = Je('string')
+        C.symbol = Je('symbol')
+        C.undefined = Je('undefined')
         C.weakMap = fe('WeakMap')
         C.weakSet = fe('WeakSet')
-        x = C
+        _ = C
         ;((di = We(Ao(), 1)),
           (Br = We(No(), 1)),
           (sr = We(ko(), 1)),
-          (Rt = We(cn(), 1)),
           (Pt = We(cn(), 1)),
-          (S = We(Fo())),
+          (Rt = We(cn(), 1)),
+          (O = We(Fo())),
           (pt = typeof window < 'u' && typeof document < 'u' && typeof navigator < 'u'),
           (fi = (function () {
             for (var e = ['Edge', 'Trident', 'Firefox'], t = 0; t < e.length; t += 1)
@@ -5165,7 +5165,7 @@ Valid keys: ` +
         ;((Ei = function (e, t) {
           if (!(e instanceof t)) throw new TypeError('Cannot call a class as a function')
         }),
-          (Si = (function () {
+          (Oi = (function () {
             function e(t, n) {
               for (var r = 0; r < n.length; r++) {
                 var o = n[r]
@@ -5219,7 +5219,7 @@ Valid keys: ` +
           'left',
           'left-start',
         ]),
-          (Jt = eo.slice(3)))
+          (Xt = eo.slice(3)))
         Zt = { FLIP: 'flip', CLOCKWISE: 'clockwise', COUNTERCLOCKWISE: 'counterclockwise' }
         ;((Vi = {
           shift: { order: 100, enabled: !0, fn: Yi },
@@ -5303,7 +5303,7 @@ Valid keys: ` +
               ;(i && this.enableEventListeners(), (this.state.eventsEnabled = i))
             }
             return (
-              Si(e, [
+              Oi(e, [
                 {
                   key: 'update',
                   value: function () {
@@ -5319,13 +5319,13 @@ Valid keys: ` +
                 {
                   key: 'enableEventListeners',
                   value: function () {
-                    return Pi.call(this)
+                    return Ri.call(this)
                   },
                 },
                 {
                   key: 'disableEventListeners',
                   value: function () {
-                    return xi.call(this)
+                    return _i.call(this)
                   },
                 },
               ]),
@@ -5337,8 +5337,8 @@ Valid keys: ` +
         Mt.Defaults = Ki
         ;((fr = Mt),
           (on = We(cn())),
-          (Xi = ['innerHTML', 'ownerDocument', 'style', 'attributes', 'nodeValue']),
-          (Ji = [
+          (Ji = ['innerHTML', 'ownerDocument', 'style', 'attributes', 'nodeValue']),
+          (Xi = [
             'Array',
             'ArrayBuffer',
             'AsyncFunction',
@@ -5359,103 +5359,103 @@ Valid keys: ` +
             'WeakSet',
           ]),
           (Zi = ['bigint', 'boolean', 'null', 'number', 'string', 'symbol', 'undefined']))
-        R.array = Array.isArray
-        R.arrayOf = function (e, t) {
-          return !R.array(e) && !R.function(t)
+        P.array = Array.isArray
+        P.arrayOf = function (e, t) {
+          return !P.array(e) && !P.function(t)
             ? !1
             : e.every(function (n) {
                 return t(n)
               })
         }
-        R.asyncGeneratorFunction = function (e) {
+        P.asyncGeneratorFunction = function (e) {
           return Dt(e) === 'AsyncGeneratorFunction'
         }
-        R.asyncFunction = he('AsyncFunction')
-        R.bigint = Ze('bigint')
-        R.boolean = function (e) {
+        P.asyncFunction = he('AsyncFunction')
+        P.bigint = Ze('bigint')
+        P.boolean = function (e) {
           return e === !0 || e === !1
         }
-        R.date = he('Date')
-        R.defined = function (e) {
-          return !R.undefined(e)
+        P.date = he('Date')
+        P.defined = function (e) {
+          return !P.undefined(e)
         }
-        R.domElement = function (e) {
+        P.domElement = function (e) {
           return (
-            R.object(e) &&
-            !R.plainObject(e) &&
+            P.object(e) &&
+            !P.plainObject(e) &&
             e.nodeType === 1 &&
-            R.string(e.nodeName) &&
-            Xi.every(function (t) {
+            P.string(e.nodeName) &&
+            Ji.every(function (t) {
               return t in e
             })
           )
         }
-        R.empty = function (e) {
+        P.empty = function (e) {
           return (
-            (R.string(e) && e.length === 0) ||
-            (R.array(e) && e.length === 0) ||
-            (R.object(e) && !R.map(e) && !R.set(e) && Object.keys(e).length === 0) ||
-            (R.set(e) && e.size === 0) ||
-            (R.map(e) && e.size === 0)
+            (P.string(e) && e.length === 0) ||
+            (P.array(e) && e.length === 0) ||
+            (P.object(e) && !P.map(e) && !P.set(e) && Object.keys(e).length === 0) ||
+            (P.set(e) && e.size === 0) ||
+            (P.map(e) && e.size === 0)
           )
         }
-        R.error = he('Error')
-        R.function = Ze('function')
-        R.generator = function (e) {
-          return R.iterable(e) && R.function(e.next) && R.function(e.throw)
+        P.error = he('Error')
+        P.function = Ze('function')
+        P.generator = function (e) {
+          return P.iterable(e) && P.function(e.next) && P.function(e.throw)
         }
-        R.generatorFunction = he('GeneratorFunction')
-        R.instanceOf = function (e, t) {
+        P.generatorFunction = he('GeneratorFunction')
+        P.instanceOf = function (e, t) {
           return !e || !t ? !1 : Object.getPrototypeOf(e) === t.prototype
         }
-        R.iterable = function (e) {
-          return !R.nullOrUndefined(e) && R.function(e[Symbol.iterator])
+        P.iterable = function (e) {
+          return !P.nullOrUndefined(e) && P.function(e[Symbol.iterator])
         }
-        R.map = he('Map')
-        R.nan = function (e) {
+        P.map = he('Map')
+        P.nan = function (e) {
           return Number.isNaN(e)
         }
-        R.null = function (e) {
+        P.null = function (e) {
           return e === null
         }
-        R.nullOrUndefined = function (e) {
-          return R.null(e) || R.undefined(e)
+        P.nullOrUndefined = function (e) {
+          return P.null(e) || P.undefined(e)
         }
-        R.number = function (e) {
-          return Ze('number')(e) && !R.nan(e)
+        P.number = function (e) {
+          return Ze('number')(e) && !P.nan(e)
         }
-        R.numericString = function (e) {
-          return R.string(e) && e.length > 0 && !Number.isNaN(Number(e))
+        P.numericString = function (e) {
+          return P.string(e) && e.length > 0 && !Number.isNaN(Number(e))
         }
-        R.object = function (e) {
-          return !R.nullOrUndefined(e) && (R.function(e) || typeof e == 'object')
+        P.object = function (e) {
+          return !P.nullOrUndefined(e) && (P.function(e) || typeof e == 'object')
         }
-        R.oneOf = function (e, t) {
-          return R.array(e) ? e.indexOf(t) > -1 : !1
+        P.oneOf = function (e, t) {
+          return P.array(e) ? e.indexOf(t) > -1 : !1
         }
-        R.plainFunction = he('Function')
-        R.plainObject = function (e) {
+        P.plainFunction = he('Function')
+        P.plainObject = function (e) {
           if (Dt(e) !== 'Object') return !1
           var t = Object.getPrototypeOf(e)
           return t === null || t === Object.getPrototypeOf({})
         }
-        R.primitive = function (e) {
-          return R.null(e) || ea(typeof e)
+        P.primitive = function (e) {
+          return P.null(e) || ea(typeof e)
         }
-        R.promise = he('Promise')
-        R.propertyOf = function (e, t, n) {
-          if (!R.object(e) || !t) return !1
+        P.promise = he('Promise')
+        P.propertyOf = function (e, t, n) {
+          if (!P.object(e) || !t) return !1
           var r = e[t]
-          return R.function(n) ? n(r) : R.defined(r)
+          return P.function(n) ? n(r) : P.defined(r)
         }
-        R.regexp = he('RegExp')
-        R.set = he('Set')
-        R.string = Ze('string')
-        R.symbol = Ze('symbol')
-        R.undefined = Ze('undefined')
-        R.weakMap = he('WeakMap')
-        R.weakSet = he('WeakSet')
-        le = R
+        P.regexp = he('RegExp')
+        P.set = he('Set')
+        P.string = Ze('string')
+        P.symbol = Ze('symbol')
+        P.undefined = Ze('undefined')
+        P.weakMap = he('WeakMap')
+        P.weakSet = he('WeakSet')
+        le = P
         ;((ta = to('function')),
           (na = function (e) {
             return e === null
@@ -5502,108 +5502,108 @@ Valid keys: ` +
             'WeakSet',
           ]),
           (ua = ['bigint', 'boolean', 'null', 'number', 'string', 'symbol', 'undefined']))
-        P.array = Array.isArray
-        P.arrayOf = function (e, t) {
-          return !P.array(e) && !P.function(t)
+        R.array = Array.isArray
+        R.arrayOf = function (e, t) {
+          return !R.array(e) && !R.function(t)
             ? !1
             : e.every(function (n) {
                 return t(n)
               })
         }
-        P.asyncGeneratorFunction = function (e) {
+        R.asyncGeneratorFunction = function (e) {
           return Ft(e) === 'AsyncGeneratorFunction'
         }
-        P.asyncFunction = me('AsyncFunction')
-        P.bigint = Qe('bigint')
-        P.boolean = function (e) {
+        R.asyncFunction = me('AsyncFunction')
+        R.bigint = Qe('bigint')
+        R.boolean = function (e) {
           return e === !0 || e === !1
         }
-        P.date = me('Date')
-        P.defined = function (e) {
-          return !P.undefined(e)
+        R.date = me('Date')
+        R.defined = function (e) {
+          return !R.undefined(e)
         }
-        P.domElement = function (e) {
+        R.domElement = function (e) {
           return (
-            P.object(e) &&
-            !P.plainObject(e) &&
+            R.object(e) &&
+            !R.plainObject(e) &&
             e.nodeType === 1 &&
-            P.string(e.nodeName) &&
+            R.string(e.nodeName) &&
             la.every(function (t) {
               return t in e
             })
           )
         }
-        P.empty = function (e) {
+        R.empty = function (e) {
           return (
-            (P.string(e) && e.length === 0) ||
-            (P.array(e) && e.length === 0) ||
-            (P.object(e) && !P.map(e) && !P.set(e) && Object.keys(e).length === 0) ||
-            (P.set(e) && e.size === 0) ||
-            (P.map(e) && e.size === 0)
+            (R.string(e) && e.length === 0) ||
+            (R.array(e) && e.length === 0) ||
+            (R.object(e) && !R.map(e) && !R.set(e) && Object.keys(e).length === 0) ||
+            (R.set(e) && e.size === 0) ||
+            (R.map(e) && e.size === 0)
           )
         }
-        P.error = me('Error')
-        P.function = Qe('function')
-        P.generator = function (e) {
-          return P.iterable(e) && P.function(e.next) && P.function(e.throw)
+        R.error = me('Error')
+        R.function = Qe('function')
+        R.generator = function (e) {
+          return R.iterable(e) && R.function(e.next) && R.function(e.throw)
         }
-        P.generatorFunction = me('GeneratorFunction')
-        P.instanceOf = function (e, t) {
+        R.generatorFunction = me('GeneratorFunction')
+        R.instanceOf = function (e, t) {
           return !e || !t ? !1 : Object.getPrototypeOf(e) === t.prototype
         }
-        P.iterable = function (e) {
-          return !P.nullOrUndefined(e) && P.function(e[Symbol.iterator])
+        R.iterable = function (e) {
+          return !R.nullOrUndefined(e) && R.function(e[Symbol.iterator])
         }
-        P.map = me('Map')
-        P.nan = function (e) {
+        R.map = me('Map')
+        R.nan = function (e) {
           return Number.isNaN(e)
         }
-        P.null = function (e) {
+        R.null = function (e) {
           return e === null
         }
-        P.nullOrUndefined = function (e) {
-          return P.null(e) || P.undefined(e)
+        R.nullOrUndefined = function (e) {
+          return R.null(e) || R.undefined(e)
         }
-        P.number = function (e) {
-          return Qe('number')(e) && !P.nan(e)
+        R.number = function (e) {
+          return Qe('number')(e) && !R.nan(e)
         }
-        P.numericString = function (e) {
-          return P.string(e) && e.length > 0 && !Number.isNaN(Number(e))
+        R.numericString = function (e) {
+          return R.string(e) && e.length > 0 && !Number.isNaN(Number(e))
         }
-        P.object = function (e) {
-          return !P.nullOrUndefined(e) && (P.function(e) || typeof e == 'object')
+        R.object = function (e) {
+          return !R.nullOrUndefined(e) && (R.function(e) || typeof e == 'object')
         }
-        P.oneOf = function (e, t) {
-          return P.array(e) ? e.indexOf(t) > -1 : !1
+        R.oneOf = function (e, t) {
+          return R.array(e) ? e.indexOf(t) > -1 : !1
         }
-        P.plainFunction = me('Function')
-        P.plainObject = function (e) {
+        R.plainFunction = me('Function')
+        R.plainObject = function (e) {
           if (Ft(e) !== 'Object') return !1
           var t = Object.getPrototypeOf(e)
           return t === null || t === Object.getPrototypeOf({})
         }
-        P.primitive = function (e) {
-          return P.null(e) || da(typeof e)
+        R.primitive = function (e) {
+          return R.null(e) || da(typeof e)
         }
-        P.promise = me('Promise')
-        P.propertyOf = function (e, t, n) {
-          if (!P.object(e) || !t) return !1
+        R.promise = me('Promise')
+        R.propertyOf = function (e, t, n) {
+          if (!R.object(e) || !t) return !1
           var r = e[t]
-          return P.function(n) ? n(r) : P.defined(r)
+          return R.function(n) ? n(r) : R.defined(r)
         }
-        P.regexp = me('RegExp')
-        P.set = me('Set')
-        P.string = Qe('string')
-        P.symbol = Qe('symbol')
-        P.undefined = Qe('undefined')
-        P.weakMap = me('WeakMap')
-        P.weakSet = me('WeakSet')
-        k = P
-        ;((Sa = { flip: { padding: 20 }, preventOverflow: { padding: 10 } }),
-          (Oa =
+        R.regexp = me('RegExp')
+        R.set = me('Set')
+        R.string = Qe('string')
+        R.symbol = Qe('symbol')
+        R.undefined = Qe('undefined')
+        R.weakMap = me('WeakMap')
+        R.weakSet = me('WeakSet')
+        k = R
+        ;((Oa = { flip: { padding: 20 }, preventOverflow: { padding: 10 } }),
+          (Sa =
             'The typeValidator argument must be a function with the signature function(props, propName, componentName).'),
           (wa = 'The error message is optional, but must be a string if provided.'))
-        ;((U = {
+        ;((H = {
           INIT: 'init',
           IDLE: 'idle',
           OPENING: 'opening',
@@ -5623,19 +5623,19 @@ Valid keys: ` +
               {
                 key: 'componentDidMount',
                 value: function () {
-                  Se() && (this.node || this.appendNode(), at || this.renderPortal())
+                  Oe() && (this.node || this.appendNode(), at || this.renderPortal())
                 },
               },
               {
                 key: 'componentDidUpdate',
                 value: function () {
-                  Se() && (at || this.renderPortal())
+                  Oe() && (at || this.renderPortal())
                 },
               },
               {
                 key: 'componentWillUnmount',
                 value: function () {
-                  !Se() ||
+                  !Oe() ||
                     !this.node ||
                     (at || Fe.unmountComponentAtNode(this.node),
                     this.node &&
@@ -5659,7 +5659,7 @@ Valid keys: ` +
               {
                 key: 'renderPortal',
                 value: function () {
-                  if (!Se()) return null
+                  if (!Oe()) return null
                   var r = this.props,
                     o = r.children,
                     i = r.setRef
@@ -5693,13 +5693,13 @@ Valid keys: ` +
           )
         })(m.Component)
         re(io, 'propTypes', {
-          children: S.default.oneOfType([S.default.element, S.default.array]),
-          hasChildren: S.default.bool,
-          id: S.default.oneOfType([S.default.string, S.default.number]),
-          placement: S.default.string,
-          setRef: S.default.func.isRequired,
-          target: S.default.oneOfType([S.default.object, S.default.string]),
-          zIndex: S.default.number,
+          children: O.default.oneOfType([O.default.element, O.default.array]),
+          hasChildren: O.default.bool,
+          id: O.default.oneOfType([O.default.string, O.default.number]),
+          placement: O.default.string,
+          setRef: O.default.func.isRequired,
+          target: O.default.oneOfType([O.default.object, O.default.string]),
+          zIndex: O.default.number,
         })
         ao = (function (e) {
           yt(n, e)
@@ -5745,31 +5745,31 @@ Valid keys: ` +
                     h = s.spread,
                     f = { display: l, position: d },
                     g,
-                    O = h,
+                    S = h,
                     b = p
                   return (
                     o.startsWith('top')
                       ? ((g = '0,0 '
-                          .concat(O / 2, ',')
+                          .concat(S / 2, ',')
                           .concat(b, ' ')
-                          .concat(O, ',0')),
+                          .concat(S, ',0')),
                         (f.bottom = 0),
                         (f.marginLeft = u),
                         (f.marginRight = u))
                       : o.startsWith('bottom')
                         ? ((g = ''
-                            .concat(O, ',')
+                            .concat(S, ',')
                             .concat(b, ' ')
-                            .concat(O / 2, ',0 0,')
+                            .concat(S / 2, ',0 0,')
                             .concat(b)),
                           (f.top = 0),
                           (f.marginLeft = u),
                           (f.marginRight = u))
                         : o.startsWith('left')
                           ? ((b = h),
-                            (O = p),
+                            (S = p),
                             (g = '0,0 '
-                              .concat(O, ',')
+                              .concat(S, ',')
                               .concat(b / 2, ' 0,')
                               .concat(b)),
                             (f.right = 0),
@@ -5777,11 +5777,11 @@ Valid keys: ` +
                             (f.marginBottom = u))
                           : o.startsWith('right') &&
                             ((b = h),
-                            (O = p),
+                            (S = p),
                             (g = ''
-                              .concat(O, ',')
+                              .concat(S, ',')
                               .concat(b, ' ')
-                              .concat(O, ',0 0,')
+                              .concat(S, ',0 0,')
                               .concat(b / 2)),
                             (f.left = 0),
                             (f.marginTop = u),
@@ -5795,7 +5795,7 @@ Valid keys: ` +
                         m.createElement(
                           'svg',
                           {
-                            width: O,
+                            width: S,
                             height: b,
                             version: '1.1',
                             xmlns: 'http://www.w3.org/2000/svg',
@@ -5812,24 +5812,24 @@ Valid keys: ` +
           )
         })(m.Component)
         re(ao, 'propTypes', {
-          placement: S.default.string.isRequired,
-          setArrowRef: S.default.func.isRequired,
-          styles: S.default.object.isRequired,
+          placement: O.default.string.isRequired,
+          setArrowRef: O.default.func.isRequired,
+          styles: O.default.object.isRequired,
         })
         Aa = ['color', 'height', 'width']
         so.propTypes = {
-          handleClick: S.default.func.isRequired,
-          styles: S.default.object.isRequired,
+          handleClick: O.default.func.isRequired,
+          styles: O.default.object.isRequired,
         }
         lo.propTypes = {
-          content: S.default.node.isRequired,
-          footer: S.default.node,
-          handleClick: S.default.func.isRequired,
-          open: S.default.bool,
-          positionWrapper: S.default.bool.isRequired,
-          showCloseButton: S.default.bool.isRequired,
-          styles: S.default.object.isRequired,
-          title: S.default.node,
+          content: O.default.node.isRequired,
+          footer: O.default.node,
+          handleClick: O.default.func.isRequired,
+          open: O.default.bool,
+          positionWrapper: O.default.bool.isRequired,
+          showCloseButton: O.default.bool.isRequired,
+          styles: O.default.object.isRequired,
+          title: O.default.node,
         }
         co = (function (e) {
           yt(n, e)
@@ -5855,7 +5855,7 @@ Valid keys: ` +
                     h = l.floaterClosing,
                     f = l.floaterOpening,
                     g = l.floaterWithAnimation,
-                    O = l.floaterWithComponent,
+                    S = l.floaterWithComponent,
                     b = {}
                   return (
                     s ||
@@ -5866,12 +5866,12 @@ Valid keys: ` +
                           : a.startsWith('left')
                             ? (b.padding = '0 '.concat(p, 'px 0 0'))
                             : a.startsWith('right') && (b.padding = '0 0 0 '.concat(p, 'px'))),
-                    [U.OPENING, U.OPEN].indexOf(c) !== -1 && (b = J(J({}, b), f)),
-                    c === U.CLOSING && (b = J(J({}, b), h)),
-                    c === U.OPEN && !o && (b = J(J({}, b), g)),
-                    a === 'center' && (b = J(J({}, b), d)),
-                    i && (b = J(J({}, b), O)),
-                    J(J({}, u), b)
+                    [H.OPENING, H.OPEN].indexOf(c) !== -1 && (b = X(X({}, b), f)),
+                    c === H.CLOSING && (b = X(X({}, b), h)),
+                    c === H.OPEN && !o && (b = X(X({}, b), g)),
+                    a === 'center' && (b = X(X({}, b), d)),
+                    i && (b = X(X({}, b), S)),
+                    X(X({}, u), b)
                   )
                 },
               },
@@ -5892,7 +5892,7 @@ Valid keys: ` +
                         ? (l.content = m.cloneElement(o, { closeFn: i }))
                         : (l.content = o({ closeFn: i }))
                       : (l.content = m.createElement(lo, this.props)),
-                    c === U.OPEN && p.push('__floater__open'),
+                    c === H.OPEN && p.push('__floater__open'),
                     a || (l.arrow = m.createElement(ao, this.props)),
                     m.createElement(
                       'div',
@@ -5907,21 +5907,21 @@ Valid keys: ` +
           )
         })(m.Component)
         re(co, 'propTypes', {
-          component: S.default.oneOfType([S.default.func, S.default.element]),
-          content: S.default.node,
-          disableAnimation: S.default.bool.isRequired,
-          footer: S.default.node,
-          handleClick: S.default.func.isRequired,
-          hideArrow: S.default.bool.isRequired,
-          open: S.default.bool,
-          placement: S.default.string.isRequired,
-          positionWrapper: S.default.bool.isRequired,
-          setArrowRef: S.default.func.isRequired,
-          setFloaterRef: S.default.func.isRequired,
-          showCloseButton: S.default.bool,
-          status: S.default.string.isRequired,
-          styles: S.default.object.isRequired,
-          title: S.default.node,
+          component: O.default.oneOfType([O.default.func, O.default.element]),
+          content: O.default.node,
+          disableAnimation: O.default.bool.isRequired,
+          footer: O.default.node,
+          handleClick: O.default.func.isRequired,
+          hideArrow: O.default.bool.isRequired,
+          open: O.default.bool,
+          placement: O.default.string.isRequired,
+          positionWrapper: O.default.bool.isRequired,
+          setArrowRef: O.default.func.isRequired,
+          setFloaterRef: O.default.func.isRequired,
+          showCloseButton: O.default.bool,
+          status: O.default.string.isRequired,
+          styles: O.default.object.isRequired,
+          title: O.default.node,
         })
         uo = (function (e) {
           yt(n, e)
@@ -5957,7 +5957,7 @@ Valid keys: ` +
                         'span',
                         {
                           ref: l,
-                          style: J(J({}, u), p),
+                          style: X(X({}, u), p),
                           onClick: i,
                           onMouseEnter: a,
                           onMouseLeave: s,
@@ -5972,14 +5972,14 @@ Valid keys: ` +
           )
         })(m.Component)
         re(uo, 'propTypes', {
-          children: S.default.node,
-          handleClick: S.default.func.isRequired,
-          handleMouseEnter: S.default.func.isRequired,
-          handleMouseLeave: S.default.func.isRequired,
-          setChildRef: S.default.func.isRequired,
-          setWrapperRef: S.default.func.isRequired,
-          style: S.default.object,
-          styles: S.default.object.isRequired,
+          children: O.default.node,
+          handleClick: O.default.func.isRequired,
+          handleMouseEnter: O.default.func.isRequired,
+          handleMouseLeave: O.default.func.isRequired,
+          setChildRef: O.default.func.isRequired,
+          setWrapperRef: O.default.func.isRequired,
+          style: O.default.object,
+          styles: O.default.object.isRequired,
         })
         Na = { zIndex: 100 }
         ;((La = ['arrow', 'flip', 'offset']),
@@ -5992,28 +5992,28 @@ Valid keys: ` +
               return (
                 ht(this, n),
                 (o = t.call(this, r)),
-                re(Re(o), 'setArrowRef', function (i) {
+                re(Pe(o), 'setArrowRef', function (i) {
                   o.arrowRef = i
                 }),
-                re(Re(o), 'setChildRef', function (i) {
+                re(Pe(o), 'setChildRef', function (i) {
                   o.childRef = i
                 }),
-                re(Re(o), 'setFloaterRef', function (i) {
+                re(Pe(o), 'setFloaterRef', function (i) {
                   o.floaterRef = i
                 }),
-                re(Re(o), 'setWrapperRef', function (i) {
+                re(Pe(o), 'setWrapperRef', function (i) {
                   o.wrapperRef = i
                 }),
-                re(Re(o), 'handleTransitionEnd', function () {
+                re(Pe(o), 'handleTransitionEnd', function () {
                   var i = o.state.status,
                     a = o.props.callback
                   ;(o.wrapperPopper && o.wrapperPopper.instance.update(),
-                    o.setState({ status: i === U.OPENING ? U.OPEN : U.IDLE }, function () {
+                    o.setState({ status: i === H.OPENING ? H.OPEN : H.IDLE }, function () {
                       var s = o.state.status
-                      a(s === U.OPEN ? 'open' : 'close', o.props)
+                      a(s === H.OPEN ? 'open' : 'close', o.props)
                     }))
                 }),
-                re(Re(o), 'handleClick', function () {
+                re(Pe(o), 'handleClick', function () {
                   var i = o.props,
                     a = i.event,
                     s = i.open
@@ -6022,23 +6022,23 @@ Valid keys: ` +
                       l = c.positionWrapper,
                       p = c.status
                     ;(o.event === 'click' || (o.event === 'hover' && l)) &&
-                      (_t({
+                      (xt({
                         title: 'click',
-                        data: [{ event: a, status: p === U.OPEN ? 'closing' : 'opening' }],
+                        data: [{ event: a, status: p === H.OPEN ? 'closing' : 'opening' }],
                         debug: o.debug,
                       }),
                       o.toggle())
                   }
                 }),
-                re(Re(o), 'handleMouseEnter', function () {
+                re(Pe(o), 'handleMouseEnter', function () {
                   var i = o.props,
                     a = i.event,
                     s = i.open
                   if (!(le.boolean(s) || Qt())) {
                     var c = o.state.status
                     o.event === 'hover' &&
-                      c === U.IDLE &&
-                      (_t({
+                      c === H.IDLE &&
+                      (xt({
                         title: 'mouseEnter',
                         data: [{ key: 'originalEvent', value: a }],
                         debug: o.debug,
@@ -6047,7 +6047,7 @@ Valid keys: ` +
                       o.toggle())
                   }
                 }),
-                re(Re(o), 'handleMouseLeave', function () {
+                re(Pe(o), 'handleMouseLeave', function () {
                   var i = o.props,
                     a = i.event,
                     s = i.eventDelay,
@@ -6057,31 +6057,31 @@ Valid keys: ` +
                       p = l.status,
                       u = l.positionWrapper
                     o.event === 'hover' &&
-                      (_t({
+                      (xt({
                         title: 'mouseLeave',
                         data: [{ key: 'originalEvent', value: a }],
                         debug: o.debug,
                       }),
                       s
-                        ? [U.OPENING, U.OPEN].indexOf(p) !== -1 &&
+                        ? [H.OPENING, H.OPEN].indexOf(p) !== -1 &&
                           !u &&
                           !o.eventDelayTimeout &&
                           (o.eventDelayTimeout = setTimeout(function () {
                             ;(delete o.eventDelayTimeout, o.toggle())
                           }, s * 1e3))
-                        : o.toggle(U.IDLE))
+                        : o.toggle(H.IDLE))
                   }
                 }),
                 (o.state = {
                   currentPlacement: r.placement,
                   needsUpdate: !1,
                   positionWrapper: r.wrapperOptions.position && !!r.target,
-                  status: U.INIT,
-                  statusWrapper: U.INIT,
+                  status: H.INIT,
+                  statusWrapper: H.INIT,
                 }),
                 (o._isMounted = !1),
                 (o.hasMounted = !1),
-                Se() &&
+                Oe() &&
                   window.addEventListener('load', function () {
                     ;(o.popper && o.popper.instance.update(),
                       o.wrapperPopper && o.wrapperPopper.instance.update())
@@ -6094,14 +6094,14 @@ Valid keys: ` +
                 {
                   key: 'componentDidMount',
                   value: function () {
-                    if (Se()) {
+                    if (Oe()) {
                       var r = this.state.positionWrapper,
                         o = this.props,
                         i = o.children,
                         a = o.open,
                         s = o.target
                       ;((this._isMounted = !0),
-                        _t({
+                        xt({
                           title: 'init',
                           data: {
                             hasChildren: !!i,
@@ -6121,7 +6121,7 @@ Valid keys: ` +
                 {
                   key: 'componentDidUpdate',
                   value: function (r, o) {
-                    if (Se()) {
+                    if (Oe()) {
                       var i = this.props,
                         a = i.autoOpen,
                         s = i.open,
@@ -6132,17 +6132,17 @@ Valid keys: ` +
                         d = p.changed
                       if (r.open !== s) {
                         var h
-                        ;(le.boolean(s) && (h = s ? U.OPENING : U.CLOSING), this.toggle(h))
+                        ;(le.boolean(s) && (h = s ? H.OPENING : H.CLOSING), this.toggle(h))
                       }
                       ;((r.wrapperOptions.position !== l.position || r.target !== c) &&
                         this.changeWrapperPosition(this.props),
-                        d('status', U.IDLE) && s
-                          ? this.toggle(U.OPEN)
-                          : u('status', U.INIT, U.IDLE) && a && this.toggle(U.OPEN),
-                        this.popper && d('status', U.OPENING) && this.popper.instance.update(),
+                        d('status', H.IDLE) && s
+                          ? this.toggle(H.OPEN)
+                          : u('status', H.INIT, H.IDLE) && a && this.toggle(H.OPEN),
+                        this.popper && d('status', H.OPENING) && this.popper.instance.update(),
                         this.floaterRef &&
-                          (d('status', U.OPENING) || d('status', U.CLOSING)) &&
-                          xa(this.floaterRef, 'transitionend', this.handleTransitionEnd),
+                          (d('status', H.OPENING) || d('status', H.CLOSING)) &&
+                          _a(this.floaterRef, 'transitionend', this.handleTransitionEnd),
                         d('needsUpdate', !0) && this.rebuildPopper())
                     }
                   },
@@ -6150,7 +6150,7 @@ Valid keys: ` +
                 {
                   key: 'componentWillUnmount',
                   value: function () {
-                    Se() &&
+                    Oe() &&
                       ((this._isMounted = !1),
                       this.popper && this.popper.instance.destroy(),
                       this.wrapperPopper && this.wrapperPopper.instance.destroy())
@@ -6176,22 +6176,22 @@ Valid keys: ` +
                         u === 'top' || u === 'bottom'
                           ? 'flip'
                           : ['right', 'bottom-end', 'top-end', 'left', 'top-start', 'bottom-start']
-                    if (u === 'center') this.setState({ status: U.IDLE })
+                    if (u === 'center') this.setState({ status: H.IDLE })
                     else if (o && this.floaterRef) {
                       var f = this.options,
                         g = f.arrow,
-                        O = f.flip,
+                        S = f.flip,
                         b = f.offset,
-                        _ = ro(f, La)
+                        x = ro(f, La)
                       new fr(o, this.floaterRef, {
                         placement: u,
-                        modifiers: J(
+                        modifiers: X(
                           {
-                            arrow: J({ enabled: !l, element: this.arrowRef }, g),
-                            flip: J({ enabled: !s, behavior: h }, O),
-                            offset: J({ offset: '0, '.concat(p, 'px') }, b),
+                            arrow: X({ enabled: !l, element: this.arrowRef }, g),
+                            flip: X({ enabled: !s, behavior: h }, S),
+                            offset: X({ offset: '0, '.concat(p, 'px') }, b),
                           },
-                          _
+                          x
                         ),
                         onCreate: function (v) {
                           var w
@@ -6204,7 +6204,7 @@ Valid keys: ` +
                           }
                           ;(c(v, 'floater'),
                             r._isMounted &&
-                              r.setState({ currentPlacement: v.placement, status: U.IDLE }),
+                              r.setState({ currentPlacement: v.placement, status: H.IDLE }),
                             u !== v.placement &&
                               setTimeout(function () {
                                 v.instance.update()
@@ -6230,7 +6230,7 @@ Valid keys: ` +
                         },
                         onCreate: function (v) {
                           ;((r.wrapperPopper = v),
-                            r._isMounted && r.setState({ statusWrapper: U.IDLE }),
+                            r._isMounted && r.setState({ statusWrapper: H.IDLE }),
                             c(v, 'wrapper'),
                             u !== v.placement &&
                               setTimeout(function () {
@@ -6268,7 +6268,7 @@ Valid keys: ` +
                   key: 'toggle',
                   value: function (r) {
                     var o = this.state.status,
-                      i = o === U.OPEN ? U.CLOSING : U.OPENING
+                      i = o === H.OPEN ? H.CLOSING : H.OPENING
                     ;(le.undefined(r) || (i = r), this.setState({ status: i }))
                   },
                 },
@@ -6277,7 +6277,7 @@ Valid keys: ` +
                   get: function () {
                     var r = this.props.debug
                     return (
-                      r || (Se() && 'ReactFloaterDebug' in window && !!window.ReactFloaterDebug)
+                      r || (Oe() && 'ReactFloaterDebug' in window && !!window.ReactFloaterDebug)
                     )
                   },
                 },
@@ -6294,7 +6294,7 @@ Valid keys: ` +
                   key: 'options',
                   get: function () {
                     var r = this.props.options
-                    return (0, on.default)(Sa, r || {})
+                    return (0, on.default)(Oa, r || {})
                   },
                 },
                 {
@@ -6309,22 +6309,22 @@ Valid keys: ` +
                       l = (0, on.default)(ka(c), c)
                     if (a) {
                       var p
-                      ;([U.IDLE].indexOf(i) === -1 || [U.IDLE].indexOf(s) === -1
+                      ;([H.IDLE].indexOf(i) === -1 || [H.IDLE].indexOf(s) === -1
                         ? (p = l.wrapperPosition)
                         : (p = this.wrapperPopper.styles),
-                        (l.wrapper = J(J({}, l.wrapper), p)))
+                        (l.wrapper = X(X({}, l.wrapper), p)))
                     }
                     if (this.target) {
                       var u = window.getComputedStyle(this.target)
                       this.wrapperStyles
-                        ? (l.wrapper = J(J({}, l.wrapper), this.wrapperStyles))
+                        ? (l.wrapper = X(X({}, l.wrapper), this.wrapperStyles))
                         : ['relative', 'static'].indexOf(u.position) === -1 &&
                           ((this.wrapperStyles = {}),
                           a ||
                             (ja.forEach(function (d) {
                               r.wrapperStyles[d] = u[d]
                             }),
-                            (l.wrapper = J(J({}, l.wrapper), this.wrapperStyles)),
+                            (l.wrapper = X(X({}, l.wrapper), this.wrapperStyles)),
                             (this.target.style.position = 'relative'),
                             (this.target.style.top = 'auto'),
                             (this.target.style.right = 'auto'),
@@ -6337,7 +6337,7 @@ Valid keys: ` +
                 {
                   key: 'target',
                   get: function () {
-                    if (!Se()) return null
+                    if (!Oe()) return null
                     var r = this.props.target
                     return r
                       ? le.domElement(r)
@@ -6362,9 +6362,9 @@ Valid keys: ` +
                       h = s.hideArrow,
                       f = s.id,
                       g = s.open,
-                      O = s.showCloseButton,
+                      S = s.showCloseButton,
                       b = s.style,
-                      _ = s.target,
+                      x = s.target,
                       y = s.title,
                       v = m.createElement(
                         uo,
@@ -6392,7 +6392,7 @@ Valid keys: ` +
                             id: f,
                             placement: o,
                             setRef: this.setFloaterRef,
-                            target: _,
+                            target: x,
                             zIndex: this.styles.options.zIndex,
                           },
                           m.createElement(co, {
@@ -6407,7 +6407,7 @@ Valid keys: ` +
                             positionWrapper: i,
                             setArrowRef: this.setArrowRef,
                             setFloaterRef: this.setFloaterRef,
-                            showCloseButton: O,
+                            showCloseButton: S,
                             status: a,
                             styles: this.styles,
                             title: y,
@@ -6424,29 +6424,29 @@ Valid keys: ` +
             )
           })(m.Component)))
         re(gn, 'propTypes', {
-          autoOpen: S.default.bool,
-          callback: S.default.func,
-          children: S.default.node,
-          component: wr(S.default.oneOfType([S.default.func, S.default.element]), function (e) {
+          autoOpen: O.default.bool,
+          callback: O.default.func,
+          children: O.default.node,
+          component: wr(O.default.oneOfType([O.default.func, O.default.element]), function (e) {
             return !e.content
           }),
-          content: wr(S.default.node, function (e) {
+          content: wr(O.default.node, function (e) {
             return !e.component
           }),
-          debug: S.default.bool,
-          disableAnimation: S.default.bool,
-          disableFlip: S.default.bool,
-          disableHoverToClick: S.default.bool,
-          event: S.default.oneOf(['hover', 'click']),
-          eventDelay: S.default.number,
-          footer: S.default.node,
-          getPopper: S.default.func,
-          hideArrow: S.default.bool,
-          id: S.default.oneOfType([S.default.string, S.default.number]),
-          offset: S.default.number,
-          open: S.default.bool,
-          options: S.default.object,
-          placement: S.default.oneOf([
+          debug: O.default.bool,
+          disableAnimation: O.default.bool,
+          disableFlip: O.default.bool,
+          disableHoverToClick: O.default.bool,
+          event: O.default.oneOf(['hover', 'click']),
+          eventDelay: O.default.number,
+          footer: O.default.node,
+          getPopper: O.default.func,
+          hideArrow: O.default.bool,
+          id: O.default.oneOfType([O.default.string, O.default.number]),
+          offset: O.default.number,
+          open: O.default.bool,
+          options: O.default.object,
+          placement: O.default.oneOf([
             'top',
             'top-start',
             'top-end',
@@ -6462,14 +6462,14 @@ Valid keys: ` +
             'auto',
             'center',
           ]),
-          showCloseButton: S.default.bool,
-          style: S.default.object,
-          styles: S.default.object,
-          target: S.default.oneOfType([S.default.object, S.default.string]),
-          title: S.default.node,
-          wrapperOptions: S.default.shape({
-            offset: S.default.number,
-            placement: S.default.oneOf([
+          showCloseButton: O.default.bool,
+          style: O.default.object,
+          styles: O.default.object,
+          target: O.default.oneOfType([O.default.object, O.default.string]),
+          title: O.default.node,
+          wrapperOptions: O.default.shape({
+            offset: O.default.number,
+            placement: O.default.oneOf([
               'top',
               'top-start',
               'top-end',
@@ -6484,7 +6484,7 @@ Valid keys: ` +
               'right-end',
               'auto',
             ]),
-            position: S.default.bool,
+            position: O.default.bool,
           }),
         })
         re(gn, 'defaultProps', {
@@ -6552,8 +6552,8 @@ Valid keys: ` +
             FINISHED: 'finished',
             ERROR: 'error',
           }))
-        st = St !== void 0
-        ;((Xa = {
+        st = Ot !== void 0
+        ;((Ja = {
           options: { preventOverflow: { boundariesElement: 'scrollParent' } },
           wrapperOptions: { offset: -18, position: !0 },
         }),
@@ -6566,7 +6566,7 @@ Valid keys: ` +
             open: 'Open the dialog',
             skip: 'Skip',
           }),
-          (Ja = {
+          (Xa = {
             event: 'click',
             placement: 'bottom',
             offset: 10,
@@ -6628,7 +6628,7 @@ Valid keys: ` +
             padding: 8,
             WebkitAppearance: 'none',
           }),
-          (Rr = { borderRadius: 4, position: 'absolute' }))
+          (Pr = { borderRadius: 4, position: 'absolute' }))
         ;((go = {
           action: 'init',
           controlled: !1,
@@ -6638,7 +6638,7 @@ Valid keys: ` +
           size: 0,
           status: B.IDLE,
         }),
-          (_r = $a(ho(go, 'controlled', 'size'))),
+          (xr = $a(ho(go, 'controlled', 'size'))),
           (ns = class {
             constructor(e) {
               ;(A(this, 'beaconPopper'),
@@ -6715,7 +6715,7 @@ Valid keys: ` +
                 A(this, 'start', (o) => {
                   let { index: i, size: a } = this.getState()
                   this.setState({
-                    ...this.getNextState({ action: $.START, index: x.number(o) ? o : i }, !0),
+                    ...this.getNextState({ action: $.START, index: _.number(o) ? o : i }, !0),
                     status: a ? B.RUNNING : B.WAITING,
                   })
                 }),
@@ -6729,8 +6729,8 @@ Valid keys: ` +
                 }),
                 A(this, 'update', (o) => {
                   var i, a
-                  if (!Ya(o, _r))
-                    throw new Error(`State is not valid. Valid keys: ${_r.join(', ')}`)
+                  if (!Ya(o, xr))
+                    throw new Error(`State is not valid. Valid keys: ${xr.join(', ')}`)
                   this.setState({
                     ...this.getNextState(
                       {
@@ -6747,9 +6747,9 @@ Valid keys: ` +
               ;(this.setState(
                 {
                   action: $.INIT,
-                  controlled: x.number(n),
+                  controlled: _.number(n),
                   continuous: t,
-                  index: x.number(n) ? n : 0,
+                  index: _.number(n) ? n : 0,
                   lifecycle: L.INIT,
                   origin: null,
                   status: r.length ? B.READY : B.IDLE,
@@ -6777,7 +6777,7 @@ Valid keys: ` +
             getNextState(e, t = !1) {
               var n, r, o, i, a
               let { action: s, controlled: c, index: l, size: p, status: u } = this.getState(),
-                d = x.number(e.index) ? e.index : l,
+                d = _.number(e.index) ? e.index : l,
                 h = c && !t ? l : Math.min(Math.max(d, 0), p)
               return {
                 action: (n = e.action) != null ? n : s,
@@ -6857,7 +6857,7 @@ Valid keys: ` +
                 }),
                 A(this, 'handleScroll', () => {
                   let { target: e } = this.props,
-                    t = Pe(e)
+                    t = Re(e)
                   if (this.scrollParent !== document) {
                     let { isScrolling: n } = this.state
                     ;(n || this.updateState({ isScrolling: !0, showSpotlight: !1 }),
@@ -6881,7 +6881,7 @@ Valid keys: ` +
                   disableScrollParentFix: n = !1,
                   target: r,
                 } = this.props,
-                o = Pe(r)
+                o = Re(r)
               ;((this.scrollParent = ut(o ?? document.body, n, !0)),
                 (this.isActive = !0),
                 !t &&
@@ -6903,7 +6903,7 @@ Valid keys: ` +
                 } = this.props,
                 { changed: a } = At(e, this.props)
               if (a('target') || a('disableScrollParentFix')) {
-                let s = Pe(i)
+                let s = Re(i)
                 this.scrollParent = ut(s ?? document.body, n, !0)
               }
               ;(a('lifecycle', L.TOOLTIP) &&
@@ -6953,10 +6953,10 @@ Valid keys: ` +
                   styles: s,
                   target: c,
                 } = this.props,
-                l = Pe(c),
+                l = Re(c),
                 p = po(l),
                 u = Ke(l),
-                d = Ha(l, a, o)
+                d = Ua(l, a, o)
               return {
                 ...(Cr() ? s.spotlightLegacy : s.spotlight),
                 height: Math.round(((e = p?.height) != null ? e : 0) + a * 2),
@@ -7013,7 +7013,7 @@ Valid keys: ` +
             componentWillUnmount() {
               !Ne() ||
                 !this.node ||
-                (st || On(this.node),
+                (st || Sn(this.node),
                 this.node.parentNode === document.body &&
                   (document.body.removeChild(this.node), (this.node = null)))
             }
@@ -7025,7 +7025,7 @@ Valid keys: ` +
             renderReact16() {
               if (!Ne() || !st) return null
               let { children: e } = this.props
-              return this.node ? St(e, this.node) : null
+              return this.node ? Ot(e, this.node) : null
             }
             render() {
               return st ? this.renderReact16() : null
@@ -7157,9 +7157,9 @@ Valid keys: ` +
             }
             componentDidMount() {
               let { shouldFocus: e } = this.props
-              ;(x.domElement(this.beacon) || console.warn('beacon is not a valid DOM element'),
+              ;(_.domElement(this.beacon) || console.warn('beacon is not a valid DOM element'),
                 setTimeout(() => {
-                  x.domElement(this.beacon) && e && this.beacon.focus()
+                  _.domElement(this.beacon) && e && this.beacon.focus()
                 }, 0))
             }
             componentWillUnmount() {
@@ -7178,7 +7178,7 @@ Valid keys: ` +
                   step: s,
                   styles: c,
                 } = this.props,
-                l = Oe(o.open),
+                l = Se(o.open),
                 p = {
                   'aria-label': l,
                   onClick: i,
@@ -7253,19 +7253,19 @@ Valid keys: ` +
                       nextLabelWithProgress: p,
                       skip: u,
                     } = i.locale,
-                    d = Oe(a),
-                    h = Oe(s),
-                    f = Oe(c),
-                    g = Oe(l),
-                    O = Oe(u),
+                    d = Se(a),
+                    h = Se(s),
+                    f = Se(c),
+                    g = Se(l),
+                    S = Se(u),
                     b = s,
-                    _ = h
+                    x = h
                   if (e) {
-                    if (((b = l), (_ = g), i.showProgress && !n)) {
-                      let y = Oe(p, { step: t + 1, steps: o })
-                      ;((b = ln(p, t + 1, o)), (_ = y))
+                    if (((b = l), (x = g), i.showProgress && !n)) {
+                      let y = Se(p, { step: t + 1, steps: o })
+                      ;((b = ln(p, t + 1, o)), (x = y))
                     }
-                    n && ((b = c), (_ = f))
+                    n && ((b = c), (x = f))
                   }
                   return {
                     backProps: {
@@ -7285,20 +7285,20 @@ Valid keys: ` +
                       title: h,
                     },
                     primaryProps: {
-                      'aria-label': _,
+                      'aria-label': x,
                       children: b,
                       'data-action': 'primary',
                       onClick: this.handleClickPrimary,
                       role: 'button',
-                      title: _,
+                      title: x,
                     },
                     skipProps: {
-                      'aria-label': O,
+                      'aria-label': S,
                       children: u,
                       'data-action': 'skip',
                       onClick: this.handleClickSkip,
                       role: 'button',
-                      title: O,
+                      title: S,
                     },
                     tooltipProps: { 'aria-modal': !0, ref: r, role: 'alertdialog' },
                   }
@@ -7396,9 +7396,9 @@ Valid keys: ` +
                   store: h,
                 } = this.props,
                 { changed: f, changedFrom: g } = At(e, this.props),
-                O = s.info(),
+                S = s.info(),
                 b = o && n !== $.CLOSE && (c > 0 || n === $.PREV),
-                _ = f('action') || f('index') || f('lifecycle') || f('status'),
+                x = f('action') || f('index') || f('lifecycle') || f('status'),
                 y = g('lifecycle', [L.TOOLTIP, L.INIT], L.INIT),
                 v = f('action', [$.NEXT, $.PREV, $.SKIP, $.CLOSE]),
                 w = i && c === e.index
@@ -7406,7 +7406,7 @@ Valid keys: ` +
                 (v &&
                   (y || w) &&
                   r({
-                    ...O,
+                    ...S,
                     index: e.index,
                     lifecycle: L.COMPLETE,
                     step: e.step,
@@ -7418,24 +7418,24 @@ Valid keys: ` +
                   n !== $.START &&
                   l === L.INIT &&
                   h.update({ lifecycle: L.READY }),
-                _)
+                x)
               ) {
-                let H = Pe(d.target),
-                  I = !!H
-                I && Ua(H)
+                let U = Re(d.target),
+                  I = !!U
+                I && Ha(U)
                   ? (g('status', B.READY, B.RUNNING) || g('lifecycle', L.INIT, L.READY)) &&
-                    r({ ...O, step: d, type: de.STEP_BEFORE })
+                    r({ ...S, step: d, type: de.STEP_BEFORE })
                   : (console.warn(I ? 'Target not visible' : 'Target not mounted', d),
-                    r({ ...O, type: de.TARGET_NOT_FOUND, step: d }),
+                    r({ ...S, type: de.TARGET_NOT_FOUND, step: d }),
                     i || h.update({ index: c + (n === $.PREV ? -1 : 1) }))
               }
               ;(g('lifecycle', L.INIT, L.READY) &&
                 h.update({ lifecycle: Ir(d) || b ? L.TOOLTIP : L.BEACON }),
                 f('index') &&
                   Le({ title: `step:${l}`, data: [{ key: 'props', value: this.props }], debug: a }),
-                f('lifecycle', L.BEACON) && r({ ...O, step: d, type: de.BEACON }),
+                f('lifecycle', L.BEACON) && r({ ...S, step: d, type: de.BEACON }),
                 f('lifecycle', L.TOOLTIP) &&
-                  (r({ ...O, step: d, type: de.TOOLTIP }),
+                  (r({ ...S, step: d, type: de.TOOLTIP }),
                   p &&
                     this.tooltip &&
                     ((this.scope = new ls(this.tooltip, { selector: '[data-action=primary]' })),
@@ -7461,8 +7461,8 @@ Valid keys: ` +
                   size: i,
                   step: a,
                 } = this.props,
-                s = Pe(a.target)
-              return !yo(a) || !x.domElement(s)
+                s = Re(a.target)
+              return !yo(a) || !_.domElement(s)
                 ? null
                 : V(
                     'div',
@@ -7503,7 +7503,7 @@ Valid keys: ` +
                 A(this, 'store'),
                 A(this, 'callback', (a) => {
                   let { callback: s } = this.props
-                  x.function(s) && s(a)
+                  _.function(s) && s(a)
                 }),
                 A(this, 'handleKeyboard', (a) => {
                   let { index: s, lifecycle: c } = this.state,
@@ -7524,7 +7524,7 @@ Valid keys: ` +
                   this.setState(a)
                 }))
               let { debug: t, getHelpers: n, run: r = !0, stepIndex: o } = e
-              ;((this.store = rs({ ...e, controlled: r && x.number(o) })),
+              ;((this.store = rs({ ...e, controlled: r && _.number(o) })),
                 (this.helpers = this.store.getHelpers()))
               let { addListener: i } = this.store
               ;(Le({
@@ -7543,7 +7543,7 @@ Valid keys: ` +
               if (!Ne()) return
               let { debug: e, disableCloseOnEsc: t, run: n, steps: r } = this.props,
                 { start: o } = this.store
-              ;(Pr(r, e) && n && o(),
+              ;(Rr(r, e) && n && o(),
                 t ||
                   document.body.addEventListener('keydown', this.handleKeyboard, { passive: !0 }))
             }
@@ -7552,22 +7552,22 @@ Valid keys: ` +
               let { action: n, controlled: r, index: o, status: i } = this.state,
                 { debug: a, run: s, stepIndex: c, steps: l } = this.props,
                 { stepIndex: p, steps: u } = e,
-                { reset: d, setSteps: h, start: f, stop: g, update: O } = this.store,
+                { reset: d, setSteps: h, start: f, stop: g, update: S } = this.store,
                 { changed: b } = At(e, this.props),
-                { changed: _, changedFrom: y } = At(t, this.state),
+                { changed: x, changedFrom: y } = At(t, this.state),
                 v = Ye(this.props, l[o]),
                 w = !oe(u, l),
-                H = x.number(c) && b('stepIndex'),
-                I = Pe(v.target)
+                U = _.number(c) && b('stepIndex'),
+                I = Re(v.target)
               if (
-                (w && (Pr(l, a) ? h(l) : console.warn('Steps are not valid', l)),
+                (w && (Rr(l, a) ? h(l) : console.warn('Steps are not valid', l)),
                 b('run') && (s ? f(c) : g()),
-                H)
+                U)
               ) {
-                let te = x.number(p) && p < c ? $.NEXT : $.PREV
+                let te = _.number(p) && p < c ? $.NEXT : $.PREV
                 ;(n === $.STOP && (te = $.START),
                   [B.FINISHED, B.SKIPPED].includes(i) ||
-                    O({ action: n === $.CLOSE ? $.CLOSE : te, index: c, lifecycle: L.INIT }))
+                    S({ action: n === $.CLOSE ? $.CLOSE : te, index: c, lifecycle: L.INIT }))
               }
               !r &&
                 i === B.RUNNING &&
@@ -7576,7 +7576,7 @@ Valid keys: ` +
                 (this.store.update({ index: o + 1 }),
                 this.callback({ ...this.state, type: de.TARGET_NOT_FOUND, step: v }))
               let z = { ...this.state, index: o, step: v }
-              if (_('action', [$.NEXT, $.PREV, $.SKIP, $.CLOSE]) && _('status', B.PAUSED)) {
+              if (x('action', [$.NEXT, $.PREV, $.SKIP, $.CLOSE]) && x('status', B.PAUSED)) {
                 let te = Ye(this.props, l[t.index])
                 this.callback({
                   ...z,
@@ -7586,7 +7586,7 @@ Valid keys: ` +
                   type: de.STEP_AFTER,
                 })
               }
-              if (_('status', [B.FINISHED, B.SKIPPED])) {
+              if (x('status', [B.FINISHED, B.SKIPPED])) {
                 let te = Ye(this.props, l[t.index])
                 ;(r ||
                   this.callback({
@@ -7601,7 +7601,7 @@ Valid keys: ` +
               } else
                 y('status', [B.IDLE, B.READY], B.RUNNING)
                   ? this.callback({ ...z, type: de.TOUR_START })
-                  : (_('status') || _('action', $.RESET)) &&
+                  : (x('status') || x('action', $.RESET)) &&
                     this.callback({ ...z, type: de.TOUR_STATUS })
               this.scrollToStep(t)
             }
@@ -7620,7 +7620,7 @@ Valid keys: ` +
                   steps: l,
                 } = this.props,
                 p = Ye(this.props, l[t]),
-                u = Pe(p.target),
+                u = Re(p.target),
                 d = Ka({
                   isFirstStep: t === 0,
                   lifecycle: n,
@@ -7642,14 +7642,14 @@ Valid keys: ` +
                   ],
                   debug: o,
                 })
-                let O = this.store.getPopper('beacon'),
+                let S = this.store.getPopper('beacon'),
                   b = this.store.getPopper('tooltip')
-                if (n === L.BEACON && O) {
-                  let { offsets: _, placement: y } = O
-                  !['bottom'].includes(y) && !h && (g = Math.floor(_.popper.top - s))
+                if (n === L.BEACON && S) {
+                  let { offsets: x, placement: y } = S
+                  !['bottom'].includes(y) && !h && (g = Math.floor(x.popper.top - s))
                 } else if (n === L.TOOLTIP && b) {
-                  let { flipped: _, offsets: y, placement: v } = b
-                  ;['top', 'right', 'left'].includes(v) && !_ && !h
+                  let { flipped: x, offsets: y, placement: v } = b
+                  ;['top', 'right', 'left'].includes(v) && !x && !h
                     ? (g = Math.floor(y.popper.top - s))
                     : (g -= p.spotlightPadding)
                 }
@@ -7657,8 +7657,8 @@ Valid keys: ` +
                   r === B.RUNNING &&
                     Ga(g, { element: f, duration: a }).then(() => {
                       setTimeout(() => {
-                        var _
-                        ;(_ = this.store.getPopper('tooltip')) == null || _.instance.update()
+                        var x
+                        ;(x = this.store.getPopper('tooltip')) == null || x.instance.update()
                       }, 10)
                     }))
               }
@@ -7705,7 +7705,7 @@ Valid keys: ` +
           }))
         A(bo, 'defaultProps', Za)
         ;((ys = bo),
-          (gs = X.button`
+          (gs = J.button`
   all: unset;
   box-sizing: border-box;
   border: 0;
@@ -7739,29 +7739,29 @@ Valid keys: ` +
           (bs = En(function ({ children: e, onClick: t, variant: n = 'primary', ...r }, o) {
             return m.createElement(gs, { ref: o, onClick: t, variant: n, ...r }, e)
           })),
-          (vs = X.div`
+          (vs = J.div`
   padding: 15px;
   border-radius: 5px;
 `),
-          (Es = X.div`
+          (Es = J.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 `),
-          (Ss = X.div`
+          (Os = J.div`
   display: flex;
   align-items: center;
   align-self: stretch;
   justify-content: space-between;
   margin: -5px -5px 5px 0;
 `),
-          (Os = X.div`
+          (Ss = J.div`
   line-height: 18px;
   font-weight: 700;
   font-size: 14px;
   margin: 5px 5px 5px 0;
 `),
-          (ws = X.p`
+          (ws = J.p`
   font-size: 14px;
   line-height: 18px;
   text-align: start;
@@ -7769,13 +7769,13 @@ Valid keys: ` +
   margin: 0;
   margin-top: 5px;
 `),
-          (Ts = X.div`
+          (Ts = J.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-top: 15px;
 `),
-          (Is = X.span`
+          (Is = J.span`
   font-size: 13px;
 `),
           (Cs = ({
@@ -7821,11 +7821,11 @@ Valid keys: ` +
                 Es,
                 null,
                 m.createElement(
-                  Ss,
+                  Os,
                   null,
-                  n.title && m.createElement(Os, null, n.title),
+                  n.title && m.createElement(Ss, null, n.title),
                   m.createElement(
-                    Pn,
+                    Rn,
                     { ...r, onClick: r.onClick, variant: 'solid' },
                     m.createElement(jn, null)
                   )
@@ -7845,31 +7845,31 @@ Valid keys: ` +
               )
             )
           )))
-        ;((_s = X(ze.Content)(({ theme: e }) => ({
+        ;((xs = J(ze.Content)(({ theme: e }) => ({
           fontSize: e.typography.size.s2,
           color: e.color.defaultText,
           gap: 8,
         }))),
-          (xs = X.div({
+          (_s = J.div({
             display: 'grid',
             gridTemplateColumns: '1fr 1fr',
             gap: 14,
             marginBottom: 8,
           })),
-          (As = X.div(({ theme: e }) => ({
+          (As = J.div(({ theme: e }) => ({
             marginTop: 8,
             marginBottom: 2,
             fontWeight: e.typography.weight.bold,
           }))),
-          (Ns = X.label({
+          (Ns = J.label({
             display: 'flex',
             gap: 8,
             '&:has(input[type="checkbox"]:not(:disabled), input[type="radio"]:not(:disabled))': {
               cursor: 'pointer',
             },
           })),
-          (ks = X(ze.Actions)({ marginTop: 8 })),
-          (Ls = X(Tt.Checkbox)({ margin: 2 })),
+          (ks = J(ze.Actions)({ marginTop: 8 })),
+          (Ls = J(Tt.Checkbox)({ margin: 2 })),
           (js = ({ onComplete: e, onDismiss: t }) => {
             let [n, r] = ae(!1),
               [o, i] = ae({
@@ -7960,7 +7960,7 @@ Valid keys: ` +
                   id: 'intent-survey-form',
                 },
                 m.createElement(
-                  _s,
+                  xs,
                   null,
                   m.createElement(
                     ze.Header,
@@ -7975,7 +7975,7 @@ Valid keys: ` +
                       m.createElement(As, null, l.label),
                       l.type === 'checkbox' &&
                         m.createElement(
-                          xs,
+                          _s,
                           null,
                           Object.entries(l.options).map(([p, u]) => {
                             let d = `${c}:${p}`
@@ -8023,7 +8023,7 @@ Valid keys: ` +
                     ks,
                     null,
                     m.createElement(
-                      Rn,
+                      Pn,
                       { disabled: n || !s, size: 'medium', type: 'submit', variant: 'solid' },
                       'Submit'
                     )
@@ -8045,7 +8045,7 @@ Valid keys: ` +
             '0%': { transform: 'rotate(0deg)' },
             '100%': { transform: 'rotate(360deg)' },
           })),
-          (Ws = X.div(({ visible: e }) => ({
+          (Ws = J.div(({ visible: e }) => ({
             position: 'fixed',
             top: 0,
             left: 0,
@@ -8058,7 +8058,7 @@ Valid keys: ` +
             zIndex: 1e3,
             transition: 'opacity 1s 0.5s',
           }))),
-          (Us = X.div({
+          (Hs = J.div({
             position: 'absolute',
             top: 0,
             left: 0,
@@ -8085,7 +8085,7 @@ Valid keys: ` +
               animation: `${Bs} 12s linear infinite`,
             },
           })),
-          (Hs = X.div(({ visible: e }) => ({
+          (Us = J.div(({ visible: e }) => ({
             position: 'absolute',
             top: '50%',
             left: '50%',
@@ -8099,7 +8099,7 @@ Valid keys: ` +
             transition: 'opacity 0.5s',
             h1: { fontSize: 45, fontWeight: 'bold', animation: `${vo} 1.5s 1s backwards` },
           }))),
-          (zs = X.div({
+          (zs = J.div({
             display: 'flex',
             marginTop: 40,
             div: {
@@ -8114,7 +8114,7 @@ Valid keys: ` +
             },
             svg: { marginBottom: 10 },
           })),
-          (Gs = X.button({
+          (Gs = J.button({
             display: 'inline-flex',
             position: 'relative',
             alignItems: 'center',
@@ -8132,8 +8132,8 @@ Valid keys: ` +
             animation: `${Fs} 1.5s 4s backwards`,
             '&:hover, &:focus': { background: 'rgba(255, 255, 255, 0.4)' },
           })),
-          (Ys = X(Ln)({ width: 30, color: 'white' })),
-          (xr = X.svg(({ progress: e }) => ({
+          (Ys = J(Ln)({ width: 30, color: 'white' })),
+          (_r = J.svg(({ progress: e }) => ({
             position: 'absolute',
             top: -1,
             left: -1,
@@ -8175,9 +8175,9 @@ Valid keys: ` +
               m.createElement(
                 Ws,
                 { visible: o },
-                m.createElement(Us, null),
+                m.createElement(Hs, null),
                 m.createElement(
-                  Hs,
+                  Us,
                   { visible: o },
                   m.createElement('h1', null, 'Meet your new frontend workshop'),
                   m.createElement(
@@ -8229,12 +8229,12 @@ Valid keys: ` +
                     { onClick: s },
                     m.createElement(Ys, null),
                     m.createElement(
-                      xr,
+                      _r,
                       { xmlns: 'http://www.w3.org/2000/svg' },
                       m.createElement('circle', null)
                     ),
                     m.createElement(
-                      xr,
+                      _r,
                       { xmlns: 'http://www.w3.org/2000/svg', progress: !0 },
                       m.createElement('circle', {
                         strokeDashoffset: Math.PI * 48 * (1 - Math.max(0, Math.min(n, 100)) / 100),
@@ -8245,7 +8245,7 @@ Valid keys: ` +
               )
             )
           }),
-          ($s = X.span(({ theme: e }) => ({
+          ($s = J.span(({ theme: e }) => ({
             display: 'inline-flex',
             borderRadius: 3,
             padding: '0 5px',
@@ -8259,7 +8259,7 @@ Valid keys: ` +
             boxSizing: 'border-box',
             lineHeight: '17px',
           }))),
-          (Vs = X.div(({ theme: e }) => ({
+          (Vs = J.div(({ theme: e }) => ({
             background: e.background.content,
             borderRadius: 3,
             marginTop: 15,
@@ -8276,7 +8276,7 @@ Valid keys: ` +
     Q()
     ee()
     Et()
-    Ot()
+    St()
     zt()
     Gt()
     Z()
@@ -8304,16 +8304,16 @@ Valid keys: ` +
         experimental_useTestProviderStore: bu,
         experimental_useUniversalStore: vu,
         internal_fullStatusStore: Eu,
-        internal_fullTestProviderStore: Su,
-        internal_universalStatusStore: Ou,
+        internal_fullTestProviderStore: Ou,
+        internal_universalStatusStore: Su,
         internal_universalTestProviderStore: wu,
         isMacLike: Tu,
         isShortcutTaken: Iu,
         keyToSymbol: Cu,
-        merge: Ru,
-        mockChannel: Pu,
-        optionOrAltSymbol: _u,
-        shortcutMatchesShortcut: xu,
+        merge: Pu,
+        mockChannel: Ru,
+        optionOrAltSymbol: xu,
+        shortcutMatchesShortcut: _u,
         shortcutToHumanString: Au,
         types: Nu,
         useAddonState: ku,
@@ -8324,11 +8324,11 @@ Valid keys: ` +
         useGlobals: Fu,
         useParameter: Bu,
         useSharedState: Wu,
-        useStoryPrepared: Uu,
-        useStorybookApi: Hu,
+        useStoryPrepared: Hu,
+        useStorybookApi: Uu,
         useStorybookState: zu,
       } = __STORYBOOK_API__
-    var Js = Sn(() => Promise.resolve().then(() => (So(), Eo)))
+    var Xs = On(() => Promise.resolve().then(() => (Oo(), Eo)))
     Cn.register('@storybook/addon-onboarding', async (e) => {
       let t = e.getUrlState(),
         n = t.path === '/onboarding' || t.queryParams.onboarding === 'true'
@@ -8353,7 +8353,7 @@ Valid keys: ` +
             m.createElement(
               vn,
               { fallback: m.createElement('div', null) },
-              m.createElement(Js, { api: e })
+              m.createElement(Xs, { api: e })
             ),
             r
           ))
