@@ -1,7 +1,7 @@
 'use client'
 
 import { createContext, useContext, useEffect, useState, useMemo } from 'react'
-import { AnalyticsConsent, ConsentStatus } from './AnalyticsConsent'
+import { AnalyticsConsent } from './AnalyticsConsent'
 import { useAnalytics } from '@/lib/hooks/useAnalytics'
 
 interface ProjectMetric {
@@ -147,7 +147,6 @@ export function AnalyticsProvider({
     <AnalyticsContext.Provider value={contextValue}>
       {children}
       {enableConsentBanner && <AnalyticsConsent />}
-      {process.env.NODE_ENV === 'development' && <ConsentStatus />}
     </AnalyticsContext.Provider>
   )
 }

@@ -54,8 +54,8 @@ function MagneticCard({ children, className }: { children: React.ReactNode; clas
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       style={{
-        rotateX,
-        rotateY,
+        rotateX: isHovered ? rotateX : 0,
+        rotateY: isHovered ? rotateY : 0,
         transformStyle: 'preserve-3d',
       }}
       animate={{

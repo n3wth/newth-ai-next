@@ -11,7 +11,7 @@ export function HeroSectionNoHeader({
     line1: 'I ship AI products',
     line2: 'at massive scale.',
   },
-  subtitle = 'Building ML infrastructure that powers billions of predictions daily. Open source contributor. Side project enthusiast.',
+  subtitle = 'Building ML infrastructure that powers billions of predictions. Open source contributor. Side project enthusiast.',
   primaryCTA = {
     text: 'See My Work',
     href: '#projects',

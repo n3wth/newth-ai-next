@@ -86,7 +86,7 @@ export default function Home() {
       <HeroSection />
       <section
         id="projects"
-        className="py-32 px-6 bg-black relative z-10"
+        className="py-32 px-6 bg-black relative z-10 mt-20"
         role="region"
         aria-labelledby="projects-heading"
       >

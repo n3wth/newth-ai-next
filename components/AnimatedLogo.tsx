@@ -185,8 +185,8 @@ export function AnimatedLogo({
       // Check time since last glitch ENDED (not started)
       const timeSinceLastGlitchEnded = now - glitchEndTime.current
 
-      // Random chance of glitch, but only if 3+ seconds have passed since last one ended
-      if (timeSinceLastGlitchEnded > 3000 && timeSinceLastGlitch > 5000 && Math.random() < 0.03) {
+      // Random chance of glitch, but only if 1.5+ seconds have passed since last one ended (doubled frequency)
+      if (timeSinceLastGlitchEnded > 1500 && timeSinceLastGlitch > 2500 && Math.random() < 0.06) {
         // Pick a random mode that's different from the last one
         const availableModes = modes.filter((_, index) => index !== lastModeIndex)
         const randomIndex = Math.floor(Math.random() * availableModes.length)
@@ -232,7 +232,7 @@ export function AnimatedLogo({
       }
     }
 
-    const interval = setInterval(checkGlitch, 500) // Reduced from 50ms to 500ms
+    const interval = setInterval(checkGlitch, 250) // Check twice as often (250ms instead of 500ms)
     return () => clearInterval(interval)
   }, [isHovered, asciiLogo, asciiDotAI])
 

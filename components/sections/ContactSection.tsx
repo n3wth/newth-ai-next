@@ -8,7 +8,7 @@ export function ContactSection({
   subtitle = 'I work with teams that move fast and dream big.',
 }: ContactSectionProps) {
   return (
-    <section className="py-32 bg-black" role="region" aria-labelledby="contact-heading">
+    <section className="py-32 bg-black mt-20" role="region" aria-labelledby="contact-heading">
       <Container>
         <div className="text-center">
           <h2
@@ -40,18 +40,6 @@ export function ContactSection({
             >
               LinkedIn
             </Button>
-          </div>
-
-          <div className="pt-8 border-t border-gray-800">
-            <a
-              href="https://storybook.newth.ai"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm text-gray-500 hover:text-gray-300 transition-colors"
-              aria-label="View my component library on Storybook (opens in new tab)"
-            >
-              Component Library →
-            </a>
           </div>
         </div>
       </Container>

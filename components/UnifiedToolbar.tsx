@@ -6,7 +6,7 @@ import { Code2, ChevronDown } from 'lucide-react'
 
 export function UnifiedToolbar() {
   const isDevelopment = process.env.NODE_ENV === 'development'
-  const [isDevToolsOpen, setIsDevToolsOpen] = useState(true) // Default to open
+  const [isDevToolsOpen, setIsDevToolsOpen] = useState(false) // Default to minimized
   const [metrics, setMetrics] = useState({
     fps: 60, // Start with default value
     memory: 0,

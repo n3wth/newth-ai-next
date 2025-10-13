@@ -1,0 +1,15 @@
+{
+  "keep": {
+    "days": true,
+    "amount": 14
+  },
+  "auditLog": "/Users/oliver/GitHub/newth-ai-next-v1/logs/.6b556d1a07302b324f942a2da02c3213a8cbb55e-audit.json",
+  "files": [
+    {
+      "date": 1760340212989,
+      "name": "/Users/oliver/GitHub/newth-ai-next-v1/logs/mcp-puppeteer-2025-10-13.log",
+      "hash": "ec323eb2687d89e9469905ffce17851b1d2602f76fffaa920b1c3b865a0a229b"
+    }
+  ],
+  "hashType": "sha256"
+}

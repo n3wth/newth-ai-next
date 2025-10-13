@@ -581,9 +581,10 @@ export const WarpBackground: React.FC<WarpBackgroundProps> = React.memo(
       for (let i = 0; i < 20; i++) {
         shapeArray.push({
           id: i,
-          x: 10 + seededRandom(i * 2) * 80,
-          y: 10 + seededRandom(i * 3) * 80,
-          delay: seededRandom(i * 5) * 8,
+          // Round to 4 decimal places to avoid hydration mismatches
+          x: Math.round((10 + seededRandom(i * 2) * 80) * 10000) / 10000,
+          y: Math.round((10 + seededRandom(i * 3) * 80) * 10000) / 10000,
+          delay: Math.round(seededRandom(i * 5) * 8 * 10000) / 10000,
           type: types[Math.floor(seededRandom(i * 7) * types.length)],
           colorSet: Math.floor(seededRandom(i * 11) * 7),
         })

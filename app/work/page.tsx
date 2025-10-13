@@ -26,7 +26,7 @@ const experiences: Experience[] = [
     id: 'google',
     company: 'Google',
     role: 'Senior Product Manager, ML Infrastructure',
-    period: '2024 - Present',
+    period: '2025 - Present',
     description:
       'Leading ML platform development supporting billions of daily predictions across 30+ product teams.',
     achievements: [
@@ -38,8 +38,8 @@ const experiences: Experience[] = [
     tech: ['Python', 'TensorFlow', 'Kubernetes', 'GCP', 'ML Ops'],
   },
   {
-    id: 'covariant',
-    company: 'Covariant',
+    id: 'amazon',
+    company: 'Covariant (acquired by Amazon)',
     role: 'Senior Product Manager, Vision AI',
     period: '2022 - 2024',
     description:
@@ -88,7 +88,7 @@ export default function WorkPage() {
     <div className="min-h-screen bg-black text-gray-100 flex flex-col">
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative py-20 px-4 bg-gradient-to-b from-black via-gray-950 to-black text-white">
+        <section className="relative pt-32 pb-20 px-4 bg-gradient-to-b from-black via-gray-950 to-black text-white">
           {/* Subtle gradient background */}
           <div className="absolute inset-0 overflow-hidden">
             <div className="absolute top-0 left-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-blue-600/10 rounded-full filter blur-[120px]" />
@@ -110,8 +110,7 @@ export default function WorkPage() {
                 <span className="block">shipping at scale.</span>
               </h1>
               <p className="text-lg sm:text-xl text-gray-300 max-w-2xl font-light leading-relaxed">
-                From Azure to Google, I&apos;ve built AI products that serve billions. Here&apos;s
-                the full story.
+                From Azure to Google, I&apos;ve built AI products that serve billions.
               </p>
 
               {/* Quick stats */}
@@ -152,9 +151,9 @@ export default function WorkPage() {
                     {/* Company icon */}
                     <div className="flex-shrink-0 w-16 h-16 rounded-full bg-gray-900 border border-gray-800 flex items-center justify-center">
                       {(() => {
-                        const Icon = getCompanyIcon(exp.company)
+                        const Icon = getCompanyIcon(exp.id)
                         return Icon ? (
-                          <Icon className="w-8 h-8" />
+                          <Icon className="w-8 h-8 text-white" />
                         ) : (
                           <Building2 className="w-6 h-6 text-gray-400" />
                         )
