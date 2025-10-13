@@ -140,7 +140,7 @@ export default function RootLayout({
         <JsonLdWebsite />
         <WebVitalsReporter />
         <AnalyticsProvider
-          enableConsentBanner={true}
+          enableConsentBanner={false}
           enableLocalStorage={false}
           respectDoNotTrack={true}
           sessionTimeout={30}
